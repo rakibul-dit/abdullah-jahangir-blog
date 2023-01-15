@@ -1,26 +1,33 @@
-import { server } from '../lib/config'
+import { server } from "../lib/config";
 import {
 	getHomeRecentLectures,
 	getHomePapers,
 	getHomeBooks,
 	getHomeLectures,
 	getHomeArticles,
-	getHomeOrganizations
-} from '../lib/fetch'
+	getHomeOrganizations,
+} from "../lib/fetch";
 
-import Layout from '../components/layout'
-import Meta from '../components/meta'
+import Layout from "../components/layout";
+import Meta from "../components/meta";
 
-import HomeBanner from '../components/home/banner'
-import HomeRecent from '../components/home/recent'
-import HomePapers from '../components/home/papers'
-import HomeBooks from '../components/home/books'
-import HomeAbout from '../components/home/about'
-import HomeLectures from '../components/home/lectures'
-import HomeArticles from '../components/home/articles'
-import HomeOrganization from '../components/home/organization'
+import HomeBanner from "../components/home/banner";
+import HomeRecent from "../components/home/recent";
+import HomePapers from "../components/home/papers";
+import HomeBooks from "../components/home/books";
+import HomeAbout from "../components/home/about";
+import HomeLectures from "../components/home/lectures";
+import HomeArticles from "../components/home/articles";
+import HomeOrganization from "../components/home/organization";
 
-export default function Home({ recents, papers, books, lectures, articles, organizations }) {
+export default function Home({
+	recents,
+	papers,
+	books,
+	lectures,
+	articles,
+	organizations,
+}) {
 	return (
 		<Layout page="homepage">
 			<Meta
@@ -33,24 +40,24 @@ export default function Home({ recents, papers, books, lectures, articles, organ
 
 			<HomeBanner />
 			<HomeRecent recents={recents} />
-			<HomePapers papers={papers} />
-			<HomeBooks books={books} />
-			<HomeAbout />
-			<HomeArticles articles={articles} />
-			<HomeLectures lectures={lectures} />
-			<HomeOrganization organizations={organizations} />
+			{/* <HomePapers papers={papers} /> */}
+			{/* <HomeBooks books={books} /> */}
+			{/* <HomeAbout /> */}
+			{/* <HomeArticles articles={articles} /> */}
+			{/* <HomeLectures lectures={lectures} /> */}
+			{/* <HomeOrganization organizations={organizations} /> */}
 			{/*<Newsletter />*/}
 		</Layout>
-	)
+	);
 }
 
 export async function getStaticProps(context) {
-	const recents = await getHomeRecentLectures()
-	const papers = await getHomePapers()
-	const books = await getHomeBooks()
-	const lectures = await getHomeLectures()
-	const articles = await getHomeArticles()
-	const organizations = await getHomeOrganizations()
+	const recents = await getHomeRecentLectures();
+	const papers = await getHomePapers();
+	const books = await getHomeBooks();
+	const lectures = await getHomeLectures();
+	const articles = await getHomeArticles();
+	const organizations = await getHomeOrganizations();
 
 	return {
 		props: {
@@ -61,6 +68,6 @@ export async function getStaticProps(context) {
 			articles,
 			organizations,
 		},
-    revalidate: 60,
-	}
+		revalidate: 60,
+	};
 }

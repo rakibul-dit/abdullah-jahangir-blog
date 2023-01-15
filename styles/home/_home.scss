@@ -3,17 +3,118 @@
 .h-papers,
 .h-about,
 .h-articles {
-  background-color: #f4f4f4;
+	background-color: #f4f4f4;
 }
 
 .h-recent,
 .h-books,
 .h-lectures,
 .h-organization {
-  background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
 
 .h-tafseer {
 }
 .h-newsletter {
+}
+// ----------------------------------------------
+.side-nav {
+	width: 300px;
+	height: 100vh;
+	background: rgba(255, 255, 255, 0.4);
+	position: fixed;
+}
+.content {
+	width: calc(100% - 300px);
+	margin-left: auto;
+	height: 110vh;
+}
+.content_without_footer {
+	min-height: 110vh;
+	padding-bottom: 225px;
+}
+.header {
+	width: calc(100% - 300px);
+	margin-left: auto;
+	right: 0;
+	top: 0;
+}
+.sn__logo-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+.nav-container {
+	margin-right: 1rem;
+}
+.nav-container a {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-size: 1.3rem;
+	// font-weight: 600;
+	padding: 10px 10px 8px 5px;
+	color: #525252;
+	transition: all 250ms ease;
+}
+.nav-container a:hover,
+.nav-container a.active {
+	color: var(--main-color);
+	background-color: rgba(0, 0, 0, 0.05);
+}
+.nav-container a:hover .wrap,
+.nav-container a.active .wrap {
+	padding-left: 10px;
+}
+
+.indicator {
+	width: 5px;
+	height: 1.3rem;
+	background-color: #9e9e9e;
+	margin-right: 15px;
+	visibility: hidden;
+}
+.nav-container svg {
+	margin-right: 10px;
+}
+.nav-container a.active .indicator {
+	visibility: visible;
+}
+
+.nav-container li:nth-child(1) a svg {
+	color: #be00a1;
+}
+.nav-container li:nth-child(2) a svg {
+	color: #eada70;
+}
+.nav-container li:nth-child(3) a svg {
+	color: #39dece;
+}
+.nav-container li:nth-child(4) a svg {
+	color: #505aff;
+}
+.nav-container li:nth-child(5) a svg {
+	color: #f83a00;
+}
+.nav-container li:nth-child(6) a svg {
+	color: #3b4fdb;
+}
+.nav-container li:nth-child(7) a svg {
+	color: #39dece;
+}
+.nav-container li:nth-child(8) a svg {
+	color: #f83a00;
+}
+
+@media only screen and (max-width: 1140px) {
+	.side-nav {
+		display: none;
+	}
+	.content {
+		width: 100%;
+	}
+	.header {
+		width: 100%;
+	}
 }

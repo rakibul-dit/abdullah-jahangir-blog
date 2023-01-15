@@ -1,26 +1,26 @@
 import { server, youtube } from "../lib/config";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from 'next/image'
-import SearchModal from './search-modal'
+import Image from "next/image";
+import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
-import HomeIcon from '@mui/icons-material/HomeOutlined'
-import TvIcon from '@mui/icons-material/TvOutlined'
-import DescriptionIcon from '@mui/icons-material/DescriptionOutlined'
-import BookIcon from '@mui/icons-material/BookOutlined'
-import ArticleIcon from '@mui/icons-material/ArticleOutlined'
-import CorporateFareIcon from '@mui/icons-material/CorporateFareOutlined'
-import InfoIcon from '@mui/icons-material/InfoOutlined'
-import ContactIcon from '@mui/icons-material/ContactPageOutlined'
+import HomeIcon from "@mui/icons-material/HomeOutlined";
+import TvIcon from "@mui/icons-material/TvOutlined";
+import DescriptionIcon from "@mui/icons-material/DescriptionOutlined";
+import BookIcon from "@mui/icons-material/BookOutlined";
+import ArticleIcon from "@mui/icons-material/ArticleOutlined";
+import CorporateFareIcon from "@mui/icons-material/CorporateFareOutlined";
+import InfoIcon from "@mui/icons-material/InfoOutlined";
+import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 
 export default function Header() {
 	const router = useRouter();
 
 	const [state, setState] = useState({
 		mobileNavOpen: false,
-	})
+	});
 
 	// const [offset, setOffset] = useState(0)
 
@@ -36,10 +36,10 @@ export default function Header() {
 	// })
 
 	// show hide header on scroll
-	const header = useRef(null)
-	const [lastScrollTop, setLastScrollTop] = useState(0)
-	const [scrollTop, setScrollTop] = useState(0)
-	const [didMount, setDidMount] = useState(false)
+	const header = useRef(null);
+	const [lastScrollTop, setLastScrollTop] = useState(0);
+	const [scrollTop, setScrollTop] = useState(0);
+	const [didMount, setDidMount] = useState(false);
 
 	// useEffect(() => {
 	// 	setDidMount(true)
@@ -58,18 +58,17 @@ export default function Header() {
 	// 	return () => setDidMount(false)
 	// }, [scrollTop])
 
-
 	const showSearchModal = (event) => {
-		document.querySelector(".search-modal-wrap").classList.add("active")
-		document.querySelector(".search-modal").classList.add("active")
-		document.body.classList.add("modal-active")
+		document.querySelector(".search-modal-wrap").classList.add("active");
+		document.querySelector(".search-modal").classList.add("active");
+		document.body.classList.add("modal-active");
 
 		setTimeout(function () {
 			document
 				.querySelector('.search-modal form.search input[type="text"]')
-				.focus()
-		}, 400)
-	}
+				.focus();
+		}, 400);
+	};
 
 	const toggleMobileNav = (open) => (event) => {
 		if (
@@ -78,8 +77,8 @@ export default function Header() {
 		) {
 			return;
 		}
-		setState({ mobileNavOpen: open })
-	}
+		setState({ mobileNavOpen: open });
+	};
 
 	return (
 		<>
@@ -105,80 +104,115 @@ export default function Header() {
 								<li>
 									<Link href="/">
 										<a className={router.pathname == "/" ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<HomeIcon />
-										  </span>
-										  হোম
+											<span className="main-menu-icon">
+												<HomeIcon />
+											</span>
+											হোম
 										</a>
 									</Link>
 								</li>
 								<li>
 									<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
-										<a className={router.pathname.startsWith("/lectures") ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<TvIcon />
-										  </span>
-										  লেকচার
+										<a
+											className={
+												router.pathname.startsWith("/lectures")
+													? "menu-active"
+													: ""
+											}>
+											<span className="main-menu-icon">
+												<TvIcon />
+											</span>
+											লেকচার
 										</a>
 									</Link>
 								</li>
 								<li>
 									<Link href="/research-papers/">
-										<a className={router.pathname.startsWith("/research-papers") ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<DescriptionIcon />
-										  </span>
-										  রিসার্চ পেপারস
+										<a
+											className={
+												router.pathname.startsWith("/research-papers")
+													? "menu-active"
+													: ""
+											}>
+											<span className="main-menu-icon">
+												<DescriptionIcon />
+											</span>
+											রিসার্চ পেপারস
 										</a>
 									</Link>
 								</li>
 								<li>
 									<Link href="/books/">
-										<a className={router.pathname.startsWith("/books") ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<BookIcon />
-										  </span>
-										  বই
+										<a
+											className={
+												router.pathname.startsWith("/books")
+													? "menu-active"
+													: ""
+											}>
+											<span className="main-menu-icon">
+												<BookIcon />
+											</span>
+											বই
 										</a>
 									</Link>
 								</li>
 								<li>
 									<Link href="/articles/">
-										<a className={router.pathname.startsWith("/articles") ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<ArticleIcon />
-										  </span>
-										  প্রবন্ধ
+										<a
+											className={
+												router.pathname.startsWith("/articles")
+													? "menu-active"
+													: ""
+											}>
+											<span className="main-menu-icon">
+												<ArticleIcon />
+											</span>
+											প্রবন্ধ
 										</a>
 									</Link>
 								</li>
 								<li>
 									<Link href="/organizations/">
-										<a className={router.pathname.startsWith("/organizations") ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<CorporateFareIcon />
-										  </span>
-										  অর্গানাইজেশনস
+										<a
+											className={
+												router.pathname.startsWith("/organizations")
+													? "menu-active"
+													: ""
+											}>
+											<span className="main-menu-icon">
+												<CorporateFareIcon />
+											</span>
+											অর্গানাইজেশনস
 										</a>
 									</Link>
 								</li>
 								<li>
 									<Link href="/about">
-										<a className={router.pathname.startsWith("/about") ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<InfoIcon />
-										  </span>
-										  জীবন বৃত্তান্ত
+										<a
+											className={
+												router.pathname.startsWith("/about")
+													? "menu-active"
+													: ""
+											}>
+											<span className="main-menu-icon">
+												<InfoIcon />
+											</span>
+											জীবন বৃত্তান্ত
 										</a>
 									</Link>
 								</li>
 								<li>
 									<Link href="/contact">
-										<a className={router.pathname.startsWith("/contact") ? "menu-active" : ""}>
-										  <span className="main-menu-icon">
-											<ContactIcon />
-										  </span>
-										  যোগাযোগ
+										<a
+											className={
+												router.pathname.startsWith("/contact")
+													? "menu-active"
+													: ""
+											}>
+											<span className="main-menu-icon">
+												<ContactIcon />
+											</span>
+											যোগাযোগ
 										</a>
 									</Link>
 								</li>
@@ -187,12 +221,16 @@ export default function Header() {
 							<ul className="header-icons">
 								{/* <li className="menu-divider"></li> */}
 								<li>
-									<a href="https://www.facebook.com/drmonzureelahiofficial" target="_blank">
+									<a
+										href="https://www.facebook.com/drmonzureelahiofficial"
+										target="_blank">
 										<i className="fab fa-facebook-f"></i>
 									</a>
 								</li>
 								<li>
-									<a href="https://www.youtube.com/channel/UCbMys3ID_1S8D1mZuYkoG2A" target="_blank">
+									<a
+										href="https://www.youtube.com/channel/UCbMys3ID_1S8D1mZuYkoG2A"
+										target="_blank">
 										<i className="fab fa-youtube"></i>
 									</a>
 								</li>
@@ -200,8 +238,7 @@ export default function Header() {
 								<li
 									className="search-icon"
 									title="search"
-									onClick={showSearchModal}
-								>
+									onClick={showSearchModal}>
 									<i className="fas fa-search"></i>
 								</li>
 							</ul>
@@ -213,8 +250,7 @@ export default function Header() {
 								<li
 									className="search-icon"
 									title="search"
-									onClick={showSearchModal}
-								>
+									onClick={showSearchModal}>
 									<i className="fas fa-search"></i>
 								</li>
 							</ul>
@@ -226,5 +262,5 @@ export default function Header() {
 			<SearchModal />
 			<MobileNav navOpen={state.mobileNavOpen} navControl={toggleMobileNav} />
 		</>
-	)
+	);
 }
