@@ -2,23 +2,24 @@
 .header {
 	height: 7rem;
 	//display: flex;
-	padding-top: 24px;
+	// padding-top: 24px;
 	align-items: center;
 	//position: fixed;
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: var(--bg11);
+	background: #f9f9f9;
 	z-index: 9;
 	transition: height 250ms ease, box-shadow 250ms ease, background 250ms ease;
-	padding-top: 5px;
+	// padding-top: 5px;
 }
 
 .header {
-	background: var(--bg14);
+	// background: var(--bg14);
 	height: 5.25rem;
-	box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-	display: block;
+	// box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+	// display: block;
+	display: flex;
 	position: fixed;
 	transition: transform 400ms ease-in-out;
 	z-index: 999;
@@ -39,6 +40,7 @@
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
+	padding: 2rem 0;
 }
 
 .header-logo {

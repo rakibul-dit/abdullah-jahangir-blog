@@ -3,14 +3,14 @@
 .h-papers,
 .h-about,
 .h-articles {
-	background-color: #f4f4f4;
+	// background-color: #f4f4f4;
 }
 
 .h-recent,
 .h-books,
 .h-lectures,
 .h-organization {
-	background-color: #f8f8f8;
+	// background-color: #f8f8f8;
 }
 
 .h-tafseer {
@@ -21,7 +21,7 @@
 .side-nav {
 	width: 300px;
 	height: 100vh;
-	background: rgba(255, 255, 255, 0.4);
+	background: #f9f9f9;
 	position: fixed;
 }
 .content {
@@ -106,7 +106,12 @@
 .nav-container li:nth-child(8) a svg {
 	color: #f83a00;
 }
-
+.main-content {
+	background-color: #e6eff4;
+	// margin-top: 200px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
 @media only screen and (max-width: 1140px) {
 	.side-nav {
 		display: none;

@@ -8,10 +8,8 @@ import {
 	getHomeOrganizations,
 } from "../lib/fetch";
 
-import Layout from "../components/layout";
 import Meta from "../components/meta";
 
-import HomeBanner from "../components/home/banner";
 import HomeRecent from "../components/home/recent";
 import HomePapers from "../components/home/papers";
 import HomeBooks from "../components/home/books";
@@ -19,6 +17,7 @@ import HomeAbout from "../components/home/about";
 import HomeLectures from "../components/home/lectures";
 import HomeArticles from "../components/home/articles";
 import HomeOrganization from "../components/home/organization";
+import HomeLayout from "../components/home-layout";
 
 export default function Home({
 	recents,
@@ -29,7 +28,7 @@ export default function Home({
 	organizations,
 }) {
 	return (
-		<Layout page="homepage">
+		<HomeLayout page="homepage">
 			<Meta
 				title=""
 				description="ড. মোহাম্মদ মানজুরে ইলাহী একাধারে একজন গবেষক, শিক্ষাবিদ, ইসলামিক স্কলার ও লেখক, অন্যদিকে তিনি একজন দা‘ঈ ইলাল্লাহ ও স্বনামধন্য মিডিয়া ব্যক্তিত্ব। তিনি ১৯৮৮ সালে মদীনা ইসলামী বিশ্ববিদ্যালয়ের শরী‘আহ অনুষদে ভর্তি হন এবং অত্যন্ত কৃতিত্বের সাথে সেখান থেকে ব্যাচেলর, মাস্টার্স ও পিএইচডি ডিগ্রি অর্জন করেন।"
@@ -38,16 +37,15 @@ export default function Home({
 				type="website"
 			/>
 
-			<HomeBanner />
 			<HomeRecent recents={recents} />
-			{/* <HomePapers papers={papers} /> */}
-			{/* <HomeBooks books={books} /> */}
+			<HomePapers papers={papers} />
+			<HomeBooks books={books} />
 			{/* <HomeAbout /> */}
 			{/* <HomeArticles articles={articles} /> */}
 			{/* <HomeLectures lectures={lectures} /> */}
 			{/* <HomeOrganization organizations={organizations} /> */}
 			{/*<Newsletter />*/}
-		</Layout>
+		</HomeLayout>
 	);
 }
 

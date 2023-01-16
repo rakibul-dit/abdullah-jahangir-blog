@@ -1,8 +1,9 @@
 import Header from "./header";
 import Footer from "./footer";
 import Sidenav from "./sidenav";
+import HomeBanner from "./home/banner";
 
-export default function Layout({ children, page }) {
+export default function HomeLayout({ children, page }) {
 	return (
 		<div className="wrapper">
 			<Sidenav />
@@ -10,6 +11,7 @@ export default function Layout({ children, page }) {
 				<div className="content_without_footer">
 					<Header />
 					<main className={`viewport ${page}`}>
+						<HomeBanner />
 						<div className="main-content">{children}</div>
 					</main>
 				</div>

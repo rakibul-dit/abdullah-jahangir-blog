@@ -1,8 +1,12 @@
 /* homepage banner section */
-.h-banner {}
+.h-banner {
+	// position: relative;
+	// top: -230px;
+}
 
 // home banner 1
-.h-banner-1 {}
+.h-banner-1 {
+}
 
 .h-banner-1 .h-banner-ctn {
 	display: flex;
@@ -64,7 +68,6 @@
 	margin-right: 0;
 }
 
-
 .h-banner-1 .h-banner-image {
 	width: 50%;
 	display: flex;
@@ -120,15 +123,15 @@
 	margin-left: -11px;
 }
 
-
 // home banner 2
 .h-banner-2 {
-	padding-top: 6rem !important;
+	padding-top: 2rem !important;
+	padding-bottom: 2rem !important;
 }
 
 .h-banner-2 .h-banner-ctn {
 	position: relative;
-	padding: 4rem 4rem;
+	padding: 2rem 2rem;
 	background: #fff;
 	box-shadow: var(--bs11);
 	border-radius: 1rem;
@@ -140,7 +143,6 @@
 	position: relative;
 	z-index: 5;
 }
-
 
 .h-banner-2 .h-banner-title h1:nth-child(1) {
 	margin-bottom: 0;
@@ -229,8 +231,8 @@
 		margin-right: 0.75rem;
 	}
 
-
-	.h-banner-1 .h-banner-image {}
+	.h-banner-1 .h-banner-image {
+	}
 
 	.h-banner-1 .banner-image {
 		width: 280px;
@@ -301,7 +303,6 @@
 		margin-right: 0.75rem;
 	}
 
-
 	.h-banner-1 .h-banner-image {
 		width: 100%;
 		justify-content: center;
@@ -334,7 +335,7 @@
 	.h-banner-2 .h-banner-title {
 		max-width: 530px;
 		text-align: left;
-    max-width: 420px;
+		max-width: 420px;
 	}
 
 	//.h-banner-2 .h-banner-title h1 {

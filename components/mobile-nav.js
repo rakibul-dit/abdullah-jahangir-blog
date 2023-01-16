@@ -66,10 +66,6 @@ export default function MobileNav(props) {
 							<li>
 								<Link href="/books">
 									<a>
-										{" "}
-										<div>
-											<span className="invisible">hidden</span>
-										</div>
 										<MenuBookIcon />
 										বই
 									</a>

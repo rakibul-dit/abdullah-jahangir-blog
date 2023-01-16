@@ -83,141 +83,14 @@ export default function Header() {
 	return (
 		<>
 			<header className="header header-1" ref={header}>
-				<div className="page-width">
+				<div className="page-width w-full">
 					<div className="box">
 						<div className="header-ctn">
-							<Link href="/">
-								<a className="header-logo">
-									<Image
-										src={`${server}/img/id/logo.png`}
-										alt=""
-										width={58}
-										height={72}
-										objectFit="contain"
-										objectPosition="left center"
-										loading="eager"
-									/>
-								</a>
-							</Link>
-
-							<ul className="main-menu">
-								<li>
-									<Link href="/">
-										<a className={router.pathname == "/" ? "menu-active" : ""}>
-											<span className="main-menu-icon">
-												<HomeIcon />
-											</span>
-											হোম
-										</a>
-									</Link>
-								</li>
-								<li>
-									<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
-										<a
-											className={
-												router.pathname.startsWith("/lectures")
-													? "menu-active"
-													: ""
-											}>
-											<span className="main-menu-icon">
-												<TvIcon />
-											</span>
-											লেকচার
-										</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/research-papers/">
-										<a
-											className={
-												router.pathname.startsWith("/research-papers")
-													? "menu-active"
-													: ""
-											}>
-											<span className="main-menu-icon">
-												<DescriptionIcon />
-											</span>
-											রিসার্চ পেপারস
-										</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/books/">
-										<a
-											className={
-												router.pathname.startsWith("/books")
-													? "menu-active"
-													: ""
-											}>
-											<span className="main-menu-icon">
-												<BookIcon />
-											</span>
-											বই
-										</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/articles/">
-										<a
-											className={
-												router.pathname.startsWith("/articles")
-													? "menu-active"
-													: ""
-											}>
-											<span className="main-menu-icon">
-												<ArticleIcon />
-											</span>
-											প্রবন্ধ
-										</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/organizations/">
-										<a
-											className={
-												router.pathname.startsWith("/organizations")
-													? "menu-active"
-													: ""
-											}>
-											<span className="main-menu-icon">
-												<CorporateFareIcon />
-											</span>
-											অর্গানাইজেশনস
-										</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/about">
-										<a
-											className={
-												router.pathname.startsWith("/about")
-													? "menu-active"
-													: ""
-											}>
-											<span className="main-menu-icon">
-												<InfoIcon />
-											</span>
-											জীবন বৃত্তান্ত
-										</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/contact">
-										<a
-											className={
-												router.pathname.startsWith("/contact")
-													? "menu-active"
-													: ""
-											}>
-											<span className="main-menu-icon">
-												<ContactIcon />
-											</span>
-											যোগাযোগ
-										</a>
-									</Link>
-								</li>
-							</ul>
-
+							<div>
+								<p style={{ fontSize: "22px" }}>
+									দান মানুষকে সত্যিকারের মুমিন করে তোলে
+								</p>
+							</div>
 							<ul className="header-icons">
 								{/* <li className="menu-divider"></li> */}
 								<li>
@@ -234,13 +107,13 @@ export default function Header() {
 										<i className="fab fa-youtube"></i>
 									</a>
 								</li>
-								<li className="menu-divider"></li>
-								<li
+								{/* <li className="menu-divider"></li> */}
+								{/* <li
 									className="search-icon"
 									title="search"
 									onClick={showSearchModal}>
 									<i className="fas fa-search"></i>
-								</li>
+								</li> */}
 							</ul>
 
 							<ul className="mobile-icons">

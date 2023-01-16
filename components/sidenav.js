@@ -64,7 +64,7 @@ export default function Sidenav() {
 							</Link>
 						</li>
 						<li>
-							<Link href="/" passHref>
+							<Link href="/articles" passHref>
 								<a className={isActive("/articles", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
