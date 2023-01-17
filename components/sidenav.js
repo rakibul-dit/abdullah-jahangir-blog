@@ -29,8 +29,8 @@ export default function Sidenav() {
 								alt=""
 								width={"150"}
 								height={"150"}
-								objectFit="contain"
-								// objectPosition="center center"
+								// objectFit="contain"
+								objectPosition="left center"
 								loading="eager"
 								unoptimized
 							/>

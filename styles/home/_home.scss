@@ -41,9 +41,10 @@
 }
 .sn__logo-wrap {
 	display: flex;
-	justify-content: center;
+	justify-content: start;
 	align-items: center;
 	margin-bottom: 1rem;
+	margin-left: 1rem;
 }
 .nav-container {
 	margin-right: 1rem;
@@ -65,7 +66,7 @@
 }
 .nav-container a:hover .wrap,
 .nav-container a.active .wrap {
-	padding-left: 10px;
+	// padding-left: 10px;
 }
 
 .indicator {
@@ -108,8 +109,7 @@
 }
 .main-content {
 	background-color: #e6eff4;
-	// margin-top: 200px;
-	border-top-left-radius: 20px;
+	border-top-left-radius: 40px;
 	// border-top-right-radius: 20px;
 }
 @media only screen and (max-width: 1140px) {

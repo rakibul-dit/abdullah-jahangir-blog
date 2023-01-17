@@ -1,7 +1,6 @@
 import Header from "./header";
 import Footer from "./footer";
 import Sidenav from "./sidenav";
-import HomeBanner from "./home/banner";
 
 export default function HomeLayout({ children, page }) {
 	return (

@@ -58,17 +58,17 @@ export default function Header() {
 	// 	return () => setDidMount(false)
 	// }, [scrollTop])
 
-	const showSearchModal = (event) => {
-		document.querySelector(".search-modal-wrap").classList.add("active");
-		document.querySelector(".search-modal").classList.add("active");
-		document.body.classList.add("modal-active");
+	// const showSearchModal = (event) => {
+	// 	document.querySelector(".search-modal-wrap").classList.add("active");
+	// 	document.querySelector(".search-modal").classList.add("active");
+	// 	document.body.classList.add("modal-active");
 
-		setTimeout(function () {
-			document
-				.querySelector('.search-modal form.search input[type="text"]')
-				.focus();
-		}, 400);
-	};
+	// 	setTimeout(function () {
+	// 		document
+	// 			.querySelector('.search-modal form.search input[type="text"]')
+	// 			.focus();
+	// 	}, 400);
+	// };
 
 	const toggleMobileNav = (open) => (event) => {
 		if (
@@ -86,6 +86,19 @@ export default function Header() {
 				<div className="page-width w-full">
 					<div className="box">
 						<div className="header-ctn">
+							<Link href="/">
+								<a className="header-logo d-none">
+									<Image
+										src={`${server}/img/id/logo.png`}
+										alt=""
+										width={72}
+										height={72}
+										// objectFit="contain"
+										objectPosition="left center"
+										loading="eager"
+									/>
+								</a>
+							</Link>
 							<div className="ticker_wrap">
 								<div className="ticker">
 									<span className="ticker_item">
@@ -99,20 +112,21 @@ export default function Header() {
 									</span>
 								</div>
 							</div>
-							<ul className="header-icons">
+							{/* <ul className="header-icons"> */}
+							<ul className="s-profile-social">
 								{/* <li className="menu-divider"></li> */}
 								<li>
 									<a
 										href="https://www.facebook.com/drmonzureelahiofficial"
 										target="_blank">
-										<i className="fab fa-facebook-f"></i>
+										<i className="facebook fab fa-facebook-f"></i>
 									</a>
 								</li>
 								<li>
 									<a
 										href="https://www.youtube.com/channel/UCbMys3ID_1S8D1mZuYkoG2A"
 										target="_blank">
-										<i className="fab fa-youtube"></i>
+										<i className="youtube fab fa-youtube"></i>
 									</a>
 								</li>
 								{/* <li className="menu-divider"></li> */}
@@ -128,19 +142,19 @@ export default function Header() {
 								<li className="menu-burger" onClick={toggleMobileNav(true)}>
 									<i className="fas fa-bars"></i>
 								</li>
-								<li
+								{/* <li
 									className="search-icon"
 									title="search"
 									onClick={showSearchModal}>
 									<i className="fas fa-search"></i>
-								</li>
+								</li> */}
 							</ul>
 						</div>
 					</div>
 				</div>
 			</header>
 
-			<SearchModal />
+			{/* <SearchModal /> */}
 			<MobileNav navOpen={state.mobileNavOpen} navControl={toggleMobileNav} />
 		</>
 	);
