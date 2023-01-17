@@ -109,6 +109,34 @@ ul.main-menu li a:hover {
 	font-size: 1.1rem;
 }
 
+// --------------------------
+.ticker_wrap {
+	width: 80%;
+	overflow: hidden;
+	margin-left: 2rem;
+}
+.ticker {
+	width: 1110px;
+	display: inline-block;
+	transform: translateX(100%);
+	animation: 30s linear 0.5s infinite ticker;
+}
+.ticker_item {
+	display: inline-block;
+	padding: 0 1rem;
+	font-size: 18px;
+}
+@keyframes ticker {
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+// --------------------------
+
 @media only screen and (max-width: 1300px) {
 	.header-1 .main-menu-icon {
 		display: none;
