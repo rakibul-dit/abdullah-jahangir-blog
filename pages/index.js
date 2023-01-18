@@ -11,7 +11,7 @@ import {
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 import HomeBanner from "../components/home/banner";
-import HomeRecent from "../components/home/recent";
+// import HomeRecent from "../components/home/recents";
 import HomePapers from "../components/home/papers";
 import HomeBooks from "../components/home/books";
 import HomeAbout from "../components/home/about";
@@ -20,7 +20,7 @@ import HomeArticles from "../components/home/articles";
 import HomeOrganization from "../components/home/organization";
 
 export default function Home({
-	recents,
+	// recents,
 	papers,
 	books,
 	lectures,
@@ -36,15 +36,15 @@ export default function Home({
 				image={`${server}/img/id/default_share.png`}
 				type="website"
 			/>
-			<HomeBanner />
-			<HomeRecent recents={recents} />
+			<HomeBanner lectures={lectures} />
+			<HomeLectures lectures={lectures} />
+			{/* <HomeRecent lectures={lectures} /> */}
 			<HomePapers papers={papers} />
 			<HomeBooks books={books} />
-			{/* <HomeAbout /> */}
-			{/* <HomeArticles articles={articles} /> */}
-			{/* <HomeLectures lectures={lectures} /> */}
-			{/* <HomeOrganization organizations={organizations} /> */}
-			{/*<Newsletter />*/}
+			<HomeAbout />
+			<HomeArticles articles={articles} />
+			<HomeOrganization organizations={organizations} />
+			{/* <Newsletter /> */}
 		</Layout>
 	);
 }
@@ -56,10 +56,12 @@ export async function getStaticProps(context) {
 	const lectures = await getHomeLectures();
 	const articles = await getHomeArticles();
 	const organizations = await getHomeOrganizations();
+	console.log(lectures);
+	console.log(lectures.videoLists.videos[0].id);
 
 	return {
 		props: {
-			recents,
+			// recents,
 			papers,
 			books,
 			lectures,

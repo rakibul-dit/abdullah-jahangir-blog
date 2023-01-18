@@ -16,7 +16,7 @@ import { CorporateFare } from "@mui/icons-material";
 
 export default function Sidenav() {
 	const router = useRouter();
-	console.log(router);
+	console.log(router.pathname);
 	return (
 		<>
 			<div className="side-nav">
@@ -41,24 +41,20 @@ export default function Sidenav() {
 					<ul>
 						<li>
 							<Link href="/" passHref>
-								<a className={isActive("/", router.pathname)}>
+								<a className={router.pathname === "/" ? "active" : null}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<HomeIcon /> Home
+										<HomeIcon /> হোম
 									</div>
 								</a>
 							</Link>
 						</li>
 						<li>
 							<Link href={`/lectures/${youtube.uploadPlaylistID}`} passHref>
-								<a
-									className={isActive(
-										`/lectures/${youtube.uploadPlaylistID}`,
-										router.asPath
-									)}>
+								<a className={isActive("/lectures", router.asPath)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<VideoLibraryIcon /> Lectures
+										<VideoLibraryIcon /> লেকচার
 									</div>
 								</a>
 							</Link>
@@ -68,7 +64,7 @@ export default function Sidenav() {
 								<a className={isActive("/articles", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<LibraryBooks /> Articles
+										<LibraryBooks /> প্রবন্ধ
 									</div>
 								</a>
 							</Link>
@@ -78,7 +74,7 @@ export default function Sidenav() {
 								<a className={isActive("/books", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<MenuBook /> Books
+										<MenuBook /> বই
 									</div>
 								</a>
 							</Link>
@@ -88,7 +84,7 @@ export default function Sidenav() {
 								<a className={isActive("/question-ans", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<QuestionAnswer /> Qustion-Ans
+										<QuestionAnswer /> প্রশ্নোত্তর
 									</div>
 								</a>
 							</Link>
@@ -98,7 +94,7 @@ export default function Sidenav() {
 								<a className={isActive("/about", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<Person /> About
+										<Person /> জীবন বৃত্তান্ত
 									</div>
 								</a>
 							</Link>
@@ -108,7 +104,7 @@ export default function Sidenav() {
 								<a className={isActive("/assunnah-trust", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<CorporateFare /> AsSunnah Trust
+										<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
 									</div>
 								</a>
 							</Link>
@@ -118,7 +114,7 @@ export default function Sidenav() {
 								<a className={isActive("/contact", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
-										<Mail /> Contact
+										<Mail /> যোগাযোগ
 									</div>
 								</a>
 							</Link>

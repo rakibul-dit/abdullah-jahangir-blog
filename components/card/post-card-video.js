@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import { date } from '../../lib/format'
+import Link from "next/link";
+import { date } from "../../lib/format";
 
 export default function PostCardVideo({ lecture, statistics }) {
-	const id = lecture.id
-	const image = lecture.image
-	const title = lecture.title
-	const viewCount = statistics ? statistics.statistics.viewCount : ''
-	const publishedAt = date(lecture.date)
+	const id = lecture.id;
+	const image = lecture.image;
+	const title = lecture.title;
+	const viewCount = statistics ? statistics.statistics.viewCount : "";
+	const publishedAt = date(lecture.date);
 
 	return (
 		<div className="card card-r pc-0">
@@ -29,5 +29,5 @@ export default function PostCardVideo({ lecture, statistics }) {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
