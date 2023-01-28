@@ -53,6 +53,7 @@ export default function HomeLectures({ lectures }) {
 			{
 				breakpoint: 420,
 				settings: {
+					autoplay: false,
 					slidesToShow: 1,
 					centerPadding: "47px",
 					arrows: false,

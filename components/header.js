@@ -100,16 +100,31 @@ export default function Header() {
 								</a>
 							</Link>
 							<div className="ticker_wrap">
-								<div className="ticker">
-									<span className="ticker_item">
-										দান মানুষকে সত্যিকারের মুমিন করে তোলে।
-									</span>
-									<span className="ticker_item">
-										পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
-									</span>
-									<span className="ticker_item">
-										নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি করেছি।
-									</span>
+								<div className="ticker_container">
+									<div className="ticker">
+										<p className="ticker_item">
+											দান মানুষকে সত্যিকারের মুমিন করে তোলে।
+										</p>
+										<p className="ticker_item">
+											পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
+										</p>
+										<p className="ticker_item">
+											নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি করেছি।
+											নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি করেছি।
+										</p>
+									</div>
+									<div className="ticker">
+										<p className="ticker_item">
+											দান মানুষকে সত্যিকারের মুমিন করে তোলে।
+										</p>
+										<p className="ticker_item">
+											পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
+										</p>
+										<p className="ticker_item">
+											নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি করেছি।
+											নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি করেছি।
+										</p>
+									</div>
 								</div>
 							</div>
 							{/* <ul className="header-icons"> */}
