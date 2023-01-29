@@ -5,17 +5,20 @@ export const books = [
 		opt_home: "1",
 		related: "1",
 		imageSrc: "/img/books/t1-v1.png",
-		bookName: "الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الأول",
+		bookName:
+			"الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الأول",
 		bookText: "ড. মোহাম্মদ মানজুরে ইলাহী",
-		bookSlug: "الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الأول",
-		bookDesc: "الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الأول",
+		bookSlug:
+			"الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الأول",
+		bookDesc:
+			"الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الأول",
 		writer: "ড. মোহাম্মদ মানজুরে ইলাহী",
 		translator: "জাকের উল্লাহ আবুল খায়ের",
 		editor: "মোহাম্মদ মানজুরে ইলাহী",
 		pdf: "https://deeniinfotech.sgp1.cdn.digitaloceanspaces.com/files/pdf/monzureelahi.com/books/Vol-1_PhD Thesis_Dr M Elahi_IUMM.pdf",
 		link: "",
 		purchaseLink: "",
-    	linkNotAvailableText: "শীঘ্রই আসছে"
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
 	{
 		id: 2,
@@ -23,17 +26,20 @@ export const books = [
 		opt_home: "1",
 		related: "1",
 		imageSrc: "/img/books/t1-v2.png",
-		bookName: "الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الثاني",
+		bookName:
+			"الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الثاني",
 		bookText: "ড. মোহাম্মদ মানজুরে ইলাহী",
-		bookSlug: "الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الثاني",
-		bookDesc: "الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الثاني",
+		bookSlug:
+			"الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الثاني",
+		bookDesc:
+			"الأستاذ أبو منصور البغدادي وآراؤه الأصولية جمعا وتوثيقا ودراسة - المجلد الثاني",
 		writer: "ড. মোহাম্মদ মানজুরে ইলাহী",
 		translator: "জাকের উল্লাহ আবুল খায়ের",
 		editor: "মোহাম্মদ মানজুরে ইলাহী",
 		pdf: "https://deeniinfotech.sgp1.cdn.digitaloceanspaces.com/files/pdf/monzureelahi.com/books/Vol-2_PhD Thesis_Dr M Elahi_IUMM.pdf",
 		link: "",
 		purchaseLink: "",
-    	linkNotAvailableText: "শীঘ্রই আসছে"
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
 	{
 		id: 3,
@@ -51,11 +57,11 @@ export const books = [
 		pdf: "",
 		link: "https://down.ketabpedia.com/files/bkb/bkb-fi06800-ketabpedia.com.pdf",
 		purchaseLink: "",
-    	linkNotAvailableText: "শীঘ্রই আসছে"
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
 	{
 		id: 4,
-		home: "0",
+		home: "1",
 		opt_home: "1",
 		related: "2",
 		imageSrc: "/img/books/book-01.png",
@@ -68,8 +74,9 @@ export const books = [
 		editor: "মোহাম্মদ মানজুরে ইলাহী",
 		pdf: "",
 		link: "",
-		purchaseLink: "http://shop.taibahacademy.com/product/%E0%A6%86%E0%A6%B9%E0%A6%B2%E0%A7%81%E0%A6%B8-%E0%A6%B8%E0%A7%81%E0%A6%A8%E0%A7%8D%E0%A6%A8%E0%A6%BE%E0%A6%B9-%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%B2-%E0%A6%9C%E0%A6%BE%E0%A6%AE%E0%A6%BE/",
-    	linkNotAvailableText: "শীঘ্রই আসছে"
+		purchaseLink:
+			"http://shop.taibahacademy.com/product/%E0%A6%86%E0%A6%B9%E0%A6%B2%E0%A7%81%E0%A6%B8-%E0%A6%B8%E0%A7%81%E0%A6%A8%E0%A7%8D%E0%A6%A8%E0%A6%BE%E0%A6%B9-%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%B2-%E0%A6%9C%E0%A6%BE%E0%A6%AE%E0%A6%BE/",
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
 	{
 		id: 5,
@@ -87,7 +94,7 @@ export const books = [
 		pdf: "",
 		link: "",
 		purchaseLink: "https://bd-shoppers.com/product/ramadan/",
-    	linkNotAvailableText: "শীঘ্রই আসছে"
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
 	{
 		id: 6,
@@ -105,7 +112,7 @@ export const books = [
 		pdf: "",
 		link: "",
 		purchaseLink: "",
-    	linkNotAvailableText: "শীঘ্রই আসছে"
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
 	{
 		id: 7,
@@ -122,7 +129,7 @@ export const books = [
 		pdf: "",
 		link: "",
 		purchaseLink: "",
-		linkNotAvailableText: "শীঘ্রই আসছে"
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
 	{
 		id: 8,
@@ -139,6 +146,6 @@ export const books = [
 		pdf: "",
 		link: "",
 		purchaseLink: "",
-		linkNotAvailableText: "শীঘ্রই আসছে"
+		linkNotAvailableText: "শীঘ্রই আসছে",
 	},
-]
+];

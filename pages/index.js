@@ -38,11 +38,11 @@ export default function Home({
 			/>
 			<HomeBanner lectures={lectures} />
 			<HomeLectures lectures={lectures} />
+			<HomeArticles articles={articles} />
 			{/* <HomeRecent lectures={lectures} /> */}
 			<HomePapers papers={papers} />
 			<HomeBooks books={books} />
 			<HomeAbout />
-			<HomeArticles articles={articles} />
 			<HomeOrganization organizations={organizations} />
 			{/* <Newsletter /> */}
 		</Layout>

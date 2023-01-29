@@ -3,6 +3,8 @@ import PostCardRecent from "../card/post-card-recent";
 import PostCardVideo from "../card/post-card-video2";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import Link from "next/link";
+import { youtube } from "../../lib/config";
 
 export default function HomeLectures({ lectures }) {
 	const settings = {
@@ -68,6 +70,9 @@ export default function HomeLectures({ lectures }) {
 				<div className="box">
 					<h1 className="title-r">
 						<span>লেকচার সমগ্র</span>
+						<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
+							<a>আরও দেখুন</a>
+						</Link>
 					</h1>
 
 					<div className="recent-slider-outer">
