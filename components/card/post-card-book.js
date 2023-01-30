@@ -50,7 +50,7 @@ export default function BookCard({
 							unoptimized
 						/> */}
 						<Image
-							src={server + imageSrc}
+							src={imageSrc}
 							alt=""
 							layout="fill"
 							objectFit="cover"

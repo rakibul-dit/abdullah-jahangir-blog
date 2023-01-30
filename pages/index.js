@@ -6,26 +6,27 @@ import {
 	getHomeLectures,
 	getHomeArticles,
 	getHomeOrganizations,
+	getSomeImpLects,
 } from "../lib/fetch";
 
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 import HomeBanner from "../components/home/banner";
-// import HomeRecent from "../components/home/recents";
 import HomePapers from "../components/home/papers";
 import HomeBooks from "../components/home/books";
 import HomeAbout from "../components/home/about";
 import HomeLectures from "../components/home/lectures";
 import HomeArticles from "../components/home/articles";
 import HomeOrganization from "../components/home/organization";
+import SomeLectures from "../components/home/some-lectures";
 
 export default function Home({
 	// recents,
-	papers,
+	// papers,
 	books,
 	lectures,
 	articles,
-	organizations,
+	someLectures,
 }) {
 	return (
 		<Layout page="homepage">
@@ -36,37 +37,38 @@ export default function Home({
 				image={`${server}/img/id/default_share.png`}
 				type="website"
 			/>
-			<HomeBanner lectures={lectures} />
+			<HomeBanner />
 			<HomeLectures lectures={lectures} />
 			<HomeArticles articles={articles} />
-			{/* <HomeRecent lectures={lectures} /> */}
-			<HomePapers papers={papers} />
 			<HomeBooks books={books} />
-			<HomeAbout />
-			<HomeOrganization organizations={organizations} />
+			<SomeLectures lectures={someLectures} />
+			{/* <HomePapers papers={papers} /> */}
+			{/* <HomeAbout /> */}
+			{/* <HomeOrganization organizations={organizations} /> */}
 			{/* <Newsletter /> */}
 		</Layout>
 	);
 }
 
 export async function getStaticProps(context) {
-	const recents = await getHomeRecentLectures();
-	const papers = await getHomePapers();
-	const books = await getHomeBooks();
+	// const recents = await getHomeRecentLectures();
+	// const organizations = await getHomeOrganizations();
+	// const papers = await getHomePapers();
 	const lectures = await getHomeLectures();
 	const articles = await getHomeArticles();
-	const organizations = await getHomeOrganizations();
+	const books = await getHomeBooks();
+	const someLectures = await getSomeImpLects();
 	console.log(lectures);
 	console.log(lectures.videoLists.videos[0].id);
 
 	return {
 		props: {
 			// recents,
-			papers,
+			// papers,
 			books,
 			lectures,
 			articles,
-			organizations,
+			someLectures,
 		},
 		revalidate: 60,
 	};
