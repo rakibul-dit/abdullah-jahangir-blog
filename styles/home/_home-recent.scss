@@ -112,6 +112,11 @@
 	z-index: 3;
 }
 
+.h-books .recent-prev,
+.h-books .recent-next {
+	top: 35%;
+}
+
 .recent-next {
 	left: auto;
 	right: 8px;
@@ -142,18 +147,24 @@
 	.recent-text a.heading-r {
 		font-size: 1.25rem;
 	}
-
-	.h-recent .box {
-		width: 100%;
+	.recent-item {
+		padding: 0;
+	}
+	.recent-ctn {
+		padding-top: 65%;
 	}
 
-	.h-recent .title-r {
-		text-align: center;
-	}
+	// .h-recent .box {
+	// 	width: 100%;
+	// }
 
-	.h-recent .title-r::before {
-		display: none;
-	}
+	// .h-recent .title-r {
+	// 	text-align: center;
+	// }
+
+	// .h-recent .title-r::before {
+	// 	display: none;
+	// }
 
 	.recent-prev,
 	.recent-next {

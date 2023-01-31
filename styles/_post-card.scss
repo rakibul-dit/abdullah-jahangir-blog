@@ -175,7 +175,7 @@
 }
 
 .h-book-image {
-	width: 95%;
+	width: 100%;
 }
 
 .pc-3 .books-image a {
@@ -191,7 +191,7 @@
 	width: 100%;
 	display: block;
 	position: relative;
-	padding-top: 135%;
+	padding-top: 130%;
 }
 
 .h-book-image a img {
@@ -562,15 +562,15 @@
 	.slc-layer {
 		padding: 5rem 2rem 2rem 8rem;
 	}
-	.h-book-image {
-		width: 55%;
-	}
-	.h-book-detail {
-		width: 70%;
-	}
-	.h-book-image a {
-		padding-top: 130%;
-	}
+	// .h-book-image {
+	// 	width: 55%;
+	// }
+	// .h-book-detail {
+	// 	width: 70%;
+	// }
+	// .h-book-image a {
+	// 	padding-top: 130%;
+	// }
 }
 
 @media only screen and (max-width: 768px) {

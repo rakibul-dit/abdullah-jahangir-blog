@@ -3,7 +3,7 @@ import PostCardRecent from "../card/post-card-recent";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-export default function SomeLectures({ lectures }) {
+export default function SomeLectures({ lectures, isSmScr }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -33,31 +33,6 @@ export default function SomeLectures({ lectures }) {
 					slidesToShow: 2,
 				},
 			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 1,
-					centerPadding: "130px",
-					arrows: false,
-				},
-			},
-			{
-				breakpoint: 500,
-				settings: {
-					slidesToShow: 1,
-					centerPadding: "87px",
-					arrows: false,
-				},
-			},
-			{
-				breakpoint: 420,
-				settings: {
-					autoplay: false,
-					slidesToShow: 1,
-					centerPadding: "47px",
-					arrows: false,
-				},
-			},
 		],
 	};
 
@@ -69,16 +44,27 @@ export default function SomeLectures({ lectures }) {
 						<span>কিছু গুরুত্বপূর্ণ আলোচনা</span>
 					</h1>
 
-					<div className="recent-slider-outer">
-						<div className="recent-slider-inner">
-							<Slider className="recent-slider" {...settings}>
-								{lectures.videoLists.videos &&
-									lectures.videoLists.videos.map((recent, i) => (
+					{isSmScr ? (
+						<div className="row row-r">
+							{lectures.videoLists.videos &&
+								lectures.videoLists.videos.map((recent, i) => (
+									<div className="col col-r s12" key={i}>
 										<PostCardRecent key={i} recent={recent} />
-									))}
-							</Slider>
+									</div>
+								))}
 						</div>
-					</div>
+					) : (
+						<div className="recent-slider-outer">
+							<div className="recent-slider-inner">
+								<Slider className="recent-slider" {...settings}>
+									{lectures.videoLists.videos &&
+										lectures.videoLists.videos.map((recent, i) => (
+											<PostCardRecent key={i} recent={recent} />
+										))}
+								</Slider>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</section>

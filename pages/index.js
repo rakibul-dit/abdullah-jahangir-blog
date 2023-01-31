@@ -19,6 +19,7 @@ import HomeLectures from "../components/home/lectures";
 import HomeArticles from "../components/home/articles";
 import HomeOrganization from "../components/home/organization";
 import SomeLectures from "../components/home/some-lectures";
+import { useEffect, useState } from "react";
 
 export default function Home({
 	// recents,
@@ -28,6 +29,27 @@ export default function Home({
 	articles,
 	someLectures,
 }) {
+	const [isSmScr, setIsSmScr] = useState(false);
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			// set isSmScr depending on screen size
+			const x = window.matchMedia("(max-width: 600px)");
+			if (x.matches) {
+				setIsSmScr(true);
+			} else {
+				setIsSmScr(false);
+			}
+			x.onchange = () => {
+				if (x.matches) {
+					setIsSmScr(true);
+				} else {
+					setIsSmScr(false);
+				}
+			};
+		}
+	}, []);
+
 	return (
 		<Layout page="homepage">
 			<Meta
@@ -38,10 +60,10 @@ export default function Home({
 				type="website"
 			/>
 			<HomeBanner />
-			<HomeLectures lectures={lectures} />
-			<HomeArticles articles={articles} />
-			<HomeBooks books={books} />
-			<SomeLectures lectures={someLectures} />
+			<HomeLectures lectures={lectures} isSmScr={isSmScr} />
+			<HomeArticles articles={articles} isSmScr={isSmScr} />
+			<HomeBooks books={books} isSmScr={isSmScr} />
+			<SomeLectures lectures={someLectures} isSmScr={isSmScr} />
 			{/* <HomePapers papers={papers} /> */}
 			{/* <HomeAbout /> */}
 			{/* <HomeOrganization organizations={organizations} /> */}
@@ -58,8 +80,6 @@ export async function getStaticProps(context) {
 	const articles = await getHomeArticles();
 	const books = await getHomeBooks();
 	const someLectures = await getSomeImpLects();
-	console.log(lectures);
-	console.log(lectures.videoLists.videos[0].id);
 
 	return {
 		props: {

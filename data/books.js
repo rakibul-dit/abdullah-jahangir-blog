@@ -80,7 +80,7 @@ export const books = [
 	},
 	{
 		id: 5,
-		home: "0",
+		home: "1",
 		opt_home: "1",
 		related: "2",
 		imageSrc: "/img/books/book-02.jpg",
@@ -98,7 +98,7 @@ export const books = [
 	},
 	{
 		id: 6,
-		home: "0",
+		home: "1",
 		opt_home: "1",
 		related: "2",
 		imageSrc: "/img/books/book-03.jpg",

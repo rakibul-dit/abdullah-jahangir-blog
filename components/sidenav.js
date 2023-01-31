@@ -16,7 +16,7 @@ import { CorporateFare } from "@mui/icons-material";
 
 export default function Sidenav() {
 	const router = useRouter();
-	console.log(router.pathname);
+
 	return (
 		<>
 			<div className="side-nav">

@@ -6,7 +6,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Link from "next/link";
 import { youtube } from "../../lib/config";
 
-export default function HomeLectures({ lectures }) {
+export default function HomeLectures({ lectures, isSmScr }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -75,21 +75,35 @@ export default function HomeLectures({ lectures }) {
 						</Link>
 					</h1>
 
-					<div className="recent-slider-outer">
-						<div className="recent-slider-inner">
-							<Slider className="recent-slider" {...settings}>
-								{lectures.videoLists &&
-									lectures.videoLists.videos.map((item) => (
-										<div className="col col-r s12 m6 xl3" key={item.id}>
-											<PostCardVideo
-												item={item}
-												statistics={lectures.videoLists.videoStats}
-											/>
-										</div>
-									))}
-							</Slider>
+					{isSmScr ? (
+						<div className="row row-r">
+							{lectures.videoLists &&
+								lectures.videoLists.videos.map((item) => (
+									<div className="col col-r s12 m6 xl3" key={item.id}>
+										<PostCardVideo
+											item={item}
+											statistics={lectures.videoLists.videoStats}
+										/>
+									</div>
+								))}
 						</div>
-					</div>
+					) : (
+						<div className="recent-slider-outer">
+							<div className="recent-slider-inner">
+								<Slider className="recent-slider" {...settings}>
+									{lectures.videoLists &&
+										lectures.videoLists.videos.map((item) => (
+											<div className="col col-r s12 m6 xl3" key={item.id}>
+												<PostCardVideo
+													item={item}
+													statistics={lectures.videoLists.videoStats}
+												/>
+											</div>
+										))}
+								</Slider>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</section>
