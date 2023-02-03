@@ -7,6 +7,8 @@ import {
 	getHomeArticles,
 	getHomeOrganizations,
 	getSomeImpLects,
+	getHomeQns,
+	getOptHomeQuotes,
 } from "../lib/fetch";
 
 import Layout from "../components/layout";
@@ -20,14 +22,21 @@ import HomeArticles from "../components/home/articles";
 import HomeOrganization from "../components/home/organization";
 import SomeLectures from "../components/home/some-lectures";
 import { useEffect, useState } from "react";
+import HomeQuote from "../components/home/quote";
+import HomeQns from "../components/home/qns";
+import AssunnahTrust from "../components/home/assunnah-trust";
+import HomeQuoteSlider from "../components/home2/quote-slider";
 
 export default function Home({
 	// recents,
-	// papers,
+	papers,
+	organizations,
 	books,
 	lectures,
 	articles,
 	someLectures,
+	qns,
+	quotes,
 }) {
 	const [isSmScr, setIsSmScr] = useState(false);
 
@@ -63,7 +72,12 @@ export default function Home({
 			<HomeLectures lectures={lectures} isSmScr={isSmScr} />
 			<HomeArticles articles={articles} isSmScr={isSmScr} />
 			<HomeBooks books={books} isSmScr={isSmScr} />
+			<HomeQns qns={qns} isSmScr={isSmScr} />
+			<AssunnahTrust />
 			<SomeLectures lectures={someLectures} isSmScr={isSmScr} />
+			{/* <HomeQuote /> */}
+			<HomeQuoteSlider quotes={quotes} />
+
 			{/* <HomePapers papers={papers} /> */}
 			{/* <HomeAbout /> */}
 			{/* <HomeOrganization organizations={organizations} /> */}
@@ -74,21 +88,26 @@ export default function Home({
 
 export async function getStaticProps(context) {
 	// const recents = await getHomeRecentLectures();
-	// const organizations = await getHomeOrganizations();
-	// const papers = await getHomePapers();
+	const organizations = await getHomeOrganizations();
+	const papers = await getHomePapers();
 	const lectures = await getHomeLectures();
 	const articles = await getHomeArticles();
 	const books = await getHomeBooks();
 	const someLectures = await getSomeImpLects();
+	const qns = await getHomeQns();
+	const quotes = await getOptHomeQuotes();
 
 	return {
 		props: {
 			// recents,
-			// papers,
+			papers,
+			organizations,
 			books,
 			lectures,
 			articles,
 			someLectures,
+			qns,
+			quotes,
 		},
 		revalidate: 60,
 	};

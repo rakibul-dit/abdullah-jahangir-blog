@@ -36,6 +36,37 @@ export default function HomeBooks({ books, isSmScr }) {
 			},
 		],
 	};
+	const settings2 = {
+		autoplay: true,
+		autoplaySpeed: 5000,
+		arrows: true,
+		prevArrow: <RecentPrev />,
+		nextArrow: <RecentNext />,
+		dots: false,
+		draggable: true,
+		slidesToShow: 6,
+		slidesToScroll: 1,
+		speed: 500,
+		infinite: true,
+		cssEase: "ease",
+		centerMode: true,
+		mobileFirst: false,
+		centerPadding: "0px",
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 5,
+				},
+			},
+			{
+				breakpoint: 900,
+				settings: {
+					slidesToShow: 4,
+				},
+			},
+		],
+	};
 
 	return (
 		<section className="h-sec h-books">
@@ -59,19 +90,34 @@ export default function HomeBooks({ books, isSmScr }) {
 								))}
 						</div>
 					) : (
-						<div className="recent-slider-outer">
-							<div className="recent-slider-inner">
-								<Slider className="recent-slider" {...settings}>
-									{books &&
-										books.length &&
-										books.map((book, i) => (
-											<div className="col col-r s6 m6 l4 xl3" key={i}>
-												<BookCard book={book} />
-											</div>
-										))}
-								</Slider>
+						<>
+							<div className="recent-slider-outer">
+								<div className="recent-slider-inner">
+									<Slider className="recent-slider" {...settings}>
+										{books &&
+											books.length &&
+											books.map((book, i) => (
+												<div className="col col-r s6 m6 l4 xl3" key={i}>
+													<BookCard book={book} />
+												</div>
+											))}
+									</Slider>
+								</div>
 							</div>
-						</div>
+							<div className="recent-slider-outer">
+								<div className="recent-slider-inner">
+									<Slider className="recent-slider" {...settings2}>
+										{books &&
+											books.length &&
+											books.map((book, i) => (
+												<div className="col col-r s6 m6 l4 xl3" key={i}>
+													<BookCard book={book} />
+												</div>
+											))}
+									</Slider>
+								</div>
+							</div>
+						</>
 					)}
 				</div>
 			</div>

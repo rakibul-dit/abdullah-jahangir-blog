@@ -116,7 +116,7 @@ export const books = [
 	},
 	{
 		id: 7,
-		home: "0",
+		home: "1",
 		related: "2",
 		imageSrc: "/img/books/hajj-umrah.jpg",
 		bookName: "ফিকহুল হজ্জ ওয়াল উমরাহ",

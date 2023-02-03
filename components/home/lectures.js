@@ -15,7 +15,7 @@ export default function HomeLectures({ lectures, isSmScr }) {
 		nextArrow: <RecentNext />,
 		dots: false,
 		draggable: true,
-		slidesToShow: 3,
+		slidesToShow: 4,
 		slidesToScroll: 1,
 		speed: 500,
 		infinite: true,
@@ -27,19 +27,19 @@ export default function HomeLectures({ lectures, isSmScr }) {
 			{
 				breakpoint: 1200,
 				settings: {
-					slidesToShow: 3,
+					slidesToShow: 4,
 				},
 			},
 			{
 				breakpoint: 900,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 3,
 				},
 			},
 			{
 				breakpoint: 600,
 				settings: {
-					slidesToShow: 1,
+					slidesToShow: 2,
 					centerPadding: "130px",
 					arrows: false,
 				},
