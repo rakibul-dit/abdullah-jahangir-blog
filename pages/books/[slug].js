@@ -1,153 +1,203 @@
-import { server } from '../../lib/config'
-import { getBooks, getBookDetails, getRelatedBooks } from '../../lib/fetch'
-import Image from 'next/image'
-import Layout from '../../components/layout'
-import Meta from '../../components/meta'
-import Share from '../../components/share'
-import MenuBookIcon from '@mui/icons-material/MenuBook'
+import { server, youtube, constants } from "../../lib/config";
+import {
+	bookFetcher,
+	getAllBookCategories,
+	getBooksByCategory,
+	qaFetcher,
+} from "../../lib/fetch";
+import { useState, useEffect, useRef } from "react";
+import Layout from "../../components/layout";
+import Meta from "../../components/meta";
+import PostCardVideo2 from "../../components/card/post-card-video2";
+import Loader from "../../components/loader";
+import fetcher from "../../lib/lecturesFetcher";
+import useOnScreen from "../../hooks/useOnScreen";
+import { useSWRInfinite } from "swr";
+import Link from "next/link";
+import ListIcon from "@mui/icons-material/List";
+import { CropSquareRounded } from "@material-ui/icons";
+import PostCardAllQns from "../../components/card/post-card-allqns";
+import BookCard from "../../components/card/post-card-book";
 
-export default function BookDetail({ detail, books }) {
+const getKey = (pageIndex, prevPageData, categoryId) => {
+	let currentPage = pageIndex + 1;
+	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
+};
+
+export default function QnList({ initialBooks, categoryId, categories }) {
+	const ref = useRef();
+	const catRef = useRef();
+	const isVisible = useOnScreen(ref);
+	// const pageTitle = categories[categoryId].title;
+	const pageTitle = categoryId == "all" ? "বই সমূহ" : categoryId;
+
+	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+		(...args) => getKey(...args, categoryId),
+		bookFetcher,
+		{ initialData: initialBooks, revalidateOnMount: true }
+	);
+
+	const datas = data ? [].concat(...data) : [];
+	const isLoadingInitialData = !data && !error;
+	const isLoadingMore =
+		isLoadingInitialData ||
+		(size > 0 && data && typeof data[size - 1] === "undefined");
+
+	// const isEmpty = data?.[0]?.length === 0;
+	// const isReachingEnd =
+	// 	isEmpty || (data && data[data.length - 1]?.length < 1000);
+
+	const numberOfPages = data?.length !== 0 ? data[0].numberOfPages : 0;
+	const isReachingEnd = size === numberOfPages;
+
+	const isRefreshing = isValidating && data && data.length === size;
+
+	const [catOpen, setCatOpen] = useState(false);
+
+	const handleCatOpen = async () => {
+		catOpen ? setCatOpen(false) : setCatOpen(true);
+	};
+
+	const getCategorizedBooks = async (id, pageTitle) => {
+		setCatOpen(false);
+		setSize(1);
+	};
+
+	console.log(datas);
+
+	useEffect(() => {
+		let handler = (e) => {
+			if (catRef.current != null && !catRef.current.contains(e.target)) {
+				setCatOpen(false);
+			}
+		};
+		document.body.addEventListener("mousedown", handler);
+
+		if (isVisible && !isReachingEnd && !isRefreshing) {
+			setSize(size + 1);
+		}
+	}, [isVisible, isRefreshing]);
+
 	return (
 		<Layout>
 			<Meta
-				title={detail.bookName}
-				description={`ড. মোহাম্মদ মানজুরে ইলাহী এর বই সমূহ - ${detail.bookDesc}`}
-				url={`${server}/books/${detail.bookSlug}`}
-				image={server + detail.imageSrc}
-				type="article"
+				title={pageTitle}
+				description="ড. মোহাম্মদ মানজুরে ইলাহী এর লেকচার সমগ্র"
+				url={`/books/${categoryId}`}
+				image={`/img/id/default_share.png`}
+				type="website"
 			/>
 
-			<section className="blog-detail-ctn">
+			<section className="cat-page-top cat-page-top-2">
 				<div className="page-width">
 					<div className="box">
-						<div className="blog-area">
-							<div className="blog-detail book-detail">
-								<div className="row margin-bottom-0">
-									<div className="col s12 l5">
-										<div className="book-detail-left-wrapper">
-											<div className="book-detail-left">
-												<div className="book-detail-left-inner">
-													<Image
-														src={server + detail.imageSrc}
-														alt=""
-														layout="fill"
-														objectFit="cover"
-														objectPosition="center center"
-														loading="eager"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div className="col s12 l7">
-										<div className="book-detail-right">
-											<h2 className="book-title">{detail.bookName}</h2>
-
-											<div className="book-writer-area">
-												<p>লেখক: <i>{detail.writer}</i></p>
-												{/*<p>অনুবাদ: <i>{detail.translator}</i></p>*/}
-												{/*<p>সম্পাদনা: <i>{detail.editor}</i></p>*/}
-											</div>
-
-											<div className="book-action">
-												<div className="book-btn">
-													{detail.link != "" && (
-														<a className="btn-r read-more" target="_blank" href={`=${detail.link}`}>
-															<MenuBookIcon />
-															<span>পড়ুন</span>
-														</a>
-													)}
-
-													{detail.purchaseLink != "" && (
-														<a className="btn-r read-more" target="_blank" href={`${detail.purchaseLink}`}>
-															<MenuBookIcon />
-															<span>ক্রয় করতে</span>
-														</a>
-													)}
-
-													{detail.pdf != "" && (
-														<a className="btn-r read-more" target="_blank" href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}>
-															<MenuBookIcon />
-															<span>পড়ুন</span>
-														</a>
-													)}
-
-													{detail.link == "" && detail.purchaseLink == "" && detail.pdf == "" && (
-														<span className="no-link">{detail.linkNotAvailableText}...</span>
-													)}
-												</div>
-
-												<div className="blog-share book-share">
-													<Share
-														urlWeb={`books/${detail.bookSlug}`}
-														urlMobile={detail.bookSlug}
-														title={detail.bookName}
-													/>
-												</div>
-											</div>
-
-											<p className="book-detail-desc">{detail.bookDesc}</p>
-										</div>
-									</div>
-								</div>
+						<h1 ref={catRef}>
+							<i className="select-tag-icon" onClick={handleCatOpen}>
+								<ListIcon />
+							</i>{" "}
+							{pageTitle}
+							<div className={"select-tag-list" + (catOpen ? " open" : "")}>
+								<ul>
+									{categories &&
+										categories.map((item) => (
+											<li
+												className={categoryId == item.id ? "selected" : ""}
+												key={item.id}
+												onClick={() =>
+													getCategorizedBooks(item.id, item.title)
+												}>
+												<Link href={"/books/" + item.title}>
+													<a>{item.title}</a>
+												</Link>
+											</li>
+										))}
+								</ul>
 							</div>
+						</h1>
+
+						{/*<p>*/}
+						{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
+						{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
+						{/*</p>*/}
+					</div>
+				</div>
+			</section>
+
+			<section
+				className={"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")}>
+				<div className="page-width">
+					<div className="box">
+						<div className="row row-r">
+							{/*{isEmpty ? <p>No records found!</p> : null}*/}
+							{datas &&
+								datas.map((data) => {
+									return (
+										data.bookItems &&
+										data.bookItems.map((item) => (
+											<div className="col col-r s6 m4 l3 xl2" key={item.id}>
+												<BookCard book={item} />
+											</div>
+										))
+									);
+									// return <p>{data.currentPage}</p>;
+								})}
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/*<section className="blog-page-related">*/}
-			{/*	<div className="page-width">*/}
-			{/*		<div className="box">*/}
-			{/*			<h1 className="title-r">*/}
-			{/*				<span>সম্পর্কিত পোস্ট</span>*/}
-			{/*			</h1>*/}
+			<div ref={ref}>
+				{isLoadingMore ? (
+					<div className={"loader"}>
+						<Loader />
+					</div>
+				) : (
+					""
+				)}
+			</div>
 
-			{/*			<div className="row row-r">*/}
-			{/*			{*/}
-			{/*				books && books.length && books.map(books =>*/}
-			{/*					<div className="col col-r s12 l6 xl4" key={books.id}>*/}
-			{/*						<BookCard books={books} />*/}
-			{/*					</div>*/}
-			{/*				)*/}
-			{/*			}*/}
-			{/*			</div>*/}
-			{/*		</div>*/}
-			{/*	</div>*/}
-			{/*</section>*/}
+			{isReachingEnd ? (
+				""
+			) : (
+				<div style={{ margin: "20px 0px" }}>
+					<center>
+						<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
+					</center>
+				</div>
+			)}
 		</Layout>
-	)
+	);
 }
 
 export async function getStaticProps({ params }) {
-	//const resRelated = await fetch(`${server}/api/books/related`)
-	//const books = await resRelated.json()
+	const categoryId = params.slug;
+	const currentPage = 1;
 
-	const slug = params.slug
-	const detail = await getBookDetails(slug)
-	const books = await getRelatedBooks()
+	// const videoLists = await getYoutubeVideoListByUrl(url);
+	const books = await getBooksByCategory({ currentPage, categoryId });
+	const categories = await getAllBookCategories();
 
 	return {
 		props: {
-			detail,
-			books,
+			initialBooks: [books],
+			categoryId: categoryId,
+			categories,
 		},
-	}
+		revalidate: 60,
+	};
 }
 
 export async function getStaticPaths() {
-	//const res = await fetch(`${server}/api/books/listpage`)
-	//const books = await res.json()
+	const categories = await getAllBookCategories();
 
-	const books = await getBooks()
+	let paths = categories.map((item) => ({
+		params: { slug: item.title },
+	}));
 
-	const paths = books.map(book => ({
-		params: { slug: book.bookSlug },
-	}))
+	paths = [{ params: { slug: "all" } }, ...paths];
 
 	return {
 		paths,
-		fallback: false,
-	}
+		fallback: "blocking",
+	};
 }

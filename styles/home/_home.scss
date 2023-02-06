@@ -120,8 +120,18 @@
 .h-some-lecs .h3-quote-right {
 	margin: 0;
 }
+.h-some-lecs .h3-quote-left {
+	align-items: center;
+}
+.h-some-lecs .h3-quote-left h2 {
+	font-size: 2rem;
+}
 .h-some-lecs .recent-ctn {
-	padding-top: 80%;
+	padding-top: 70%;
+}
+.h-some-lecs .recent-ctn {
+	width: 90%;
+	margin: auto;
 }
 .h-assunnah-trust .h3-quote-left {
 	align-items: center;
@@ -136,6 +146,10 @@
 	overflow: hidden;
 	line-height: 1.4;
 	word-break: break-word;
+}
+.h-assunnah-trust .col-r,
+.h-some-lecs .col-r {
+	margin-bottom: 0;
 }
 
 .see-more-1 {

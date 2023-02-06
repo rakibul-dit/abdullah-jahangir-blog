@@ -43,8 +43,8 @@ export default function HomeQns({ qns, isSmScr }) {
 			<div className="page-width">
 				<div className="box">
 					<h1 className="title-r">
-						<span>কিছু প্রশ্ন</span>
-						<Link href="/qustions">
+						<span>প্রশ্নোত্তর</span>
+						<Link href="/questions/all">
 							<a>আরও দেখুন</a>
 						</Link>
 					</h1>

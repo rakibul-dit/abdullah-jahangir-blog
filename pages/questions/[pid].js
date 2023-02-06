@@ -1,5 +1,11 @@
 import { server, youtube, constants } from "../../lib/config";
-import { getAllPlaylists2, getYoutubeVideoListByUrl } from "../../lib/fetch";
+import {
+	getAllPlaylists2,
+	getAllQnaCategory,
+	getAllQuestions,
+	getYoutubeVideoListByUrl,
+	qaFetcher,
+} from "../../lib/fetch";
 import { useState, useEffect, useRef } from "react";
 import Layout from "../../components/layout";
 import Meta from "../../components/meta";
@@ -10,33 +16,25 @@ import useOnScreen from "../../hooks/useOnScreen";
 import { useSWRInfinite } from "swr";
 import Link from "next/link";
 import ListIcon from "@mui/icons-material/List";
+import { CropSquareRounded } from "@material-ui/icons";
+import PostCardAllQns from "../../components/card/post-card-allqns";
 
-const getKey = (pageIndex, previousPageData, playlistId) => {
-	let pageToken = "";
-	if (
-		previousPageData !== null &&
-		previousPageData.videoLists.nextPageToken !== null
-	) {
-		pageToken = `&pageToken=${previousPageData.videoLists.nextPageToken}`;
-	}
-
-	return `${youtube.url}/playlistItems?key=${youtube.key}&part=snippet&playlistId=${playlistId}&maxResults=${constants.DEFAULT_PAGE_LIMIT}${pageToken}`;
+const getKey = (pageIndex, prevPageData, categoryId) => {
+	let currentPage = pageIndex + 1;
+	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
 
-export default function LectureList({
-	initialVideos,
-	initPlaylistId,
-	playlists,
-}) {
+export default function QnList({ initialQns, categoryId, categories }) {
 	const ref = useRef();
 	const catRef = useRef();
 	const isVisible = useOnScreen(ref);
-	const pageTitle = playlists.playlistsTitle[initPlaylistId];
+	// const pageTitle = categories[categoryId].title;
+	const pageTitle = categoryId == "all" ? "প্রশ্নোত্তর সমূহ" : categoryId;
 
 	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
-		(...args) => getKey(...args, initPlaylistId),
-		fetcher,
-		{ initialData: initialVideos, revalidateOnMount: true }
+		(...args) => getKey(...args, categoryId),
+		qaFetcher,
+		{ initialData: initialQns, revalidateOnMount: true }
 	);
 
 	const datas = data ? [].concat(...data) : [];
@@ -44,22 +42,28 @@ export default function LectureList({
 	const isLoadingMore =
 		isLoadingInitialData ||
 		(size > 0 && data && typeof data[size - 1] === "undefined");
-	// const isEmpty = data?.[0]?.length === 0
-	const numberOfPages =
-		data?.[0]?.length !== 0 ? data[0].videoLists.numberOfPages : 0;
+
+	// const isEmpty = data?.[0]?.length === 0;
+	// const isReachingEnd =
+	// 	isEmpty || (data && data[data.length - 1]?.length < 1000);
+
+	const numberOfPages = data?.length !== 0 ? data[0].numberOfPages : 0;
 	const isReachingEnd = size === numberOfPages;
+
 	const isRefreshing = isValidating && data && data.length === size;
-	console.log(data);
+
 	const [catOpen, setCatOpen] = useState(false);
 
 	const handleCatOpen = async () => {
 		catOpen ? setCatOpen(false) : setCatOpen(true);
 	};
 
-	const getCategorizedVideos = async (id, pageTitle) => {
+	const getCategorizedQns = async (id, pageTitle) => {
 		setCatOpen(false);
 		setSize(1);
 	};
+
+	console.log(datas);
 
 	useEffect(() => {
 		let handler = (e) => {
@@ -79,7 +83,7 @@ export default function LectureList({
 			<Meta
 				title={pageTitle}
 				description="ড. মোহাম্মদ মানজুরে ইলাহী এর লেকচার সমগ্র"
-				url={`${server}/lectures/${initPlaylistId}`}
+				url={`${server}/lectures/${categoryId}`}
 				image={`${server}/img/id/default_share.png`}
 				type="website"
 			/>
@@ -94,15 +98,13 @@ export default function LectureList({
 							{pageTitle}
 							<div className={"select-tag-list" + (catOpen ? " open" : "")}>
 								<ul>
-									{playlists.playlists &&
-										playlists.playlists.map((item) => (
+									{categories &&
+										categories.map((item) => (
 											<li
-												className={initPlaylistId == item.id ? "selected" : ""}
+												className={categoryId == item.id ? "selected" : ""}
 												key={item.id}
-												onClick={() =>
-													getCategorizedVideos(item.id, item.title)
-												}>
-												<Link href={"/lectures/" + item.id}>
+												onClick={() => getCategorizedQns(item.id, item.title)}>
+												<Link href={"/questions/" + item.title}>
 													<a>{item.title}</a>
 												</Link>
 											</li>
@@ -128,14 +130,11 @@ export default function LectureList({
 							{datas &&
 								datas.map((data) => {
 									return (
-										data.videoLists.videos &&
-										data.videoLists.videos.map((item) => {
+										data.qaItems &&
+										data.qaItems.map((item) => {
 											return (
-												<div className="col col-r s12 m6 xl3" key={item.id}>
-													<PostCardVideo2
-														item={item}
-														statistics={data.videoLists.videoStats}
-													/>
+												<div className="qns col col-r s12" key={item.id}>
+													<PostCardAllQns qn={item} />
 												</div>
 											);
 										})
@@ -170,27 +169,31 @@ export default function LectureList({
 }
 
 export async function getStaticProps({ params }) {
-	const playlistId = params.pid;
-	const url = `${youtube.url}/playlistItems?key=${youtube.key}&part=snippet&playlistId=${playlistId}&maxResults=${constants.DEFAULT_PAGE_LIMIT}`;
-	const videoLists = await getYoutubeVideoListByUrl(url);
-	const playlists = await getAllPlaylists2();
+	const categoryId = params.pid;
+	const currentPage = 1;
+
+	// const videoLists = await getYoutubeVideoListByUrl(url);
+	const qns = await getAllQuestions({ currentPage, categoryId });
+	const categories = await getAllQnaCategory();
 
 	return {
 		props: {
-			initialVideos: [videoLists],
-			initPlaylistId: playlistId,
-			playlists,
+			initialQns: [qns],
+			categoryId: categoryId,
+			categories,
 		},
 		revalidate: 60,
 	};
 }
 
 export async function getStaticPaths() {
-	const playlists = await getAllPlaylists2();
+	const categories = await getAllQnaCategory();
 
-	const paths = playlists.playlists.map((playlist) => ({
-		params: { pid: playlist.id },
+	let paths = categories.map((item) => ({
+		params: { pid: item.title.toString() },
 	}));
+
+	paths = [{ params: { pid: "all" } }, ...paths];
 
 	return {
 		paths,

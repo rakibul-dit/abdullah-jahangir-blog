@@ -71,7 +71,7 @@ export default function Sidenav() {
 						</li>
 						<li>
 							<Link href="/books" passHref>
-								<a className={isActive("/books", router.pathname)}>
+								<a className={isActive("/books/বই সমূহ", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
 										<MenuBook /> বই
@@ -81,7 +81,7 @@ export default function Sidenav() {
 						</li>
 						<li>
 							<Link href="/question-ans" passHref>
-								<a className={isActive("/question-ans", router.pathname)}>
+								<a className={isActive("/questions/all", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
 										<QuestionAnswer /> প্রশ্নোত্তর

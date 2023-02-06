@@ -1,12 +1,13 @@
 import Link from "next/link";
 
-export default function PostCardQns({ qn }) {
+export default function PostCardAllQns({ qn }) {
 	return (
 		<div className="card card-r pc-0">
 			<div className="card-content">
 				<Link href={`/questions/ans/${qn.id}`}>
-					<a className="heading-r">{qn.qus}</a>
-					{/* <a className="paragraph-r">{qn.qus}</a> */}
+					<a>
+						<p className="paragraph-r">{qn.qus}</p>
+					</a>
 				</Link>
 
 				{/*<span className="date-r">{postDate}</span>*/}
