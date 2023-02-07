@@ -70,8 +70,8 @@ export default function Sidenav() {
 							</Link>
 						</li>
 						<li>
-							<Link href="/books" passHref>
-								<a className={isActive("/books/বই সমূহ", router.pathname)}>
+							<Link href="/books/all" passHref>
+								<a className={isActive("/books/all", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">
 										<MenuBook /> বই
@@ -80,7 +80,7 @@ export default function Sidenav() {
 							</Link>
 						</li>
 						<li>
-							<Link href="/question-ans" passHref>
+							<Link href="/questions/all" passHref>
 								<a className={isActive("/questions/all", router.pathname)}>
 									<div className="indicator"></div>
 									<div className="wrap d-flex align-center com-transition">

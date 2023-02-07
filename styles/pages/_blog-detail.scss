@@ -272,6 +272,28 @@
 .qna-hr {
 	margin: 20px 0 20px 0;
 }
+.articles .blog-detail > div > p,
+.articles .blog-detail > div > ol {
+	text-align: right;
+	font-family: MeQuran;
+}
+.articles .blog-detail ul li {
+	list-style-type: none;
+}
+.articles .blog-detail p {
+	margin-bottom: 1rem;
+}
+.articles .blog-detail h2 {
+	margin-bottom: 0.5rem;
+}
+.articles .blog-detail > p > span {
+	font-family: MeQuran;
+}
+
+// .articles .blog-detail > div > ul {
+// 	margin-left: 10px;
+// 	margin-bottom: 10px;
+// }
 // ===========================
 
 // responsive
