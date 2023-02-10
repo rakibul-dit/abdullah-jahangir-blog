@@ -84,7 +84,12 @@
 	color: #718096;
 	font-size: 1.15rem;
 }
-
+// =============== new ========================
+.about-page-ctn .row,
+.about-page-ctn .about-left {
+	margin-bottom: 0;
+}
+// ============================================
 // responsive
 @media only screen and (max-width: 992px) {
 	.about-left {
