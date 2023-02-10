@@ -272,11 +272,18 @@
 .qna-hr {
 	margin: 20px 0 20px 0;
 }
+// ======= arabic text =============
 .articles .blog-detail > div > p,
-.articles .blog-detail > div > ol {
+.articles .blog-detail > div > div > ol,
+.articles .blog-detail div > h2 {
 	text-align: right;
 	font-family: MeQuran;
+	direction: rtl;
 }
+.articles .blog-detail > div > div > ol li {
+	list-style-type: decimal;
+}
+
 .articles .blog-detail ul li {
 	list-style-type: none;
 }
@@ -290,10 +297,20 @@
 	font-family: MeQuran;
 }
 
-// .articles .blog-detail > div > ul {
-// 	margin-left: 10px;
-// 	margin-bottom: 10px;
-// }
+.articles .blog-detail ul,
+.articles .blog-detail ol {
+	margin-left: 10px;
+	margin-bottom: 1rem;
+}
+.articles .blog-detail div > div > ul,
+.articles .blog-detail div > div > ol {
+	margin-right: 10px;
+	margin-left: 0;
+	font-size: 1.15rem;
+}
+.assunnah-trust .blog-detail h3 {
+	font-weight: bold;
+}
 // ===========================
 
 // responsive
