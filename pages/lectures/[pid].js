@@ -10,6 +10,7 @@ import useOnScreen from "../../hooks/useOnScreen";
 import { useSWRInfinite } from "swr";
 import Link from "next/link";
 import ListIcon from "@mui/icons-material/List";
+import SortIcon from "@mui/icons-material/Sort";
 
 const getKey = (pageIndex, previousPageData, playlistId) => {
 	let pageToken = "";
@@ -49,7 +50,7 @@ export default function LectureList({
 		data?.[0]?.length !== 0 ? data[0].videoLists.numberOfPages : 0;
 	const isReachingEnd = size === numberOfPages;
 	const isRefreshing = isValidating && data && data.length === size;
-	console.log(data);
+	// console.log(data);
 	const [catOpen, setCatOpen] = useState(false);
 
 	const handleCatOpen = async () => {
@@ -78,7 +79,7 @@ export default function LectureList({
 		<Layout>
 			<Meta
 				title={pageTitle}
-				description="ড. মোহাম্মদ মানজুরে ইলাহী এর লেকচার সমগ্র"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমগ্র"
 				url={`${server}/lectures/${initPlaylistId}`}
 				image={`${server}/img/id/default_share.png`}
 				type="website"
@@ -89,7 +90,7 @@ export default function LectureList({
 					<div className="box">
 						<h1 ref={catRef}>
 							<i className="select-tag-icon" onClick={handleCatOpen}>
-								<ListIcon />
+								<SortIcon />
 							</i>{" "}
 							{pageTitle}
 							<div className={"select-tag-list" + (catOpen ? " open" : "")}>

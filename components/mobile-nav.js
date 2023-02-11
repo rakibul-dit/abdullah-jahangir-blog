@@ -11,6 +11,8 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import PersonIcon from "@mui/icons-material/Person";
 import MailIcon from "@mui/icons-material/Mail";
+import { QuestionAnswer } from "@material-ui/icons";
+import { CorporateFare } from "@mui/icons-material";
 
 export default function MobileNav(props) {
 	return (
@@ -56,22 +58,6 @@ export default function MobileNav(props) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/research-papers">
-									<a>
-										<ClassIcon />
-										রিসার্চ পেপারস
-									</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/books">
-									<a>
-										<MenuBookIcon />
-										বই
-									</a>
-								</Link>
-							</li>
-							<li>
 								<Link href="/articles">
 									<a>
 										<LibraryBooksIcon />
@@ -80,10 +66,25 @@ export default function MobileNav(props) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/organizations">
+								<Link href="/books/all">
 									<a>
-										<CorporateFareIcon />
-										অর্গানাইজেশনস
+										<MenuBookIcon />
+										বই
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/questions/all">
+									<a>
+										<QuestionAnswer />
+										প্রশ্নোত্তর
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/assunnah-trust" passHref>
+									<a>
+										<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
 									</a>
 								</Link>
 							</li>
@@ -110,10 +111,10 @@ export default function MobileNav(props) {
 						<hr className="m-menu-hr" />
 
 						<div className="m-menu-social">
-							<a href="#" target="_blank">
+							<a href="https://www.facebook.com/Assunnahtrust" target="_blank">
 								<i className="facebook fab fa-facebook-f"></i>
 							</a>
-							<a href="#" target="_blank">
+							<a href="https://www.youtube.com/sunnahtrust" target="_blank">
 								<i className="youtube fab fa-youtube"></i>
 							</a>
 						</div>

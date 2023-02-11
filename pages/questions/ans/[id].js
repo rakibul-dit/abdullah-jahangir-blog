@@ -7,7 +7,6 @@ import Share from "../../../components/share";
 import { getAnsById, getQnaByLimit } from "../../../lib/fetch";
 
 export default function BlogDetail({ ans }) {
-	console.log(ans);
 	return (
 		<Layout>
 			<Meta
@@ -69,7 +68,6 @@ export default function BlogDetail({ ans }) {
 }
 
 export async function getStaticProps({ params }) {
-	console.log(params);
 	const id = params.id;
 	const ans = await getAnsById(id);
 

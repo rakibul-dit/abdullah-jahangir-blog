@@ -1,73 +1,74 @@
-import { server } from '../lib/config'
-import { useState, useRef } from 'react'
-import Image from 'next/image'
-import Layout from '../components/layout'
-import Meta from '../components/meta'
-import Snackbar from '@material-ui/core/Snackbar'
+import { server } from "../lib/config";
+import { useState, useRef } from "react";
+import Image from "next/image";
+import Layout from "../components/layout";
+import Meta from "../components/meta";
+import Snackbar from "@material-ui/core/Snackbar";
 //import Slider from 'react-slick'
 //import 'slick-carousel/slick/slick.css'
 
 export default function Contact() {
 	//snackbar
-	const [snackbarOpen, setSnackbarOpen] = useState(false)
+	const [snackbarOpen, setSnackbarOpen] = useState(false);
 
 	const handleSnackbarClose = (event, reason) => {
-		if (reason === 'clickaway') {
-		  return
+		if (reason === "clickaway") {
+			return;
 		}
-		setSnackbarOpen(false)
-	}
+		setSnackbarOpen(false);
+	};
 
 	// contact
-	const [name, setName] = useState('')
-	const [subject, setSubject] = useState('')
-	const [email, setEmail] = useState('')
-	const [phone, setPhone] = useState('')
-	const [message, setMessage] = useState('')
+	const [name, setName] = useState("");
+	const [subject, setSubject] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+	const [message, setMessage] = useState("");
 
-	const nameEl = useRef(null)
-	const subjectEl = useRef(null)
-	const emailEl = useRef(null)
-	const phoneEl = useRef(null)
-	const messageEl = useRef(null)
+	const nameEl = useRef(null);
+	const subjectEl = useRef(null);
+	const emailEl = useRef(null);
+	const phoneEl = useRef(null);
+	const messageEl = useRef(null);
 
-	const handleNameChange = e => {
-		e.target.classList.remove('error')
-		setName(e.target.value.trim())
-	}
+	const handleNameChange = (e) => {
+		e.target.classList.remove("error");
+		setName(e.target.value.trim());
+	};
 
-	const handleSubjectChange = e => {
-		e.target.classList.remove('error')
-		setSubject(e.target.value.trim())
-	}
+	const handleSubjectChange = (e) => {
+		e.target.classList.remove("error");
+		setSubject(e.target.value.trim());
+	};
 
-	const handleEmailChange = e => {
-		e.target.classList.remove('error')
-		setEmail(e.target.value.trim())
-	}
+	const handleEmailChange = (e) => {
+		e.target.classList.remove("error");
+		setEmail(e.target.value.trim());
+	};
 
-	const handlePhoneChange = e => {
-		e.target.classList.remove('error')
-		setPhone(e.target.value.trim())
-	}
+	const handlePhoneChange = (e) => {
+		e.target.classList.remove("error");
+		setPhone(e.target.value.trim());
+	};
 
-	const handleMessageChange = e => {
-		e.target.classList.remove('error')
-		setMessage(e.target.value.trim())
-	}
+	const handleMessageChange = (e) => {
+		e.target.classList.remove("error");
+		setMessage(e.target.value.trim());
+	};
 
-	const handleSubmit = e => {
-		e.preventDefault()
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
 		//console.log('Sending')
 
-		let error = false
+		let error = false;
 
-		const pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i
+		const pattern =
+			/^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
 
-		if (name === '') {
-			nameEl.current.classList.add('error')
-			error = true
+		if (name === "") {
+			nameEl.current.classList.add("error");
+			error = true;
 		}
 
 		// if (subject === '') {
@@ -75,14 +76,14 @@ export default function Contact() {
 		// 	error = true
 		// }
 
-		if (email === '') {
-			emailEl.current.classList.add('error')
-			error = true
+		if (email === "") {
+			emailEl.current.classList.add("error");
+			error = true;
 		}
 
 		if (!pattern.test(email)) {
-			emailEl.current.classList.add('error')
-			error = true
+			emailEl.current.classList.add("error");
+			error = true;
 		}
 
 		// if (phone === '') {
@@ -90,54 +91,58 @@ export default function Contact() {
 		// 	error = true
 		// }
 
-		if (message === '') {
-			messageEl.current.classList.add('error')
-			error = true
+		if (message === "") {
+			messageEl.current.classList.add("error");
+			error = true;
 		}
 
-		if (error) return
+		if (error) return;
 
 		let data = {
 			name,
 			subject,
 			email,
 			phone,
-			message
-		}
+			message,
+		};
 
-		fetch('/api/sendMail', {
-			method: 'POST',
+		fetch("/api/sendMail", {
+			method: "POST",
 			headers: {
-				'Accept': 'application/json, text/plain, */*',
-				'Content-Type': 'application/json'
+				Accept: "application/json, text/plain, */*",
+				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(data)
-		}).then(res => {
+			body: JSON.stringify(data),
+		}).then((res) => {
 			//console.log('Response received')
 			if (res.status === 200) {
 				//console.log(res)
-				setName('')
-				setSubject('')
-				setEmail('')
-				setPhone('')
-				setMessage('')
+				setName("");
+				setSubject("");
+				setEmail("");
+				setPhone("");
+				setMessage("");
 
-				nameEl.current.value = ''
-				subjectEl.current.value = ''
-				emailEl.current.value = ''
-				phoneEl.current.value = ''
-				messageEl.current.value = ''
+				nameEl.current.value = "";
+				subjectEl.current.value = "";
+				emailEl.current.value = "";
+				phoneEl.current.value = "";
+				messageEl.current.value = "";
 
-				setSnackbarOpen(true)
+				setSnackbarOpen(true);
 			}
-		})
-	}
+		});
+	};
 
 	return (
 		<Layout>
 			<Meta
 				title="যোগাযোগ"
-				description="ড. মোহাম্মদ মানজুরে ইলাহী একাধারে একজন গবেষক, শিক্ষাবিদ, ইসলামিক স্কলার ও লেখক, অন্যদিকে তিনি একজন দা‘ঈ ইলাল্লাহ ও স্বনামধন্য মিডিয়া ব্যক্তিত্ব। তিনি ১৯৮৮ সালে মদীনা ইসলামী বিশ্ববিদ্যালয়ের শরী‘আহ অনুষদে ভর্তি হন এবং অত্যন্ত কৃতিত্বের সাথে সেখান থেকে ব্যাচেলর, মাস্টার্স ও পিএইচডি ডিগ্রি অর্জন করেন।"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত
+				আলেম ও বহু গ্রন্থ প্রণেতা ছিলেন। তাঁর পূর্ণ নাম: আবু নসর
+				মুহাম্মদ আব্দুল্লাহ জাহাঙ্গীর। তাঁর পিতার নাম খোন্দকার
+				আনোয়ারুজ্জামান (রাহি.)। তিনি আব্দুল্লাহ জাহাঙ্গীর নামে
+				দেশ জুড়ে পরিচিত।"
 				url={`${server}/contact`}
 				image={`${server}/img/id/default_share.png`}
 				type="website"
@@ -158,8 +163,7 @@ export default function Contact() {
 										className="contact-form"
 										action=""
 										method="POST"
-										onSubmit={e => handleSubmit(e)}
-									>
+										onSubmit={(e) => handleSubmit(e)}>
 										<div className="row">
 											<div className="col s12 m12 l6">
 												<div className="contact-input">
@@ -167,7 +171,7 @@ export default function Contact() {
 													<input
 														type="text"
 														name="name"
-														onChange={e => handleNameChange(e)}
+														onChange={(e) => handleNameChange(e)}
 														ref={nameEl}
 													/>
 												</div>
@@ -178,7 +182,7 @@ export default function Contact() {
 													<input
 														type="text"
 														name="subject"
-														onChange={e => handleSubjectChange(e)}
+														onChange={(e) => handleSubjectChange(e)}
 														ref={subjectEl}
 													/>
 												</div>
@@ -190,7 +194,7 @@ export default function Contact() {
 														type="text"
 														name="email"
 														placeholder="email@example.com"
-														onChange={e => handleEmailChange(e)}
+														onChange={(e) => handleEmailChange(e)}
 														ref={emailEl}
 													/>
 												</div>
@@ -202,7 +206,7 @@ export default function Contact() {
 														type="text"
 														name="phone"
 														placeholder="+880 1xxxxxxxxx"
-														onChange={e => handlePhoneChange(e)}
+														onChange={(e) => handlePhoneChange(e)}
 														ref={phoneEl}
 													/>
 												</div>
@@ -212,14 +216,18 @@ export default function Contact() {
 													<p>আপনার বার্তা</p>
 													<textarea
 														name="message"
-														onChange={e => handleMessageChange(e)}
-														ref={messageEl}
-													></textarea>
+														onChange={(e) => handleMessageChange(e)}
+														ref={messageEl}></textarea>
 												</div>
 											</div>
 											<div className="col s12 m12 l12">
 												<div className="contact-input">
-													<button className="btn-r" type="submit" name="contact">সাবমিট</button>
+													<button
+														className="btn-r"
+														type="submit"
+														name="contact">
+														সাবমিট
+													</button>
 												</div>
 											</div>
 										</div>
@@ -228,12 +236,11 @@ export default function Contact() {
 							</div>
 							<div className="col col-r s12 m12 l4 xl3">
 								<div className="contact-right">
-
 									<div className="sidebar-profile sc-1">
 										<div className="s-profile-image">
 											{/* <img src="/img/id/profile-01.png" alt="" /> */}
 											<Image
-												src={`${server}/img/id/profile-01.png`}
+												src="/img/abdullah-jahangir.jpg"
 												alt=""
 												layout="fill"
 												objectFit="cover"
@@ -242,18 +249,24 @@ export default function Contact() {
 											/>
 										</div>
 
-										<h2 className="s-profile-name">ড. মোহাম্মদ মানজুরে ইলাহী</h2>
+										<h2 className="s-profile-name">
+											ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর
+										</h2>
 
 										{/*<h3 className="s-profile-title">ইসলামিক স্কলার</h3>*/}
 
 										<ul className="s-profile-social">
 											<li>
-												<a href="https://www.facebook.com/drmonzureelahiofficial" target="_blank">
+												<a
+													href="https://www.facebook.com/Assunnahtrust"
+													target="_blank">
 													<i className="facebook fab fa-facebook-f"></i>
 												</a>
 											</li>
 											<li>
-												<a href="https://www.youtube.com/channel/UCbMys3ID_1S8D1mZuYkoG2A" target="_blank">
+												<a
+													href="https://www.youtube.com/sunnahtrust"
+													target="_blank">
 													<i className="youtube fab fa-youtube"></i>
 												</a>
 											</li>
@@ -277,9 +290,13 @@ export default function Contact() {
 											{/*	</a>*/}
 											{/*</li>*/}
 											<li>
-												<a href="mailto:contact.mme.nu@gmail.com" target="_blank">
+												<a
+													href="mailto:assunnahtrust@gmail.com"
+													target="_blank">
 													{/*<i className="material-icons">email</i>*/}
-													<span title="contact.mme.nu@gmail.com">contact.mme.nu@gmail.com</span>
+													<span title="assunnahtrust@gmail.com">
+														assunnahtrust@gmail.com
+													</span>
 												</a>
 											</li>
 											{/*<li>*/}
@@ -305,8 +322,8 @@ export default function Contact() {
 
 			<Snackbar
 				anchorOrigin={{
-					vertical: 'bottom',
-					horizontal: 'left',
+					vertical: "bottom",
+					horizontal: "left",
 				}}
 				open={snackbarOpen}
 				autoHideDuration={3000}
@@ -314,9 +331,8 @@ export default function Contact() {
 				message="Email send successfully"
 			/>
 		</Layout>
-	)
+	);
 }
-
 
 // const SponsorSlider = () => {
 // 	const settings = {

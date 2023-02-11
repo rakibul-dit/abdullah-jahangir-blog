@@ -7,12 +7,11 @@ import Share from "../../../components/share";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 export default function BookDetail({ detail, books }) {
-	console.log(detail);
 	return (
 		<Layout>
 			<Meta
 				title={detail.bookName}
-				description={`ড. মোহাম্মদ মানজুরে ইলাহী এর বই সমূহ - ${detail.bookDesc}`}
+				description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
 				url={`${server}/books/${detail.bookSlug}`}
 				image={server + detail.imageSrc}
 				type="article"

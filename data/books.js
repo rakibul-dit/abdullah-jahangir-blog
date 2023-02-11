@@ -2,18 +2,18 @@ export const book_cats = [
 	{
 		id: 1,
 		title: "অনুবাদকৃত",
-		slug: "",
+		slug: "অনুবাদকৃত",
 	},
 	{
 		id: 2,
 		title: "আকিদাহ",
-		slug: "",
+		slug: "আকিদাহ",
 	},
 ];
 export const books = [
 	{
 		id: 1,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -33,7 +33,7 @@ export const books = [
 	},
 	{
 		id: 2,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -53,7 +53,7 @@ export const books = [
 	},
 	{
 		id: 3,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -74,7 +74,7 @@ export const books = [
 
 	{
 		id: 4,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -94,7 +94,7 @@ export const books = [
 	},
 	{
 		id: 5,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -114,7 +114,7 @@ export const books = [
 	},
 	{
 		id: 6,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -134,7 +134,7 @@ export const books = [
 	},
 	{
 		id: 7,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -157,7 +157,7 @@ export const books = [
 
 	{
 		id: 8,
-		category: "অনুবাদকৃত",
+		category_slug: "অনুবাদকৃত",
 		home: "1",
 		opt_home: "1",
 		related: "1",
@@ -179,7 +179,7 @@ export const books = [
 	},
 	{
 		id: 9,
-		category: "আকিদাহ",
+		category_slug: "আকিদাহ",
 		home: "0",
 		opt_home: "1",
 		related: "1",
@@ -198,7 +198,7 @@ export const books = [
 	},
 	{
 		id: 10,
-		category: "আকিদাহ",
+		category_slug: "আকিদাহ",
 		home: "0",
 		opt_home: "1",
 		related: "2",
@@ -218,7 +218,7 @@ export const books = [
 	},
 	{
 		id: 11,
-		category: "আকিদাহ",
+		category_slug: "আকিদাহ",
 		home: "0",
 		opt_home: "1",
 		related: "2",
@@ -237,7 +237,7 @@ export const books = [
 	},
 	{
 		id: 12,
-		category: "আকিদাহ",
+		category_slug: "আকিদাহ",
 		home: "0",
 		opt_home: "1",
 		related: "2",
@@ -256,7 +256,7 @@ export const books = [
 	},
 	{
 		id: 13,
-		category: "আকিদাহ",
+		category_slug: "আকিদাহ",
 		home: "0",
 		related: "2",
 		imageSrc: "/img/books/hajj-umrah.jpg",
@@ -274,7 +274,7 @@ export const books = [
 	},
 	{
 		id: 14,
-		category: "আকিদাহ",
+		category_slug: "আকিদাহ",
 		home: "0",
 		related: "2",
 		imageSrc: "/img/books/Muminer-Dua--1-Taibah-Academy.jpg",

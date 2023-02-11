@@ -9,14 +9,16 @@ import {
 import { useState, useEffect, useRef } from "react";
 import Layout from "../../components/layout";
 import Meta from "../../components/meta";
-import PostCardVideo2 from "../../components/card/post-card-video2";
+// import PostCardVideo2 from "../../components/card/post-card-video2";
 import Loader from "../../components/loader";
 import fetcher from "../../lib/lecturesFetcher";
 import useOnScreen from "../../hooks/useOnScreen";
 import { useSWRInfinite } from "swr";
 import Link from "next/link";
 import ListIcon from "@mui/icons-material/List";
-import { CropSquareRounded } from "@material-ui/icons";
+import SortIcon from "@mui/icons-material/Sort";
+// import ViewListIcon from "@mui/icons-material/ViewList";
+// import { CropSquareRounded } from "@material-ui/icons";
 import PostCardAllQns from "../../components/card/post-card-allqns";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {
@@ -63,8 +65,6 @@ export default function QnList({ initialQns, categoryId, categories }) {
 		setSize(1);
 	};
 
-	console.log(datas);
-
 	useEffect(() => {
 		let handler = (e) => {
 			if (catRef.current != null && !catRef.current.contains(e.target)) {
@@ -82,7 +82,7 @@ export default function QnList({ initialQns, categoryId, categories }) {
 		<Layout>
 			<Meta
 				title={pageTitle}
-				description="ড. মোহাম্মদ মানজুরে ইলাহী এর লেকচার সমগ্র"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর প্রশ্নোত্তর সমূহ"
 				url={`${server}/lectures/${categoryId}`}
 				image={`${server}/img/id/default_share.png`}
 				type="website"
@@ -93,15 +93,24 @@ export default function QnList({ initialQns, categoryId, categories }) {
 					<div className="box">
 						<h1 ref={catRef}>
 							<i className="select-tag-icon" onClick={handleCatOpen}>
-								<ListIcon />
+								<SortIcon />
 							</i>{" "}
 							{pageTitle}
 							<div className={"select-tag-list" + (catOpen ? " open" : "")}>
 								<ul>
+									<li
+										className={categoryId == "all" ? "selected" : ""}
+										onClick={() =>
+											getCategorizedQns("all", "প্রশ্নোত্তর সমূহ")
+										}>
+										<Link href="/questions/all">
+											<a>প্রশ্নোত্তর সমূহ</a>
+										</Link>
+									</li>
 									{categories &&
 										categories.map((item) => (
 											<li
-												className={categoryId == item.id ? "selected" : ""}
+												className={categoryId == item.title ? "selected" : ""}
 												key={item.id}
 												onClick={() => getCategorizedQns(item.id, item.title)}>
 												<Link href={"/questions/" + item.title}>

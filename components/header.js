@@ -132,15 +132,13 @@ export default function Header() {
 								{/* <li className="menu-divider"></li> */}
 								<li>
 									<a
-										href="https://www.facebook.com/drmonzureelahiofficial"
+										href="https://www.facebook.com/Assunnahtrust"
 										target="_blank">
 										<i className="facebook fab fa-facebook-f"></i>
 									</a>
 								</li>
 								<li>
-									<a
-										href="https://www.youtube.com/channel/UCbMys3ID_1S8D1mZuYkoG2A"
-										target="_blank">
+									<a href="https://www.youtube.com/sunnahtrust" target="_blank">
 										<i className="youtube fab fa-youtube"></i>
 									</a>
 								</li>

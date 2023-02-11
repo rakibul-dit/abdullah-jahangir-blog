@@ -21,7 +21,7 @@ body {
 	line-height: 1.5;
 	color: var(--txt11);
 	// background: var(--bg11);
-	background-color: #f9f9f9;
+	// background-color: #f9f9f9;
 }
 
 body.modal-active {
@@ -42,10 +42,10 @@ html {
 	//scrollbar-width: thin;  /* Firefox */
 }
 
-.content_without_footer {
-	min-height: 100vh;
-	padding-bottom: 225px;
-}
+// .content_without_footer {
+// min-height: 100vh;
+// padding-bottom: 102px;
+// }
 
 .box {
 	width: 95%;
@@ -69,9 +69,9 @@ html {
 	// .box {
 	// 	width: 94%;
 	// }
-	.content_without_footer {
-		padding-bottom: 102px;
-	}
+	// .content_without_footer {
+	// 	padding-bottom: 102px;
+	// }
 }
 
 .viewport {

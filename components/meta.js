@@ -1,5 +1,5 @@
-import { server } from "../lib/config"
-import Head from 'next/head'
+import { server } from "../lib/config";
+import Head from "next/head";
 
 export default function Meta(props) {
 	return (
@@ -56,93 +56,80 @@ export default function Meta(props) {
 			{/* format-detection */}
 			<meta name="format-detection" content="telephone=no" />
 
-
 			{/* meta information for facebook */}
-			<meta
-				property="og:title"
-				content={props.title || ""}
-				key="ogtitle"
-			/>
-			<meta
-				property="og:url"
-				content={props.url || ""}
-				key="ogurl"
-			/>
-			<meta
-				property="og:image"
-				content={props.image || ""}
-				key="ogimage"
-			/>
-			<meta
-				property="og:type"
-				content={props.type || "website"}
-				key="ogtype"
-			/>
+			<meta property="og:title" content={props.title || ""} key="ogtitle" />
+			<meta property="og:url" content={props.url || ""} key="ogurl" />
+			<meta property="og:image" content={props.image || ""} key="ogimage" />
+			<meta property="og:type" content={props.type || "website"} key="ogtype" />
 			<meta
 				property="og:description"
 				content={props.description || ""}
 				key="ogdesc"
 			/>
-			<meta
-				property="og:locale"
-				content=""
-				key="oglocale"
-			/>
-			<meta
-				property="og:site_name"
-				content="monzureelahi"
-				key="ogsitename"
-			/>
-
+			<meta property="og:locale" content="" key="oglocale" />
+			<meta property="og:site_name" content="monzureelahi" key="ogsitename" />
 
 			{/* meta information for twitter */}
-			<meta
-				name="twitter:card"
-				content="monzureelahi"
-				key="twcard"
-			/>
-			<meta
-				name="twitter:site"
-				content="@monzureelahi"
-				key="twsite"
-			/>
-			<meta
-				name="twitter:url"
-				content={props.url || ""}
-				key="twurl"
-			/>
-			<meta
-				name="twitter:title"
-				content={props.title || ""}
-				key="twtitle"
-			/>
+			<meta name="twitter:card" content="abdullahjahangir" key="twcard" />
+			<meta name="twitter:site" content="@abdullahjahangir" key="twsite" />
+			<meta name="twitter:url" content={props.url || ""} key="twurl" />
+			<meta name="twitter:title" content={props.title || ""} key="twtitle" />
 			<meta
 				name="twitter:description"
 				content={props.description || ""}
 				key="twdesc"
 			/>
-			<meta
-				name="twitter:image"
-				content={props.image || ""}
-				key="twimage"
-			/>
-
+			<meta name="twitter:image" content={props.image || ""} key="twimage" />
 
 			{/* favicon */}
 			{/* Main Link Tags */}
-			<link href={`${server}/img/id/favicon.png`} rel="icon" type="image/png" sizes="16x16" />
-			<link href={`${server}/img/id/favicon.png`} rel="icon" type="image/png" sizes="32x32" />
-			<link href={`${server}/img/id/favicon.png`} rel="icon" type="image/png" sizes="48x48" />
+			<link
+				href={`${server}/img/id/favicon.png`}
+				rel="icon"
+				type="image/png"
+				sizes="16x16"
+			/>
+			<link
+				href={`${server}/img/id/favicon.png`}
+				rel="icon"
+				type="image/png"
+				sizes="32x32"
+			/>
+			<link
+				href={`${server}/img/id/favicon.png`}
+				rel="icon"
+				type="image/png"
+				sizes="48x48"
+			/>
 
 			{/* iOS */}
 			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon" />
-			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon" sizes="76x76" />
-			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon" sizes="120x120" />
-			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon" sizes="152x152" />
-			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon" sizes="180x180" />
+			<link
+				href={`${server}/img/id/favicon.ico`}
+				rel="apple-touch-icon"
+				sizes="76x76"
+			/>
+			<link
+				href={`${server}/img/id/favicon.ico`}
+				rel="apple-touch-icon"
+				sizes="120x120"
+			/>
+			<link
+				href={`${server}/img/id/favicon.ico`}
+				rel="apple-touch-icon"
+				sizes="152x152"
+			/>
+			<link
+				href={`${server}/img/id/favicon.ico`}
+				rel="apple-touch-icon"
+				sizes="180x180"
+			/>
 
 			{/* Startup Image */}
-			<link href="touch-icon-start-up-320x480.png" rel="apple-touch-startup-image" />
+			<link
+				href="touch-icon-start-up-320x480.png"
+				rel="apple-touch-startup-image"
+			/>
 
 			{/* Pinned Tab */}
 			<link href="path/to/icon.svg" rel="mask-icon" size="any" color="red" />
@@ -152,25 +139,41 @@ export default function Meta(props) {
 			<link href={`${server}/img/id/favicon.ico`} rel="icon" sizes="128x128" />
 
 			{/* UC Browser */}
-			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon-precomposed" sizes="57x57" />
-			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon" sizes="72x72" />
+			<link
+				href={`${server}/img/id/favicon.ico`}
+				rel="apple-touch-icon-precomposed"
+				sizes="57x57"
+			/>
+			<link
+				href={`${server}/img/id/favicon.ico`}
+				rel="apple-touch-icon"
+				sizes="72x72"
+			/>
 
 			{/* Others */}
-			<link href={`${server}/img/id/favicon.ico`} rel="shortcut icon" type="image/x-icon" />
+			<link
+				href={`${server}/img/id/favicon.ico`}
+				rel="shortcut icon"
+				type="image/x-icon"
+			/>
 
 			{/* page title */}
-			<title>{props.title != "" ? props.title + " | " : ""} {"ড. মোহাম্মদ মানজুরে ইলাহী অফিসিয়াল ওয়েবসাইট - Official website of Dr. Monzur-E-Elahi"}</title>
+			<title>
+				{props.title != "" ? props.title + " | " : ""}{" "}
+				{
+					"ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর অফিসিয়াল ওয়েবসাইট - Official website of Dr. Khandaker Abdullah Jahangir"
+				}
+			</title>
 
 			{/* Manifest.json */}
 			{/* <link href="/manifest.json" rel="manifest" /> */}
 
-
 			{/* material icons - Icon Library */}
 			{/* <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> */}
-      <link
-        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-        rel="stylesheet"
-      />
+			<link
+				href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+				rel="stylesheet"
+			/>
 		</Head>
-	)
+	);
 }

@@ -15,6 +15,7 @@ import useOnScreen from "../../hooks/useOnScreen";
 import { useSWRInfinite } from "swr";
 import Link from "next/link";
 import ListIcon from "@mui/icons-material/List";
+import SortIcon from "@mui/icons-material/Sort";
 import { CropSquareRounded } from "@material-ui/icons";
 import PostCardAllQns from "../../components/card/post-card-allqns";
 import BookCard from "../../components/card/post-card-book";
@@ -63,7 +64,7 @@ export default function QnList({ initialBooks, categoryId, categories }) {
 		setSize(1);
 	};
 
-	console.log(datas);
+	// console.log(datas);
 
 	useEffect(() => {
 		let handler = (e) => {
@@ -82,7 +83,7 @@ export default function QnList({ initialBooks, categoryId, categories }) {
 		<Layout>
 			<Meta
 				title={pageTitle}
-				description="ড. মোহাম্মদ মানজুরে ইলাহী এর লেকচার সমগ্র"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমগ্র"
 				url={`/books/${categoryId}`}
 				image={`/img/id/default_share.png`}
 				type="website"
@@ -93,20 +94,27 @@ export default function QnList({ initialBooks, categoryId, categories }) {
 					<div className="box">
 						<h1 ref={catRef}>
 							<i className="select-tag-icon" onClick={handleCatOpen}>
-								<ListIcon />
+								<SortIcon />
 							</i>{" "}
 							{pageTitle}
 							<div className={"select-tag-list" + (catOpen ? " open" : "")}>
 								<ul>
+									<li
+										className={categoryId == "all" ? "selected" : ""}
+										onClick={() => getCategorizedBooks("all", "বই সমূহ")}>
+										<Link href="/books/all">
+											<a>বই সমূহ</a>
+										</Link>
+									</li>
 									{categories &&
 										categories.map((item) => (
 											<li
-												className={categoryId == item.id ? "selected" : ""}
+												className={categoryId == item.slug ? "selected" : ""}
 												key={item.id}
 												onClick={() =>
 													getCategorizedBooks(item.id, item.title)
 												}>
-												<Link href={"/books/" + item.title}>
+												<Link href={"/books/" + item.slug}>
 													<a>{item.title}</a>
 												</Link>
 											</li>
@@ -191,7 +199,7 @@ export async function getStaticPaths() {
 	const categories = await getAllBookCategories();
 
 	let paths = categories.map((item) => ({
-		params: { slug: item.title },
+		params: { slug: item.slug },
 	}));
 
 	paths = [{ params: { slug: "all" } }, ...paths];

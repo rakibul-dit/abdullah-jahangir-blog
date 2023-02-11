@@ -74,7 +74,7 @@ export default function HomeBooks({ books, isSmScr }) {
 				<div className="box">
 					<h1 className="title-r">
 						<span>বই সমূহ</span>
-						<Link href="/books/">
+						<Link href="/books/all">
 							<a>আরও দেখুন</a>
 						</Link>
 					</h1>
@@ -91,7 +91,7 @@ export default function HomeBooks({ books, isSmScr }) {
 						</div>
 					) : (
 						<>
-							<div className="recent-slider-outer">
+							{/* <div className="recent-slider-outer">
 								<div className="recent-slider-inner">
 									<Slider className="recent-slider" {...settings}>
 										{books &&
@@ -103,7 +103,7 @@ export default function HomeBooks({ books, isSmScr }) {
 											))}
 									</Slider>
 								</div>
-							</div>
+							</div> */}
 							<div className="recent-slider-outer">
 								<div className="recent-slider-inner">
 									<Slider className="recent-slider" {...settings2}>

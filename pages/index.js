@@ -1,6 +1,5 @@
 import { server } from "../lib/config";
 import {
-	getHomeRecentLectures,
 	getHomePapers,
 	getHomeBooks,
 	getHomeLectures,
@@ -14,12 +13,9 @@ import {
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 import HomeBanner from "../components/home/banner";
-import HomePapers from "../components/home/papers";
 import HomeBooks from "../components/home/books";
-import HomeAbout from "../components/home/about";
 import HomeLectures from "../components/home/lectures";
 import HomeArticles from "../components/home/articles";
-import HomeOrganization from "../components/home/organization";
 import SomeLectures from "../components/home/some-lectures";
 import { useEffect, useState } from "react";
 import HomeQuote from "../components/home/quote";
@@ -28,12 +24,9 @@ import AssunnahTrust from "../components/home/assunnah-trust";
 import HomeQuoteSlider from "../components/home2/quote-slider";
 
 export default function Home({
-	// recents,
-	papers,
-	organizations,
-	books,
 	lectures,
 	articles,
+	books,
 	someLectures,
 	qns,
 	quotes,
@@ -62,10 +55,14 @@ export default function Home({
 	return (
 		<Layout page="homepage">
 			<Meta
-				title=""
-				description="ড. মোহাম্মদ মানজুরে ইলাহী একাধারে একজন গবেষক, শিক্ষাবিদ, ইসলামিক স্কলার ও লেখক, অন্যদিকে তিনি একজন দা‘ঈ ইলাল্লাহ ও স্বনামধন্য মিডিয়া ব্যক্তিত্ব। তিনি ১৯৮৮ সালে মদীনা ইসলামী বিশ্ববিদ্যালয়ের শরী‘আহ অনুষদে ভর্তি হন এবং অত্যন্ত কৃতিত্বের সাথে সেখান থেকে ব্যাচেলর, মাস্টার্স ও পিএইচডি ডিগ্রি অর্জন করেন।"
+				title="হোম"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত
+				আলেম ও বহু গ্রন্থ প্রণেতা ছিলেন। তাঁর পূর্ণ নাম: আবু নসর
+				মুহাম্মদ আব্দুল্লাহ জাহাঙ্গীর। তাঁর পিতার নাম খোন্দকার
+				আনোয়ারুজ্জামান (রাহি.)। তিনি আব্দুল্লাহ জাহাঙ্গীর নামে
+				দেশ জুড়ে পরিচিত।"
 				url={server}
-				image={`${server}/img/id/default_share.png`}
+				image={`${server}/img/id/default_share.jpg`}
 				type="website"
 			/>
 			<HomeBanner />
@@ -77,19 +74,14 @@ export default function Home({
 			<SomeLectures lectures={someLectures} isSmScr={isSmScr} />
 			{/* <HomeQuote /> */}
 			<HomeQuoteSlider quotes={quotes} />
-
-			{/* <HomePapers papers={papers} /> */}
-			{/* <HomeAbout /> */}
-			{/* <HomeOrganization organizations={organizations} /> */}
-			{/* <Newsletter /> */}
 		</Layout>
 	);
 }
 
 export async function getStaticProps(context) {
 	// const recents = await getHomeRecentLectures();
-	const organizations = await getHomeOrganizations();
-	const papers = await getHomePapers();
+	// const organizations = await getHomeOrganizations();
+	// const papers = await getHomePapers();
 	const lectures = await getHomeLectures();
 	const articles = await getHomeArticles();
 	const books = await getHomeBooks();
@@ -99,12 +91,9 @@ export async function getStaticProps(context) {
 
 	return {
 		props: {
-			// recents,
-			papers,
-			organizations,
-			books,
 			lectures,
 			articles,
+			books,
 			someLectures,
 			qns,
 			quotes,
