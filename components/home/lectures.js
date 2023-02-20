@@ -79,7 +79,9 @@ export default function HomeLectures({ lectures, isSmScr }) {
 						<div className="row row-r">
 							{lectures.videoLists &&
 								lectures.videoLists.videos.map((item) => (
-									<div className="col col-r s12 m6 xl3" key={item.id}>
+									<div
+										className="col col-r s12 m6 xl3 hoverable-card"
+										key={item.id}>
 										<PostCardVideo
 											item={item}
 											statistics={lectures.videoLists.videoStats}
@@ -93,7 +95,9 @@ export default function HomeLectures({ lectures, isSmScr }) {
 								<Slider className="recent-slider" {...settings}>
 									{lectures.videoLists &&
 										lectures.videoLists.videos.map((item) => (
-											<div className="col col-r s12 m6 xl3" key={item.id}>
+											<div
+												className="col col-r s12 m6 xl3 hoverable-card"
+												key={item.id}>
 												<PostCardVideo
 													item={item}
 													statistics={lectures.videoLists.videoStats}

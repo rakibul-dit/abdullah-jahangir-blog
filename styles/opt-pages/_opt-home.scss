@@ -435,14 +435,17 @@
 .opt_home_quote {
 	padding-top: 2rem !important;
 }
-.opt_home_quote .page-width {
-	max-width: 2000px;
-}
-.opt_home_quote_slider_wrap {
+// .opt_home_quote .page-width {
+// 	max-width: 2000px;
+// }
+.quote-bg {
 	position: relative;
+	background-image: url("/img/slider/01.jpg");
+	// background-size: cover;
+	border-radius: 1rem;
 }
 .opt_home_quote_slider {
-	position: relative;
+	// position: relative;
 }
 
 // quote slider arrow
@@ -498,5 +501,8 @@
 	}
 	.opt_home_books {
 		padding-bottom: 1rem !important;
+	}
+	.quote-bg {
+		background-image: unset;
 	}
 }

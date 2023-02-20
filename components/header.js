@@ -14,8 +14,9 @@ import ArticleIcon from "@mui/icons-material/ArticleOutlined";
 import CorporateFareIcon from "@mui/icons-material/CorporateFareOutlined";
 import InfoIcon from "@mui/icons-material/InfoOutlined";
 import ContactIcon from "@mui/icons-material/ContactPageOutlined";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Header() {
+export default function Header({ prev_page }) {
 	const router = useRouter();
 
 	const [state, setState] = useState({
@@ -86,7 +87,10 @@ export default function Header() {
 				<div className="page-width w-full">
 					<div className="box">
 						<div className="header-ctn">
-							<Link href="/">
+							<div className="mobile-header-title d-none">
+								<h3>আব্দুল্লাহ জাহাঙ্গীর</h3>
+							</div>
+							{/* <Link href="/">
 								<a className="header-logo d-none">
 									<Image
 										src={`${server}/img/id/logo.png`}
@@ -98,7 +102,7 @@ export default function Header() {
 										loading="eager"
 									/>
 								</a>
-							</Link>
+							</Link> */}
 							<div className="ticker_wrap">
 								<div className="ticker_container">
 									<div className="ticker">
@@ -152,15 +156,19 @@ export default function Header() {
 							</ul>
 
 							<ul className="mobile-icons">
-								<li className="menu-burger" onClick={toggleMobileNav(true)}>
-									<i className="fas fa-bars"></i>
-								</li>
-								{/* <li
-									className="search-icon"
-									title="search"
-									onClick={showSearchModal}>
-									<i className="fas fa-search"></i>
-								</li> */}
+								{router.pathname == "/" ? (
+									<li className="menu-burger" onClick={toggleMobileNav(true)}>
+										<i className="fas fa-bars"></i>
+									</li>
+								) : (
+									<li className="mobile-back">
+										<Link href={prev_page ? prev_page : "/"}>
+											<a>
+												<ArrowBackIcon />
+											</a>
+										</Link>
+									</li>
+								)}
 							</ul>
 						</div>
 					</div>

@@ -3,7 +3,7 @@
 }
 
 .about-top {
-	margin-bottom: 4rem;
+	margin-bottom: 2rem;
 }
 
 .about-top h1 {
@@ -88,6 +88,45 @@
 .about-page-ctn .row,
 .about-page-ctn .about-left {
 	margin-bottom: 0;
+}
+.blog-detail.follow {
+	padding: 0 0.75rem;
+}
+.about-detail-follow-title {
+	line-height: 1.33;
+	font-weight: 700;
+	display: block;
+	font-size: 20px;
+	color: #2d3748;
+	text-decoration: none;
+	margin-bottom: 16px;
+	margin-top: 64px;
+	overflow: hidden;
+}
+.about-detail-follow {
+	display: flex;
+	flex-wrap: wrap;
+}
+.about-detail-follow p {
+	line-height: 30px;
+	margin-bottom: 0;
+	margin-right: 16px;
+	font-size: 16px;
+}
+.blog-detail p a {
+	color: #369fae;
+	text-decoration: none;
+	user-select: none;
+}
+.about-detail-follow p a i {
+	margin-right: 5px;
+}
+.about-detail-follow p a span {
+	color: #2d3748;
+	transition: color 0.25s ease-in;
+}
+.about-detail-follow p a:hover span {
+	color: #f89520;
 }
 // ============================================
 // responsive

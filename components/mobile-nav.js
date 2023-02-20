@@ -107,7 +107,7 @@ export default function MobileNav(props) {
 						</ul>
 					</div>
 
-					<div className="m-menu-bottom">
+					{/* <div className="m-menu-bottom">
 						<hr className="m-menu-hr" />
 
 						<div className="m-menu-social">
@@ -118,6 +118,17 @@ export default function MobileNav(props) {
 								<i className="youtube fab fa-youtube"></i>
 							</a>
 						</div>
+					</div> */}
+					<div className="sidenav-footer d-none">
+						<p className="footer-powered-by">
+							Powered By -{" "}
+							<a
+								className="link-r"
+								href="https://deeniinfotech.com"
+								target="_blank">
+								Deeni Info Tech
+							</a>
+						</p>
 					</div>
 
 					{/*<div className="m-menu-bottom">*/}

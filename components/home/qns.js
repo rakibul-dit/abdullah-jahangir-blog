@@ -53,7 +53,7 @@ export default function HomeQns({ qns, isSmScr }) {
 							{qns &&
 								qns.length &&
 								qns.map((qn, i) => (
-									<div className="col col-r s12" key={i}>
+									<div className="col col-r s12 hoverable-card" key={i}>
 										<PostCardQns qn={qn} />
 									</div>
 								))}
@@ -65,7 +65,7 @@ export default function HomeQns({ qns, isSmScr }) {
 									{qns &&
 										qns.length &&
 										qns.map((qn, i) => (
-											<div className="col col-r" key={i}>
+											<div className="col col-r hoverable-card" key={i}>
 												<PostCardQns qn={qn} />
 											</div>
 										))}

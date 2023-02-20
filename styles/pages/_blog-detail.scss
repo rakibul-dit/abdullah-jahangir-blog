@@ -308,12 +308,21 @@
 	margin-left: 0;
 	font-size: 1.15rem;
 }
+.articles .heading-r {
+	font-size: 1.5rem;
+}
 .assunnah-trust .blog-detail h3 {
 	font-weight: bold;
 }
 // ===========================
 
 // responsive
+@media only screen and (min-width: 1600px) {
+	.row .col.xxl2 {
+		width: 16.66%;
+	}
+}
+
 @media only screen and (max-width: 767px) {
 	.blog-detail-top a.heading-r {
 		font-size: 1.4rem;
@@ -530,6 +539,34 @@ h2.book-title {
 
 p.book-detail-desc {
 	margin-bottom: 0;
+}
+
+.top-back {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+.top-back a {
+	display: flex;
+	align-items: center;
+	margin-right: 1rem;
+	padding: 5px 16px 5px 5px;
+	font-weight: 600;
+	transition: all 0.5s;
+}
+.top-back a > svg {
+	margin-right: 5px;
+}
+.top-back a:hover {
+	border-radius: 20px;
+	background-color: #88aabb;
+}
+
+@media only screen and (max-width: 1140px) {
+	.top-back {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 992px) {

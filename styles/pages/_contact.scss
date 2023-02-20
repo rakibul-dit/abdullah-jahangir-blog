@@ -1,6 +1,6 @@
 .contact-page-ctn {
 	padding: 2rem 0 4rem 0;
-  padding-bottom: 2rem;
+	padding-bottom: 2rem;
 }
 
 .contact-left {
@@ -18,7 +18,7 @@
 	display: block;
 	color: #2d3748;
 	text-decoration: none;
-	margin-bottom: 1rem;
+	// margin-bottom: 1rem;
 	//font-size: 2rem;
 	font-size: 1.5rem;
 	word-spacing: -0.25rem;
@@ -32,9 +32,6 @@
 	font-weight: normal;
 	color: #718096;
 }
-
-
-
 
 form.contact-form {
 	background-color: #fff;
@@ -52,7 +49,8 @@ form.contact-form {
 	margin-bottom: 0.5rem;
 }
 
-.contact-input input[type="text"], .contact-input textarea {
+.contact-input input[type="text"],
+.contact-input textarea {
 	display: block;
 	width: 100%;
 	padding: 0 0.5rem;
@@ -70,8 +68,9 @@ form.contact-form {
 	margin-bottom: 0.75rem;
 }
 
-.contact-input input[type="text"].error, .contact-input textarea.error {
-	border: 1px solid #DE3940 !important;
+.contact-input input[type="text"].error,
+.contact-input textarea.error {
+	border: 1px solid #de3940 !important;
 }
 
 .contact-input textarea {
@@ -108,7 +107,6 @@ form.contact-form {
 	color: #718096;
 }
 
-
 .contact-address {
 	padding: 2rem;
 	box-shadow: var(--bs11);
@@ -116,7 +114,7 @@ form.contact-form {
 	border-radius: 1rem;
 	background-color: #fff;
 	margin-bottom: 4rem;
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .contact-address > p {
@@ -133,13 +131,15 @@ form.contact-form {
 	margin-bottom: 0.25rem;
 }
 
-.contact-address ul li a, .contact-address ul li p {
+.contact-address ul li a,
+.contact-address ul li p {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 }
 
-.contact-address ul li a i, .contact-address ul li p i {
+.contact-address ul li a i,
+.contact-address ul li p i {
 	width: 2.5rem;
 	height: 2.5rem;
 	display: flex;
@@ -157,12 +157,14 @@ form.contact-form {
 	margin-right: 0.25rem;
 }
 
-.contact-address ul li a i:hover, .contact-address ul li p i:hover {
+.contact-address ul li a i:hover,
+.contact-address ul li p i:hover {
 	background-color: var(--main-color);
 	color: #fff;
 }
 
-.contact-address ul li a span, .contact-address ul li p span {
+.contact-address ul li a span,
+.contact-address ul li p span {
 	display: block;
 	width: calc(100% - 2.75rem);
 	white-space: normal;
@@ -170,9 +172,8 @@ form.contact-form {
 	-webkit-box-orient: vertical;
 	//overflow: hidden;
 	text-overflow: ellipsis;
-  // word-break: break-all;
+	// word-break: break-all;
 }
-
 
 // responsive
 @media only screen and (max-width: 992px) {

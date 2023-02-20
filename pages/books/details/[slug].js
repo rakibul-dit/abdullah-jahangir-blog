@@ -5,10 +5,11 @@ import Layout from "../../../components/layout";
 import Meta from "../../../components/meta";
 import Share from "../../../components/share";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import DetailTopBack from "../../../components/detail-top-back";
 
 export default function BookDetail({ detail, books }) {
 	return (
-		<Layout>
+		<Layout prev_page="/books/all">
 			<Meta
 				title={detail.bookName}
 				description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
@@ -20,6 +21,7 @@ export default function BookDetail({ detail, books }) {
 			<section className="blog-detail-ctn">
 				<div className="page-width">
 					<div className="box">
+						<DetailTopBack link="/books/all" />
 						<div className="blog-area">
 							<div className="blog-detail book-detail">
 								<div className="row margin-bottom-0">

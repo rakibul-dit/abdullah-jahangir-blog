@@ -583,15 +583,20 @@
 	.slc-layer a {
 		font-size: 1.5rem;
 	}
+	.qc-1_layer {
+		width: 85%;
+		height: 85%;
+	}
 }
 
 /* quote card 1 */
 .qc-1 {
 	position: relative;
-	background-color: #fff;
+	// background-color: #fff;
 	border-radius: 1rem;
 	overflow: hidden;
 	box-shadow: var(--bs11);
+	padding-top: 36%;
 }
 
 .qc-1_image {
@@ -645,23 +650,6 @@
 @media only screen and (max-width: 1200px) {
 	.qc-1_image {
 		padding-top: 44%;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-	.qc-1_layer {
-		width: 100%;
-		max-width: 100%;
-		height: auto;
-		max-height: 100%;
-		position: relative;
-		top: unset;
-		left: unset;
-		transform: unset;
-		border-radius: 0;
-	}
-	.qc-1_layer h2 {
-		font-size: 1.25rem;
 	}
 }
 
@@ -766,4 +754,32 @@
 
 .card-image-b .image-r {
 	padding-top: 100%;
+}
+@media only screen and (max-width: 768px) {
+	.qc-1_layer {
+		width: 85%;
+		height: 85%;
+	}
+}
+@media only screen and (max-width: 600px) {
+	// .qc-1_layer {
+	// 	width: 100%;
+	// 	max-width: 100%;
+	// 	height: auto;
+	// 	max-height: 100%;
+	// 	position: relative;
+	// 	top: unset;
+	// 	left: unset;
+	// 	transform: unset;
+	// 	border-radius: 0;
+	// }
+	.qc-1_layer h2 {
+		font-size: 1.125rem;
+		line-height: 1.2;
+	}
+	.qc-1_layer {
+		width: 100%;
+		height: 100%;
+		border-radius: 1rem;
+	}
 }

@@ -5,10 +5,11 @@ import Meta from "../../../components/meta";
 import parse from "html-react-parser";
 import Share from "../../../components/share";
 import { getAnsById, getQnaByLimit } from "../../../lib/fetch";
+import DetailTopBack from "../../../components/detail-top-back";
 
 export default function BlogDetail({ ans }) {
 	return (
-		<Layout>
+		<Layout prev_page="/questions/all">
 			<Meta
 				title=""
 				description=""
@@ -20,7 +21,8 @@ export default function BlogDetail({ ans }) {
 				<section className="blog-detail-top">
 					<div className="page-width">
 						<div className="box">
-							<h2 className="qna-header">{ans[0].category}</h2>
+							<DetailTopBack link="/questions/all" />
+							{/* <h2 className="qna-header">{ans[0].category}</h2> */}
 							{/*<span className="date-r">{detail.postDate}</span>*/}
 						</div>
 					</div>

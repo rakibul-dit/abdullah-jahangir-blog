@@ -52,7 +52,7 @@ export default function SomeLectures({ lectures, isSmScr }) {
 								<div>
 									{lectures.videoLists.videos &&
 										lectures.videoLists.videos.map((recent, i) => (
-											<div className="col col-r s12" key={i}>
+											<div className="col col-r s12 hoverable-card" key={i}>
 												<PostCardRecent key={i} recent={recent} />
 											</div>
 										))}

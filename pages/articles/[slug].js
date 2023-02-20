@@ -9,10 +9,11 @@ import Layout from "../../components/layout";
 import Meta from "../../components/meta";
 import parse from "html-react-parser";
 import Share from "../../components/share";
+import DetailTopBack from "../../components/detail-top-back";
 
 export default function BlogDetail({ detail }) {
 	return (
-		<Layout>
+		<Layout prev_page="/articles">
 			<Meta
 				title={detail.postTitle}
 				description={detail.postExcerpt}
@@ -21,21 +22,14 @@ export default function BlogDetail({ detail }) {
 				type="article"
 			/>
 			<div className="articles">
-				<section className="blog-detail-top">
-					<div className="page-width">
-						<div className="box">
-							<Link href={`/articles/${detail.postSlug}`}>
-								<a className="heading-r">{detail.postTitle}</a>
-							</Link>
-							{/*<span className="date-r">{detail.postDate}</span>*/}
-						</div>
-					</div>
-				</section>
-
 				<section className="blog-detail-ctn">
 					<div className="page-width">
 						<div className="box">
+							<DetailTopBack link="/articles" />
 							<div className="blog-area">
+								<Link href={`/articles/${detail.postSlug}`}>
+									<a className="heading-r">{detail.postTitle}</a>
+								</Link>
 								<div className="blog-detail">{parse(detail.postContent)}</div>
 
 								<div className="blog-action">

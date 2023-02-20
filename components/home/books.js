@@ -5,37 +5,6 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 export default function HomeBooks({ books, isSmScr }) {
-	const settings = {
-		autoplay: true,
-		autoplaySpeed: 5000,
-		arrows: true,
-		prevArrow: <RecentPrev />,
-		nextArrow: <RecentNext />,
-		dots: false,
-		draggable: true,
-		slidesToShow: 4,
-		slidesToScroll: 1,
-		speed: 500,
-		infinite: true,
-		cssEase: "ease",
-		centerMode: true,
-		mobileFirst: false,
-		centerPadding: "0px",
-		responsive: [
-			{
-				breakpoint: 1200,
-				settings: {
-					slidesToShow: 4,
-				},
-			},
-			{
-				breakpoint: 900,
-				settings: {
-					slidesToShow: 3,
-				},
-			},
-		],
-	};
 	const settings2 = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -54,9 +23,15 @@ export default function HomeBooks({ books, isSmScr }) {
 		centerPadding: "0px",
 		responsive: [
 			{
+				breakpoint: 1600,
+				settings: {
+					slidesToShow: 4,
+				},
+			},
+			{
 				breakpoint: 1200,
 				settings: {
-					slidesToShow: 5,
+					slidesToShow: 4,
 				},
 			},
 			{
@@ -84,7 +59,9 @@ export default function HomeBooks({ books, isSmScr }) {
 							{books &&
 								books.length &&
 								books.map((book, i) => (
-									<div className="col col-r s6 m6 l4 xl3" key={i}>
+									<div
+										className="col col-r s6 m6 l4 xl3 hoverable-card"
+										key={i}>
 										<BookCard book={book} />
 									</div>
 								))}
@@ -110,7 +87,9 @@ export default function HomeBooks({ books, isSmScr }) {
 										{books &&
 											books.length &&
 											books.map((book, i) => (
-												<div className="col col-r s6 m6 l4 xl3" key={i}>
+												<div
+													className="col col-r s6 m6 l4 xl3 hoverable-card"
+													key={i}>
 													<BookCard book={book} />
 												</div>
 											))}

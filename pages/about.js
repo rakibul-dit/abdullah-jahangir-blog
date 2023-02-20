@@ -17,10 +17,11 @@ export default function About() {
 				image={`${server}/img/id/default_share.png`}
 				type="website"
 			/>
-
 			<section className="about-page-ctn">
 				<div className="page-width">
 					<div className="box">
+						{/* <DetailTopBack link="/" /> */}
+
 						<div className="blog-area">
 							<div className="about-top">
 								<h1>জীবন বৃত্তান্ত</h1>
@@ -128,6 +129,28 @@ export default function About() {
 										{/*	<p>আপনি যদি আপনার প্রশ্ন বা সমস্যার উত্তর না পেয়ে থাকেন, তবে অনুগ্রহ করে নিচের ফর্ম ব্যবহার করে আমাদের সাথে যোগাযোগ করুন এবং যত তাড়াতাড়ি সম্ভব আমরা আপনার সাথে যোগাযোগ করবো।</p>*/}
 										{/*</div>*/}
 									</div>
+								</div>
+							</div>
+							<div className="blog-detail follow">
+								<div className="about-detail-follow-title">ফলো করুন</div>
+
+								<div className="about-detail-follow">
+									<p>
+										<a
+											href="https://www.facebook.com/abu.abdulwahid.9/"
+											target="_blank">
+											<i className="facebook fab fa-facebook-f"></i>
+											<span>Facebook</span>
+										</a>
+									</p>
+									<p>
+										<a
+											href="https://www.youtube.com/@hc6640/videos"
+											target="_blank">
+											<i className="youtube fab fa-youtube"></i>
+											<span>Youtube</span>
+										</a>
+									</p>
 								</div>
 							</div>
 						</div>

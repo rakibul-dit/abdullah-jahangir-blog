@@ -63,23 +63,8 @@ export default function Footer() {
 						</div> */}
 					{/* </div> */}
 
-					<div className="mobile-footer">
+					{/* <div className="mobile-footer">
 						<div className="row row-r">
-							{/* <div className="col col-r s5 l5">
-								<Link href="/">
-									<a className="footer-logo">
-										<Image
-											src={`${server}/img/id/logo_english.png`}
-											alt=""
-											width={120}
-											height={26}
-											objectFit="contain"
-											objectPosition="left top"
-											loading="eager"
-										/>
-									</a>
-								</Link>
-							</div> */}
 							<div className="col col-r s12 l12">
 								<p className="footer-copyright center-align">
 									&copy; ২০২৩, সর্বস্বত্ব সংরক্ষিত
@@ -100,7 +85,7 @@ export default function Footer() {
 								</p>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</footer>

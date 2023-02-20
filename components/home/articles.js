@@ -52,7 +52,7 @@ export default function HomeArticles({ articles, isSmScr }) {
 							{articles &&
 								articles.length &&
 								articles.map((article, i) => (
-									<div className="col col-r s12" key={i}>
+									<div className="col col-r s12 hoverable-card" key={i}>
 										<PostCardArticle article={article} />
 									</div>
 								))}
@@ -64,7 +64,7 @@ export default function HomeArticles({ articles, isSmScr }) {
 									{articles &&
 										articles.length &&
 										articles.map((article, i) => (
-											<div className="col col-r" key={i}>
+											<div className="col col-r hoverable-card" key={i}>
 												<PostCardArticle article={article} />
 											</div>
 										))}
