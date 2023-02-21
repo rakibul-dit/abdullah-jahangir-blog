@@ -15,6 +15,7 @@ import CorporateFareIcon from "@mui/icons-material/CorporateFareOutlined";
 import InfoIcon from "@mui/icons-material/InfoOutlined";
 import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { arrowBackSharp } from "ionicons/icons";
 
 export default function Header({ prev_page }) {
 	const router = useRouter();
@@ -168,6 +169,13 @@ export default function Header({ prev_page }) {
 											</a>
 										</Link>
 									</li>
+									// <li className="mobile-back">
+									// 	<Link href="/">
+									// 		<ion-button>
+									// 			<ion-icon icon={arrowBackSharp}></ion-icon>
+									// 		</ion-button>
+									// 	</Link>
+									// </li>
 								)}
 							</ul>
 						</div>
