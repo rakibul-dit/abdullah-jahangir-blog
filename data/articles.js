@@ -41,7 +41,7 @@ export const articles = [
 	{
 		id: 4,
 		home: "1",
-		postSlug: "مناهج-التعليم-الإسلامي-ومدارسها-في-بنغلاديش:-تاريخ-ومقارنة",
+		postSlug: "madrasha-shikkha",
 		postTitle: "مناهج التعليم الإسلامي ومدارسها في بنغلاديش: تاريخ ومقارنة",
 		postDate: "সেপ্টেম্বর ১৪, ২০১৪",
 		postExcerpt:

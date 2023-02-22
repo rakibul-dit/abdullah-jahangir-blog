@@ -20,8 +20,6 @@ export default function About() {
 			<section className="about-page-ctn">
 				<div className="page-width">
 					<div className="box">
-						{/* <DetailTopBack link="/" /> */}
-
 						<div className="blog-area">
 							<div className="about-top">
 								<h1>জীবন বৃত্তান্ত</h1>
@@ -30,7 +28,7 @@ export default function About() {
 
 							<div className="about-banner">
 								<Image
-									src={`${server}/img/bg/about-abdullah-jahangir.png`}
+									src="/img/bg/about-abdullah-jahangir.png"
 									alt=""
 									layout="fill"
 									objectFit="cover"

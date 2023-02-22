@@ -4,8 +4,6 @@ import Image from "next/image";
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 import Snackbar from "@material-ui/core/Snackbar";
-//import Slider from 'react-slick'
-//import 'slick-carousel/slick/slick.css'
 
 export default function Contact() {
 	//snackbar

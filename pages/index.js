@@ -1,10 +1,8 @@
 import { server } from "../lib/config";
 import {
-	getHomePapers,
 	getHomeBooks,
 	getHomeLectures,
 	getHomeArticles,
-	getHomeOrganizations,
 	getSomeImpLects,
 	getHomeQns,
 	getOptHomeQuotes,
@@ -18,7 +16,6 @@ import HomeLectures from "../components/home/lectures";
 import HomeArticles from "../components/home/articles";
 import SomeLectures from "../components/home/some-lectures";
 import { useEffect, useState } from "react";
-import HomeQuote from "../components/home/quote";
 import HomeQns from "../components/home/qns";
 import AssunnahTrust from "../components/home/assunnah-trust";
 import HomeQuoteSlider from "../components/home2/quote-slider";

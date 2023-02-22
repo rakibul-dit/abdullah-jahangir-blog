@@ -30,12 +30,13 @@ export default function BookDetail({ detail, books }) {
 											<div className="book-detail-left">
 												<div className="book-detail-left-inner">
 													<Image
-														src={server + detail.imageSrc}
+														src={detail.imageSrc}
 														alt=""
 														layout="fill"
 														objectFit="cover"
 														objectPosition="center center"
 														loading="eager"
+														unoptimized
 													/>
 												</div>
 											</div>

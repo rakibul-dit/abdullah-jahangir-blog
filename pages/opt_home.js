@@ -11,7 +11,6 @@ import Footer from "../components/footer";
 
 import HomeCategory from "../components/home2/category";
 import HomeImageSlider from "../components/home2/image-slider";
-import HomeFeatured from "../components/home2/featured";
 import HomePostList from "../components/home2/post-list";
 import HomeQuoteSlider from "../components/home2/quote-slider";
 import HomeBookList from "../components/home2/books";

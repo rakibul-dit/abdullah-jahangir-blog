@@ -1,5 +1,4 @@
 import { server } from "../lib/config";
-import Image from "next/image";
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 
@@ -21,7 +20,6 @@ export default function AssunnahTrust() {
 			<section className="blog-detail-ctn assunnah-trust">
 				<div className="page-width">
 					<div className="box">
-						{/* <DetailTopBack link="/" /> */}
 						<div className="blog-area">
 							<div className="blog-detail">
 								<h2>আস-সুন্নাহ ট্রাস্ট</h2>

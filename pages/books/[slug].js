@@ -1,4 +1,3 @@
-import { server, youtube, constants } from "../../lib/config";
 import {
 	bookFetcher,
 	getAllBookCategories,
@@ -8,16 +7,14 @@ import {
 import { useState, useEffect, useRef } from "react";
 import Layout from "../../components/layout";
 import Meta from "../../components/meta";
-import PostCardVideo2 from "../../components/card/post-card-video2";
+// import PostCardVideo2 from "../../components/card/post-card-video2";
 import Loader from "../../components/loader";
-import fetcher from "../../lib/lecturesFetcher";
+// import fetcher from "../../lib/lecturesFetcher";
 import useOnScreen from "../../hooks/useOnScreen";
 import { useSWRInfinite } from "swr";
 import Link from "next/link";
-import ListIcon from "@mui/icons-material/List";
 import SortIcon from "@mui/icons-material/Sort";
-import { CropSquareRounded } from "@material-ui/icons";
-import PostCardAllQns from "../../components/card/post-card-allqns";
+// import PostCardAllQns from "../../components/card/post-card-allqns";
 import BookCard from "../../components/card/post-card-book";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {

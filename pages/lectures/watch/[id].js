@@ -1,6 +1,6 @@
 import {
 	getUploadPlaylistVideos,
-	getRelatedYoutubeVideoListByUrl,
+	// getRelatedYoutubeVideoListByUrl,
 	getYoutubeVideoDetailsByUrl,
 } from "../../../lib/fetch";
 import { server, youtube } from "../../../lib/config";
