@@ -1,0 +1,7 @@
+{
+	"functions": {
+		"pages/**/*.js": {
+			"excludeFiles": "{+(.now|.next|_next|node_modules|public)/**}"
+		}
+	}
+}
