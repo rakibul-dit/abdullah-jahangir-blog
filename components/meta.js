@@ -67,7 +67,11 @@ export default function Meta(props) {
 				key="ogdesc"
 			/>
 			<meta property="og:locale" content="" key="oglocale" />
-			<meta property="og:site_name" content="monzureelahi" key="ogsitename" />
+			<meta
+				property="og:site_name"
+				content="abdullahjahangir"
+				key="ogsitename"
+			/>
 
 			{/* meta information for twitter */}
 			<meta name="twitter:card" content="abdullahjahangir" key="twcard" />
