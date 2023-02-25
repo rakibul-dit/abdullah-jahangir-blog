@@ -28,13 +28,14 @@ export default function MobileNav(props) {
 							<Link href="/">
 								<a className="m-menu-logo">
 									<Image
-										src={`${server}/img/id/logo.png`}
+										src="/img/id/logo.png"
 										alt=""
-										width={68}
-										height={86}
+										width={100}
+										height={100}
 										objectFit="contain"
 										objectPosition="left center"
 										loading="eager"
+										unoptimized
 									/>
 								</a>
 							</Link>

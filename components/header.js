@@ -15,7 +15,6 @@ import CorporateFareIcon from "@mui/icons-material/CorporateFareOutlined";
 import InfoIcon from "@mui/icons-material/InfoOutlined";
 import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { arrowBackSharp } from "ionicons/icons";
 
 export default function Header({ prev_page }) {
 	const router = useRouter();
@@ -89,7 +88,11 @@ export default function Header({ prev_page }) {
 					<div className="box">
 						<div className="header-ctn">
 							<div className="mobile-header-title d-none">
-								<h3>আব্দুল্লাহ জাহাঙ্গীর</h3>
+								<Link href="/">
+									<a>
+										<h3>আব্দুল্লাহ জাহাঙ্গীর</h3>
+									</a>
+								</Link>
 							</div>
 							{/* <Link href="/">
 								<a className="header-logo d-none">

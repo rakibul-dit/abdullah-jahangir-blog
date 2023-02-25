@@ -135,7 +135,7 @@ export default function About() {
 								<div className="about-detail-follow">
 									<p>
 										<a
-											href="https://www.facebook.com/abu.abdulwahid.9/"
+											href="https://www.facebook.com/Assunnahtrust"
 											target="_blank">
 											<i className="facebook fab fa-facebook-f"></i>
 											<span>Facebook</span>
@@ -143,7 +143,7 @@ export default function About() {
 									</p>
 									<p>
 										<a
-											href="https://www.youtube.com/@hc6640/videos"
+											href="https://www.youtube.com/sunnahtrust"
 											target="_blank">
 											<i className="youtube fab fa-youtube"></i>
 											<span>Youtube</span>
