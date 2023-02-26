@@ -16,6 +16,7 @@ html {
 
 body {
 	font-family: "Kalpurush", sans-serif;
+	--ion-font-family: "Kalpurush", sans-serif;
 	font-size: 1rem;
 	font-weight: normal;
 	line-height: 1.5;
@@ -46,10 +47,10 @@ html {
 	//scrollbar-width: thin;  /* Firefox */
 }
 
-.content_without_footer {
-	min-height: calc(100vh - 96px);
-	background-color: #e6eff4;
-}
+// .content_without_footer {
+// 	min-height: calc(100vh - 96px);
+// 	background-color: #e6eff4;
+// }
 
 .box {
 	width: 95%;
@@ -76,9 +77,9 @@ html {
 	// .content_without_footer {
 	// 	padding-bottom: 102px;
 	// }
-	.content_without_footer {
-		min-height: 100vh;
-	}
+	// .content_without_footer {
+	// 	min-height: 100vh;
+	// }
 }
 
 .viewport {
@@ -89,9 +90,9 @@ html {
 	background-color: #f9f9f9;
 }
 
-.viewport {
-	padding-top: 5.25rem;
-}
+// .viewport {
+// 	padding-top: 5.25rem;
+// }
 
 // .viewport.homepage {
 // background-color: #f4f4f4;

@@ -24,12 +24,16 @@
 	background: #f9f9f9;
 	position: fixed;
 	overflow: auto;
+	margin-top: -5.25rem;
 }
 .content {
 	width: calc(100% - 300px);
 	margin-left: auto;
-	height: 100vh;
-	overflow: auto;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #e6eff4;
 }
 // .content_without_footer {
 // 	min-height: 110vh;

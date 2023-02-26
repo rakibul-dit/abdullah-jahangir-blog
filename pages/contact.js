@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import Meta from "../components/meta";
 import Snackbar from "@material-ui/core/Snackbar";
 
-export default function Contact() {
+export default function Contact({ prev_page = "/" }) {
 	//snackbar
 	const [snackbarOpen, setSnackbarOpen] = useState(false);
 

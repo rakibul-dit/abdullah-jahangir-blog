@@ -5,6 +5,7 @@ import Image from "next/image";
 import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
 import { useRouter } from "next/router";
+import { arrowBackSharp } from "ionicons/icons";
 
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import TvIcon from "@mui/icons-material/TvOutlined";
@@ -165,20 +166,23 @@ export default function Header({ prev_page }) {
 										<i className="fas fa-bars"></i>
 									</li>
 								) : (
-									<li className="mobile-back">
-										<Link href={prev_page ? prev_page : "/"}>
-											<a>
-												<ArrowBackIcon />
-											</a>
-										</Link>
-									</li>
 									// <li className="mobile-back">
-									// 	<Link href="/">
-									// 		<ion-button>
-									// 			<ion-icon icon={arrowBackSharp}></ion-icon>
-									// 		</ion-button>
+									// 	<Link href={prev_page ? prev_page : "/"}>
+									// 		<a>
+									// 			<ArrowBackIcon />
+									// 		</a>
 									// 	</Link>
 									// </li>
+
+									<li className="mobile-back">
+										<Link href={prev_page ? prev_page : "/"}>
+											<ion-buttons slot="start">
+												<ion-button>
+													<ion-icon icon={arrowBackSharp}></ion-icon>
+												</ion-button>
+											</ion-buttons>
+										</Link>
+									</li>
 								)}
 							</ul>
 						</div>

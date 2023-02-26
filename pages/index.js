@@ -27,6 +27,7 @@ export default function Home({
 	someLectures,
 	qns,
 	quotes,
+	prev_page = "/",
 }) {
 	const [isSmScr, setIsSmScr] = useState(false);
 

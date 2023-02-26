@@ -15,6 +15,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "materialize-css/dist/css/materialize.min.css";
 import "slick-carousel/slick/slick.css";
 import "../styles/style.scss";
+import Header from "../components/header";
 
 const App = ({ Component, pageProps }) => {
 	useEffect(() => {
@@ -32,10 +33,17 @@ const App = ({ Component, pageProps }) => {
 		};
 	}, [router.events]);
 
+	console.log(pageProps);
+
 	return (
-		<ion-app>
-			<Component {...pageProps} />
-		</ion-app>
+		<>
+			<div className="ion-page">
+				{/* <Header prev_page="/" /> */}
+				{/* <ion-content> */}
+				<Component {...pageProps} />
+				{/* </ion-content> */}
+			</div>
+		</>
 	);
 };
 
