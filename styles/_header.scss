@@ -144,6 +144,13 @@ ul.main-menu li a:hover {
 ion-button {
 	--color: #607d8b;
 }
+ion-header {
+	width: calc(100% - 300px);
+	margin-left: auto;
+}
+ion-header::after {
+	display: none;
+}
 // --------------------------
 
 @media only screen and (max-width: 1300px) {
@@ -339,6 +346,9 @@ form.search input[type="text"]::-ms-input-placeholder {
 
 // responsive
 @media only screen and (max-width: 1140px) {
+	ion-header {
+		width: 100%;
+	}
 	.mobile-header-title {
 		display: block;
 		color: #106690;

@@ -33,8 +33,6 @@ const App = ({ Component, pageProps }) => {
 		};
 	}, [router.events]);
 
-	console.log(pageProps);
-
 	return (
 		<>
 			<div className="ion-page">
