@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { defineCustomElements as ionDefineCustomElements } from "@ionic/core/loader";
 
 /* Core CSS required for Ionic components to work properly */
@@ -33,13 +33,35 @@ const App = ({ Component, pageProps }) => {
 		};
 	}, [router.events]);
 
+	const [isTab, setIsTab] = useState(false);
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			// set isTab depending on screen size
+			const x = window.matchMedia("(max-width: 768px)");
+			if (x.matches) {
+				setIsTab(true);
+			} else {
+				setIsTab(false);
+			}
+			x.onchange = () => {
+				if (x.matches) {
+					setIsTab(true);
+				} else {
+					setIsTab(false);
+				}
+			};
+		}
+	}, []);
+
 	return (
 		<>
 			<div className="ion-page">
-				{/* <Header prev_page="/" /> */}
-				{/* <ion-content> */}
+				<Header
+					prev_page={Component.prev_page ? Component.prev_page : "/"}
+					isTab={isTab}
+				/>
 				<Component {...pageProps} />
-				{/* </ion-content> */}
 			</div>
 		</>
 	);

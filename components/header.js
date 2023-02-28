@@ -5,7 +5,7 @@ import Image from "next/image";
 import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
 import { useRouter } from "next/router";
-import { arrowBackSharp } from "ionicons/icons";
+import { arrowBackSharp, menuSharp } from "ionicons/icons";
 
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import TvIcon from "@mui/icons-material/TvOutlined";
@@ -17,7 +17,7 @@ import InfoIcon from "@mui/icons-material/InfoOutlined";
 import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Header({ prev_page }) {
+export default function Header({ prev_page, isTab }) {
 	const router = useRouter();
 
 	const [state, setState] = useState({
@@ -83,113 +83,129 @@ export default function Header({ prev_page }) {
 	};
 
 	return (
-		<>
-			<ion-header>
-				<ion-toolbar>
-					<header className="header header-1" ref={header}>
-						<div className="page-width w-full">
-							<div className="box">
-								<div className="header-ctn">
-									<div className="mobile-header-title d-none">
-										<Link href="/">
-											<a>
-												<h3>আব্দুল্লাহ জাহাঙ্গীর</h3>
-											</a>
-										</Link>
-									</div>
+		<div className="header-container">
+			{isTab ? (
+				<ion-header>
+					<ion-toolbar>
+						<ion-buttons slot="start">
+							{router.pathname == "/" ? (
+								<ion-button onClick={toggleMobileNav(true)}>
+									<ion-icon icon={menuSharp}></ion-icon>
+								</ion-button>
+							) : (
+								<Link href={prev_page}>
+									<ion-button>
+										<ion-icon icon={arrowBackSharp}></ion-icon>
+									</ion-button>
+								</Link>
+							)}
+						</ion-buttons>
+						<ion-title>
+							<h3 style={{ color: "#106690" }}>আব্দুল্লাহ জাহাঙ্গীর</h3>
+						</ion-title>
+					</ion-toolbar>
+				</ion-header>
+			) : (
+				<header className="header header-1" ref={header}>
+					<div className="page-width w-full">
+						<div className="box">
+							<div className="header-ctn">
+								<div className="mobile-header-title d-none">
+									<Link href="/">
+										<a>
+											<h3>আব্দুল্লাহ জাহাঙ্গীর</h3>
+										</a>
+									</Link>
+								</div>
 
-									<div className="ticker_wrap">
-										<div className="ticker_container">
-											<div className="ticker">
-												<p className="ticker_item">
-													দান মানুষকে সত্যিকারের মুমিন করে তোলে।
-												</p>
-												<p className="ticker_item">
-													পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
-												</p>
-												<p className="ticker_item">
-													নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি
-													করেছি। নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে
-													সৃষ্টি করেছি।
-												</p>
-											</div>
-											<div className="ticker">
-												<p className="ticker_item">
-													দান মানুষকে সত্যিকারের মুমিন করে তোলে।
-												</p>
-												<p className="ticker_item">
-													পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
-												</p>
-												<p className="ticker_item">
-													নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি
-													করেছি। নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে
-													সৃষ্টি করেছি।
-												</p>
-											</div>
+								<div className="ticker_wrap">
+									<div className="ticker_container">
+										<div className="ticker">
+											<p className="ticker_item">
+												দান মানুষকে সত্যিকারের মুমিন করে তোলে।
+											</p>
+											<p className="ticker_item">
+												পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
+											</p>
+											<p className="ticker_item">
+												নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি
+												করেছি। নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে
+												সৃষ্টি করেছি।
+											</p>
+										</div>
+										<div className="ticker">
+											<p className="ticker_item">
+												দান মানুষকে সত্যিকারের মুমিন করে তোলে।
+											</p>
+											<p className="ticker_item">
+												পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
+											</p>
+											<p className="ticker_item">
+												নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি
+												করেছি। নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে
+												সৃষ্টি করেছি।
+											</p>
 										</div>
 									</div>
-									{/* <ul className="header-icons"> */}
-									<ul className="s-profile-social">
-										{/* <li className="menu-divider"></li> */}
-										<li>
-											<a
-												href="https://www.facebook.com/Assunnahtrust"
-												target="_blank">
-												<i className="facebook fab fa-facebook-f"></i>
-											</a>
-										</li>
-										<li>
-											<a
-												href="https://www.youtube.com/sunnahtrust"
-												target="_blank">
-												<i className="youtube fab fa-youtube"></i>
-											</a>
-										</li>
-										{/* <li className="menu-divider"></li> */}
-										{/* <li
+								</div>
+								{/* <ul className="header-icons"> */}
+								<ul className="s-profile-social">
+									{/* <li className="menu-divider"></li> */}
+									<li>
+										<a
+											href="https://www.facebook.com/Assunnahtrust"
+											target="_blank">
+											<i className="facebook fab fa-facebook-f"></i>
+										</a>
+									</li>
+									<li>
+										<a
+											href="https://www.youtube.com/sunnahtrust"
+											target="_blank">
+											<i className="youtube fab fa-youtube"></i>
+										</a>
+									</li>
+									{/* <li className="menu-divider"></li> */}
+									{/* <li
 									className="search-icon"
 									title="search"
 									onClick={showSearchModal}>
 									<i className="fas fa-search"></i>
 								</li> */}
-									</ul>
+								</ul>
 
-									<ul className="mobile-icons">
-										{router.pathname == "/" ? (
-											<li
-												className="menu-burger"
-												onClick={toggleMobileNav(true)}>
-												<i className="fas fa-bars"></i>
-											</li>
-										) : (
-											// <li className="mobile-back">
-											// 	<Link href={prev_page ? prev_page : "/"}>
-											// 		<a>
-											// 			<ArrowBackIcon />
-											// 		</a>
-											// 	</Link>
-											// </li>
+								<ul className="mobile-icons">
+									{router.pathname == "/" ? (
+										<li className="menu-burger" onClick={toggleMobileNav(true)}>
+											<i className="fas fa-bars"></i>
+										</li>
+									) : (
+										// <li className="mobile-back">
+										// 	<Link href={prev_page ? prev_page : "/"}>
+										// 		<a>
+										// 			<ArrowBackIcon />
+										// 		</a>
+										// 	</Link>
+										// </li>
 
-											<li className="mobile-back">
-												<Link href={prev_page ? prev_page : "/"}>
-													<ion-buttons slot="start">
-														<ion-button>
-															<ion-icon icon={arrowBackSharp}></ion-icon>
-														</ion-button>
-													</ion-buttons>
-												</Link>
-											</li>
-										)}
-									</ul>
-								</div>
+										<li className="mobile-back">
+											<Link href={prev_page}>
+												<ion-buttons slot="start">
+													<ion-button>
+														<ion-icon icon={arrowBackSharp}></ion-icon>
+													</ion-button>
+												</ion-buttons>
+											</Link>
+										</li>
+									)}
+								</ul>
 							</div>
 						</div>
-					</header>
-				</ion-toolbar>
-			</ion-header>
-
+					</div>
+				</header>
+			)}
 			{/* <SearchModal /> */}
 			<MobileNav navOpen={state.mobileNavOpen} navControl={toggleMobileNav} />
-		</>
+		</div>
 	);
 }

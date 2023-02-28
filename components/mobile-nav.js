@@ -13,8 +13,16 @@ import PersonIcon from "@mui/icons-material/Person";
 import MailIcon from "@mui/icons-material/Mail";
 import { QuestionAnswer } from "@material-ui/icons";
 import { CorporateFare } from "@mui/icons-material";
+import { useRouter } from "next/router";
 
 export default function MobileNav(props) {
+	const router = useRouter();
+	const handleClick = (e) => {
+		e.preventDefault();
+		props.navControl(false)(e);
+		router.push(e.target.href);
+	};
+
 	return (
 		<Drawer
 			anchor="left"
@@ -25,85 +33,71 @@ export default function MobileNav(props) {
 				<div className="m-menu-wrap">
 					<div className="m-menu-ctn">
 						<div className="m-menu-top">
-							<Link href="/">
-								<a className="m-menu-logo">
-									<Image
-										src="/img/id/logo.png"
-										alt=""
-										width={100}
-										height={100}
-										objectFit="contain"
-										objectPosition="left center"
-										loading="eager"
-										unoptimized
-									/>
-								</a>
-							</Link>
+							{/* <Link href="/"> */}
+							<a className="m-menu-logo" onClick={handleClick}>
+								<Image
+									src="/img/id/logo.png"
+									alt=""
+									width={100}
+									height={100}
+									objectFit="contain"
+									objectPosition="left center"
+									loading="eager"
+									unoptimized
+								/>
+							</a>
+							{/* </Link> */}
 						</div>
 
 						<ul className="m-menu">
 							<li>
-								<Link href="/">
-									<a>
-										<HomeIcon />
-										হোম
-									</a>
-								</Link>
+								<a href="/" onClick={handleClick}>
+									<HomeIcon />
+									হোম
+								</a>
 							</li>
 							<li>
-								<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
-									<a>
-										<VideoLibraryIcon />
-										লেকচার
-									</a>
-								</Link>
+								<a
+									href={`/lectures/${youtube.uploadPlaylistID}`}
+									onClick={handleClick}>
+									<VideoLibraryIcon />
+									লেকচার
+								</a>
 							</li>
 							<li>
-								<Link href="/articles">
-									<a>
-										<LibraryBooksIcon />
-										প্রবন্ধ
-									</a>
-								</Link>
+								<a href="/articles" onClick={handleClick}>
+									<LibraryBooksIcon />
+									প্রবন্ধ
+								</a>
 							</li>
 							<li>
-								<Link href="/books/all">
-									<a>
-										<MenuBookIcon />
-										বই
-									</a>
-								</Link>
+								<a href="/books/all" onClick={handleClick}>
+									<MenuBookIcon />
+									বই
+								</a>
 							</li>
 							<li>
-								<Link href="/questions/all">
-									<a>
-										<QuestionAnswer />
-										প্রশ্নোত্তর
-									</a>
-								</Link>
+								<a href="/questions/all" onClick={handleClick}>
+									<QuestionAnswer />
+									প্রশ্নোত্তর
+								</a>
 							</li>
 							<li>
-								<Link href="/assunnah-trust" passHref>
-									<a>
-										<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
-									</a>
-								</Link>
+								<a href="/assunnah-trust" onClick={handleClick}>
+									<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
+								</a>
 							</li>
 							<li>
-								<Link href="/about">
-									<a>
-										<PersonIcon />
-										জীবন বৃত্তান্ত
-									</a>
-								</Link>
+								<a href="/about" onClick={handleClick}>
+									<PersonIcon />
+									জীবন বৃত্তান্ত
+								</a>
 							</li>
 							<li>
-								<Link href="/contact">
-									<a>
-										<MailIcon />
-										যোগাযোগ
-									</a>
-								</Link>
+								<a href="/contact" onClick={handleClick}>
+									<MailIcon />
+									যোগাযোগ
+								</a>
 							</li>
 						</ul>
 					</div>

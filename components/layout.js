@@ -5,7 +5,7 @@ import Sidenav from "./sidenav";
 export default function Layout({ children, page, prev_page }) {
 	return (
 		<>
-			<Header prev_page={prev_page} />
+			{/* <Header prev_page={prev_page} /> */}
 			<ion-content>
 				{/* <div className="wrapper"> */}
 				<Sidenav />

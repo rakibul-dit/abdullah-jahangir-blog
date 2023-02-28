@@ -141,13 +141,16 @@ ul.main-menu li a:hover {
 .mobile-header-title {
 	font-size: 1.5rem;
 }
-ion-button {
+.header-container ion-button {
 	--color: #607d8b;
 }
-ion-header {
-	width: calc(100% - 300px);
-	margin-left: auto;
+.header-container ion-toolbar {
+	--background: #f9f9f9;
 }
+// ion-header {
+// 	width: calc(100% - 300px);
+// 	margin-left: auto;
+// }
 ion-header::after {
 	display: none;
 }
@@ -346,9 +349,9 @@ form.search input[type="text"]::-ms-input-placeholder {
 
 // responsive
 @media only screen and (max-width: 1140px) {
-	ion-header {
-		width: 100%;
-	}
+	// ion-header {
+	// 	width: 100%;
+	// }
 	.mobile-header-title {
 		display: block;
 		color: #106690;

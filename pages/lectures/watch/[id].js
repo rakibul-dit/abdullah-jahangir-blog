@@ -12,6 +12,8 @@ import Share from "../../../components/share";
 import { date } from "../../../lib/format";
 import DetailTopBack from "../../../components/detail-top-back";
 
+VideoDetail.prev_page = `/lectures/${youtube.uploadPlaylistID}`;
+
 export default function VideoDetail({ id, data }) {
 	// const fetcher = (...args) => fetch(...args).then(res => res.json())
 	// const url = `${youtube.url}/videos?key=${youtube.key}&part=snippet,statistics&id=${id}&maxResults=${constants.YOUTUBE_RELATED_VIDEOS_PAGE_LIMIT}`
@@ -33,7 +35,7 @@ export default function VideoDetail({ id, data }) {
 	};
 
 	return (
-		<Layout prev_page={`/lectures/${youtube.uploadPlaylistID}`}>
+		<Layout>
 			<Meta
 				title={title}
 				description={description}

@@ -7,9 +7,11 @@ import Share from "../../../components/share";
 import { getAnsById, getQnaByLimit } from "../../../lib/fetch";
 import DetailTopBack from "../../../components/detail-top-back";
 
+BlogDetail.prev_page = "/questions/all";
+
 export default function BlogDetail({ ans }) {
 	return (
-		<Layout prev_page="/questions/all">
+		<Layout>
 			<Meta
 				title=""
 				description=""

@@ -7,9 +7,11 @@ import Share from "../../../components/share";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import DetailTopBack from "../../../components/detail-top-back";
 
+BookDetail.prev_page = "/books/all";
+
 export default function BookDetail({ detail, books }) {
 	return (
-		<Layout prev_page="/books/all">
+		<Layout>
 			<Meta
 				title={detail.bookName}
 				description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
