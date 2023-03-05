@@ -1,6 +1,7 @@
 import {
 	bookFetcher,
 	getAllBookCategories,
+	getBookCatTitle,
 	getBooksByCategory,
 	qaFetcher,
 } from "../../lib/fetch";
@@ -22,12 +23,17 @@ const getKey = (pageIndex, prevPageData, categoryId) => {
 	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
 
-export default function QnList({ initialBooks, categoryId, categories }) {
+export default function QnList({
+	initialBooks,
+	categoryId,
+	categories,
+	catTitle,
+}) {
 	const ref = useRef();
 	const catRef = useRef();
 	const isVisible = useOnScreen(ref);
 	// const pageTitle = categories[categoryId].title;
-	const pageTitle = categoryId == "all" ? "বই সমূহ" : categoryId;
+	const pageTitle = catTitle;
 
 	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
 		(...args) => getKey(...args, categoryId),
@@ -186,12 +192,14 @@ export async function getStaticProps({ params }) {
 	// const videoLists = await getYoutubeVideoListByUrl(url);
 	const books = await getBooksByCategory({ currentPage, categoryId });
 	const categories = await getAllBookCategories();
+	const catTitle = await getBookCatTitle(categoryId);
 
 	return {
 		props: {
 			initialBooks: [books],
 			categoryId: categoryId,
 			categories,
+			catTitle,
 		},
 		revalidate: 60,
 	};
