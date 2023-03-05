@@ -34,6 +34,7 @@ export default function About() {
 									objectFit="cover"
 									objectPosition="center center"
 									loading="eager"
+									unoptimized
 								/>
 							</div>
 

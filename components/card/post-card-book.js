@@ -57,6 +57,7 @@ export default function BookCard({
 							objectFit="cover"
 							objectPosition="center center"
 							loading="eager"
+							unoptimized
 						/>
 					</a>
 				</Link>

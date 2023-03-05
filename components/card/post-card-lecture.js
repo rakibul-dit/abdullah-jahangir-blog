@@ -1,6 +1,6 @@
-import { server } from '../../lib/config'
-import Link from 'next/link'
-import Image from 'next/image'
+import { server } from "../../lib/config";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function PostCardLecture({
 	lecture: {
@@ -8,8 +8,8 @@ export default function PostCardLecture({
 		imageSrc = "",
 		postTitle = "",
 		postExcerpt = "",
-		postDate = ""
-	}
+		postDate = "",
+	},
 } = {}) {
 	return (
 		<div className="card card-r pc-0">
@@ -24,6 +24,7 @@ export default function PostCardLecture({
 							objectFit="cover"
 							objectPosition="center center"
 							loading="eager"
+							unoptimized
 						/>
 					</a>
 				</Link>
@@ -31,16 +32,12 @@ export default function PostCardLecture({
 
 			<div className="card-content">
 				<Link href={`/lectures/${postID}`}>
-					<a className="heading-r">
-						{postTitle}
-					</a>
+					<a className="heading-r">{postTitle}</a>
 				</Link>
 
-				<p className="paragraph-r">
-					{postExcerpt}
-				</p>
+				<p className="paragraph-r">{postExcerpt}</p>
 				<span className="date-r">{postDate}</span>
 			</div>
 		</div>
-	)
+	);
 }

@@ -67,6 +67,7 @@ export default function VideoDetail({ id, data }) {
 											objectFit="cover"
 											objectPosition="center center"
 											loading="eager"
+											unoptimized
 										/>
 									</div>
 									<iframe
