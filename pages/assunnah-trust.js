@@ -2,6 +2,8 @@ import { server } from "../lib/config";
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 
+AssunnahTrust.title = "আস-সুন্নাহ ট্রাষ্ট";
+
 export default function AssunnahTrust() {
 	return (
 		<Layout>

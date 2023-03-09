@@ -23,7 +23,9 @@ const getKey = (pageIndex, prevPageData, categoryId) => {
 	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
 
-export default function QnList({
+BookList.title = "বই সমূহ";
+
+export default function BookList({
 	initialBooks,
 	categoryId,
 	categories,

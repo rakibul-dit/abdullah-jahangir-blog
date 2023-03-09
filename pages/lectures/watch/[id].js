@@ -13,6 +13,7 @@ import { date } from "../../../lib/format";
 import DetailTopBack from "../../../components/detail-top-back";
 
 VideoDetail.prev_page = `/lectures/${youtube.uploadPlaylistID}`;
+VideoDetail.title = "লেকচার সমূহ";
 
 export default function VideoDetail({ id, data }) {
 	// const fetcher = (...args) => fetch(...args).then(res => res.json())

@@ -347,6 +347,38 @@ form.search input[type="text"]::-ms-input-placeholder {
 	scale: (0.9);
 }
 
+/*------------------------------------------------ */
+/* --------- ionic --------- */
+ion-toolbar ion-title {
+	z-index: 9;
+}
+ion-toolbar ion-buttons {
+	z-index: 99;
+}
+ion-toolbar ion-title {
+	font-size: 20px;
+}
+.header-ios ion-toolbar:last-of-type {
+	--border-width: 0 0 0px;
+}
+.back-btn > {
+	ion-button {
+		--padding-start: 12px;
+		--padding-end: 12px;
+	}
+	:last-child {
+		display: none;
+	}
+}
+.ios .back-btn > {
+	:first-child {
+		display: none;
+	}
+	:last-child {
+		--padding-start: 0;
+		display: block;
+	}
+}
 // responsive
 @media only screen and (max-width: 1140px) {
 	// ion-header {

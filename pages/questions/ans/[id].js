@@ -7,9 +7,10 @@ import Share from "../../../components/share";
 import { getAnsById, getQnaByLimit } from "../../../lib/fetch";
 import DetailTopBack from "../../../components/detail-top-back";
 
-BlogDetail.prev_page = "/questions/all";
+QnA.prev_page = "/questions/all";
+QnA.title = "প্রশ্নোত্তর";
 
-export default function BlogDetail({ ans }) {
+export default function QnA({ ans }) {
 	return (
 		<Layout>
 			<Meta

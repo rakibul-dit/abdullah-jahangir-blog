@@ -8,6 +8,7 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import DetailTopBack from "../../../components/detail-top-back";
 
 BookDetail.prev_page = "/books/all";
+BookDetail.title = "বই সমূহ";
 
 export default function BookDetail({ detail, books }) {
 	return (

@@ -5,7 +5,7 @@ import Image from "next/image";
 import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
 import { useRouter } from "next/router";
-import { arrowBackSharp, menuSharp } from "ionicons/icons";
+import { arrowBackSharp, menuSharp, chevronBack } from "ionicons/icons";
 
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import TvIcon from "@mui/icons-material/TvOutlined";
@@ -17,7 +17,7 @@ import InfoIcon from "@mui/icons-material/InfoOutlined";
 import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Header({ prev_page, isTab }) {
+export default function Header({ prev_page, isTab, title }) {
 	const router = useRouter();
 
 	const [state, setState] = useState({
@@ -94,14 +94,20 @@ export default function Header({ prev_page, isTab }) {
 								</ion-button>
 							) : (
 								<Link href={prev_page}>
-									<ion-button>
-										<ion-icon icon={arrowBackSharp}></ion-icon>
-									</ion-button>
+									<div className="back-btn">
+										<ion-button>
+											<ion-icon icon={arrowBackSharp}></ion-icon>
+										</ion-button>
+										<ion-button>
+											<ion-icon icon={chevronBack}></ion-icon>
+											<span>Back</span>
+										</ion-button>
+									</div>
 								</Link>
 							)}
 						</ion-buttons>
 						<ion-title>
-							<h3 style={{ color: "#106690" }}>আব্দুল্লাহ জাহাঙ্গীর</h3>
+							<h3 style={{ color: "#106690" }}>{title}</h3>
 						</ion-title>
 					</ion-toolbar>
 				</ion-header>
@@ -113,7 +119,7 @@ export default function Header({ prev_page, isTab }) {
 								<div className="mobile-header-title d-none">
 									<Link href="/">
 										<a>
-											<h3>আব্দুল্লাহ জাহাঙ্গীর</h3>
+											<h3>{title}</h3>
 										</a>
 									</Link>
 								</div>

@@ -25,6 +25,8 @@ const getKey = (pageIndex, prevPageData, categoryId) => {
 	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
 
+QnList.title = "প্রশ্নোত্তর";
+
 export default function QnList({ initialQns, categoryId, categories }) {
 	const ref = useRef();
 	const catRef = useRef();

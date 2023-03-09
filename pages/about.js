@@ -3,6 +3,8 @@ import Image from "next/image";
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 
+About.title = "জীবন বৃত্তান্ত";
+
 export default function About() {
 	return (
 		<Layout>
