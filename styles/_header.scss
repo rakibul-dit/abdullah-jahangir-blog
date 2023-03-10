@@ -466,7 +466,7 @@ ion-toolbar ion-title {
 		display: block;
 		width: 300px;
 		max-width: 85vw;
-		height: 100vh;
+		height: 100%;
 		padding: 0;
 		margin: 0;
 		background: #fff;
@@ -476,7 +476,7 @@ ion-toolbar ion-title {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		min-height: 100vh;
+		min-height: 100%;
 		justify-content: space-between;
 		overflow-y: auto;
 	}
