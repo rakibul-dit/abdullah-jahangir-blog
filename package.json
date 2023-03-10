@@ -34,9 +34,7 @@
 		"react-slick": "^0.28.0",
 		"sass": "^1.32.8",
 		"slick-carousel": "^1.8.1",
-		"swr": "^0.5.5"
-	},
-	"devDependencies": {
+		"swr": "^0.5.5",
 		"copy-webpack-plugin": "6.2.1"
 	}
 }
