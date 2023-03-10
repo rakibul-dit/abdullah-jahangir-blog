@@ -1,5 +1,10 @@
 import { article1Content } from "./article-1";
 import { article10Content } from "./article-10";
+import { article11Content } from "./article-11";
+import { article12Content } from "./article-12";
+import { article13Content } from "./article-13";
+import { article14Content } from "./article-14";
+import { article15Content } from "./article-15";
 import { article2Content } from "./article-2";
 import { article3Content } from "./article-3";
 import { article4Content } from "./article-4";
@@ -119,48 +124,54 @@ export const articles = [
 		postContent: article10Content,
 	},
 	{
-		id: 4,
+		id: 11,
 		home: "1",
-		postSlug: "",
-		postTitle: "",
-		postDate: "",
-		postExcerpt: "",
-		postContent: article5Content,
+		postSlug: "কুরআন-এবং-বাইবেলে-জিহাদ-এর-ব্যাখ্যা",
+		postTitle: "কুরআন এবং বাইবেলে জিহাদ এর ব্যাখ্যা",
+		postDate: "সেপ্টেম্বর 13, 2014",
+		postExcerpt:
+			"Pope Benedict XVI blamed Islam for conception of Jihad and assured that God does not like violence and violence is incompatible with the nature of God. Most Western scholars and thinkers may agree with the Pope. According to their view, Islam teaches its followers",
+		postContent: article11Content,
 	},
 	{
-		id: 4,
+		id: 12,
 		home: "1",
-		postSlug: "",
-		postTitle: "",
-		postDate: "",
-		postExcerpt: "",
-		postContent: article5Content,
+		postSlug: "যুদ্ধ-ও-ফোর্স-আইন-আল-কুরআন",
+		postTitle: "যুদ্ধ ও ফোর্স আইন আল-কুরআন",
+		postDate: "সেপ্টেম্বর 13, 2014",
+		postExcerpt:
+			"The Western people blame Islam for its law of War or Jihad. According to their view, Islam teaches its followers to be non-tolerant towards other religions. It orders Muslims to wage ‘Jihad’ against non-Muslims and kill them. This is why Pope Benedict XVI blamed Islam",
+		postContent: article12Content,
 	},
 	{
-		id: 4,
+		id: 13,
 		home: "1",
-		postSlug: "",
-		postTitle: "",
-		postDate: "",
-		postExcerpt: "",
-		postContent: article5Content,
+		postSlug: "রিজালশাস্ত্রে-ইবনে-আদীর-কর্মপ্রচেষ্টা",
+		postTitle: "রিজালশাস্ত্রে ইবনে আদীর কর্মপ্রচেষ্টা",
+		postDate: "সেপ্টেম্বর 13, 2014",
+		postExcerpt:
+			"مقال للدكتور خوندكار أبو نصر عبد الله جهانغير، نشر في مجلة دراسات الجامعة الإسلامية، (القسم الأول) المجلد التاسع، العدد الثاني، يونيو 2001م (ربيع الأول 1422هـ)",
+		postContent: article13Content,
 	},
 	{
-		id: 4,
+		id: 14,
 		home: "1",
-		postSlug: "",
-		postTitle: "",
-		postDate: "",
-		postExcerpt: "",
-		postContent: article5Content,
+		postSlug: "সন্তানের-অধিকার",
+		postTitle: "সন্তানের অধিকার",
+		postDate: "সেপ্টেম্বর 29, 2014",
+		postExcerpt:
+			"নাহমাদুহু ওয়া নুসাল্লী আলা রাসূলিহীল কারীম। আম্মা বাদ, আজ আমরা সন্তানের অধিকার ও সন্তানের প্রতি পিতামাতার কর্তব্য বিষয়ে আলোচনা করব, ইনশা আল্লাহ পৃথিবীর জীবনে মানুষের প্রিয়তম বস্তু ও হৃদয়ের অন্যতম আনন্দ হলো সন্তান-সন্ততি। শুধু তাই নয় আখেরাতের জীবনেরও সাথী ও আনন্দ",
+		postContent: article14Content,
 	},
 	{
-		id: 4,
+		id: 15,
 		home: "1",
-		postSlug: "",
-		postTitle: "",
-		postDate: "",
-		postExcerpt: "",
-		postContent: article5Content,
+		postSlug: "যিলহজ্জ-মাস-এবং-প্রথম-তেরদিনের-আমল-সমূহ",
+		postTitle: "যিলহজ্জ মাস এবং প্রথম তেরদিনের আমল সমূহ",
+		postDate: "সেপ্টেম্বর 27, 2014",
+		postExcerpt: `আল্লাহ তা’য়ালা বলেন:
+		لإن شكرتم لأزيدنكم وإن كفرتم إن عذابي لشديد
+		অর্থঃ “যদি তোমরা আমার নিয়া’মতের শুকরিয়া আদায় কর তাহলে আমি তোমাদের নিয়া’মত বৃদ্ধি করে দিব । আর যদি তোমরা নাশুকরিয়া কর তাহলে (জেনে রেখ ) আমার আযাব বড় কঠিন।”`,
+		postContent: article15Content,
 	},
 ];

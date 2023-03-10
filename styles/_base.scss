@@ -16,13 +16,15 @@ html {
 
 body {
 	font-family: "Kalpurush", sans-serif;
-	--ion-font-family: "Kalpurush", sans-serif;
 	font-size: 1rem;
 	font-weight: normal;
 	line-height: 1.5;
 	color: var(--txt11);
 	// background: var(--bg11);
 	// background-color: #f9f9f9;
+}
+ion-content {
+	--ion-font-family: "Kalpurush", sans-serif;
 }
 // .home-2 .ion-page,
 // body.home-2 {

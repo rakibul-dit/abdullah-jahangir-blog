@@ -82,6 +82,10 @@ export default function Header({ prev_page, isTab, title }) {
 		setState({ mobileNavOpen: open });
 	};
 
+	const goBack = () => {
+		router.push(prev_page);
+	};
+
 	return (
 		<div className="header-container">
 			{isTab ? (
@@ -93,17 +97,20 @@ export default function Header({ prev_page, isTab, title }) {
 									<ion-icon icon={menuSharp}></ion-icon>
 								</ion-button>
 							) : (
-								<Link href={prev_page}>
-									<div className="back-btn">
-										<ion-button>
-											<ion-icon icon={arrowBackSharp}></ion-icon>
-										</ion-button>
-										<ion-button>
-											<ion-icon icon={chevronBack}></ion-icon>
-											<span>Back</span>
-										</ion-button>
-									</div>
-								</Link>
+								<ion-back-button
+									default-href={prev_page}
+									onClick={goBack}></ion-back-button>
+								// 		<Link href={prev_page} passHref>
+								// 	<div className="back-btn">
+								// 		<ion-button>
+								// 			<ion-icon icon={arrowBackSharp}></ion-icon>
+								// 		</ion-button>
+								// 		<ion-button>
+								// 			<ion-icon icon={chevronBack}></ion-icon>
+								// 			<span>Back</span>
+								// 		</ion-button>
+								// 	</div>
+								// </Link>
 							)}
 						</ion-buttons>
 						<ion-title>
