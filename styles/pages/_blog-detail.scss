@@ -273,19 +273,19 @@
 	margin: 20px 0 20px 0;
 }
 // ======= arabic text =============
-.articles .blog-detail > div > p,
-.articles .blog-detail > div > div > ol,
-.articles .blog-detail div > h2 {
-	text-align: right;
-	font-family: MeQuran;
-	direction: rtl;
-}
-.articles .blog-detail > div > div > ol li {
+// .articles .blog-detail > div > p,
+// .articles .blog-detail > div > div > ol,
+// .articles .blog-detail div > h2 {
+// 	text-align: right;
+// 	font-family: MeQuran;
+// 	direction: rtl;
+// }
+.articles .blog-detail ol li {
 	list-style-type: decimal;
 }
 
 .articles .blog-detail ul li {
-	list-style-type: none;
+	list-style-type: disc;
 }
 .articles .blog-detail p {
 	margin-bottom: 1rem;
@@ -293,13 +293,13 @@
 .articles .blog-detail h2 {
 	margin-bottom: 0.5rem;
 }
-.articles .blog-detail > p > span {
-	font-family: MeQuran;
-}
+// .articles .blog-detail > p > span {
+// 	font-family: MeQuran;
+// }
 
 .articles .blog-detail ul,
 .articles .blog-detail ol {
-	margin-left: 10px;
+	margin-left: 24px;
 	margin-bottom: 1rem;
 }
 .articles .blog-detail div > div > ul,
@@ -309,11 +309,57 @@
 	font-size: 1.15rem;
 }
 .articles .heading-r {
-	font-size: 1.5rem;
+	font-size: 2rem;
 }
 .assunnah-trust .blog-detail h3 {
 	font-weight: bold;
 }
+// ------------ article according to assunnah trust website ----------------
+.articles .blog-detail h3,
+.articles .blog-detail h4 {
+	font-size: 1.75rem;
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.2;
+}
+.articles .blog-detail h3 {
+	font-size: 1.75rem;
+}
+.articles .blog-detail h4 {
+	font-size: 1.5rem;
+}
+.articles .blog-detail h2 {
+	font-size: 2rem;
+}
+.articles .blog-detail strong {
+	font-weight: bold;
+}
+.articles ul.modern-footnotes-list {
+	list-style-type: none;
+	margin: 1em 0;
+	padding-left: 0;
+}
+.articles .modern-footnotes-list li {
+	display: flex;
+	font-size: 1rem;
+	margin-bottom: 0.3em;
+}
+.modern-footnotes-list li > span {
+	margin-right: 1.5em;
+	color: #777;
+	word-wrap: normal;
+	word-break: normal;
+}
+.has-text-align-right {
+	text-align: right;
+}
+.elementor-kit-6 a {
+	color: #0090ff;
+}
+// ----------------------------
+
 // ===========================
 
 // responsive
