@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
+import { useRouter } from "next/router";
 import { arrowBackSharp, menuSharp, chevronBack } from "ionicons/icons";
 
 import HomeIcon from "@mui/icons-material/HomeOutlined";
@@ -17,6 +18,8 @@ import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Header({ prev_page, isTab, title }) {
+	const router = useRouter();
+
 	const [state, setState] = useState({
 		mobileNavOpen: false,
 	});
