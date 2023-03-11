@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
-import { useRouter } from "next/router";
 import { arrowBackSharp, menuSharp, chevronBack } from "ionicons/icons";
 
 import HomeIcon from "@mui/icons-material/HomeOutlined";
@@ -18,8 +17,6 @@ import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Header({ prev_page, isTab, title }) {
-	const router = useRouter();
-
 	const [state, setState] = useState({
 		mobileNavOpen: false,
 	});
@@ -82,10 +79,6 @@ export default function Header({ prev_page, isTab, title }) {
 		setState({ mobileNavOpen: open });
 	};
 
-	const goBack = () => {
-		router.push(prev_page);
-	};
-
 	return (
 		<div className="header-container">
 			{isTab ? (
@@ -93,24 +86,29 @@ export default function Header({ prev_page, isTab, title }) {
 					<ion-toolbar>
 						<ion-buttons slot="start">
 							{router.pathname == "/" ? (
-								<ion-button onClick={toggleMobileNav(true)}>
-									<ion-icon icon={menuSharp}></ion-icon>
-								</ion-button>
+								<div className="menu-btn">
+									<ion-button onClick={toggleMobileNav(true)}>
+										<ion-icon icon={menuSharp}></ion-icon>
+									</ion-button>
+								</div>
 							) : (
-								<ion-back-button
-									default-href={prev_page}
-									onClick={goBack}></ion-back-button>
-								// 		<Link href={prev_page} passHref>
-								// 	<div className="back-btn">
-								// 		<ion-button>
-								// 			<ion-icon icon={arrowBackSharp}></ion-icon>
-								// 		</ion-button>
-								// 		<ion-button>
-								// 			<ion-icon icon={chevronBack}></ion-icon>
-								// 			<span>Back</span>
-								// 		</ion-button>
-								// 	</div>
-								// </Link>
+								<>
+									{/* <ion-back-button
+										icon="chevron-back"
+										default-href="/"
+										onClick={goBack}></ion-back-button> */}
+									<Link href={prev_page} passHref>
+										<div className="back-btn">
+											<ion-button>
+												<ion-icon icon={arrowBackSharp}></ion-icon>
+											</ion-button>
+											<ion-button>
+												<ion-icon icon={chevronBack}></ion-icon>
+												<span>Back</span>
+											</ion-button>
+										</div>
+									</Link>
+								</>
 							)}
 						</ion-buttons>
 						<ion-title>

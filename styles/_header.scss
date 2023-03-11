@@ -367,8 +367,21 @@ ion-toolbar ion-title {
 		--padding-start: 12px;
 		--padding-end: 12px;
 	}
+	:first-child ion-icon {
+		font-size: 24px;
+	}
+	// ios btn
+	:last-child ion-icon {
+		font-size: 1.85em;
+		margin-left: unset;
+		margin-right: unset;
+		margin-inline-start: -4px;
+		margin-inline-end: -5px;
+	}
 	:last-child {
+		--padding-start: 0;
 		display: none;
+		height: 2em;
 	}
 }
 .ios .back-btn > {
@@ -376,8 +389,12 @@ ion-toolbar ion-title {
 		display: none;
 	}
 	:last-child {
-		--padding-start: 0;
 		display: block;
+	}
+}
+.header-ios {
+	.menu-btn ion-button {
+		height: 2em;
 	}
 }
 // responsive
