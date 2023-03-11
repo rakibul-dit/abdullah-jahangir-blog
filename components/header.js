@@ -107,7 +107,7 @@ export default function Header({ prev_page, isTab, title }) {
 											</ion-button>
 											<ion-button>
 												<ion-icon icon={chevronBack}></ion-icon>
-												<span>Back</span>
+												{/* <span>Back</span> */}
 											</ion-button>
 										</div>
 									</Link>
