@@ -36,7 +36,9 @@ export default function AssunnahTrust() {
 										বহুমুখী শিক্ষায়ন প্রকল্প পরিচালনা, ত্রাণ বিতরণ, স্বল্পমূল্যে
 									</h2>
 									<Link href="https://assunnahtrust.org/">
-										<a className="see-more-1"> আরও দেখুন </a>
+										<a target="_blank" className="see-more-1">
+											আরও দেখুন
+										</a>
 									</Link>
 								</div>
 							</div>

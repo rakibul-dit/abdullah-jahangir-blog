@@ -11,9 +11,12 @@ import parse from "html-react-parser";
 import Share from "../../components/share";
 import DetailTopBack from "../../components/detail-top-back";
 
+BlogDetail.prev_page = "/articles";
+BlogDetail.title = "প্রবন্ধ সমূহ";
+
 export default function BlogDetail({ detail }) {
 	return (
-		<Layout prev_page="/articles">
+		<Layout>
 			<Meta
 				title={detail.postTitle}
 				description={detail.postExcerpt}

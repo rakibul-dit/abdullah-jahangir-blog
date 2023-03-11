@@ -28,6 +28,7 @@ export default function PostCardVideo2({ item, statistics }) {
 							objectFit="cover"
 							objectPosition="center center"
 							loading="eager"
+							unoptimized
 						/>
 					</a>
 				</Link>

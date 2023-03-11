@@ -5,6 +5,8 @@ import Meta from "../../components/meta";
 import PostCardArticle from "../../components/card/post-card-article";
 import Pagination from "../../components/pagination";
 
+BlogList.title = "প্রবন্ধ সমূহ";
+
 export default function BlogList({ articles }) {
 	return (
 		<Layout>

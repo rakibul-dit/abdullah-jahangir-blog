@@ -24,6 +24,8 @@ const getKey = (pageIndex, previousPageData, playlistId) => {
 	return `${youtube.url}/playlistItems?key=${youtube.key}&part=snippet&playlistId=${playlistId}&maxResults=${constants.DEFAULT_PAGE_LIMIT}${pageToken}`;
 };
 
+LectureList.title = "লেকচার সমূহ";
+
 export default function LectureList({
 	initialVideos,
 	initPlaylistId,

@@ -20,7 +20,7 @@
 	// box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.06);
 	// display: block;
 	display: flex;
-	position: fixed;
+	// position: fixed;
 	transition: transform 400ms ease-in-out;
 	z-index: 999;
 }
@@ -40,7 +40,7 @@
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
-	padding: 2rem 0;
+	// padding: 2rem 0;
 }
 
 .header-logo {
@@ -140,6 +140,19 @@ ul.main-menu li a:hover {
 }
 .mobile-header-title {
 	font-size: 1.5rem;
+}
+.header-container ion-button {
+	--color: #607d8b;
+}
+.header-container ion-toolbar {
+	--background: #f9f9f9;
+}
+// ion-header {
+// 	width: calc(100% - 300px);
+// 	margin-left: auto;
+// }
+ion-header::after {
+	display: none;
 }
 // --------------------------
 
@@ -334,8 +347,64 @@ form.search input[type="text"]::-ms-input-placeholder {
 	scale: (0.9);
 }
 
+/*------------------------------------------------ */
+/* --------- ionic --------- */
+ion-toolbar ion-title {
+	font-family: "Kalpurush", sans-serif;
+	z-index: 9;
+}
+ion-toolbar ion-buttons {
+	z-index: 99;
+}
+ion-toolbar ion-title {
+	font-size: 20px;
+}
+.header-ios ion-toolbar:last-of-type {
+	--border-width: 0 0 0px;
+}
+.back-btn > {
+	ion-button {
+		--padding-start: 12px;
+		--padding-end: 12px;
+	}
+	:first-child ion-icon {
+		font-size: 24px;
+	}
+	// ios btn
+	:last-child ion-icon {
+		font-size: 1.85em;
+		margin-left: unset;
+		margin-right: unset;
+		margin-inline-start: -4px;
+		margin-inline-end: -5px;
+	}
+	:last-child {
+		--padding-start: 0;
+		display: none;
+		height: 2em;
+	}
+}
+.ios .back-btn > {
+	:first-child {
+		display: none;
+	}
+	:last-child {
+		display: block;
+	}
+}
+.header-ios {
+	.menu-btn ion-button {
+		height: 2em;
+	}
+}
+.mobile-back ion-button ion-icon {
+	font-size: 24px;
+}
 // responsive
 @media only screen and (max-width: 1140px) {
+	// ion-header {
+	// 	width: 100%;
+	// }
 	.mobile-header-title {
 		display: block;
 		color: #106690;
@@ -418,7 +487,7 @@ form.search input[type="text"]::-ms-input-placeholder {
 		display: block;
 		width: 300px;
 		max-width: 85vw;
-		height: 100vh;
+		height: 100%;
 		padding: 0;
 		margin: 0;
 		background: #fff;
@@ -428,14 +497,14 @@ form.search input[type="text"]::-ms-input-placeholder {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		min-height: 100vh;
+		min-height: 100%;
 		justify-content: space-between;
 		overflow-y: auto;
 	}
 
 	.m-menu-ctn {
 		width: 100%;
-		margin-bottom: 1.5rem;
+		// margin-bottom: 1.5rem;
 	}
 
 	.m-menu-top {

@@ -5,7 +5,9 @@ import Layout from "../components/layout";
 import Meta from "../components/meta";
 import Snackbar from "@material-ui/core/Snackbar";
 
-export default function Contact() {
+Contact.title = "যোগাযোগ";
+
+export default function Contact({ prev_page = "/" }) {
 	//snackbar
 	const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -244,6 +246,7 @@ export default function Contact() {
 												objectFit="cover"
 												objectPosition="center center"
 												loading="eager"
+												unoptimized
 											/>
 										</div>
 
