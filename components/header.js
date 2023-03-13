@@ -136,28 +136,24 @@ export default function Header({ prev_page, isTab, title }) {
 									<div className="ticker_container">
 										<div className="ticker">
 											<p className="ticker_item">
-												দান মানুষকে সত্যিকারের মুমিন করে তোলে।
+												ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) উম্মাহর সম্পদ।
 											</p>
 											<p className="ticker_item">
-												পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
+												এখানে আমরা শাইখ এর সকল আলোচনা, বই, প্রবন্ধ, প্রশ্নোত্তর এবং আরও অন্যান্য বিষয় শ্রেণিবিন্যাস অনুযায়ী পাবো ইন শা আল্লাহ।
 											</p>
 											<p className="ticker_item">
-												নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি
-												করেছি। নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে
-												সৃষ্টি করেছি।
+												আমরা সকলে শেয়ার করে ছড়িয়ে দেয়ার চেষ্টা করি।
 											</p>
 										</div>
 										<div className="ticker">
 											<p className="ticker_item">
-												দান মানুষকে সত্যিকারের মুমিন করে তোলে।
+												ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) উম্মাহর সম্পদ।
 											</p>
 											<p className="ticker_item">
-												পড় তোমার প্রভুর নামে যিনি তোমাকে সৃষ্টি করেছেন।
+												এখানে আমরা শাইখ এর সকল আলোচনা, বই, প্রবন্ধ, প্রশ্নোত্তর এবং আরও অন্যান্য বিষয় শ্রেণিবিন্যাস অনুযায়ী পাবো ইন শা আল্লাহ।
 											</p>
 											<p className="ticker_item">
-												নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে সৃষ্টি
-												করেছি। নিশ্চয়ই আমি মানুষকে কষ্ট ও পরিশ্রমনির্ভর করে
-												সৃষ্টি করেছি।
+												আমরা সকলে শেয়ার করে ছড়িয়ে দেয়ার চেষ্টা করি।
 											</p>
 										</div>
 									</div>
@@ -167,7 +163,7 @@ export default function Header({ prev_page, isTab, title }) {
 									{/* <li className="menu-divider"></li> */}
 									<li>
 										<a
-											href="https://www.facebook.com/Assunnahtrust"
+											href="https://www.facebook.com/Dr.KhandakerAbdullahJahangir.Official"
 											target="_blank">
 											<i className="facebook fab fa-facebook-f"></i>
 										</a>

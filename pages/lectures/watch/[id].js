@@ -9,7 +9,7 @@ import Image from "next/image";
 import Layout from "../../../components/layout";
 import Meta from "../../../components/meta";
 import Share from "../../../components/share";
-import { date } from "../../../lib/format";
+import {date, formatNumber} from "../../../lib/format";
 import DetailTopBack from "../../../components/detail-top-back";
 
 VideoDetail.prev_page = `/lectures/${youtube.uploadPlaylistID}`;
@@ -42,7 +42,7 @@ export default function VideoDetail({ id, data }) {
 				description={description}
 				url={`${server}/lectures/watch/${id}`}
 				image={image}
-				type="article"
+				type="website"
 			/>
 
 			<section className="blog-detail-ctn video-blog-detail">
@@ -85,7 +85,7 @@ export default function VideoDetail({ id, data }) {
 											<h2 className="margin-bottom-0">{title}</h2>
 										</div>
 										<div className="data-line-left">
-											<span className="view-r">{viewCount} views</span>
+											<span className="view-r">{formatNumber(viewCount)} views</span>
 											<span className="dot"></span>
 											<span className="date-r">{publishedDate}</span>
 										</div>

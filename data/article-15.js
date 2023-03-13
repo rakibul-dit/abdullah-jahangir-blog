@@ -33,7 +33,7 @@ export const article15Content = `
 <p><!-- /wp:button --></p>
 </div>
 <p><!-- /wp:buttons --><!-- wp:paragraph --></p>
-<p>Dr. Abdullah Jahangir:&nbsp; <a href="https://www.facebook.com/Dr.KhandakerAbdullahJahangir" target="_blank" rel="noreferrer noopener">https://www.facebook.com/Dr.KhandakerAbdullahJahangir</a></p>
+<p>Dr. Abdullah Jahangir:&nbsp; <a href="https://www.facebook.com/Dr.KhandakerAbdullahJahangir" target="_blank" rel="noreferrer noopener">https://www.facebook.com/Dr.KhandakerAbdullahJahangir.Official</a></p>
 <p><!-- /wp:paragraph --><!-- wp:paragraph --></p>
 <p>ASSUNNAH TRUST:&nbsp; <a href="https://www.facebook.com/Assunnahtrust" target="_blank" rel="noreferrer noopener">https://www.facebook.com/Assunnahtrust</a></p>
 <p><!-- /wp:paragraph --><!-- wp:paragraph --></p>

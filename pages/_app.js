@@ -60,7 +60,7 @@ const App = ({ Component, pageProps }) => {
 				<Header
 					prev_page={Component.prev_page ? Component.prev_page : "/"}
 					isTab={isTab}
-					title={Component.title ? Component.title : "আব্দুল্লাহ জাহাঙ্গীর"}
+					title={Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"}
 				/>
 				<Component {...pageProps} />
 			</div>

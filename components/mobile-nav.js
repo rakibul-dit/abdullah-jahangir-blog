@@ -67,24 +67,19 @@ export default function MobileNav(props) {
 							<li>
 								<a href="/articles" onClick={handleClick}>
 									<LibraryBooksIcon />
-									প্রবন্ধ
+									প্রবন্ধ সমূহ
 								</a>
 							</li>
 							<li>
 								<a href="/books/all" onClick={handleClick}>
 									<MenuBookIcon />
-									বই
+									বই সমূহ
 								</a>
 							</li>
 							<li>
 								<a href="/questions/all" onClick={handleClick}>
 									<QuestionAnswer />
 									প্রশ্নোত্তর
-								</a>
-							</li>
-							<li>
-								<a href="/assunnah-trust" onClick={handleClick}>
-									<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
 								</a>
 							</li>
 							<li>
@@ -97,6 +92,11 @@ export default function MobileNav(props) {
 								<a href="/contact" onClick={handleClick}>
 									<MailIcon />
 									যোগাযোগ
+								</a>
+							</li>
+							<li>
+								<a href="/assunnah-trust" onClick={handleClick}>
+									<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
 								</a>
 							</li>
 						</ul>

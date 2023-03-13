@@ -65,7 +65,7 @@ export default function Sidenav() {
 									<a className={isActive("/articles", router.asPath)}>
 										<div className="indicator"></div>
 										<div className="wrap d-flex align-center com-transition">
-											<LibraryBooks /> প্রবন্ধ
+											<LibraryBooks /> প্রবন্ধ সমূহ
 										</div>
 									</a>
 								</Link>
@@ -75,7 +75,7 @@ export default function Sidenav() {
 									<a className={isActive("/books", router.asPath)}>
 										<div className="indicator"></div>
 										<div className="wrap d-flex align-center com-transition">
-											<MenuBook /> বই
+											<MenuBook /> বই সমূহ
 										</div>
 									</a>
 								</Link>
@@ -86,19 +86,6 @@ export default function Sidenav() {
 										<div className="indicator"></div>
 										<div className="wrap d-flex align-center com-transition">
 											<QuestionAnswer /> প্রশ্নোত্তর
-										</div>
-									</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="/assunnah-trust" passHref>
-									<a
-										className={
-											router.pathname === "/assunnah-trust" ? "active" : null
-										}>
-										<div className="indicator"></div>
-										<div className="wrap d-flex align-center com-transition">
-											<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
 										</div>
 									</a>
 								</Link>
@@ -122,6 +109,19 @@ export default function Sidenav() {
 										<div className="indicator"></div>
 										<div className="wrap d-flex align-center com-transition">
 											<Mail /> যোগাযোগ
+										</div>
+									</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="/assunnah-trust" passHref>
+									<a
+										className={
+											router.pathname === "/assunnah-trust" ? "active" : null
+										}>
+										<div className="indicator"></div>
+										<div className="wrap d-flex align-center com-transition">
+											<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
 										</div>
 									</a>
 								</Link>

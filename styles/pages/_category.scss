@@ -67,7 +67,7 @@
 	position: absolute;
 	top: 100%;
 	left: 0;
-	width: 100%;
+	width: 50%;
 	//max-width: 800px;
 	background: #fff;
 	border-top: 1px solid #ddd;
@@ -90,7 +90,7 @@
 .select-tag-list ul {
 	width: 100%;
 	height: auto;
-	max-height: 162px;
+	max-height: 400px;
 	overflow: auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -245,6 +245,10 @@
 
 	.select-tag-list ul {
 		max-height: 400px;
+	}
+
+	.select-tag-list {
+		width: 100%;
 	}
 }
 
