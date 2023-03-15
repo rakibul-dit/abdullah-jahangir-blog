@@ -1,4 +1,4 @@
-import { server } from "../lib/config";
+import {emailSenderName, receiverEmail, server} from "../lib/config";
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Layout from "../components/layout";
@@ -56,7 +56,7 @@ export default function Contact({ prev_page = "/" }) {
 		setMessage(e.target.value.trim());
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		//console.log('Sending')
@@ -98,24 +98,34 @@ export default function Contact({ prev_page = "/" }) {
 
 		if (error) return;
 
+		// START SENDING EMAIL
+		let body = "<b>Name: </b>" + name + "<br/>" +
+			"<b>Email: </b>" + email + "<br/>" +
+			"<b>Subject: </b>" + subject + "<br/>" +
+			"<b>Phone: </b>" + phone + "<br/>" +
+			"<b>Message: </b>" + message + "<br/>"
+
+		let receiver = receiverEmail;
+		let sender = emailSenderName;
+
 		let data = {
-			name,
-			subject,
+			body,
 			email,
-			phone,
-			message,
+			name,
+			receiver,
+			sender
 		};
 
-		fetch("/api/sendMail", {
-			method: "POST",
-			headers: {
-				Accept: "application/json, text/plain, */*",
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		}).then((res) => {
-			//console.log('Response received')
-			if (res.status === 200) {
+		try {
+			const response = await fetch("https://dit-mail-client.vercel.app/email-client", {
+				method: "POST",
+				headers: {
+					Accept: "application/json, text/plain, */*",
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+			if (response.ok) {
 				//console.log(res)
 				setName("");
 				setSubject("");
@@ -130,8 +140,13 @@ export default function Contact({ prev_page = "/" }) {
 				messageEl.current.value = "";
 
 				setSnackbarOpen(true);
+			} else {
+				console.error("Error! Please try again later.");
 			}
-		});
+		} catch (error) {
+			console.error(error);
+		}
+		// END SENDING EMAIL
 	};
 
 	return (
@@ -152,12 +167,12 @@ export default function Contact({ prev_page = "/" }) {
 				<div className="page-width">
 					<div className="box">
 						<div className="row row-r">
-							<div className="col col-r s12 m12 l8 xl9">
+							<div className="col col-r s12 m12 l12 xl12">
 								<div className="contact-left">
-									<div className="contact-top">
-										<h1>যোগাযোগ করুন</h1>
-										{/*<p>আপনি যদি আপনার প্রশ্ন বা সমস্যার উত্তর না পেয়ে থাকেন, তবে অনুগ্রহ করে নিচের ফর্ম ব্যবহার করে আমাদের সাথে যোগাযোগ করুন এবং যত তাড়াতাড়ি সম্ভব আমরা আপনার সাথে যোগাযোগ করবো।</p>*/}
-									</div>
+									{/*<div className="contact-top">*/}
+									{/*	<h1>যোগাযোগ করুন</h1>*/}
+									{/*	/!*<p>আপনি যদি আপনার প্রশ্ন বা সমস্যার উত্তর না পেয়ে থাকেন, তবে অনুগ্রহ করে নিচের ফর্ম ব্যবহার করে আমাদের সাথে যোগাযোগ করুন এবং যত তাড়াতাড়ি সম্ভব আমরা আপনার সাথে যোগাযোগ করবো।</p>*!/*/}
+									{/*</div>*/}
 
 									<form
 										className="contact-form"
@@ -234,88 +249,90 @@ export default function Contact({ prev_page = "/" }) {
 									</form>
 								</div>
 							</div>
-							<div className="col col-r s12 m12 l4 xl3">
-								<div className="contact-right">
-									<div className="sidebar-profile sc-1">
-										<div className="s-profile-image">
-											{/* <img src="/img/id/profile-01.png" alt="" /> */}
-											<Image
-												src="/img/abdullah-jahangir.jpg"
-												alt=""
-												layout="fill"
-												objectFit="cover"
-												objectPosition="center center"
-												loading="eager"
-												unoptimized
-											/>
-										</div>
 
-										<h2 className="s-profile-name">
-											ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর
-										</h2>
+							{/*<div className="col col-r s12 m12 l4 xl3">*/}
+							{/*	<div className="contact-right">*/}
+							{/*		<div className="sidebar-profile sc-1">*/}
+							{/*			<div className="s-profile-image">*/}
+							{/*				/!* <img src="/img/id/profile-01.png" alt="" /> *!/*/}
+							{/*				<Image*/}
+							{/*					src="/img/abdullah-jahangir.jpg"*/}
+							{/*					alt=""*/}
+							{/*					layout="fill"*/}
+							{/*					objectFit="cover"*/}
+							{/*					objectPosition="center center"*/}
+							{/*					loading="eager"*/}
+							{/*					unoptimized*/}
+							{/*				/>*/}
+							{/*			</div>*/}
 
-										{/*<h3 className="s-profile-title">ইসলামিক স্কলার</h3>*/}
+							{/*			<h2 className="s-profile-name">*/}
+							{/*				ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর*/}
+							{/*			</h2>*/}
 
-										<ul className="s-profile-social">
-											<li>
-												<a
-													href="https://www.facebook.com/Assunnahtrust"
-													target="_blank">
-													<i className="facebook fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li>
-												<a
-													href="https://www.youtube.com/sunnahtrust"
-													target="_blank">
-													<i className="youtube fab fa-youtube"></i>
-												</a>
-											</li>
-											{/*<li>*/}
-											{/*	<a href="https://twitter.com/dr_manjureelahi" target="_blank">*/}
-											{/*		<i className="twitter fab fa-twitter"></i>*/}
-											{/*	</a>*/}
-											{/*</li>*/}
-										</ul>
-									</div>
+							{/*			/!*<h3 className="s-profile-title">ইসলামিক স্কলার</h3>*!/*/}
 
-									{/*<h2 className="sidebar-title">আমাদের ঠিকানা</h2>*/}
+							{/*			<ul className="s-profile-social">*/}
+							{/*				<li>*/}
+							{/*					<a*/}
+							{/*						href="https://www.facebook.com/Assunnahtrust"*/}
+							{/*						target="_blank">*/}
+							{/*						<i className="facebook fab fa-facebook-f"></i>*/}
+							{/*					</a>*/}
+							{/*				</li>*/}
+							{/*				<li>*/}
+							{/*					<a*/}
+							{/*						href="https://www.youtube.com/sunnahtrust"*/}
+							{/*						target="_blank">*/}
+							{/*						<i className="youtube fab fa-youtube"></i>*/}
+							{/*					</a>*/}
+							{/*				</li>*/}
+							{/*				/!*<li>*!/*/}
+							{/*				/!*	<a href="https://twitter.com/dr_manjureelahi" target="_blank">*!/*/}
+							{/*				/!*		<i className="twitter fab fa-twitter"></i>*!/*/}
+							{/*				/!*	</a>*!/*/}
+							{/*				/!*</li>*!/*/}
+							{/*			</ul>*/}
+							{/*		</div>*/}
 
-									<div className="contact-address">
-										<p>আমাদের সাথে যোগাযোগ করুন</p>
-										<ul>
-											{/*<li>*/}
-											{/*	<a href="tel:+01725845784">*/}
-											{/*		<i className="material-icons">call</i>*/}
-											{/*		<span title="+880 0000000">+880 0000000</span>*/}
-											{/*	</a>*/}
-											{/*</li>*/}
-											<li>
-												<a
-													href="mailto:assunnahtrust@gmail.com"
-													target="_blank">
-													{/*<i className="material-icons">email</i>*/}
-													<span title="assunnahtrust@gmail.com">
-														assunnahtrust@gmail.com
-													</span>
-												</a>
-											</li>
-											{/*<li>*/}
-											{/*	<p>*/}
-											{/*		<i className="material-icons">near_me</i>*/}
-											{/*		<span>১৫৫, হাজী মহসিন রোড, খুলনা</span>*/}
-											{/*	</p>*/}
-											{/*</li>*/}
-										</ul>
-									</div>
+							{/*		/!*<h2 className="sidebar-title">আমাদের ঠিকানা</h2>*!/*/}
 
-									{/*<h2 className="sidebar-title">প্রতিষ্ঠানসমূহ</h2>*/}
+							{/*		<div className="contact-address">*/}
+							{/*			<p>আমাদের সাথে যোগাযোগ করুন</p>*/}
+							{/*			<ul>*/}
+							{/*				/!*<li>*!/*/}
+							{/*				/!*	<a href="tel:+01725845784">*!/*/}
+							{/*				/!*		<i className="material-icons">call</i>*!/*/}
+							{/*				/!*		<span title="+880 0000000">+880 0000000</span>*!/*/}
+							{/*				/!*	</a>*!/*/}
+							{/*				/!*</li>*!/*/}
+							{/*				<li>*/}
+							{/*					<a*/}
+							{/*						href="mailto:assunnahtrust@gmail.com"*/}
+							{/*						target="_blank">*/}
+							{/*						/!*<i className="material-icons">email</i>*!/*/}
+							{/*						<span title="assunnahtrust@gmail.com">*/}
+							{/*							assunnahtrust@gmail.com*/}
+							{/*						</span>*/}
+							{/*					</a>*/}
+							{/*				</li>*/}
+							{/*				/!*<li>*!/*/}
+							{/*				/!*	<p>*!/*/}
+							{/*				/!*		<i className="material-icons">near_me</i>*!/*/}
+							{/*				/!*		<span>১৫৫, হাজী মহসিন রোড, খুলনা</span>*!/*/}
+							{/*				/!*	</p>*!/*/}
+							{/*				/!*</li>*!/*/}
+							{/*			</ul>*/}
+							{/*		</div>*/}
 
-									{/*<div className="sidebar-sponsor">*/}
-									{/*	<SponsorSlider />*/}
-									{/*</div>*/}
-								</div>
-							</div>
+							{/*		/!*<h2 className="sidebar-title">প্রতিষ্ঠানসমূহ</h2>*!/*/}
+
+							{/*		/!*<div className="sidebar-sponsor">*!/*/}
+							{/*		/!*	<SponsorSlider />*!/*/}
+							{/*		/!*</div>*!/*/}
+							{/*	</div>*/}
+							{/*</div>*/}
+
 						</div>
 					</div>
 				</div>

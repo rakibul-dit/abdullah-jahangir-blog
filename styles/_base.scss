@@ -111,7 +111,7 @@ html {
 }
 
 .h-sec {
-	padding: 4rem 0;
+	padding: 2rem 0;
 }
 
 // custom row column
@@ -150,7 +150,7 @@ html {
 }
 
 .card-r .card-image {
-	padding: 0.5rem 0.5rem 0;
+	//padding: 0.5rem 0.5rem 0;
 }
 
 .card-r .card-content {
@@ -302,7 +302,7 @@ html {
 	//font-size: 1.625rem;
 	font-size: 1.5rem;
 	padding-left: 1.5rem;
-	margin-bottom: 3.5rem;
+	margin-bottom: 2rem;
 }
 
 .title-r::before {
@@ -325,15 +325,16 @@ html {
 	top: 50%;
 	transform: translateY(-50%);
 	font-size: 0.875rem;
-	background-color: var(--bg12);
+	//background-color: var(--bg12);
+	border: 2px solid var(--bg12);
 	color: var(--txt11);
-	border-radius: 0.5rem;
+	border-radius: 5rem;
 	white-space: nowrap;
 	transition: all 250ms ease 0s;
 	text-decoration: none;
 	font-weight: bold;
 	padding: 0 0.75rem;
-	line-height: 1.85rem;
+	line-height: 1.5rem;
 	font-family: Kalpurush;
 	min-width: 5.625rem;
 	display: block;
@@ -360,7 +361,7 @@ html {
 	.title-r {
 		font-size: 1.375rem;
 		padding-left: 1.375rem;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 	}
 
 	.title-r a {

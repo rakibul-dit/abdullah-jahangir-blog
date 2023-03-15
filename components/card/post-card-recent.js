@@ -34,7 +34,7 @@ export default function PostCardRecent({
 					/>
 					<div className="recent-text">
 						<a className="heading-r">{title}</a>
-						<span className="date-r">{dateFormat(date)}</span>
+						{/*<span className="date-r">{dateFormat(date)}</span>*/}
 					</div>
 				</div>
 			</Link>

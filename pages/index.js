@@ -52,7 +52,7 @@ export default function Home({
 	return (
 		<Layout page="homepage">
 			<Meta
-				title="হোম"
+				title=""
 				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত
 				আলেম ও বহু গ্রন্থ প্রণেতা ছিলেন। তাঁর পূর্ণ নাম: আবু নসর
 				মুহাম্মদ আব্দুল্লাহ জাহাঙ্গীর। তাঁর পিতার নাম খোন্দকার
@@ -67,10 +67,9 @@ export default function Home({
 			<HomeArticles articles={articles} isSmScr={isSmScr} />
 			<HomeBooks books={books} isSmScr={isSmScr} />
 			<HomeQns qns={qns} isSmScr={isSmScr} />
-			<AssunnahTrust />
 			<SomeLectures lectures={someLectures} isSmScr={isSmScr} />
-			{/* <HomeQuote /> */}
 			<HomeQuoteSlider quotes={quotes} />
+			<AssunnahTrust />
 		</Layout>
 	);
 }

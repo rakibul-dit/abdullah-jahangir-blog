@@ -88,7 +88,7 @@ export default function BookList({
 		<Layout>
 			<Meta
 				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমগ্র"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ"
 				url={`/books/${categoryId}`}
 				image={`/img/id/default_share.png`}
 				type="website"

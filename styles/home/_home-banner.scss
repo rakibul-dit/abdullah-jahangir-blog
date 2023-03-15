@@ -202,6 +202,10 @@
 	margin: auto;
 }
 
+.bannar-img img {
+	border-radius: 15px;
+}
+
 // responsive
 @media only screen and (max-width: 1140px) {
 	.h-banner-1 .h-banner-ctn {
@@ -289,14 +293,15 @@
 	}
 
 	.h-banner-title h1 {
-		font-weight: 900;
-		font-size: 1.625rem;
-		margin-bottom: 0.75rem;
+		//font-weight: 900;
+		//font-size: 1.625rem;
+		//margin-bottom: 0.75rem;
+		display: none;
 	}
 
-	.h-banner-title h1:nth-child(2) {
-		margin-bottom: 1.75rem;
-	}
+	//.h-banner-title h1:nth-child(2) {
+	//	margin-bottom: 1.75rem;
+	//}
 
 	.h-banner-title p {
 		margin-bottom: 2rem;

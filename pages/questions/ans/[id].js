@@ -14,26 +14,17 @@ export default function QnA({ ans }) {
 	return (
 		<Layout>
 			<Meta
-				title=""
-				description=""
-				url=""
+				title={ans[0].qus}
+				description={ans[0].ans}
+				url={`${server}/questions/ans/${ans[0].id}`}
 				image={`${server}/img/id/default_share.png`}
-				type="article"
+				type="website"
 			/>
 			<div className="qna">
-				<section className="blog-detail-top">
-					<div className="page-width">
-						<div className="box">
-							<DetailTopBack link="/questions/all" />
-							{/* <h2 className="qna-header">{ans[0].category}</h2> */}
-							{/*<span className="date-r">{detail.postDate}</span>*/}
-						</div>
-					</div>
-				</section>
-
 				<section className="blog-detail-ctn">
 					<div className="page-width">
 						<div className="box">
+							<DetailTopBack link="/questions/all" />
 							<div className="blog-area">
 								<div className="blog-detail">
 									<h3 className="qna-qn">{ans[0].qus}</h3>

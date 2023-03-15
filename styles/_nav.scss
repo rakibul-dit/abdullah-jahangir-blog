@@ -17,6 +17,8 @@
 	padding: 10px 10px 8px 5px;
 	color: #525252;
 	transition: all 250ms ease;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
 }
 .nav-container a:hover,
 .nav-container a.active {

@@ -81,7 +81,7 @@ export default function LectureList({
 		<Layout>
 			<Meta
 				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমগ্র"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমূহ"
 				url={`${server}/lectures/${initPlaylistId}`}
 				image={`${server}/img/id/default_share.png`}
 				type="website"

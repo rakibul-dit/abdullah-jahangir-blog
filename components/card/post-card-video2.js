@@ -1,7 +1,7 @@
 import { server } from "../../lib/config";
 import Link from "next/link";
 import Image from "next/image";
-import { date } from "../../lib/format";
+import {date, formatNumber} from "../../lib/format";
 
 export default function PostCardVideo2({ item, statistics }) {
 	const id = item.id;
@@ -40,7 +40,7 @@ export default function PostCardVideo2({ item, statistics }) {
 				</Link>
 
 				<div className="data-line">
-					<span className="view-r">{viewCount} views</span>
+					<span className="view-r">{formatNumber(viewCount)} views</span>
 					<span className="date-r">{publishedAt}</span>
 				</div>
 			</div>

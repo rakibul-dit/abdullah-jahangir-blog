@@ -1,0 +1,35 @@
+{
+  "short_name":"AbdullahJahangir.com",
+  "name":"AbdullahJahangir.com",
+  "splash_screens":[
+    "/"
+  ],
+  "start_url":"/",
+  "display":"standalone",
+  "theme_color":"#155197",
+  "background_color":"#fff",
+  "orientation": "portrait",
+  "icons":[
+    {
+      "sizes":"192x192",
+      "type":"image/png",
+      "src":"/img/id/favicon.png"
+    },
+    {
+      "sizes":"256x256",
+      "type":"image/png",
+      "src":"/img/id/favicon.png"
+    },
+    {
+      "sizes":"512x512",
+      "type":"image/png",
+      "src":"/img/id/favicon.png"
+    },
+    {
+      "sizes":"256x256",
+      "type":"image/png",
+      "src":"/img/id/favicon.png",
+      "purpose":"maskable"
+    }
+  ]
+}

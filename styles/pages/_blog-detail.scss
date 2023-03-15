@@ -1,6 +1,6 @@
 .blog-detail-top {
 	padding-top: 2rem;
-	margin-bottom: 2rem;
+	//margin-bottom: 2rem;
 	width: 100%;
 }
 
@@ -111,6 +111,15 @@
 @media only screen and (max-width: 768px) {
 	.blog-detail h2 {
 		font-size: 1.125rem;
+	}
+
+	.blog-detail-ctn {
+		margin-top: 1rem;
+	}
+
+	.blog-detail-top {
+	  margin-bottom: 1rem;
+		padding-top: 0;
 	}
 }
 
@@ -603,13 +612,14 @@ p.book-detail-desc {
 	padding: 5px 16px 5px 5px;
 	font-weight: 600;
 	transition: all 0.5s;
+	color: #4a5568;
 }
 .top-back a > svg {
 	margin-right: 5px;
 }
 .top-back a:hover {
-	border-radius: 20px;
-	background-color: #88aabb;
+	//border-radius: 20px;
+	//background-color: #88aabb;
 }
 
 @media only screen and (max-width: 1140px) {
