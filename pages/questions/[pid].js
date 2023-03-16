@@ -209,7 +209,7 @@ export async function getStaticPaths() {
 	const categories = await getAllQnaCategory();
 
 	let paths = categories.map((item) => ({
-		params: { pid: item.title.toString() },
+		params: { pid: item.slug },
 	}));
 
 	paths = [{ params: { pid: "all" } }, ...paths];
