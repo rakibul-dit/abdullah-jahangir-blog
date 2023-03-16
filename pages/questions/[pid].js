@@ -3,6 +3,7 @@ import {
 	getAllPlaylists2,
 	getAllQnaCategory,
 	getAllQuestions,
+	getQnCatTitle,
 	getYoutubeVideoListByUrl,
 	qaFetcher,
 } from "../../lib/fetch";
@@ -190,12 +191,7 @@ export async function getStaticProps({ params }) {
 	// const videoLists = await getYoutubeVideoListByUrl(url);
 	const qns = await getAllQuestions({ currentPage, categoryId });
 	const categories = await getAllQnaCategory();
-	let catTitle;
-
-	if (categoryId !== "all") {
-		const items = categories.filter((item) => item.slug == categoryId);
-		catTitle = items[0].title;
-	} else catTitle = "প্রশ্নোত্তর সমূহ";
+	const catTitle = await getQnCatTitle(categoryId);
 
 	return {
 		props: {
