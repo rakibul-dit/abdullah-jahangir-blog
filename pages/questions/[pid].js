@@ -192,6 +192,7 @@ export async function getStaticProps({ params }) {
 	const qns = await getAllQuestions({ currentPage, categoryId });
 	const categories = await getAllQnaCategory();
 	const catTitle = await getQnCatTitle(categoryId);
+	console.log(catTitle);
 
 	return {
 		props: {
