@@ -1,4 +1,4 @@
-import {emailSenderName, receiverEmail, server} from "../lib/config";
+import { emailSenderName, receiverEmail, server } from "../lib/config";
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Layout from "../components/layout";
@@ -99,11 +99,22 @@ export default function Contact({ prev_page = "/" }) {
 		if (error) return;
 
 		// START SENDING EMAIL
-		let body = "<b>Name: </b>" + name + "<br/>" +
-			"<b>Email: </b>" + email + "<br/>" +
-			"<b>Subject: </b>" + subject + "<br/>" +
-			"<b>Phone: </b>" + phone + "<br/>" +
-			"<b>Message: </b>" + message + "<br/>"
+		let body =
+			"<b>Name: </b>" +
+			name +
+			"<br/>" +
+			"<b>Email: </b>" +
+			email +
+			"<br/>" +
+			"<b>Subject: </b>" +
+			subject +
+			"<br/>" +
+			"<b>Phone: </b>" +
+			phone +
+			"<br/>" +
+			"<b>Message: </b>" +
+			message +
+			"<br/>";
 
 		let receiver = receiverEmail;
 		let sender = emailSenderName;
@@ -113,18 +124,21 @@ export default function Contact({ prev_page = "/" }) {
 			email,
 			name,
 			receiver,
-			sender
+			sender,
 		};
 
 		try {
-			const response = await fetch("https://dit-mail-client.vercel.app/email-client", {
-				method: "POST",
-				headers: {
-					Accept: "application/json, text/plain, */*",
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(data),
-			});
+			const response = await fetch(
+				"https://dit-mail-client.vercel.app/email-client",
+				{
+					method: "POST",
+					headers: {
+						Accept: "application/json, text/plain, */*",
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(data),
+				}
+			);
 			if (response.ok) {
 				//console.log(res)
 				setName("");
@@ -332,7 +346,6 @@ export default function Contact({ prev_page = "/" }) {
 							{/*		/!*</div>*!/*/}
 							{/*	</div>*/}
 							{/*</div>*/}
-
 						</div>
 					</div>
 				</div>

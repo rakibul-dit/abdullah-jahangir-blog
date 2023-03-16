@@ -441,7 +441,8 @@
 .quote-bg {
 	position: relative;
 	background-image: url("/img/slider/01.jpg");
-	// background-size: cover;
+	background-repeat: no-repeat;
+	background-size: cover;
 	border-radius: 1rem;
 }
 .opt_home_quote_slider {
