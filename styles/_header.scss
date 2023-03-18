@@ -402,9 +402,20 @@ ion-toolbar ion-title {
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
 	font-size: 16px;
+	height: 48px;
 	ion-icon {
 		width: 24px;
+		height: 24px;
 	}
+	::part(native) .button-inner {
+		width: 32px;
+	}
+}
+.header-md ion-buttons {
+	.back-btn > ion-button {
+		height: 48px;
+	}
+	margin-inline-start: 4px;
 }
 .header-ios {
 	// ios menu btn
@@ -412,6 +423,10 @@ ion-toolbar ion-title {
 		height: 2em;
 		--padding-start: 5px;
 		--padding-end: 5px;
+		ion-icon {
+			width: 31px;
+			height: 31px;
+		}
 	}
 }
 .mobile-back ion-button ion-icon {
