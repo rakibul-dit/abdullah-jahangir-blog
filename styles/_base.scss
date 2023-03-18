@@ -26,6 +26,8 @@ body {
 ion-content {
 	--ion-font-family: "Kalpurush", sans-serif;
 	font-family: "Kalpurush", sans-serif;
+	width: calc(100% - 300px);
+	margin-left: auto !important;
 }
 // .home-2 .ion-page,
 // body.home-2 {

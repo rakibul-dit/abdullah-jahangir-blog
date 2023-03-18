@@ -24,10 +24,10 @@
 	background: #f9f9f9;
 	position: fixed;
 	overflow: auto;
-	margin-top: -5.25rem;
+	// margin-top: -5.25rem;
 }
 .content {
-	width: calc(100% - 300px);
+	// width: calc(100% - 300px);
 	margin-left: auto;
 	height: 100%;
 	display: flex;
@@ -39,7 +39,7 @@
 // 	min-height: 110vh;
 // 	padding-bottom: 225px;
 // }
-.header {
+.header-container {
 	width: calc(100% - 300px);
 	margin-left: auto;
 }
@@ -108,10 +108,10 @@
 	.side-nav {
 		display: none;
 	}
-	.content {
+	ion-content {
 		width: 100%;
 	}
-	.header {
+	.header-container {
 		width: 100%;
 	}
 }
