@@ -17,7 +17,7 @@ import { article9Content } from "./article-9";
 export const articles = [
 	{
 		id: 1,
-		home: "1",
+		home: "0",
 		related: "1",
 		postSlug: "ইসলামের-নামে-জঙ্গিবাদ",
 		postTitle: "ইসলামের নামে জঙ্গিবাদ: আলোচিত ও অনালোচিত কারণসমূহ",
@@ -41,7 +41,7 @@ export const articles = [
 	},
 	{
 		id: 3,
-		home: "1",
+		home: "0",
 		related: "1",
 		postSlug: "আল্লামা-রাহমাতুল্লাহ-কীরানবী",
 		postTitle: "আল্লামা রাহমাতুল্লাহ কীরানবী",
@@ -63,7 +63,7 @@ export const articles = [
 	},
 	{
 		id: 5,
-		home: "1",
+		home: "0",
 		postSlug: "পবিত্র-ঈদ-ই-মিলাদুন্নাবী",
 		postTitle: "পবিত্র ঈদ-ই-মিলাদুন্নাবী",
 		postDate: "সেপ্টেম্বর 11, 2014",
@@ -73,7 +73,7 @@ export const articles = [
 	},
 	{
 		id: 6,
-		home: "1",
+		home: "0",
 		postSlug: "তারাবীহ-এর-রাকাত-সংখ্যা",
 		postTitle: "তারাবীহ এর রাকাত সংখ্যা",
 		postDate: "সেপ্টেম্বর 11, 2014",
@@ -93,7 +93,7 @@ export const articles = [
 	},
 	{
 		id: 8,
-		home: "1",
+		home: "0",
 		postSlug: "ধর্ম-ও-তার-প্রতিনিধিত্ব",
 		postTitle: "ধর্ম ও তার প্রতিনিধিত্ব",
 		postDate: "সেপ্টেম্বর 11, 2014",
@@ -103,7 +103,7 @@ export const articles = [
 	},
 	{
 		id: 9,
-		home: "1",
+		home: "0",
 		postSlug:
 			"বাংলাদেশে-মাদরাসা-শিক্ষা-এবং-সাধারণ-শিক্ষা-পাঠক্রম-ইতিহাস-এবং-তুলনা",
 		postTitle:
@@ -115,7 +115,7 @@ export const articles = [
 	},
 	{
 		id: 10,
-		home: "1",
+		home: "0",
 		postSlug: "হাদীসের-সনদ",
 		postTitle: "হাদীসের সনদ",
 		postDate: "সেপ্টেম্বর 13, 2014",
@@ -135,7 +135,7 @@ export const articles = [
 	},
 	{
 		id: 12,
-		home: "1",
+		home: "0",
 		postSlug: "যুদ্ধ-ও-ফোর্স-আইন-আল-কুরআন",
 		postTitle: "যুদ্ধ ও ফোর্স আইন আল-কুরআন",
 		postDate: "সেপ্টেম্বর 13, 2014",
@@ -145,7 +145,7 @@ export const articles = [
 	},
 	{
 		id: 13,
-		home: "1",
+		home: "0",
 		postSlug: "রিজালশাস্ত্রে-ইবনে-আদীর-কর্মপ্রচেষ্টা",
 		postTitle: "রিজালশাস্ত্রে ইবনে আদীর কর্মপ্রচেষ্টা",
 		postDate: "সেপ্টেম্বর 13, 2014",

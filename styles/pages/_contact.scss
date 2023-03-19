@@ -187,3 +187,9 @@ form.contact-form {
 		padding-right: 2rem;
 	}
 }
+
+@media only screen and (max-width: 768px) {
+	.contact-page-ctn {
+		padding: 1rem 0;
+	}
+}
