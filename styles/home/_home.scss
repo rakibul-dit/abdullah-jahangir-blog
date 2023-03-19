@@ -24,10 +24,10 @@
 	background: #f9f9f9;
 	position: fixed;
 	overflow: auto;
-	margin-top: -5.25rem;
+	// margin-top: -5.25rem;
 }
 .content {
-	width: calc(100% - 300px);
+	// width: calc(100% - 300px);
 	margin-left: auto;
 	height: 100%;
 	display: flex;
@@ -39,7 +39,7 @@
 // 	min-height: 110vh;
 // 	padding-bottom: 225px;
 // }
-.header {
+.header-container {
 	width: calc(100% - 300px);
 	margin-left: auto;
 }
@@ -59,16 +59,21 @@
 	margin: 0;
 }
 .h-some-lecs .h3-quote-left {
+	padding-right: 1rem;
+	border-right: 5px solid #edf2f7;
 	align-items: center;
 }
 .h-some-lecs .h3-quote-left h2 {
 	font-size: 2rem;
 }
 .h-some-lecs .recent-ctn {
-	padding-top: 70%;
+	padding-top: 56.25%;
 }
 .h-some-lecs .recent-ctn {
-	width: 90%;
+	width: 100%;
+	margin: auto;
+}
+.h-some-lecs .h3-quote-right__wrap {
 	margin: auto;
 }
 .h-assunnah-trust .h3-quote-left {
@@ -103,10 +108,11 @@
 	.side-nav {
 		display: none;
 	}
-	.content {
+	ion-content {
 		width: 100%;
+		left: 0;
 	}
-	.header {
+	.header-container {
 		width: 100%;
 	}
 }
@@ -117,10 +123,11 @@
 	}
 	.h-some-lecs .h3-quote-left {
 		align-items: center;
+		border: unset;
 	}
-	.h-some-lecs .recent-ctn {
-		padding-top: 70%;
-	}
+	// .h-some-lecs .recent-ctn {
+	// 	padding-top: 70%;
+	// }
 	.h-assunnah-trust .h3-quote-right {
 		border: unset;
 	}

@@ -5,7 +5,8 @@
 	width: 100%;
 }
 
-.cat-page-top-2 {}
+.cat-page-top-2 {
+}
 
 .cat-page-top h1 {
 	font-family: Kalpurush;
@@ -60,7 +61,7 @@
 }
 
 .select-tag-icon svg {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 .select-tag-list {
@@ -98,7 +99,8 @@
 	padding: 0 2rem;
 }
 
-.select-tag-list ul li {
+.select-tag-list ul li a {
+	display: block;
 	border: 1.5px solid var(--clr11);
 	text-align: left;
 	padding: 0px 26px;
@@ -114,7 +116,7 @@
 	padding-bottom: 0.25rem;
 }
 
-.select-tag-list ul li.selected {
+.select-tag-list ul li.selected a {
 	background: var(--main-color);
 	color: #fff;
 	border-color: var(--main-color);
@@ -139,13 +141,17 @@
 	transition-delay: 250ms;
 }
 
-.cat-page-articles .col-r {}
+.cat-page-articles .col-r {
+}
 .cat-page-books .col-r {
 	margin-bottom: 2rem;
 }
-.cat-page-lectures .col-r {}
-.cat-page-papers .col-r {}
-.cat-page-tafseer .col-r {}
+.cat-page-lectures .col-r {
+}
+.cat-page-papers .col-r {
+}
+.cat-page-tafseer .col-r {
+}
 
 .cat-page-articles,
 .cat-page-books,
@@ -190,8 +196,10 @@
 	display: none;
 }
 
-.cat-page-link i {}
-.cat-page-link span {}
+.cat-page-link i {
+}
+.cat-page-link span {
+}
 
 .cat-page-link.link-prev {
 	color: #718096;
@@ -199,7 +207,8 @@
 	//display: none;
 }
 
-.cat-page-link.link-next {}
+.cat-page-link.link-next {
+}
 
 .cat-page-link:hover {
 	color: #fff;
@@ -232,7 +241,7 @@
 @media only screen and (max-width: 768px) {
 	.cat-page-top h1 {
 		margin-bottom: 1rem;
-		font-size: 1.50rem !important;
+		font-size: 1.5rem !important;
 		word-spacing: -0.2rem;
 	}
 

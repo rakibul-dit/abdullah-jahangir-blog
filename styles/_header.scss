@@ -1,4 +1,7 @@
 /*------- header section -------*/
+.header-container {
+	z-index: 0;
+}
 .header {
 	height: 7rem;
 	//display: flex;
@@ -126,7 +129,7 @@ ul.main-menu li a:hover {
 }
 .ticker_item {
 	display: inline-block;
-	padding: 0 .2rem;
+	padding: 0 0.2rem;
 	font-size: 18px;
 }
 @keyframes ticker {
@@ -370,7 +373,7 @@ ion-toolbar ion-title {
 	:first-child ion-icon {
 		font-size: 24px;
 	}
-	// ios btn
+	// ios back btn
 	:last-child ion-icon {
 		font-size: 1.85em;
 		margin-left: unset;
@@ -392,9 +395,38 @@ ion-toolbar ion-title {
 		display: block;
 	}
 }
+// md menu btn
+.menu-btn ion-button {
+	--padding-start: 12px;
+	--padding-end: 12px;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-size: 16px;
+	height: 48px;
+	ion-icon {
+		width: 24px;
+		height: 24px;
+	}
+	::part(native) .button-inner {
+		width: 32px;
+	}
+}
+.header-md ion-buttons {
+	.back-btn > ion-button {
+		height: 48px;
+	}
+	margin-inline-start: 4px;
+}
 .header-ios {
+	// ios menu btn
 	.menu-btn ion-button {
 		height: 2em;
+		--padding-start: 5px;
+		--padding-end: 5px;
+		ion-icon {
+			width: 31px;
+			height: 31px;
+		}
 	}
 }
 .mobile-back ion-button ion-icon {

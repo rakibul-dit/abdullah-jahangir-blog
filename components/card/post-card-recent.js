@@ -27,7 +27,7 @@ export default function PostCardRecent({
 						}
 						alt=""
 						layout="fill"
-						objectFit="cover"
+						objectFit="fill"
 						objectPosition="center center"
 						loading="eager"
 						unoptimized

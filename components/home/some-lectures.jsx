@@ -58,7 +58,7 @@ export default function SomeLectures({ lectures, isSmScr }) {
 										))}
 								</div>
 							) : (
-								<div className="col col-r s12 m6 l6">
+								<div className="col col-r s12 m6 l6 h3-quote-right__wrap">
 									<div className="h3-quote-right">
 										<div className="recent-slider-outer">
 											<div className="recent-slider-inner">

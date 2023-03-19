@@ -3,6 +3,7 @@ import {
 	getAllPlaylists2,
 	getAllQnaCategory,
 	getAllQuestions,
+	getQnCatTitle,
 	getYoutubeVideoListByUrl,
 	qaFetcher,
 } from "../../lib/fetch";
@@ -27,12 +28,17 @@ const getKey = (pageIndex, prevPageData, categoryId) => {
 
 QnList.title = "প্রশ্নোত্তর সমূহ";
 
-export default function QnList({ initialQns, categoryId, categories }) {
+export default function QnList({
+	initialQns,
+	categoryId,
+	categories,
+	catTitle,
+}) {
 	const ref = useRef();
 	const catRef = useRef();
 	const isVisible = useOnScreen(ref);
 	// const pageTitle = categories[categoryId].title;
-	const pageTitle = categoryId == "all" ? "প্রশ্নোত্তর সমূহ" : categoryId;
+	const pageTitle = catTitle;
 
 	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
 		(...args) => getKey(...args, categoryId),
@@ -111,10 +117,10 @@ export default function QnList({ initialQns, categoryId, categories }) {
 									{categories &&
 										categories.map((item) => (
 											<li
-												className={categoryId == item.title ? "selected" : ""}
+												className={categoryId == item.slug ? "selected" : ""}
 												key={item.id}
 												onClick={() => getCategorizedQns(item.id, item.title)}>
-												<Link href={"/questions/" + item.title}>
+												<Link href={"/questions/" + item.slug}>
 													<a>{item.title}</a>
 												</Link>
 											</li>
@@ -185,12 +191,14 @@ export async function getStaticProps({ params }) {
 	// const videoLists = await getYoutubeVideoListByUrl(url);
 	const qns = await getAllQuestions({ currentPage, categoryId });
 	const categories = await getAllQnaCategory();
+	const catTitle = await getQnCatTitle(categoryId);
 
 	return {
 		props: {
 			initialQns: [qns],
 			categoryId: categoryId,
 			categories,
+			catTitle,
 		},
 		revalidate: 60,
 	};
@@ -200,7 +208,7 @@ export async function getStaticPaths() {
 	const categories = await getAllQnaCategory();
 
 	let paths = categories.map((item) => ({
-		params: { pid: item.title.toString() },
+		params: { pid: item.slug },
 	}));
 
 	paths = [{ params: { pid: "all" } }, ...paths];
