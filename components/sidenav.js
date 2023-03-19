@@ -33,7 +33,7 @@ export default function Sidenav() {
 									// objectFit="contain"
 									objectPosition="left center"
 									loading="eager"
-									unoptimized
+									// unoptimized
 								/>
 							</a>
 						</Link>
