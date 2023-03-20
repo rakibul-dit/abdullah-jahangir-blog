@@ -20,6 +20,12 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 export default function Header({ prev_page, isTab, title }) {
 	const router = useRouter();
 
+	const [historyLength, setHistoryLength] = useState(0)
+
+	useEffect(() => {
+		setHistoryLength(window.history.length)
+	}, [])
+
 	const [state, setState] = useState({
 		mobileNavOpen: false,
 	});
@@ -100,7 +106,10 @@ export default function Header({ prev_page, isTab, title }) {
 										icon="chevron-back"
 										default-href="/"
 										onClick={goBack}></ion-back-button> */}
-									<Link href={prev_page} passHref>
+									{/*<Link href={prev_page} passHref>*/}
+									<span
+										style={{ cursor: `pointer` }} onClick={historyLength > 2 ? () => router.back() : () => router.push(`${prev_page}`)}
+									>
 										<div className="back-btn">
 											<ion-button>
 												<ion-icon icon={arrowBackSharp}></ion-icon>
@@ -110,7 +119,8 @@ export default function Header({ prev_page, isTab, title }) {
 												{/* <span>Back</span> */}
 											</ion-button>
 										</div>
-									</Link>
+									</span>
+									{/*</Link>*/}
 								</>
 							)}
 						</ion-buttons>
