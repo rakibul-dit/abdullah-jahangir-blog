@@ -121,6 +121,7 @@ export default function QnList({
 												key={item.id}
 												onClick={() => getCategorizedQns(item.id, item.title)}>
 												<Link href={"/questions/" + item.slug}>
+													{/*<div>প্রশ্নোত্তর: {item.id}</div>*/}
 													<a>{item.title}</a>
 												</Link>
 											</li>
