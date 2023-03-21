@@ -53,15 +53,15 @@ const App = ({ Component, pageProps }) => {
 			};
 		}
 	}, []);
-
+	console.log(pageProps);
 	return (
 		<>
 			<div className="ion-page">
-				<Header
+				{/* <Header
 					prev_page={Component.prev_page ? Component.prev_page : "/"}
 					isTab={isTab}
 					title={Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"}
-				/>
+				/> */}
 				<Component {...pageProps} />
 			</div>
 		</>

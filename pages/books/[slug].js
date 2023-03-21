@@ -17,13 +17,14 @@ import Link from "next/link";
 import SortIcon from "@mui/icons-material/Sort";
 // import PostCardAllQns from "../../components/card/post-card-allqns";
 import BookCard from "../../components/card/post-card-book";
+import Header from "../../components/header";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {
 	let currentPage = pageIndex + 1;
 	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
 
-BookList.title = "বই সমূহ";
+// BookList.title = "বই সমূহ";
 
 export default function BookList({
 	initialBooks,
@@ -85,105 +86,110 @@ export default function BookList({
 	}, [isVisible, isRefreshing]);
 
 	return (
-		<Layout>
-			<Meta
-				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ"
-				url={`/books/${categoryId}`}
-				image={`/img/id/default_share.png`}
-				type="website"
-			/>
-			<div className="books">
-				<section className="cat-page-top cat-page-top-2">
-					<div className="page-width">
-						<div className="box">
-							<h1 ref={catRef}>
-								<i className="select-tag-icon" onClick={handleCatOpen}>
-									<SortIcon />
-								</i>{" "}
-								{pageTitle}
-								<div className={"select-tag-list" + (catOpen ? " open" : "")}>
-									<ul>
-										<li
-											className={categoryId == "all" ? "selected" : ""}
-											onClick={() => getCategorizedBooks("all", "বই সমূহ")}>
-											<Link href="/books/all">
-												<a>বই সমূহ</a>
-											</Link>
-										</li>
-										{categories &&
-											categories.map((item) => (
-												<li
-													className={categoryId == item.slug ? "selected" : ""}
-													key={item.id}
-													onClick={() =>
-														getCategorizedBooks(item.id, item.title)
-													}>
-													<Link href={"/books/" + item.slug}>
-														<a>{item.title}</a>
-													</Link>
-												</li>
-											))}
-									</ul>
-								</div>
-							</h1>
+		<>
+			<Header title="বই সমূহ" />
+			<Layout>
+				<Meta
+					title={pageTitle}
+					description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ"
+					url={`/books/${categoryId}`}
+					image={`/img/id/default_share.png`}
+					type="website"
+				/>
+				<div className="books">
+					<section className="cat-page-top cat-page-top-2">
+						<div className="page-width">
+							<div className="box">
+								<h1 ref={catRef}>
+									<i className="select-tag-icon" onClick={handleCatOpen}>
+										<SortIcon />
+									</i>{" "}
+									{pageTitle}
+									<div className={"select-tag-list" + (catOpen ? " open" : "")}>
+										<ul>
+											<li
+												className={categoryId == "all" ? "selected" : ""}
+												onClick={() => getCategorizedBooks("all", "বই সমূহ")}>
+												<Link href="/books/all">
+													<a>বই সমূহ</a>
+												</Link>
+											</li>
+											{categories &&
+												categories.map((item) => (
+													<li
+														className={
+															categoryId == item.slug ? "selected" : ""
+														}
+														key={item.id}
+														onClick={() =>
+															getCategorizedBooks(item.id, item.title)
+														}>
+														<Link href={"/books/" + item.slug}>
+															<a>{item.title}</a>
+														</Link>
+													</li>
+												))}
+										</ul>
+									</div>
+								</h1>
 
-							{/*<p>*/}
-							{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
-							{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
-							{/*</p>*/}
-						</div>
-					</div>
-				</section>
-
-				<section
-					className={
-						"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")
-					}>
-					<div className="page-width">
-						<div className="box">
-							<div className="row row-r">
-								{/*{isEmpty ? <p>No records found!</p> : null}*/}
-								{datas &&
-									datas.map((data) => {
-										return (
-											data.bookItems &&
-											data.bookItems.map((item) => (
-												<div
-													className="col col-r s6 m4 l3 xl3 xxl2"
-													key={item.id}>
-													<BookCard book={item} />
-												</div>
-											))
-										);
-										// return <p>{data.currentPage}</p>;
-									})}
+								{/*<p>*/}
+								{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
+								{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
+								{/*</p>*/}
 							</div>
 						</div>
-					</div>
-				</section>
-			</div>
+					</section>
 
-			<div ref={ref}>
-				{isLoadingMore ? (
-					<div className={"loader"}>
-						<Loader />
-					</div>
-				) : (
-					""
-				)}
-			</div>
-
-			{isReachingEnd ? (
-				""
-			) : (
-				<div style={{ margin: "20px 0px" }}>
-					<center>
-						<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
-					</center>
+					<section
+						className={
+							"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")
+						}>
+						<div className="page-width">
+							<div className="box">
+								<div className="row row-r">
+									{/*{isEmpty ? <p>No records found!</p> : null}*/}
+									{datas &&
+										datas.map((data) => {
+											return (
+												data.bookItems &&
+												data.bookItems.map((item) => (
+													<div
+														className="col col-r s6 m4 l3 xl3 xxl2"
+														key={item.id}>
+														<BookCard book={item} />
+													</div>
+												))
+											);
+											// return <p>{data.currentPage}</p>;
+										})}
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
-			)}
-		</Layout>
+
+				<div ref={ref}>
+					{isLoadingMore ? (
+						<div className={"loader"}>
+							<Loader />
+						</div>
+					) : (
+						""
+					)}
+				</div>
+
+				{isReachingEnd ? (
+					""
+				) : (
+					<div style={{ margin: "20px 0px" }}>
+						<center>
+							<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
+						</center>
+					</div>
+				)}
+			</Layout>
+		</>
 	);
 }
 

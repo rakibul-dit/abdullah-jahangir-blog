@@ -11,6 +11,7 @@ import { useSWRInfinite } from "swr";
 import Link from "next/link";
 import ListIcon from "@mui/icons-material/List";
 import SortIcon from "@mui/icons-material/Sort";
+import Header from "../../components/header";
 
 const getKey = (pageIndex, previousPageData, playlistId) => {
 	let pageToken = "";
@@ -24,7 +25,7 @@ const getKey = (pageIndex, previousPageData, playlistId) => {
 	return `${youtube.url}/playlistItems?key=${youtube.key}&part=snippet&playlistId=${playlistId}&maxResults=${constants.DEFAULT_PAGE_LIMIT}${pageToken}`;
 };
 
-LectureList.title = "লেকচার সমূহ";
+// LectureList.title = "লেকচার সমূহ";
 
 export default function LectureList({
 	initialVideos,
@@ -78,97 +79,104 @@ export default function LectureList({
 	}, [isVisible, isRefreshing]);
 
 	return (
-		<Layout>
-			<Meta
-				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমূহ"
-				url={`${server}/lectures/${initPlaylistId}`}
-				image={`${server}/img/id/default_share.png`}
-				type="website"
-			/>
+		<>
+			<Header title="লেকচার সমূহ" />
+			<Layout>
+				<Meta
+					title={pageTitle}
+					description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমূহ"
+					url={`${server}/lectures/${initPlaylistId}`}
+					image={`${server}/img/id/default_share.png`}
+					type="website"
+				/>
 
-			<section className="cat-page-top cat-page-top-2">
-				<div className="page-width">
-					<div className="box">
-						<h1 ref={catRef}>
-							<i className="select-tag-icon" onClick={handleCatOpen}>
-								<SortIcon />
-							</i>{" "}
-							{pageTitle}
-							<div className={"select-tag-list" + (catOpen ? " open" : "")}>
-								<ul>
-									{playlists.playlists &&
-										playlists.playlists.map((item) => (
-											<li
-												className={initPlaylistId == item.id ? "selected" : ""}
-												key={item.id}
-												onClick={() =>
-													getCategorizedVideos(item.id, item.title)
-												}>
-												<Link href={"/lectures/" + item.id}>
-													<a>{item.title}</a>
-												</Link>
-											</li>
-										))}
-								</ul>
-							</div>
-						</h1>
+				<section className="cat-page-top cat-page-top-2">
+					<div className="page-width">
+						<div className="box">
+							<h1 ref={catRef}>
+								<i className="select-tag-icon" onClick={handleCatOpen}>
+									<SortIcon />
+								</i>{" "}
+								{pageTitle}
+								<div className={"select-tag-list" + (catOpen ? " open" : "")}>
+									<ul>
+										{playlists.playlists &&
+											playlists.playlists.map((item) => (
+												<li
+													className={
+														initPlaylistId == item.id ? "selected" : ""
+													}
+													key={item.id}
+													onClick={() =>
+														getCategorizedVideos(item.id, item.title)
+													}>
+													<Link href={"/lectures/" + item.id}>
+														<a>{item.title}</a>
+													</Link>
+												</li>
+											))}
+									</ul>
+								</div>
+							</h1>
 
-						{/*<p>*/}
-						{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
-						{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
-						{/*</p>*/}
-					</div>
-				</div>
-			</section>
-
-			<section
-				className={"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")}>
-				<div className="page-width">
-					<div className="box">
-						<div className="row row-r">
-							{/*{isEmpty ? <p>No records found!</p> : null}*/}
-							{datas &&
-								datas.map((data) => {
-									return (
-										data.videoLists.videos &&
-										data.videoLists.videos.map((item) => {
-											return (
-												<div className="col col-r s12 m6 xl3" key={item.id}>
-													<PostCardVideo2
-														item={item}
-														statistics={data.videoLists.videoStats}
-													/>
-												</div>
-											);
-										})
-									);
-								})}
+							{/*<p>*/}
+							{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
+							{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
+							{/*</p>*/}
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<div ref={ref}>
-				{isLoadingMore ? (
-					<div className={"loader"}>
-						<Loader />
+				<section
+					className={
+						"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")
+					}>
+					<div className="page-width">
+						<div className="box">
+							<div className="row row-r">
+								{/*{isEmpty ? <p>No records found!</p> : null}*/}
+								{datas &&
+									datas.map((data) => {
+										return (
+											data.videoLists.videos &&
+											data.videoLists.videos.map((item) => {
+												return (
+													<div className="col col-r s12 m6 xl3" key={item.id}>
+														<PostCardVideo2
+															item={item}
+															statistics={data.videoLists.videoStats}
+														/>
+													</div>
+												);
+											})
+										);
+									})}
+							</div>
+						</div>
 					</div>
-				) : (
-					""
-				)}
-			</div>
+				</section>
 
-			{isReachingEnd ? (
-				""
-			) : (
-				<div style={{ margin: "20px 0px" }}>
-					<center>
-						<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
-					</center>
+				<div ref={ref}>
+					{isLoadingMore ? (
+						<div className={"loader"}>
+							<Loader />
+						</div>
+					) : (
+						""
+					)}
 				</div>
-			)}
-		</Layout>
+
+				{isReachingEnd ? (
+					""
+				) : (
+					<div style={{ margin: "20px 0px" }}>
+						<center>
+							<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
+						</center>
+					</div>
+				)}
+			</Layout>
+		</>
 	);
 }
 

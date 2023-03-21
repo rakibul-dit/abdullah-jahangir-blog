@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import HomeQns from "../components/home/qns";
 import AssunnahTrust from "../components/home/assunnah-trust";
 import HomeQuoteSlider from "../components/home2/quote-slider";
+import Header from "../components/header";
 
 export default function Home({
 	lectures,
@@ -50,27 +51,30 @@ export default function Home({
 	}, []);
 
 	return (
-		<Layout page="homepage">
-			<Meta
-				title=""
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত
+		<>
+			<Header title="ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)" />
+			<Layout page="homepage">
+				<Meta
+					title=""
+					description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত
 				আলেম ও বহু গ্রন্থ প্রণেতা ছিলেন। তাঁর পূর্ণ নাম: আবু নসর
 				মুহাম্মদ আব্দুল্লাহ জাহাঙ্গীর। তাঁর পিতার নাম খোন্দকার
 				আনোয়ারুজ্জামান (রাহি.)। তিনি আব্দুল্লাহ জাহাঙ্গীর নামে
 				দেশ জুড়ে পরিচিত।"
-				url={server}
-				image={`${server}/img/id/default_share.jpg`}
-				type="website"
-			/>
-			<HomeBanner />
-			<HomeLectures lectures={lectures} isSmScr={isSmScr} />
-			<HomeArticles articles={articles} isSmScr={isSmScr} />
-			<HomeBooks books={books} isSmScr={isSmScr} />
-			<HomeQns qns={qns} isSmScr={isSmScr} />
-			<SomeLectures lectures={someLectures} isSmScr={isSmScr} />
-			<HomeQuoteSlider quotes={quotes} />
-			<AssunnahTrust />
-		</Layout>
+					url={server}
+					image={`${server}/img/id/default_share.jpg`}
+					type="website"
+				/>
+				<HomeBanner />
+				<HomeLectures lectures={lectures} isSmScr={isSmScr} />
+				<HomeArticles articles={articles} isSmScr={isSmScr} />
+				<HomeBooks books={books} isSmScr={isSmScr} />
+				<HomeQns qns={qns} isSmScr={isSmScr} />
+				<SomeLectures lectures={someLectures} isSmScr={isSmScr} />
+				<HomeQuoteSlider quotes={quotes} />
+				<AssunnahTrust />
+			</Layout>
+		</>
 	);
 }
 

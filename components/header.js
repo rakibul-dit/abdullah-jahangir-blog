@@ -17,14 +17,37 @@ import InfoIcon from "@mui/icons-material/InfoOutlined";
 import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function Header({ prev_page, isTab, title }) {
-	const router = useRouter();
-
-	const [historyLength, setHistoryLength] = useState(0)
+// export default function Header({ prev_page, isTab, title }) {
+export default function Header({ prev_page = "/", title }) {
+	// prev_page = prev_page ? prev_page : "/";
+	const [isTab, setIsTab] = useState(false);
 
 	useEffect(() => {
-		setHistoryLength(window.history.length)
-	}, [])
+		if (typeof window !== "undefined") {
+			// set isTab depending on screen size
+			const x = window.matchMedia("(max-width: 768px)");
+			if (x.matches) {
+				setIsTab(true);
+			} else {
+				setIsTab(false);
+			}
+			x.onchange = () => {
+				if (x.matches) {
+					setIsTab(true);
+				} else {
+					setIsTab(false);
+				}
+			};
+		}
+	}, []);
+
+	const router = useRouter();
+
+	const [historyLength, setHistoryLength] = useState(0);
+
+	useEffect(() => {
+		setHistoryLength(window.history.length);
+	}, []);
 
 	const [state, setState] = useState({
 		mobileNavOpen: false,
@@ -106,10 +129,7 @@ export default function Header({ prev_page, isTab, title }) {
 										icon="chevron-back"
 										default-href="/"
 										onClick={goBack}></ion-back-button> */}
-									{/*<Link href={prev_page} passHref>*/}
-									<span
-										style={{ cursor: `pointer` }} onClick={historyLength > 2 ? () => router.back() : () => router.push(`${prev_page}`)}
-									>
+									<Link href={prev_page} passHref>
 										<div className="back-btn">
 											<ion-button>
 												<ion-icon icon={arrowBackSharp}></ion-icon>
@@ -119,8 +139,7 @@ export default function Header({ prev_page, isTab, title }) {
 												{/* <span>Back</span> */}
 											</ion-button>
 										</div>
-									</span>
-									{/*</Link>*/}
+									</Link>
 								</>
 							)}
 						</ion-buttons>
