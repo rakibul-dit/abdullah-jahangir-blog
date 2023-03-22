@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default function BookCard({
 	book: { bookSlug = "/", imageSrc = "", bookName = "", bookText = "" },
+	catSlug,
 } = {}) {
 	// console.log(book);
 	return (
@@ -38,7 +39,7 @@ export default function BookCard({
 		// </div>
 		<div className="h-book-item">
 			<div className="h-book-image">
-				<Link href={`/books/details/${bookSlug}`}>
+				<Link href={`/books/${catSlug}/${bookSlug}`}>
 					<a>
 						{/* <Image
 							src={server + imageSrc}

@@ -12,13 +12,12 @@ import Share from "../../components/share";
 import DetailTopBack from "../../components/detail-top-back";
 import Header from "../../components/header";
 
-// BlogDetail.prev_page = "/articles";
-// BlogDetail.title = "প্রবন্ধ সমূহ";
+BlogDetail.prev_page = "/articles";
+BlogDetail.title = "প্রবন্ধ সমূহ";
 
 export default function BlogDetail({ detail }) {
 	return (
 		<>
-			<Header title="প্রবন্ধ সমূহ" prev_page="/articles" />
 			<Layout>
 				<Meta
 					title={detail.postTitle}

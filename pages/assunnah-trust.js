@@ -3,12 +3,11 @@ import Layout from "../components/layout";
 import Meta from "../components/meta";
 import Header from "../components/header";
 
-// AssunnahTrust.title = "আস-সুন্নাহ ট্রাষ্ট";
+AssunnahTrust.title = "আস-সুন্নাহ ট্রাষ্ট";
 
 export default function AssunnahTrust() {
 	return (
 		<>
-			<Header title="আস-সুন্নাহ ট্রাষ্ট" />
 			<Layout>
 				<Meta
 					title="আস-সুন্নাহ ট্রাস্ট"

@@ -1,4 +1,4 @@
-import { server, youtube, constants } from "../../lib/config";
+import { server, youtube, constants } from "../../../lib/config";
 import {
 	getAllPlaylists2,
 	getAllQnaCategory,
@@ -6,28 +6,28 @@ import {
 	getQnCatTitle,
 	getYoutubeVideoListByUrl,
 	qaFetcher,
-} from "../../lib/fetch";
+} from "../../../lib/fetch";
 import { useState, useEffect, useRef } from "react";
-import Layout from "../../components/layout";
-import Meta from "../../components/meta";
+import Layout from "../../../components/layout";
+import Meta from "../../../components/meta";
 // import PostCardVideo2 from "../../components/card/post-card-video2";
-import Loader from "../../components/loader";
+import Loader from "../../../components/loader";
 // import fetcher from "../../lib/lecturesFetcher";
-import useOnScreen from "../../hooks/useOnScreen";
+import useOnScreen from "../../../hooks/useOnScreen";
 import { useSWRInfinite } from "swr";
 import Link from "next/link";
 import SortIcon from "@mui/icons-material/Sort";
 // import ViewListIcon from "@mui/icons-material/ViewList";
 // import { CropSquareRounded } from "@material-ui/icons";
-import PostCardAllQns from "../../components/card/post-card-allqns";
-import Header from "../../components/header";
+import PostCardAllQns from "../../../components/card/post-card-allqns";
+import Header from "../../../components/header";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {
 	let currentPage = pageIndex + 1;
 	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
 
-// QnList.title = "প্রশ্নোত্তর সমূহ";
+QnList.title = "প্রশ্নোত্তর সমূহ";
 
 export default function QnList({
 	initialQns,
@@ -88,8 +88,6 @@ export default function QnList({
 
 	return (
 		<>
-			<Header title="লেকচার সমূহ" />
-
 			<Layout>
 				<Meta
 					title={pageTitle}

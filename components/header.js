@@ -17,37 +17,10 @@ import InfoIcon from "@mui/icons-material/InfoOutlined";
 import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-// export default function Header({ prev_page, isTab, title }) {
-export default function Header({ prev_page = "/", title }) {
+export default function Header({ prev_page, isTab, title }) {
 	// prev_page = prev_page ? prev_page : "/";
-	const [isTab, setIsTab] = useState(false);
-
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			// set isTab depending on screen size
-			const x = window.matchMedia("(max-width: 768px)");
-			if (x.matches) {
-				setIsTab(true);
-			} else {
-				setIsTab(false);
-			}
-			x.onchange = () => {
-				if (x.matches) {
-					setIsTab(true);
-				} else {
-					setIsTab(false);
-				}
-			};
-		}
-	}, []);
 
 	const router = useRouter();
-
-	const [historyLength, setHistoryLength] = useState(0);
-
-	useEffect(() => {
-		setHistoryLength(window.history.length);
-	}, []);
 
 	const [state, setState] = useState({
 		mobileNavOpen: false,

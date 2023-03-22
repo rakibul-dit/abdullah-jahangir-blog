@@ -8,18 +8,16 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import DetailTopBack from "../../../components/detail-top-back";
 import Header from "../../../components/header";
 
-// BookDetail.prev_page = "/books/all";
-// BookDetail.title = "বই সমূহ";
+BookDetail.title = "বই সমূহ";
 
-export default function BookDetail({ detail, books }) {
+export default function BookDetail({ detail, books, catSlug }) {
 	return (
 		<>
-			<Header title="বই সমূহ" prev_page="/books/all" />
 			<Layout>
 				<Meta
 					title={detail.bookName}
 					description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
-					url={`${server}/books/${detail.bookSlug}`}
+					url={`${server}/books/${catSlug}/${detail.bookSlug}`}
 					image={server + detail.imageSrc}
 					type="article"
 				/>
@@ -27,7 +25,7 @@ export default function BookDetail({ detail, books }) {
 				<section className="blog-detail-ctn">
 					<div className="page-width">
 						<div className="box">
-							<DetailTopBack link="/books/all" />
+							<DetailTopBack link={`/books/${catSlug}`} />
 							<div className="blog-area">
 								<div className="blog-detail book-detail">
 									<div className="row margin-bottom-0">
@@ -108,7 +106,7 @@ export default function BookDetail({ detail, books }) {
 
 													<div className="blog-share book-share">
 														<Share
-															urlWeb={`books/${detail.bookSlug}`}
+															urlWeb={`books/${catSlug}/${detail.bookSlug}`}
 															urlMobile={detail.bookSlug}
 															title={detail.bookName}
 														/>
@@ -154,6 +152,8 @@ export async function getStaticProps({ params }) {
 	//const books = await resRelated.json()
 
 	const slug = params.slug;
+	const catSlug = params.cat;
+
 	const detail = await getBookDetails(slug);
 	const books = await getRelatedBooks();
 
@@ -161,6 +161,8 @@ export async function getStaticProps({ params }) {
 		props: {
 			detail,
 			books,
+			catSlug,
+			prev_page: `/books/${catSlug}`,
 		},
 	};
 }
@@ -171,9 +173,18 @@ export async function getStaticPaths() {
 
 	const books = await getBooks();
 
-	const paths = books.map((book) => ({
-		params: { slug: book.bookSlug },
-	}));
+	let paths = [];
+	books.forEach((book) => {
+		book.categorySlug.forEach((cat) => {
+			paths.push({
+				params: { cat: cat, slug: book.bookSlug },
+			});
+		});
+	});
+	console.log(paths);
+	// const paths = books.map((book) => ({
+	// 	params: { cat: books.categorySlug[0], slug: book.bookSlug },
+	// }));
 
 	return {
 		paths,

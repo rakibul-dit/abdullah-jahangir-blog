@@ -6,7 +6,7 @@ import Meta from "../components/meta";
 import Snackbar from "@material-ui/core/Snackbar";
 import Header from "../components/header";
 
-// Contact.title = "যোগাযোগ";
+Contact.title = "যোগাযোগ";
 
 export default function Contact({ prev_page = "/" }) {
 	//snackbar
@@ -166,7 +166,6 @@ export default function Contact({ prev_page = "/" }) {
 
 	return (
 		<>
-			<Header title="যোগাযোগ" />
 			<Layout>
 				<Meta
 					title="যোগাযোগ"

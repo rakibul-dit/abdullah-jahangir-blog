@@ -52,7 +52,6 @@ export default function Home({
 
 	return (
 		<>
-			<Header title="ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)" />
 			<Layout page="homepage">
 				<Meta
 					title=""

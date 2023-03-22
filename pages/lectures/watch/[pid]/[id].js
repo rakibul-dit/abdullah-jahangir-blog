@@ -2,21 +2,20 @@ import {
 	getUploadPlaylistVideos,
 	// getRelatedYoutubeVideoListByUrl,
 	getYoutubeVideoDetailsByUrl,
-} from "../../../lib/fetch";
-import { server, youtube } from "../../../lib/config";
+} from "../../../../lib/fetch";
+import { server, youtube } from "../../../../lib/config";
 import { useRef } from "react";
 import Image from "next/image";
-import Layout from "../../../components/layout";
-import Meta from "../../../components/meta";
-import Share from "../../../components/share";
-import { date, formatNumber } from "../../../lib/format";
-import DetailTopBack from "../../../components/detail-top-back";
-import Header from "../../../components/header";
+import Layout from "../../../../components/layout";
+import Meta from "../../../../components/meta";
+import Share from "../../../../components/share";
+import { date, formatNumber } from "../../../../lib/format";
+import DetailTopBack from "../../../../components/detail-top-back";
+import Header from "../../../../components/header";
 
-// VideoDetail.prev_page = `/lectures/${youtube.uploadPlaylistID}`;
-// VideoDetail.title = "লেকচার সমূহ";
+VideoDetail.title = "লেকচার সমূহ";
 
-export default function VideoDetail({ id, data }) {
+export default function VideoDetail({ id, data, pid }) {
 	// const fetcher = (...args) => fetch(...args).then(res => res.json())
 	// const url = `${youtube.url}/videos?key=${youtube.key}&part=snippet,statistics&id=${id}&maxResults=${constants.YOUTUBE_RELATED_VIDEOS_PAGE_LIMIT}`
 	// const {data} = useSWR(url, fetcher, {initialData: detail, revalidateOnMount: true });
@@ -38,15 +37,11 @@ export default function VideoDetail({ id, data }) {
 
 	return (
 		<>
-			<Header
-				title="লেকচার সমূহ"
-				prev_page={`/lectures/${youtube.uploadPlaylistID}`}
-			/>
 			<Layout>
 				<Meta
 					title={title}
 					description={description}
-					url={`${server}/lectures/watch/${id}`}
+					url={`${server}/lectures/watch/${pid}/${id}`}
 					image={image}
 					type="website"
 				/>
@@ -54,7 +49,7 @@ export default function VideoDetail({ id, data }) {
 				<section className="blog-detail-ctn video-blog-detail">
 					<div className="page-width">
 						<div className="box">
-							<DetailTopBack link={`/lectures/${youtube.uploadPlaylistID}`} />
+							<DetailTopBack link={`/lectures/${pid}`} />
 							<div className="blog-area">
 								<div className="video-wrap-outer">
 									<div className="video-wrap">
@@ -101,7 +96,7 @@ export default function VideoDetail({ id, data }) {
 										<div className="col col-r s12 l3">
 											<div className="blog-share">
 												<Share
-													urlWeb={`lectures/watch/${id}`}
+													urlWeb={`lectures/watch/${pid}/${id}`}
 													urlMobile={id}
 													title={title}
 												/>
@@ -157,6 +152,7 @@ export default function VideoDetail({ id, data }) {
 
 export async function getStaticProps({ params }) {
 	const id = params.id;
+	const pid = params.pid;
 
 	const url = `${youtube.url}/videos?key=${youtube.key}&part=snippet,statistics&id=${id}`;
 	const detail = await getYoutubeVideoDetailsByUrl(url);
@@ -167,8 +163,10 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			id,
+			pid,
 			data: detail,
 			// relatedVideos: JSON.parse(JSON.stringify(videoLists))
+			prev_page: `/lectures/${pid}`,
 		},
 		revalidate: 60,
 	};
@@ -176,9 +174,8 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
 	const data = await getUploadPlaylistVideos();
-
 	const paths = data.videoIdList.map((video) => ({
-		params: { id: video.id },
+		params: { pid: video.playlistId, id: video.id },
 	}));
 
 	return {

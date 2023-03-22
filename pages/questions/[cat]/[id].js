@@ -8,13 +8,11 @@ import { getAnsById, getQnaByLimit } from "../../../lib/fetch";
 import DetailTopBack from "../../../components/detail-top-back";
 import Header from "../../../components/header";
 
-// QnA.title = "প্রশ্নোত্তর";
-// QnA.prev_page = `/questions/${cat_slug}`;
+QnA.title = "প্রশ্নোত্তর";
 
 export default function QnA({ ans, cat_slug }) {
 	return (
 		<>
-			<Header title="লেকচার সমূহ" prev_page={`/questions/${cat_slug}`} />
 			<Layout>
 				<Meta
 					title={ans[0].qus}
@@ -78,6 +76,7 @@ export async function getStaticProps({ params }) {
 		props: {
 			ans,
 			cat_slug,
+			prev_page: `/questions/${cat_slug}`,
 		},
 	};
 }

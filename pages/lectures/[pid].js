@@ -25,7 +25,7 @@ const getKey = (pageIndex, previousPageData, playlistId) => {
 	return `${youtube.url}/playlistItems?key=${youtube.key}&part=snippet&playlistId=${playlistId}&maxResults=${constants.DEFAULT_PAGE_LIMIT}${pageToken}`;
 };
 
-// LectureList.title = "লেকচার সমূহ";
+LectureList.title = "লেকচার সমূহ";
 
 export default function LectureList({
 	initialVideos,
@@ -80,7 +80,6 @@ export default function LectureList({
 
 	return (
 		<>
-			<Header title="লেকচার সমূহ" />
 			<Layout>
 				<Meta
 					title={pageTitle}
@@ -143,6 +142,7 @@ export default function LectureList({
 												return (
 													<div className="col col-r s12 m6 xl3" key={item.id}>
 														<PostCardVideo2
+															playlistId={initPlaylistId}
 															item={item}
 															statistics={data.videoLists.videoStats}
 														/>

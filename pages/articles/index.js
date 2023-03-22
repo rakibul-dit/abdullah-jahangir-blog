@@ -6,12 +6,11 @@ import PostCardArticle from "../../components/card/post-card-article";
 import Pagination from "../../components/pagination";
 import Header from "../../components/header";
 
-// BlogList.title = "প্রবন্ধ সমূহ";
+BlogList.title = "প্রবন্ধ সমূহ";
 
 export default function BlogList({ articles }) {
 	return (
 		<>
-			<Header title="প্রবন্ধ সমূহ" />
 			<Layout>
 				<Meta
 					title="প্রবন্ধ সমূহ"

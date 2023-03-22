@@ -4,12 +4,11 @@ import Layout from "../components/layout";
 import Meta from "../components/meta";
 import Header from "../components/header";
 
-// About.title = "জীবন বৃত্তান্ত";
+About.title = "জীবন বৃত্তান্ত";
 
 export default function About() {
 	return (
 		<>
-			<Header title="জীবন বৃত্তান্ত" />
 			<Layout>
 				<Meta
 					title="জীবন বৃত্তান্ত"
