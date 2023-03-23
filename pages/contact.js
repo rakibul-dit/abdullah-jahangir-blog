@@ -8,7 +8,7 @@ import Header from "../components/header";
 
 Contact.title = "যোগাযোগ";
 
-export default function Contact({ prev_page = "/" }) {
+export default function Contact() {
 	//snackbar
 	const [snackbarOpen, setSnackbarOpen] = useState(false);
 

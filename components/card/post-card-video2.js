@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { date, formatNumber } from "../../lib/format";
 
-export default function PostCardVideo2({ playlistId, item, statistics }) {
+export default function PostCardVideo2({ item, statistics }) {
 	const id = item.id;
 	const image = item.image;
 	const title = item.title;
@@ -14,7 +14,7 @@ export default function PostCardVideo2({ playlistId, item, statistics }) {
 		<div className="card card-r pc-video">
 			<div className="card-image">
 				{/*TODO: Consider prefetch*/}
-				<Link href={`/lectures/watch/${playlistId}/${id}`}>
+				<Link href={`/lectures/watch/${id}`}>
 					<a className="image-r">
 						{/* <img src={image} alt="" /> */}
 						<Image

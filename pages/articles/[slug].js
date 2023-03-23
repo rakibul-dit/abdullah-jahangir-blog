@@ -12,7 +12,6 @@ import Share from "../../components/share";
 import DetailTopBack from "../../components/detail-top-back";
 import Header from "../../components/header";
 
-BlogDetail.prev_page = "/articles";
 BlogDetail.title = "প্রবন্ধ সমূহ";
 
 export default function BlogDetail({ detail }) {
@@ -96,6 +95,7 @@ export async function getStaticProps({ params }) {
 		props: {
 			detail,
 			articles,
+			prev_page: "/articles",
 		},
 	};
 }

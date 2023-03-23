@@ -142,7 +142,6 @@ export default function LectureList({
 												return (
 													<div className="col col-r s12 m6 xl3" key={item.id}>
 														<PostCardVideo2
-															playlistId={initPlaylistId}
 															item={item}
 															statistics={data.videoLists.videoStats}
 														/>

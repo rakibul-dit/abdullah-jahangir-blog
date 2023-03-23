@@ -10,7 +10,7 @@ import Header from "../../../components/header";
 
 QnA.title = "প্রশ্নোত্তর";
 
-export default function QnA({ ans, cat_slug }) {
+export default function QnA({ ans }) {
 	return (
 		<>
 			<Layout>
@@ -25,7 +25,7 @@ export default function QnA({ ans, cat_slug }) {
 					<section className="blog-detail-ctn">
 						<div className="page-width">
 							<div className="box">
-								<DetailTopBack link={`/questions/${cat_slug}`} />
+								<DetailTopBack link="/questions/all" />
 								<div className="blog-area">
 									<div className="blog-detail">
 										{/*<div>প্রশ্নোত্তর: {ans[0].id}</div>*/}
@@ -68,15 +68,12 @@ export default function QnA({ ans, cat_slug }) {
 
 export async function getStaticProps({ params }) {
 	const id = params.id;
-	const cat_slug = params.cat;
-	console.log(params);
 	const ans = await getAnsById(id);
 
 	return {
 		props: {
 			ans,
-			cat_slug,
-			prev_page: `/questions/${cat_slug}`,
+			prev_page: "/questions/all",
 		},
 	};
 }
@@ -86,7 +83,6 @@ export async function getStaticPaths() {
 
 	const paths = ans.map((item) => ({
 		params: {
-			cat: item.category_slug ? item.category_slug : "all",
 			id: item.id.toString(),
 		},
 	}));

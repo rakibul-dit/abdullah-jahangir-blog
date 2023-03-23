@@ -4,20 +4,20 @@ import {
 	getBookCatTitle,
 	getBooksByCategory,
 	qaFetcher,
-} from "../../../lib/fetch";
+} from "../../lib/fetch";
 import { useState, useEffect, useRef } from "react";
-import Layout from "../../../components/layout";
-import Meta from "../../../components/meta";
+import Layout from "../../components/layout";
+import Meta from "../../components/meta";
 // import PostCardVideo2 from "../../components/card/post-card-video2";
-import Loader from "../../../components/loader";
+import Loader from "../../components/loader";
 // import fetcher from "../../lib/lecturesFetcher";
-import useOnScreen from "../../../hooks/useOnScreen";
+import useOnScreen from "../../hooks/useOnScreen";
 import { useSWRInfinite } from "swr";
 import Link from "next/link";
 import SortIcon from "@mui/icons-material/Sort";
 // import PostCardAllQns from "../../components/card/post-card-allqns";
-import BookCard from "../../../components/card/post-card-book";
-import Header from "../../../components/header";
+import BookCard from "../../components/card/post-card-book";
+import Header from "../../components/header";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {
 	let currentPage = pageIndex + 1;
@@ -156,7 +156,7 @@ export default function BookList({
 													<div
 														className="col col-r s6 m4 l3 xl3 xxl2"
 														key={item.id}>
-														<BookCard catSlug={categoryId} book={item} />
+														<BookCard book={item} />
 													</div>
 												))
 											);
@@ -193,7 +193,7 @@ export default function BookList({
 }
 
 export async function getStaticProps({ params }) {
-	const categoryId = params.cat;
+	const categoryId = params.slug;
 	const currentPage = 1;
 
 	// const videoLists = await getYoutubeVideoListByUrl(url);
@@ -216,10 +216,10 @@ export async function getStaticPaths() {
 	const categories = await getAllBookCategories();
 
 	let paths = categories.map((item) => ({
-		params: { cat: item.slug },
+		params: { slug: item.slug },
 	}));
 
-	paths = [{ params: { cat: "all" } }, ...paths];
+	paths = [{ params: { slug: "all" } }, ...paths];
 
 	return {
 		paths,

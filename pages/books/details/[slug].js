@@ -10,14 +10,14 @@ import Header from "../../../components/header";
 
 BookDetail.title = "বই সমূহ";
 
-export default function BookDetail({ detail, books, catSlug }) {
+export default function BookDetail({ detail, books }) {
 	return (
 		<>
 			<Layout>
 				<Meta
 					title={detail.bookName}
 					description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
-					url={`${server}/books/${catSlug}/${detail.bookSlug}`}
+					url={`${server}/books/details/${detail.bookSlug}`}
 					image={server + detail.imageSrc}
 					type="article"
 				/>
@@ -25,7 +25,7 @@ export default function BookDetail({ detail, books, catSlug }) {
 				<section className="blog-detail-ctn">
 					<div className="page-width">
 						<div className="box">
-							<DetailTopBack link={`/books/${catSlug}`} />
+							<DetailTopBack link={`/books/all`} />
 							<div className="blog-area">
 								<div className="blog-detail book-detail">
 									<div className="row margin-bottom-0">
@@ -106,7 +106,7 @@ export default function BookDetail({ detail, books, catSlug }) {
 
 													<div className="blog-share book-share">
 														<Share
-															urlWeb={`books/${catSlug}/${detail.bookSlug}`}
+															urlWeb={`books/details/${detail.bookSlug}`}
 															urlMobile={detail.bookSlug}
 															title={detail.bookName}
 														/>
@@ -152,7 +152,6 @@ export async function getStaticProps({ params }) {
 	//const books = await resRelated.json()
 
 	const slug = params.slug;
-	const catSlug = params.cat;
 
 	const detail = await getBookDetails(slug);
 	const books = await getRelatedBooks();
@@ -161,8 +160,7 @@ export async function getStaticProps({ params }) {
 		props: {
 			detail,
 			books,
-			catSlug,
-			prev_page: `/books/${catSlug}`,
+			prev_page: "/books/all",
 		},
 	};
 }
@@ -173,21 +171,26 @@ export async function getStaticPaths() {
 
 	const books = await getBooks();
 
-	let paths = [];
-	books.forEach((book) => {
-		book.categorySlug.forEach((cat) => {
-			paths.push({
-				params: { cat: cat, slug: book.bookSlug },
-			});
-		});
-	});
-	console.log(paths);
-	// const paths = books.map((book) => ({
-	// 	params: { cat: books.categorySlug[0], slug: book.bookSlug },
-	// }));
+	// let paths = [];
+	// books.forEach((book) => {
+	// 	book.categorySlug.forEach((cat) => {
+	// 		paths.push({
+	// 			params: { cat: cat, slug: book.bookSlug },
+	// 		});
+	// 	});
+	// });
+	// books.forEach((book) => {
+	// 	paths.push({
+	// 		params: { cat: "all", slug: book.bookSlug },
+	// 	});
+	// });
+
+	const paths = books.map((book) => ({
+		params: { slug: book.bookSlug },
+	}));
 
 	return {
 		paths,
-		fallback: false,
+		fallback: "blocking",
 	};
 }
