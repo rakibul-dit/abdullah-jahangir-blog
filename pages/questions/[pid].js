@@ -193,7 +193,7 @@ export default function QnList({
 }
 
 export async function getStaticProps({ params }) {
-	const categoryId = params.cat;
+	const categoryId = params.pid;
 	const currentPage = 1;
 
 	// const videoLists = await getYoutubeVideoListByUrl(url);
