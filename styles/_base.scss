@@ -146,11 +146,16 @@ html {
 	transition: transform 250ms ease, box-shadow 250ms ease, color 250ms ease;
 	min-height: 100%;
 }
-
-.card-r:hover {
-	box-shadow: var(--bs12);
-	transform: translateY(-0.25rem);
+@media only screen and (min-width: 769px) {
+	.card-r:hover {
+		box-shadow: var(--bs12);
+		transform: translateY(-0.25rem);
+	}
 }
+// .card-r:hover {
+// 	box-shadow: var(--bs12);
+// 	transform: translateY(-0.25rem);
+// }
 
 .card-r .card-image {
 	//padding: 0.5rem 0.5rem 0;

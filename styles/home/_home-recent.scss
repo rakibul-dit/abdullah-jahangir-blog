@@ -28,8 +28,13 @@
 	cursor: pointer;
 }
 
-.recent-ctn:hover {
-	transform: translateY(-0.25rem);
+// .recent-ctn:hover {
+// 	transform: translateY(-0.25rem);
+// }
+@media only screen and (min-width: 769px) {
+	.recent-ctn:hover {
+		transform: translateY(-0.25rem);
+	}
 }
 
 .recent-ctn::before {
