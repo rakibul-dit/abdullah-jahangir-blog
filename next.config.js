@@ -6,6 +6,16 @@ module.exports = {
 				destination: "/lectures/UUWuvzUF7ZcRCAsWswzjNLbw",
 				permanent: true,
 			},
+			{
+				source: "/books",
+				destination: "/books/all",
+				permanent: true,
+			},
+			{
+				source: "/questions",
+				destination: "/questions/all",
+				permanent: true,
+			},
 		];
 	},
 	images: {

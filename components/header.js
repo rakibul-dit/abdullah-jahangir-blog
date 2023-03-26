@@ -1,28 +1,31 @@
-import { server, youtube } from "../lib/config";
+// import { server, youtube } from "../lib/config";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import SearchModal from "./search-modal";
+// import Image from "next/image";
+// import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
 import { useRouter } from "next/router";
 import { arrowBackSharp, menuSharp, chevronBack } from "ionicons/icons";
 
-import HomeIcon from "@mui/icons-material/HomeOutlined";
-import TvIcon from "@mui/icons-material/TvOutlined";
-import DescriptionIcon from "@mui/icons-material/DescriptionOutlined";
-import BookIcon from "@mui/icons-material/BookOutlined";
-import ArticleIcon from "@mui/icons-material/ArticleOutlined";
-import CorporateFareIcon from "@mui/icons-material/CorporateFareOutlined";
-import InfoIcon from "@mui/icons-material/InfoOutlined";
-import ContactIcon from "@mui/icons-material/ContactPageOutlined";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+// import HomeIcon from "@mui/icons-material/HomeOutlined";
+// import TvIcon from "@mui/icons-material/TvOutlined";
+// import DescriptionIcon from "@mui/icons-material/DescriptionOutlined";
+// import BookIcon from "@mui/icons-material/BookOutlined";
+// import ArticleIcon from "@mui/icons-material/ArticleOutlined";
+// import CorporateFareIcon from "@mui/icons-material/CorporateFareOutlined";
+// import InfoIcon from "@mui/icons-material/InfoOutlined";
+// import ContactIcon from "@mui/icons-material/ContactPageOutlined";
+// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Header({ prev_page, isTab, title }) {
 	// prev_page = prev_page ? prev_page : "/";
 
 	const router = useRouter();
+
+	const [historyLength, setHistoryLength] = useState(0)
+
 	useEffect(() => {
-		console.log(window.history);
+		setHistoryLength(window.history.length)
 	});
 
 	const [state, setState] = useState({
@@ -89,13 +92,19 @@ export default function Header({ prev_page, isTab, title }) {
 
 	const goBack = () => {
 		// e.preventDefault();
-		// if (history.length > 1) {
-		//   history.go(-1);
-		// } else history.push('/');
 
-		if (prev_page !== "/") {
+		const listPagesPath = ['/lectures/[pid]', '/books/[slug]', '/questions/[pid]'];
+
+		if (listPagesPath.includes(router.pathname, 1)) {
+			// router.push(router.pathname.split("/")[1]).then(r => "/");
+			router.push("/");
+		} else if (historyLength > 2) {
 			router.back();
-		} else router.push("/");
+		} else router.push(`${prev_page}`).then(r => "/");
+
+		// if (prev_page !== "/") {
+		// 	router.back();
+		// } else router.push("/");
 	};
 
 	return (
