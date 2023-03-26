@@ -6,6 +6,7 @@ import Fade from "@material-ui/core/Fade";
 
 import ShareIcon from "@mui/icons-material/Share";
 import CloseIcon from "@mui/icons-material/Close";
+import { ellipsisVertical, shareSocialOutline } from "ionicons/icons";
 
 import {
 	EmailShareButton,
@@ -31,10 +32,9 @@ import {
 	TumblrShareButton,
 	TumblrIcon,
 } from "react-share";
-
 import styles from "./share.module.scss";
 
-export default function Share({ urlWeb, urlMobile, title }) {
+export default function HeaderShare({ asPath, title }) {
 	const [shareOpen, setShareOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [shareTitle, setShareTitle] = useState("");
@@ -49,20 +49,14 @@ export default function Share({ urlWeb, urlMobile, title }) {
 		setShareOpen(open);
 	};
 
-	const handleWebShare = () => {
-		setShareUrl(`${server}/${urlWeb}`);
-		setShareTitle(title);
-		setShareOpen(true);
-	};
-
 	const handleMobileShare = () => {
 		if (navigator.share) {
 			navigator.share({
 				title: title,
-				url: urlMobile,
+				url: `${server}${asPath}`,
 			});
 		} else {
-			setShareUrl(`${server}/${urlWeb}`);
+			setShareUrl(`${server}${asPath}`);
 			setShareTitle(title);
 			setShareOpen(true);
 		}
@@ -70,19 +64,11 @@ export default function Share({ urlWeb, urlMobile, title }) {
 
 	return (
 		<>
-			<div className={styles.wrapper}>
-				<button
-					onClick={() => handleMobileShare()}
-					className={`${styles.btn} ${styles.btn_mobile}`}>
-					শেয়ার <ShareIcon />
-				</button>
-
-				<button
-					onClick={() => handleWebShare()}
-					className={`${styles.btn} ${styles.btn_web}`}>
-					শেয়ার <ShareIcon />
-				</button>
-			</div>
+			<ion-buttons slot="end">
+				<ion-button slot="end" onClick={() => handleMobileShare()}>
+					<ion-icon icon={shareSocialOutline} />
+				</ion-button>
+			</ion-buttons>
 
 			<ShareModal
 				open={shareOpen}

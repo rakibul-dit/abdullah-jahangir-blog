@@ -14,6 +14,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import { QuestionAnswer } from "@material-ui/icons";
 import { CorporateFare } from "@mui/icons-material";
 import { useRouter } from "next/router";
+import MobileNavShare from "./share-mobile-nav";
 
 export default function MobileNav(props) {
 	const router = useRouter();
@@ -99,6 +100,7 @@ export default function MobileNav(props) {
 									<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
 								</a>
 							</li>
+							<MobileNavShare asPath={router.asPath} title={props.title} />
 						</ul>
 					</div>
 

@@ -15,7 +15,7 @@ export default function Layout({ children, page, prev_page }) {
 							<div className="main-content">{children}</div>
 						</main>
 					</div>
-					{/*<Footer />*/}
+					<Footer />
 				</div>
 				{/* </div> */}
 			</ion-content>
