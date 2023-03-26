@@ -18,13 +18,12 @@ import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Header({ prev_page, isTab, title }) {
+	// prev_page = prev_page ? prev_page : "/";
+
 	const router = useRouter();
-
-	const [historyLength, setHistoryLength] = useState(0)
-
 	useEffect(() => {
-		setHistoryLength(window.history.length)
-	}, [])
+		console.log(window.history);
+	});
 
 	const [state, setState] = useState({
 		mobileNavOpen: false,
@@ -88,6 +87,17 @@ export default function Header({ prev_page, isTab, title }) {
 		setState({ mobileNavOpen: open });
 	};
 
+	const goBack = () => {
+		// e.preventDefault();
+		// if (history.length > 1) {
+		//   history.go(-1);
+		// } else history.push('/');
+
+		if (prev_page !== "/") {
+			router.back();
+		} else router.push("/");
+	};
+
 	return (
 		<div className="header-container">
 			{isTab ? (
@@ -106,21 +116,17 @@ export default function Header({ prev_page, isTab, title }) {
 										icon="chevron-back"
 										default-href="/"
 										onClick={goBack}></ion-back-button> */}
-									{/*<Link href={prev_page} passHref>*/}
-									<span
-										style={{ cursor: `pointer` }} onClick={historyLength > 2 ? () => router.back() : () => router.push(`${prev_page}`)}
-									>
-										<div className="back-btn">
-											<ion-button>
-												<ion-icon icon={arrowBackSharp}></ion-icon>
-											</ion-button>
-											<ion-button>
-												<ion-icon icon={chevronBack}></ion-icon>
-												{/* <span>Back</span> */}
-											</ion-button>
-										</div>
-									</span>
-									{/*</Link>*/}
+									{/* <Link href={prev_page} passHref> */}
+									<div className="back-btn">
+										<ion-button onClick={goBack}>
+											<ion-icon icon={arrowBackSharp}></ion-icon>
+										</ion-button>
+										<ion-button onClick={goBack}>
+											<ion-icon icon={chevronBack}></ion-icon>
+											{/* <span>Back</span> */}
+										</ion-button>
+									</div>
+									{/* </Link> */}
 								</>
 							)}
 						</ion-buttons>
@@ -213,13 +219,13 @@ export default function Header({ prev_page, isTab, title }) {
 										// </li>
 
 										<li className="mobile-back">
-											<Link href={prev_page}>
-												<ion-buttons slot="start">
-													<ion-button>
-														<ion-icon icon={arrowBackSharp}></ion-icon>
-													</ion-button>
-												</ion-buttons>
-											</Link>
+											{/* <Link href={prev_page}> */}
+											<ion-buttons slot="start">
+												<ion-button onClick={goBack}>
+													<ion-icon icon={arrowBackSharp}></ion-icon>
+												</ion-button>
+											</ion-buttons>
+											{/* </Link> */}
 										</li>
 									)}
 								</ul>

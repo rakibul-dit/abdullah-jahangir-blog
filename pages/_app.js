@@ -58,9 +58,13 @@ const App = ({ Component, pageProps }) => {
 		<>
 			<div className="ion-page">
 				<Header
-					prev_page={Component.prev_page ? Component.prev_page : "/"}
+					prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
 					isTab={isTab}
-					title={Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"}
+					title={
+						Component.title
+							? Component.title
+							: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
+					}
 				/>
 				<Component {...pageProps} />
 			</div>

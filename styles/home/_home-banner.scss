@@ -199,7 +199,7 @@
 // 	width: 50%;
 // }
 .bannar-img {
-	margin: auto;
+	margin-left: auto;
 }
 
 .bannar-img img {
@@ -391,5 +391,8 @@
 	}
 	.h-banner-2 .h-banner-ctn {
 		padding: 1rem;
+	}
+	.bannar-img {
+		margin: auto;
 	}
 }

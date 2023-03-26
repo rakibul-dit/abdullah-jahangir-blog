@@ -1,7 +1,7 @@
 import { server } from "../../lib/config";
 import Link from "next/link";
 import Image from "next/image";
-import {date, formatNumber} from "../../lib/format";
+import { date, formatNumber } from "../../lib/format";
 
 export default function PostCardVideo2({ item, statistics }) {
 	const id = item.id;

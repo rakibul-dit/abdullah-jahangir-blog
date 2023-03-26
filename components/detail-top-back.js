@@ -1,28 +1,23 @@
 import Link from "next/link";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
+import { useRouter } from "next/router";
 
 export default function DetailTopBack({ link, children }) {
-	const router = useRouter()
-
-	const [historyLength, setHistoryLength] = useState(0)
-
-	useEffect(() => {
-		setHistoryLength(window.history.length)
-	}, [])
+	const router = useRouter();
+	const goBack = (e) => {
+		e.preventDefault();
+		if (link !== "/") {
+			router.back();
+		} else router.push("/");
+	};
 
 	return (
 		<div className="top-back">
-			{link && (
-				<span
-					style={{ cursor: `pointer` }} onClick={historyLength > 2 ? () => router.back() : () => router.push(`${link}`)}
-				>
-					<a>
-						<ArrowBackIcon /> ফিরে যান
-					</a>
-				</span>
-			)}
+			{/* <Link href={link}> */}
+			<a onClick={goBack} href="#">
+				<ArrowBackIcon /> পিছনে যান
+			</a>
+			{/* </Link> */}
 			{children}
 		</div>
 	);
