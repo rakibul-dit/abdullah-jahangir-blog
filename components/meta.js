@@ -23,7 +23,7 @@ export default function Meta(props) {
 			{/* iOS phone */}
 			<meta name="apple-mobile-web-app-title" content="AbdullahJahangir.com/" />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
-			<meta name="apple-mobile-web-app-status-bar-style" content="#155197" />
+			<meta name="apple-mobile-web-app-status-bar-style" content="#f9f9f9" />
 
 			{/* Windows phone */}
 			<meta name="msapplication-navbutton-color" content="#155197" />

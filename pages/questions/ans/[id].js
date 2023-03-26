@@ -28,7 +28,7 @@ export default function QnA({ ans }) {
 								<DetailTopBack link="/questions/all" />
 								<div className="blog-area">
 									<div className="blog-detail">
-										{/*<div>প্রশ্নোত্তর: {ans[0].id}</div>*/}
+										<h3 className="qna-qn">প্রশ্নোত্তর: {ans[0].id}</h3> <br/>
 										<h3 className="qna-qn">{ans[0].qus}</h3>
 									</div>
 									<hr className="qna-hr" />
