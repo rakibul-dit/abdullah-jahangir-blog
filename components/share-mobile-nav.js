@@ -1,10 +1,10 @@
 import { server } from "../lib/config";
 import { useState } from "react";
 import ShareIcon from "@mui/icons-material/Share";
-import styles from "./share.module.scss";
 import ShareModal from "./share-modal";
+import styles from "./share.module.scss";
 
-export default function Share({ urlWeb, urlMobile, title }) {
+export default function MobileNavShare({ asPath, title }) {
 	const [shareOpen, setShareOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [shareTitle, setShareTitle] = useState("");
@@ -19,20 +19,15 @@ export default function Share({ urlWeb, urlMobile, title }) {
 		setShareOpen(open);
 	};
 
-	const handleWebShare = () => {
-		setShareUrl(`${server}/${urlWeb}`);
-		setShareTitle(title);
-		setShareOpen(true);
-	};
-
-	const handleMobileShare = () => {
+	const handleMobileShare = (e) => {
+		e.preventDefault();
 		if (navigator.share) {
 			navigator.share({
 				title: title,
-				url: urlMobile,
+				url: `${server}${asPath}`,
 			});
 		} else {
-			setShareUrl(`${server}/${urlWeb}`);
+			setShareUrl(`${server}${asPath}`);
 			setShareTitle(title);
 			setShareOpen(true);
 		}
@@ -40,19 +35,11 @@ export default function Share({ urlWeb, urlMobile, title }) {
 
 	return (
 		<>
-			<div className={styles.wrapper}>
-				<button
-					onClick={() => handleMobileShare()}
-					className={`${styles.btn} ${styles.btn_mobile}`}>
-					শেয়ার <ShareIcon />
-				</button>
-
-				<button
-					onClick={() => handleWebShare()}
-					className={`${styles.btn} ${styles.btn_web}`}>
-					শেয়ার <ShareIcon />
-				</button>
-			</div>
+			<li>
+				<a href="/share" onClick={handleMobileShare}>
+					<ShareIcon /> শেয়ার
+				</a>
+			</li>
 
 			<ShareModal
 				open={shareOpen}

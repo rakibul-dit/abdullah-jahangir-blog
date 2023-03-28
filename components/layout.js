@@ -15,10 +15,10 @@ export default function Layout({ children, page, prev_page }) {
 							<div className="main-content">{children}</div>
 						</main>
 					</div>
-					{/*<Footer />*/}
 				</div>
 				{/* </div> */}
 			</ion-content>
+			{/* <Footer /> */}
 		</>
 	);
 }

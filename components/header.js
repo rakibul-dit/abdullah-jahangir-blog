@@ -4,6 +4,7 @@ import Link from "next/link";
 // import Image from "next/image";
 // import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
+import HeaderShare from "./share-header";
 import { useRouter } from "next/router";
 import { arrowBackSharp, menuSharp, chevronBack } from "ionicons/icons";
 
@@ -142,6 +143,9 @@ export default function Header({ prev_page, isTab, title }) {
 						<ion-title>
 							<h3 style={{ color: "#106690" }}>{title}</h3>
 						</ion-title>
+						{router.pathname !== "/" && (
+							<HeaderShare asPath={router.asPath} title={title} />
+						)}
 					</ion-toolbar>
 				</ion-header>
 			) : (
@@ -244,7 +248,11 @@ export default function Header({ prev_page, isTab, title }) {
 				</header>
 			)}
 			{/* <SearchModal /> */}
-			<MobileNav navOpen={state.mobileNavOpen} navControl={toggleMobileNav} />
+			<MobileNav
+				navOpen={state.mobileNavOpen}
+				navControl={toggleMobileNav}
+				title={title}
+			/>
 		</div>
 	);
 }

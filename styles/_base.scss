@@ -53,10 +53,11 @@ html {
 	//scrollbar-width: thin;  /* Firefox */
 }
 
-// .content_without_footer {
-// 	min-height: calc(100vh - 96px);
-// 	background-color: #e6eff4;
-// }
+.content_without_footer {
+	// min-height: calc(100vh - 96px);
+	// background-color: #e6eff4;
+	height: 100%;
+}
 
 .box {
 	width: 95%;
@@ -93,7 +94,8 @@ html {
 	margin-bottom: 0;
 	position: relative;
 	overflow-x: hidden;
-	background-color: #f9f9f9;
+	// background-color: #f9f9f9;
+	height: 100%;
 }
 
 // .viewport {

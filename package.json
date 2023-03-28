@@ -9,11 +9,10 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@ionic/core": "^5.4.1",
-		"ionicons": "^5.2.3",
 		"@emotion/react": "^11.4.1",
 		"@emotion/styled": "^11.3.0",
 		"@fortawesome/fontawesome-free": "^5.15.2",
+		"@ionic/core": "^5.4.1",
 		"@material-ui/core": "^4.11.3",
 		"@material-ui/icons": "^4.11.2",
 		"@mui/icons-material": "^5.0.1",
@@ -22,6 +21,7 @@
 		"@react-pdf-viewer/default-layout": "^2.6.1",
 		"@sendgrid/mail": "^7.4.5",
 		"html-react-parser": "^1.2.4",
+		"ionicons": "^5.2.3",
 		"isomorphic-unfetch": "^3.1.0",
 		"materialize-css": "^1.0.0",
 		"next": "10.0.7",
