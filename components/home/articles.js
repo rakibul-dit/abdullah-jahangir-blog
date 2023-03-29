@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-export default function HomeArticles({ articles, isSmScr }) {
+export default function HomeArticles({ articles, isSmScr, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -43,9 +43,15 @@ export default function HomeArticles({ articles, isSmScr }) {
 				<div className="box">
 					<h1 className="title-r">
 						<span>প্রবন্ধ সমূহ</span>
-						<Link href="/articles/">
-							<a>আরও দেখুন</a>
-						</Link>
+						{isTab ? (
+							<Link href="/articles/">
+								<span className="a">আরও দেখুন</span>
+							</Link>
+						) : (
+							<Link href="/articles/">
+								<a>আরও দেখুন</a>
+							</Link>
+						)}
 					</h1>
 					{isSmScr ? (
 						<div className="row row-r">

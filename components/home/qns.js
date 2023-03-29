@@ -5,7 +5,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PostCardQns from "../card/post-card-qns";
 
-export default function HomeQns({ qns, isSmScr }) {
+export default function HomeQns({ qns, isSmScr, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -44,9 +44,15 @@ export default function HomeQns({ qns, isSmScr }) {
 				<div className="box">
 					<h1 className="title-r">
 						<span>প্রশ্নোত্তর</span>
-						<Link href="/questions/all">
-							<a>আরও দেখুন</a>
-						</Link>
+						{isTab ? (
+							<Link href="/questions/all">
+								<span className="a">আরও দেখুন</span>
+							</Link>
+						) : (
+							<Link href="/questions/all">
+								<a>আরও দেখুন</a>
+							</Link>
+						)}
 					</h1>
 					{isSmScr ? (
 						<div className="row row-r">

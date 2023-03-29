@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-export default function HomeBooks({ books, isSmScr }) {
+export default function HomeBooks({ books, isSmScr, isTab }) {
 	const settings2 = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -49,9 +49,15 @@ export default function HomeBooks({ books, isSmScr }) {
 				<div className="box">
 					<h1 className="title-r">
 						<span>বই সমূহ</span>
-						<Link href="/books/all">
-							<a>আরও দেখুন</a>
-						</Link>
+						{isTab ? (
+							<Link href="/books/all">
+								<span className="a">আরও দেখুন</span>
+							</Link>
+						) : (
+							<Link href="/books/all">
+								<a>আরও দেখুন</a>
+							</Link>
+						)}
 					</h1>
 
 					{isSmScr ? (

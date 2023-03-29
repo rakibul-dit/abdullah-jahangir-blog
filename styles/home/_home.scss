@@ -33,7 +33,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	background-color: #f4f4f4;
+	background-color: #f9f9f9;
 }
 // .content_without_footer {
 // 	min-height: 110vh;
@@ -46,8 +46,8 @@
 
 .main-content {
 	//background-color: #e6eff4;
-	background-color: #f4f4f4;
-	border-top-left-radius: 30px;
+	// background-color: #f4f4f4;
+	// border-top-left-radius: 30px;
 	padding: 1px;
 }
 
@@ -130,11 +130,5 @@
 	// }
 	.h-assunnah-trust .h3-quote-right {
 		border: unset;
-	}
-}
-@media only screen and (max-width: 460px) {
-	.main-content {
-		border-top-left-radius: 20px;
-		border-top-right-radius: 20px;
 	}
 }

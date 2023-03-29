@@ -28,9 +28,10 @@ export default function Home({
 	someLectures,
 	qns,
 	quotes,
+	isTab,
 }) {
 	const [isSmScr, setIsSmScr] = useState(false);
-
+	console.log(isTab);
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			// set isSmScr depending on screen size
@@ -65,11 +66,11 @@ export default function Home({
 					type="website"
 				/>
 				<HomeBanner />
-				<HomeLectures lectures={lectures} isSmScr={isSmScr} />
-				<HomeArticles articles={articles} isSmScr={isSmScr} />
-				<HomeBooks books={books} isSmScr={isSmScr} />
-				<HomeQns qns={qns} isSmScr={isSmScr} />
-				<SomeLectures lectures={someLectures} isSmScr={isSmScr} />
+				<HomeLectures lectures={lectures} isSmScr={isSmScr} isTab={isTab} />
+				<HomeArticles articles={articles} isSmScr={isSmScr} isTab={isTab} />
+				<HomeBooks books={books} isSmScr={isSmScr} isTab={isTab} />
+				<HomeQns qns={qns} isSmScr={isSmScr} isTab={isTab} />
+				<SomeLectures lectures={someLectures} isSmScr={isSmScr} isTab={isTab} />
 				<HomeQuoteSlider quotes={quotes} />
 				<AssunnahTrust />
 			</Layout>

@@ -8,7 +8,9 @@ import Header from "../components/header";
 
 Contact.title = "যোগাযোগ";
 
-export default function Contact() {
+export default function Contact({ isTab }) {
+	console.log(isTab);
+
 	//snackbar
 	const [snackbarOpen, setSnackbarOpen] = useState(false);
 
