@@ -8,7 +8,7 @@ import Header from "../../components/header";
 
 BlogList.title = "প্রবন্ধ সমূহ";
 
-export default function BlogList({ articles }) {
+export default function BlogList({ articles, isTab }) {
 	return (
 		<>
 			<Layout>
@@ -40,7 +40,7 @@ export default function BlogList({ articles }) {
 									articles.length &&
 									articles.map((article) => (
 										<div className="col col-r s12 xl4" key={article.id}>
-											<PostCardArticle article={article} />
+											<PostCardArticle article={article} isTab={isTab} />
 										</div>
 									))}
 							</div>

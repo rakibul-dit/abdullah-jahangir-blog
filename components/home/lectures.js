@@ -89,6 +89,7 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 										className="col col-r s12 m6 xl3 hoverable-card"
 										key={item.id}>
 										<PostCardVideo
+											isTab={isTab}
 											item={item}
 											statistics={lectures.videoLists.videoStats}
 										/>
@@ -105,6 +106,7 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 												className="col col-r s12 m6 xl3 hoverable-card"
 												key={item.id}>
 												<PostCardVideo
+													isTab={isTab}
 													item={item}
 													statistics={lectures.videoLists.videoStats}
 												/>

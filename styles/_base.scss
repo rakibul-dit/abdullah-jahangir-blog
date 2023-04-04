@@ -341,7 +341,9 @@ html {
 
 .title-r span {
 }
-
+.a {
+	cursor: pointer;
+}
 .title-r a,
 .title-r .a {
 	position: absolute;
@@ -363,9 +365,7 @@ html {
 	min-width: 5.625rem;
 	display: block;
 	text-align: center;
-	cursor: pointer;
 }
-
 .title-r a:hover,
 .title-r .a:hover {
 	color: var(--bg12);
@@ -672,15 +672,29 @@ i.instagram {
 .mb-0 {
 	margin-bottom: 0;
 }
+@media only screen and (max-width: 768px) {
+	.content_without_footer::before {
+		height: 1rem;
+	}
+}
 @media only screen and (max-width: 460px) {
 	.viewport {
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
 	}
 	.content_without_footer::before {
-		border-top-left-radius: 20px;
-		border-top-right-radius: 20px;
-		height: 1rem;
-		// top: 0;
+		height: 0;
 	}
 }
+// @media only screen and (max-width: 460px) {
+// 	.viewport {
+// 		border-top-left-radius: 20px;
+// 		border-top-right-radius: 20px;
+// 	}
+// 	.content_without_footer::before {
+// 		border-top-left-radius: 20px;
+// 		border-top-right-radius: 20px;
+// 		height: 1rem;
+// 		// top: 0;
+// 	}
+// }

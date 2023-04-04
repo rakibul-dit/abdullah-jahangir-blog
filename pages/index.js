@@ -72,7 +72,7 @@ export default function Home({
 				<HomeQns qns={qns} isSmScr={isSmScr} isTab={isTab} />
 				<SomeLectures lectures={someLectures} isSmScr={isSmScr} isTab={isTab} />
 				<HomeQuoteSlider quotes={quotes} />
-				<AssunnahTrust />
+				<AssunnahTrust isTab={isTab} />
 			</Layout>
 		</>
 	);

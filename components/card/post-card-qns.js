@@ -1,13 +1,19 @@
 import Link from "next/link";
 
-export default function PostCardQns({ qn }) {
+export default function PostCardQns({ qn, isTab }) {
 	return (
 		<div className="card card-r pc-0">
 			<div className="card-content">
-				<Link href={`/questions/ans/${qn.id}`}>
-					<a className="heading-r">{qn.qus}</a>
-					{/* <a className="paragraph-r">{qn.qus}</a> */}
-				</Link>
+				{isTab ? (
+					<Link href={`/questions/ans/${qn.id}`} passHref>
+						<span className="heading-r a">{qn.qus}</span>
+					</Link>
+				) : (
+					<Link href={`/questions/ans/${qn.id}`}>
+						<a className="heading-r">{qn.qus}</a>
+						{/* <a className="paragraph-r">{qn.qus}</a> */}
+					</Link>
+				)}
 
 				{/*<span className="date-r">{postDate}</span>*/}
 			</div>

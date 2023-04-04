@@ -31,6 +31,7 @@ export default function BookList({
 	categoryId,
 	categories,
 	catTitle,
+	isTab,
 }) {
 	const ref = useRef();
 	const catRef = useRef();
@@ -109,9 +110,17 @@ export default function BookList({
 											<li
 												className={categoryId == "all" ? "selected" : ""}
 												onClick={() => getCategorizedBooks("all", "বই সমূহ")}>
-												<Link href="/books/all">
-													<a>বই সমূহ</a>
-												</Link>
+												{isTab ? (
+													<Link href="/books/all" passHref>
+														<span role="link" className="a">
+															বই সমূহ
+														</span>
+													</Link>
+												) : (
+													<Link href="/books/all">
+														<a>বই সমূহ</a>
+													</Link>
+												)}
 											</li>
 											{categories &&
 												categories.map((item) => (
@@ -123,9 +132,17 @@ export default function BookList({
 														onClick={() =>
 															getCategorizedBooks(item.id, item.title)
 														}>
-														<Link href={"/books/" + item.slug}>
-															<a>{item.title}</a>
-														</Link>
+														{isTab ? (
+															<Link href={"/books/" + item.slug} passHref>
+																<span role="link" className="a">
+																	{item.title}
+																</span>
+															</Link>
+														) : (
+															<Link href={"/books/" + item.slug}>
+																<a>{item.title}</a>
+															</Link>
+														)}
 													</li>
 												))}
 										</ul>
@@ -156,7 +173,7 @@ export default function BookList({
 													<div
 														className="col col-r s6 m4 l3 xl3 xxl2"
 														key={item.id}>
-														<BookCard book={item} />
+														<BookCard book={item} isTab={isTab} />
 													</div>
 												))
 											);

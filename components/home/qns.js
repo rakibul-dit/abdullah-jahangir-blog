@@ -60,7 +60,7 @@ export default function HomeQns({ qns, isSmScr, isTab }) {
 								qns.length &&
 								qns.map((qn, i) => (
 									<div className="col col-r s12 hoverable-card" key={i}>
-										<PostCardQns qn={qn} />
+										<PostCardQns qn={qn} isTab={isTab} />
 									</div>
 								))}
 						</div>
@@ -72,7 +72,7 @@ export default function HomeQns({ qns, isSmScr, isTab }) {
 										qns.length &&
 										qns.map((qn, i) => (
 											<div className="col col-r hoverable-card" key={i}>
-												<PostCardQns qn={qn} />
+												<PostCardQns qn={qn} isTab={isTab} />
 											</div>
 										))}
 								</Slider>

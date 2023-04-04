@@ -192,14 +192,16 @@
 	z-index: 2;
 }
 
-.h-book-image a {
+.h-book-image a,
+.h-book-image .a {
 	width: 100%;
 	display: block;
 	position: relative;
 	padding-top: 150%;
 }
 
-.h-book-image a img {
+.h-book-image a img,
+.h-book-image .a img {
 	position: absolute;
 	top: 0;
 	left: 0;

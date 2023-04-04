@@ -14,7 +14,7 @@ import Header from "../../components/header";
 
 BlogDetail.title = "প্রবন্ধ সমূহ";
 
-export default function BlogDetail({ detail }) {
+export default function BlogDetail({ detail, isTab }) {
 	return (
 		<>
 			<Layout>
@@ -31,9 +31,15 @@ export default function BlogDetail({ detail }) {
 							<div className="box">
 								<DetailTopBack link="/articles" />
 								<div className="blog-area">
-									<Link href={`/articles/${detail.postSlug}`}>
-										<a className="heading-r">{detail.postTitle}</a>
-									</Link>
+									{isTab ? (
+										<Link href={`/articles/${detail.postSlug}`} passHref>
+											<span className="heading-r a">{detail.postTitle}</span>
+										</Link>
+									) : (
+										<Link href={`/articles/${detail.postSlug}`}>
+											<a className="heading-r">{detail.postTitle}</a>
+										</Link>
+									)}
 									<div className="blog-detail">{parse(detail.postContent)}</div>
 
 									<div className="blog-action">

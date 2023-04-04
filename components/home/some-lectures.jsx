@@ -3,7 +3,7 @@ import PostCardRecent from "../card/post-card-recent";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-export default function SomeLectures({ lectures, isSmScr }) {
+export default function SomeLectures({ lectures, isSmScr, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -53,7 +53,7 @@ export default function SomeLectures({ lectures, isSmScr }) {
 									{lectures.videoLists.videos &&
 										lectures.videoLists.videos.map((recent, i) => (
 											<div className="col col-r s12 hoverable-card" key={i}>
-												<PostCardRecent key={i} recent={recent} />
+												<PostCardRecent key={i} recent={recent} isTab={isTab} />
 											</div>
 										))}
 								</div>
@@ -65,7 +65,11 @@ export default function SomeLectures({ lectures, isSmScr }) {
 												<Slider className="recent-slider" {...settings}>
 													{lectures.videoLists.videos &&
 														lectures.videoLists.videos.map((recent, i) => (
-															<PostCardRecent key={i} recent={recent} />
+															<PostCardRecent
+																key={i}
+																recent={recent}
+																isTab={isTab}
+															/>
 														))}
 												</Slider>
 											</div>

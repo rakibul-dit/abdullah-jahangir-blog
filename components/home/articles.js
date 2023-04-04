@@ -59,7 +59,7 @@ export default function HomeArticles({ articles, isSmScr, isTab }) {
 								articles.length &&
 								articles.map((article, i) => (
 									<div className="col col-r s12 hoverable-card" key={i}>
-										<PostCardArticle article={article} />
+										<PostCardArticle article={article} isTab={isTab} />
 									</div>
 								))}
 						</div>
@@ -71,7 +71,7 @@ export default function HomeArticles({ articles, isSmScr, isTab }) {
 										articles.length &&
 										articles.map((article, i) => (
 											<div className="col col-r hoverable-card" key={i}>
-												<PostCardArticle article={article} />
+												<PostCardArticle article={article} isTab={isTab} />
 											</div>
 										))}
 								</Slider>

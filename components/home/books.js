@@ -68,7 +68,7 @@ export default function HomeBooks({ books, isSmScr, isTab }) {
 									<div
 										className="col col-r s6 m6 l4 xl3 hoverable-card"
 										key={i}>
-										<BookCard book={book} />
+										<BookCard book={book} isTab={isTab} />
 									</div>
 								))}
 						</div>
@@ -96,7 +96,7 @@ export default function HomeBooks({ books, isSmScr, isTab }) {
 												<div
 													className="col col-r s6 m6 l4 xl3 hoverable-card"
 													key={i}>
-													<BookCard book={book} />
+													<BookCard book={book} isTab={isTab} />
 												</div>
 											))}
 									</Slider>

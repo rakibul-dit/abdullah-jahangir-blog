@@ -34,6 +34,7 @@ export default function QnList({
 	categoryId,
 	categories,
 	catTitle,
+	isTab,
 }) {
 	const ref = useRef();
 	const catRef = useRef();
@@ -112,9 +113,17 @@ export default function QnList({
 											onClick={() =>
 												getCategorizedQns("all", "প্রশ্নোত্তর সমূহ")
 											}>
-											<Link href="/questions/all">
-												<a>প্রশ্নোত্তর সমূহ</a>
-											</Link>
+											{isTab ? (
+												<Link href="/questions/all">
+													<span role="link" className="a">
+														প্রশ্নোত্তর সমূহ
+													</span>
+												</Link>
+											) : (
+												<Link href="/questions/all">
+													<a>প্রশ্নোত্তর সমূহ</a>
+												</Link>
+											)}
 										</li>
 										{categories &&
 											categories.map((item) => (
@@ -124,10 +133,18 @@ export default function QnList({
 													onClick={() =>
 														getCategorizedQns(item.id, item.title)
 													}>
-													<Link href={"/questions/" + item.slug}>
-														{/*<div>প্রশ্নোত্তর: {item.id}</div>*/}
-														<a>{item.title}</a>
-													</Link>
+													{isTab ? (
+														<Link href={"/questions/" + item.slug}>
+															<span role="link" className="a">
+																{item.title}
+															</span>
+														</Link>
+													) : (
+														<Link href={"/questions/" + item.slug}>
+															{/*<div>প্রশ্নোত্তর: {item.id}</div>*/}
+															<a>{item.title}</a>
+														</Link>
+													)}
 												</li>
 											))}
 									</ul>
@@ -157,7 +174,7 @@ export default function QnList({
 											data.qaItems.map((item) => {
 												return (
 													<div className="qns col col-r s12" key={item.id}>
-														<PostCardAllQns qn={item} />
+														<PostCardAllQns qn={item} isTab={isTab} />
 													</div>
 												);
 											})
