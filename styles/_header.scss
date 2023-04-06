@@ -546,7 +546,7 @@ ion-toolbar ion-title {
 	}
 
 	.m-menu-logo {
-		max-width: 150px;
+		max-width: 100px;
 		display: block;
 		height: 86px;
 	}
@@ -572,7 +572,8 @@ ion-toolbar ion-title {
 		line-height: unset;
 	}
 
-	ul.m-menu li a {
+	ul.m-menu li a,
+	ul.m-menu li .a {
 		color: var(--txt11);
 		line-height: 3rem;
 		height: unset;
@@ -584,7 +585,8 @@ ion-toolbar ion-title {
 		transition: all 250ms ease;
 	}
 
-	ul.m-menu li a:hover {
+	ul.m-menu li a:hover,
+	ul.m-menu li .a:hover {
 		padding-left: 36px;
 		color: var(--main-color);
 		background-color: rgba(0, 0, 0, 0.05);
@@ -596,7 +598,8 @@ ion-toolbar ion-title {
 	// 	width: 1.5rem;
 	// }
 
-	ul.m-menu li a svg {
+	ul.m-menu li a svg,
+	ul.m-menu li .a svg {
 		margin-right: 1rem;
 		font-size: 1.15rem;
 	}
@@ -608,31 +611,40 @@ ion-toolbar ion-title {
 	// ul.m-menu li:nth-child(5) a i {color: #F83A00;}
 	// ul.m-menu li:nth-child(6) a i {color: #3B4FDB;}
 
-	ul.m-menu li:nth-child(1) a svg {
+	ul.m-menu li:nth-child(1) a svg,
+	ul.m-menu li:nth-child(1) .a svg {
 		color: #be00a1;
 	}
-	ul.m-menu li:nth-child(2) a svg {
+	ul.m-menu li:nth-child(2) a svg,
+	ul.m-menu li:nth-child(2) .a svg {
 		color: #eada70;
 	}
-	ul.m-menu li:nth-child(3) a svg {
+	ul.m-menu li:nth-child(3) a svg,
+	ul.m-menu li:nth-child(3) .a svg {
 		color: #39dece;
 	}
-	ul.m-menu li:nth-child(4) a svg {
+	ul.m-menu li:nth-child(4) a svg,
+	ul.m-menu li:nth-child(4) .a svg {
 		color: #505aff;
 	}
-	ul.m-menu li:nth-child(5) a svg {
+	ul.m-menu li:nth-child(5) a svg,
+	ul.m-menu li:nth-child(5) .a svg {
 		color: #f83a00;
 	}
-	ul.m-menu li:nth-child(6) a svg {
+	ul.m-menu li:nth-child(6) a svg,
+	ul.m-menu li:nth-child(6) .a svg {
 		color: #3b4fdb;
 	}
-	ul.m-menu li:nth-child(7) a svg {
+	ul.m-menu li:nth-child(7) a svg,
+	ul.m-menu li:nth-child(7) .a svg {
 		color: #39dece;
 	}
-	ul.m-menu li:nth-child(8) a svg {
+	ul.m-menu li:nth-child(8) a svg,
+	ul.m-menu li:nth-child(8) .a svg {
 		color: #f83a00;
 	}
-	ul.m-menu li:nth-child(9) a svg {
+	ul.m-menu li:nth-child(9) a svg,
+	ul.m-menu li:nth-child(9) .a svg {
 		color: #00baf8;
 	}
 

@@ -42,7 +42,7 @@
 	align-items: center;
 }
 
-.cat-page-top h1 span {
+.cat-page-top h1 span:not(.a) {
 	display: block;
 	white-space: nowrap;
 	border-radius: 0.5rem;
@@ -55,7 +55,7 @@
 	margin-left: 0.75rem;
 }
 
-.cat-page-top h1 span:hover {
+.cat-page-top h1 span:not(.a):hover {
 	background: var(--main-color);
 	color: #fff;
 }
@@ -99,7 +99,8 @@
 	padding: 0 2rem;
 }
 
-.select-tag-list ul li a {
+.select-tag-list ul li a,
+.select-tag-list ul li .a {
 	display: block;
 	border: 1.5px solid var(--clr11);
 	text-align: left;
@@ -116,7 +117,8 @@
 	padding-bottom: 0.25rem;
 }
 
-.select-tag-list ul li.selected a {
+.select-tag-list ul li.selected a,
+.select-tag-list ul li.selected .a {
 	background: var(--main-color);
 	color: #fff;
 	border-color: var(--main-color);
@@ -250,7 +252,7 @@
 		word-spacing: -0.2rem;
 	}
 
-	.cat-page-top h1 span {
+	.cat-page-top h1 span:not(.a) {
 		border-radius: 0.5rem;
 		padding: 0.125rem 0.75rem;
 		font-size: 1.25rem;

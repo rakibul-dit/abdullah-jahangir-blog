@@ -6,7 +6,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Link from "next/link";
 import { youtube } from "../../lib/config";
 
-export default function HomeLectures({ lectures, isSmScr }) {
+export default function HomeLectures({ lectures, isSmScr, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -70,9 +70,15 @@ export default function HomeLectures({ lectures, isSmScr }) {
 				<div className="box">
 					<h1 className="title-r">
 						<span>লেকচার সমগ্র</span>
-						<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
-							<a>আরও দেখুন</a>
-						</Link>
+						{isTab ? (
+							<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
+								<span className="a">আরও দেখুন</span>
+							</Link>
+						) : (
+							<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
+								<a>আরও দেখুন</a>
+							</Link>
+						)}
 					</h1>
 
 					{isSmScr ? (
@@ -83,6 +89,7 @@ export default function HomeLectures({ lectures, isSmScr }) {
 										className="col col-r s12 m6 xl3 hoverable-card"
 										key={item.id}>
 										<PostCardVideo
+											isTab={isTab}
 											item={item}
 											statistics={lectures.videoLists.videoStats}
 										/>
@@ -99,6 +106,7 @@ export default function HomeLectures({ lectures, isSmScr }) {
 												className="col col-r s12 m6 xl3 hoverable-card"
 												key={item.id}>
 												<PostCardVideo
+													isTab={isTab}
 													item={item}
 													statistics={lectures.videoLists.videoStats}
 												/>

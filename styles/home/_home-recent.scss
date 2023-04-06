@@ -78,7 +78,8 @@
 	padding-top: 38%;
 }
 
-.recent-text a.heading-r {
+.recent-text a.heading-r,
+.recent-text .a.heading-r {
 	color: #fff;
 	z-index: 5;
 	font-size: 1.15rem;
@@ -87,7 +88,8 @@
 	margin-bottom: 0.75rem;
 }
 
-.recent-text a.heading-r:hover {
+.recent-text a.heading-r:hover,
+.recent-text .a.heading-r:hover {
 	opacity: 0.8;
 }
 
@@ -149,7 +151,8 @@
 
 // responsive
 @media only screen and (max-width: 600px) {
-	.recent-text a.heading-r {
+	.recent-text a.heading-r,
+	.recent-text .a.heading-r {
 		font-size: 1.25rem;
 	}
 	.recent-item {

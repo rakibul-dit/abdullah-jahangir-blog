@@ -18,10 +18,10 @@ import MobileNavShare from "./share-mobile-nav";
 
 export default function MobileNav(props) {
 	const router = useRouter();
-	const handleClick = (e) => {
+	const handleClick = (e, link) => {
 		e.preventDefault();
 		props.navControl(false)(e);
-		router.push(e.target.href);
+		router.push(link);
 	};
 
 	return (
@@ -35,7 +35,9 @@ export default function MobileNav(props) {
 					<div className="m-menu-ctn">
 						<div className="m-menu-top">
 							{/* <Link href="/"> */}
-							<a className="m-menu-logo" onClick={handleClick}>
+							<div
+								className="m-menu-logo a"
+								onClick={(e) => handleClick(e, "/")}>
 								<Image
 									src="/img/id/logo.png"
 									alt=""
@@ -46,59 +48,80 @@ export default function MobileNav(props) {
 									loading="eager"
 									unoptimized
 								/>
-							</a>
+							</div>
 							{/* </Link> */}
 						</div>
 
 						<ul className="m-menu">
 							<li>
-								<a href="/" onClick={handleClick}>
+								<div className="a" onClick={(e) => handleClick(e, "/")}>
 									<HomeIcon />
 									হোম
-								</a>
+								</div>
 							</li>
 							<li>
-								<a
+								<div
+									className="a"
 									href={`/lectures/${youtube.uploadPlaylistID}`}
-									onClick={handleClick}>
+									onClick={(e) =>
+										handleClick(e, `/lectures/${youtube.uploadPlaylistID}`)
+									}>
 									<VideoLibraryIcon />
 									লেকচার
-								</a>
+								</div>
 							</li>
 							<li>
-								<a href="/articles" onClick={handleClick}>
+								<div
+									className="a"
+									href="/articles"
+									onClick={(e) => handleClick(e, "/articles")}>
 									<LibraryBooksIcon />
 									প্রবন্ধ সমূহ
-								</a>
+								</div>
 							</li>
 							<li>
-								<a href="/books/all" onClick={handleClick}>
+								<div
+									className="a"
+									href="/books/all"
+									onClick={(e) => handleClick(e, "/books/all")}>
 									<MenuBookIcon />
 									বই সমূহ
-								</a>
+								</div>
 							</li>
 							<li>
-								<a href="/questions/all" onClick={handleClick}>
+								<div
+									className="a"
+									href="/questions/all"
+									onClick={(e) => handleClick(e, "/questions/all")}>
 									<QuestionAnswer />
 									প্রশ্নোত্তর
-								</a>
+								</div>
 							</li>
 							<li>
-								<a href="/about" onClick={handleClick}>
+								<div
+									className="a"
+									href="/about"
+									onClick={(e) => handleClick(e, "/about")}>
 									<PersonIcon />
 									জীবন বৃত্তান্ত
-								</a>
+								</div>
 							</li>
 							<li>
-								<a href="/contact" onClick={handleClick}>
+								<div
+									className="a"
+									href="/contact"
+									onClick={(e) => handleClick(e, "/contact")}>
 									<MailIcon />
 									যোগাযোগ
-								</a>
+								</div>
 							</li>
 							<li>
-								<a href="/assunnah-trust" onClick={handleClick}>
+								<div
+									className="a"
+									href="/assunnah-trust"
+									onClick={(e) => handleClick(e, "/assunnah-trust")}>
 									<CorporateFare /> আস-সুন্নাহ ট্রাস্ট
-								</a>
+								</div>
 							</li>
 							<MobileNavShare asPath={router.asPath} title={props.title} />
 						</ul>

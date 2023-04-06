@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default function BookCard({
 	book: { bookSlug = "/", imageSrc = "", bookName = "", bookText = "" },
+	isTab,
 } = {}) {
 	// console.log(book);
 	return (
@@ -38,9 +39,24 @@ export default function BookCard({
 		// </div>
 		<div className="h-book-item">
 			<div className="h-book-image">
-				<Link href={`/books/details/${bookSlug}`}>
-					<a>
-						{/* <Image
+				{isTab ? (
+					<Link href={`/books/details/${bookSlug}`} passHref>
+						<span className="a">
+							<Image
+								src={imageSrc}
+								alt=""
+								layout="fill"
+								objectFit="cover"
+								objectPosition="center center"
+								loading="eager"
+								unoptimized
+							/>
+						</span>
+					</Link>
+				) : (
+					<Link href={`/books/details/${bookSlug}`}>
+						<a>
+							{/* <Image
 							src={server + imageSrc}
 							alt=""
 							width={"auto"}
@@ -50,28 +66,41 @@ export default function BookCard({
 							loading="eager"
 							unoptimized
 						/> */}
-						<Image
-							src={imageSrc}
-							alt=""
-							layout="fill"
-							objectFit="cover"
-							objectPosition="center center"
-							loading="eager"
-							unoptimized
-						/>
-					</a>
-				</Link>
+							<Image
+								src={imageSrc}
+								alt=""
+								layout="fill"
+								objectFit="cover"
+								objectPosition="center center"
+								loading="eager"
+								unoptimized
+							/>
+						</a>
+					</Link>
+				)}
 			</div>
 			<div className="h-book-detail">
-				<Link href={`/books/details/${bookSlug}`}>
-					<a className="book-name">{bookName}</a>
-				</Link>
+				{isTab ? (
+					<Link href={`/books/details/${bookSlug}`} passHref>
+						<span className="book-name a">{bookName}</span>
+					</Link>
+				) : (
+					<Link href={`/books/details/${bookSlug}`}>
+						<a className="book-name">{bookName}</a>
+					</Link>
+				)}
 
 				<p className="book-text">{bookText}</p>
 
-				<Link href={`/books/details/${bookSlug}`}>
-					<a className="book-link">বিস্তারিত</a>
-				</Link>
+				{isTab ? (
+					<Link href={`/books/details/${bookSlug}`} passHref>
+						<span className="book-link a">বিস্তারিত</span>
+					</Link>
+				) : (
+					<Link href={`/books/details/${bookSlug}`}>
+						<a className="book-link">বিস্তারিত</a>
+					</Link>
+				)}
 			</div>
 		</div>
 	);

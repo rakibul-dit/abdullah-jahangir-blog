@@ -72,7 +72,7 @@ const App = ({ Component, pageProps }) => {
 							: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
 					}
 				/>
-				<Component {...pageProps} />
+				<Component {...pageProps} isTab={isTab} />
 			</div>
 		</>
 	);

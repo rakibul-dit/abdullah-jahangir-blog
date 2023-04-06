@@ -31,6 +31,7 @@ export default function LectureList({
 	initialVideos,
 	initPlaylistId,
 	playlists,
+	isTab,
 }) {
 	const ref = useRef();
 	const catRef = useRef();
@@ -109,9 +110,17 @@ export default function LectureList({
 													onClick={() =>
 														getCategorizedVideos(item.id, item.title)
 													}>
-													<Link href={"/lectures/" + item.id}>
-														<a>{item.title}</a>
-													</Link>
+													{isTab ? (
+														<Link href={"/lectures/" + item.id} passHref>
+															<span role="link" className="a">
+																{item.title}
+															</span>
+														</Link>
+													) : (
+														<Link href={"/lectures/" + item.id}>
+															<a>{item.title}</a>
+														</Link>
+													)}
 												</li>
 											))}
 									</ul>
@@ -142,6 +151,7 @@ export default function LectureList({
 												return (
 													<div className="col col-r s12 m6 xl3" key={item.id}>
 														<PostCardVideo2
+															isTab={isTab}
 															item={item}
 															statistics={data.videoLists.videoStats}
 														/>

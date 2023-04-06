@@ -36,9 +36,9 @@ export default function MobileNavShare({ asPath, title }) {
 	return (
 		<>
 			<li>
-				<a href="/share" onClick={handleMobileShare}>
+				<div className="a" onClick={handleMobileShare}>
 					<ShareIcon /> শেয়ার
-				</a>
+				</div>
 			</li>
 
 			<ShareModal

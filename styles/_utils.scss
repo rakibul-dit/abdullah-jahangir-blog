@@ -40,7 +40,10 @@ li {
 
 a,
 a:focus,
-a:hover {
+a:hover,
+a,
+.a:focus,
+.a:hover {
 	outline: none;
 	text-decoration: none;
 	color: inherit;

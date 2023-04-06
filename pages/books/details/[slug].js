@@ -10,7 +10,12 @@ import Header from "../../../components/header";
 
 BookDetail.title = "বই সমূহ";
 
-export default function BookDetail({ detail, books }) {
+export default function BookDetail({ detail, books, isTab }) {
+	const goToLink = (link) => {
+		console.log(link);
+		window.open(link, "_blank");
+	};
+
 	return (
 		<>
 			<Layout>
@@ -65,35 +70,72 @@ export default function BookDetail({ detail, books }) {
 
 												<div className="book-action">
 													<div className="book-btn">
-														{detail.link != "" && (
-															<a
-																className="btn-r read-more"
-																target="_blank"
-																href={`=${detail.link}`}>
-																<MenuBookIcon />
-																<span>পড়ুন</span>
-															</a>
-														)}
+														{detail.link != "" &&
+															(isTab ? (
+																<div
+																	role="link"
+																	className="btn-r read-more a"
+																	target="_blank"
+																	href={`=${detail.link}`}
+																	onClick={() => goToLink(`=${detail.link}`)}>
+																	<MenuBookIcon />
+																	<span>পড়ুন</span>
+																</div>
+															) : (
+																<a
+																	className="btn-r read-more"
+																	target="_blank"
+																	href={`=${detail.link}`}>
+																	<MenuBookIcon />
+																	<span>পড়ুন</span>
+																</a>
+															))}
 
-														{detail.purchaseLink != "" && (
-															<a
-																className="btn-r read-more"
-																target="_blank"
-																href={`${detail.purchaseLink}`}>
-																<MenuBookIcon />
-																<span>ক্রয় করতে</span>
-															</a>
-														)}
+														{detail.purchaseLink != "" &&
+															(isTab ? (
+																<div
+																	role="link"
+																	className="btn-r read-more a"
+																	target="_blank"
+																	href={`${detail.purchaseLink}`}
+																	onClick={() => goToLink(detail.purchaseLink)}>
+																	<MenuBookIcon />
+																	<span>ক্রয় করতে</span>
+																</div>
+															) : (
+																<a
+																	className="btn-r read-more"
+																	target="_blank"
+																	href={`${detail.purchaseLink}`}>
+																	<MenuBookIcon />
+																	<span>ক্রয় করতে</span>
+																</a>
+															))}
 
-														{detail.pdf != "" && (
-															<a
-																className="btn-r read-more"
-																target="_blank"
-																href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}>
-																<MenuBookIcon />
-																<span>পড়ুন</span>
-															</a>
-														)}
+														{detail.pdf != "" &&
+															(isTab ? (
+																<div
+																	role="link"
+																	className="btn-r read-more a"
+																	target="_blank"
+																	href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}
+																	onClick={() =>
+																		goToLink(
+																			`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`
+																		)
+																	}>
+																	<MenuBookIcon />
+																	<span>পড়ুন</span>
+																</div>
+															) : (
+																<a
+																	className="btn-r read-more"
+																	target="_blank"
+																	href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}>
+																	<MenuBookIcon />
+																	<span>পড়ুন</span>
+																</a>
+															))}
 
 														{detail.link == "" &&
 															detail.purchaseLink == "" &&
