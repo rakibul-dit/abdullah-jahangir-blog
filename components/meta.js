@@ -9,30 +9,34 @@ export default function Meta(props) {
 			<meta charSet="utf-8" />
 			<meta
 				name="viewport"
-				content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, uc-fitscreen=yes"
+				content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, uc-fitscreen=yes, viewport-fit=cover"
 			/>
+
+			<meta name="mobile-wep-app-capable" content="yes" />
+			<meta name="apple-mobile-wep-app-capable" content="yes" />
+
 			<meta name="description" content={props.description || ""} />
 			<meta name="author" content="" />
 			<meta name="keywords" content="AbdullahJahangir.com" />
 			<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
 			{/* Android phone */}
-			<meta name="theme-color" content="#155197" />
+			<meta name="theme-color" content="#f9f9f9" />
 			<meta name="mobile-web-app-capable" content="yes" />
 
 			{/* iOS phone */}
-			<meta name="apple-mobile-web-app-title" content="AbdullahJahangir.com/" />
+			<meta name="apple-mobile-web-app-title" content="Dr. Abdullah Jahangir" />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
 			<meta name="apple-mobile-web-app-status-bar-style" content="#f9f9f9" />
 
 			{/* Windows phone */}
-			<meta name="msapplication-navbutton-color" content="#155197" />
-			<meta name="msapplication-TileColor" content="#155197" />
+			<meta name="msapplication-navbutton-color" content="#f9f9f9" />
+			<meta name="msapplication-TileColor" content="#f9f9f9" />
 			{/* <meta name="msapplication-TileImage" content="ms-icon-144x144.png" /> */}
 			{/* <meta name="msapplication-config" content="browserconfig.xml" /> */}
 
 			{/* Pinned Sites */}
-			<meta name="application-name" content="Application Name" />
+			<meta name="application-name" content="Dr. Abdullah Jahangir" />
 			<meta name="msapplication-tooltip" content="Tooltip Text" />
 			<meta name="msapplication-starturl" content="/" />
 
@@ -109,31 +113,31 @@ export default function Meta(props) {
 			/>
 
 			{/* iOS */}
-			<link href={`${server}/img/id/favicon.ico`} rel="apple-touch-icon" />
+			<link href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_384.jpg`} rel="apple-touch-icon" />
 			<link
-				href={`${server}/img/id/favicon.ico`}
+				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`}
 				rel="apple-touch-icon"
 				sizes="76x76"
 			/>
 			<link
-				href={`${server}/img/id/favicon.ico`}
+				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`}
 				rel="apple-touch-icon"
 				sizes="120x120"
 			/>
 			<link
-				href={`${server}/img/id/favicon.ico`}
+				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`}
 				rel="apple-touch-icon"
 				sizes="152x152"
 			/>
 			<link
-				href={`${server}/img/id/favicon.ico`}
+				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`}
 				rel="apple-touch-icon"
 				sizes="180x180"
 			/>
 
 			{/* Startup Image */}
 			<link
-				href="touch-icon-start-up-320x480.png"
+				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_384.jpg`}
 				rel="apple-touch-startup-image"
 			/>
 
@@ -141,8 +145,8 @@ export default function Meta(props) {
 			<link href="path/to/icon.svg" rel="mask-icon" size="any" color="red" />
 
 			{/* Android */}
-			<link href={`${server}/img/id/favicon.png`} rel="icon" sizes="192x192" />
-			<link href={`${server}/img/id/favicon.png`} rel="icon" sizes="128x128" />
+			<link href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`} rel="icon" sizes="192x192" />
+			<link href={`${server}/img/id/Dr_Abdullah_Jahangir_App_Logo_192.jpg`} rel="icon" sizes="128x128" />
 
 			{/* UC Browser */}
 			<link
@@ -168,8 +172,13 @@ export default function Meta(props) {
 				{title}
 			</title>
 
-			 Manifest.json
-			 <link href="/manifest.json" rel="manifest" />
+
+
+			<link rel="manifest" href={`${server}/manifest.webmanifest`} />
+			<script async src="https://cdn.jsdelivr.net/npm/pwacompat" crossOrigin="anonymous"></script>
+
+			{/*Manifest.json*/}
+			<link href={`${server}/manifest.json`}  rel="manifest" />
 
 			{/* material icons - Icon Library */}
 			{/* <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> */}

@@ -108,6 +108,8 @@ export default function Header({ prev_page, isTab, title }) {
 		// } else router.push("/");
 	};
 
+	const listPagesNotShare = ['/', '_offline'];
+
 	return (
 		<div className="header-container">
 			{isTab ? (
@@ -143,6 +145,7 @@ export default function Header({ prev_page, isTab, title }) {
 						<ion-title>
 							<h3 style={{ color: "#106690" }}>{title}</h3>
 						</ion-title>
+						{/*{!listPagesNotShare.includes(router.pathname, 1) && (*/}
 						{router.pathname !== "/" && (
 							<HeaderShare asPath={router.asPath} title={title} />
 						)}

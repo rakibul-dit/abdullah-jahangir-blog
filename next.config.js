@@ -1,4 +1,12 @@
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
+	future: { webpack5: true },
+	pwa: {
+		dest: "public",
+		register: true,
+		// skipWaiting: true,
+	},
 	async redirects() {
 		return [
 			{
@@ -27,4 +35,4 @@ module.exports = {
 			"i.ytimg.com",
 		],
 	},
-};
+});

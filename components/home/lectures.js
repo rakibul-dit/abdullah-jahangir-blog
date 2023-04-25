@@ -69,7 +69,7 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 			<div className="page-width">
 				<div className="box">
 					<h1 className="title-r">
-						<span>লেকচার সমগ্র</span>
+						<span>ভিডিও লেকচার</span>
 						{isTab ? (
 							<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
 								<span className="a">আরও দেখুন</span>
