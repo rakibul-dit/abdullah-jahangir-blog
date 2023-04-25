@@ -613,11 +613,11 @@ ion-toolbar ion-title {
 
 	ul.m-menu li:nth-child(1) a svg,
 	ul.m-menu li:nth-child(1) .a svg {
-		color: #be00a1;
+		color: var(--clr11);
 	}
 	ul.m-menu li:nth-child(2) a svg,
 	ul.m-menu li:nth-child(2) .a svg {
-		color: #eada70;
+		color: #ff0000;
 	}
 	ul.m-menu li:nth-child(3) a svg,
 	ul.m-menu li:nth-child(3) .a svg {
@@ -625,27 +625,31 @@ ion-toolbar ion-title {
 	}
 	ul.m-menu li:nth-child(4) a svg,
 	ul.m-menu li:nth-child(4) .a svg {
-		color: #505aff;
+		color: var(--clr11);
 	}
 	ul.m-menu li:nth-child(5) a svg,
 	ul.m-menu li:nth-child(5) .a svg {
-		color: #f83a00;
+		color: #ff0000;
 	}
 	ul.m-menu li:nth-child(6) a svg,
 	ul.m-menu li:nth-child(6) .a svg {
-		color: #3b4fdb;
+		color: #39dece;
 	}
 	ul.m-menu li:nth-child(7) a svg,
 	ul.m-menu li:nth-child(7) .a svg {
-		color: #39dece;
+		color: var(--clr11);
 	}
 	ul.m-menu li:nth-child(8) a svg,
 	ul.m-menu li:nth-child(8) .a svg {
-		color: #f83a00;
+		color: #ff0000;
 	}
 	ul.m-menu li:nth-child(9) a svg,
 	ul.m-menu li:nth-child(9) .a svg {
-		color: #00baf8;
+		color: #ff0000;
+	}
+	ul.m-menu li:nth-child(10) a svg,
+	ul.m-menu li:nth-child(10) .a svg {
+		color: var(--clr11);
 	}
 
 	hr.m-menu-hr {

@@ -42,16 +42,15 @@ export default function AssunnahTrust({ isTab }) {
 									</h2>
 									{isTab ? (
 										<Link
-											target="_blank"
-											href="https://assunnahtrust.org/"
+											href="/assunnah-trust"
 											passHref>
 											<span className="see-more-1 a" onClick={goToLink}>
 												আরও দেখুন
 											</span>
 										</Link>
 									) : (
-										<Link href="https://assunnahtrust.org/">
-											<a target="_blank" className="see-more-1">
+										<Link href="/assunnah-trust">
+											<a className="see-more-1">
 												আরও দেখুন
 											</a>
 										</Link>

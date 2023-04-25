@@ -45,28 +45,34 @@
 }
 
 .nav-container li:nth-child(1) a svg {
-	color: #be00a1;
+	color: var(--clr11);
 }
 .nav-container li:nth-child(2) a svg {
-	color: #eada70;
+	color: #ff0000;
 }
 .nav-container li:nth-child(3) a svg {
 	color: #39dece;
 }
 .nav-container li:nth-child(4) a svg {
-	color: #505aff;
+	color: var(--clr11);
 }
 .nav-container li:nth-child(5) a svg {
-	color: #f83a00;
+	color: #ff0000;
 }
 .nav-container li:nth-child(6) a svg {
-	color: #3b4fdb;
-}
-.nav-container li:nth-child(7) a svg {
 	color: #39dece;
 }
+.nav-container li:nth-child(7) a svg {
+	color: var(--clr11);
+}
 .nav-container li:nth-child(8) a svg {
-	color: #f83a00;
+	color: #ff0000;
+}
+.nav-container li:nth-child(9) a svg {
+	color: #ff0000;
+}
+.nav-container li:nth-child(10) a svg {
+	color: var(--clr11);
 }
 .sidenav-footer {
 	width: 100%;

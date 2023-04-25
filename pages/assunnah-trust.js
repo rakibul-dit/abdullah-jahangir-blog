@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import Meta from "../components/meta";
 import Header from "../components/header";
 
-AssunnahTrust.title = "আস-সুন্নাহ ট্রাষ্ট";
+AssunnahTrust.title = "আস-সুন্নাহ ট্রাস্ট";
 
 export default function AssunnahTrust() {
 	return (
@@ -12,7 +12,7 @@ export default function AssunnahTrust() {
 				<Meta
 					title="আস-সুন্নাহ ট্রাস্ট"
 					description="আস-সুন্নাহ ট্রাস্ট একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও পূর্ণত মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান।"
-					url={`${server}/about`}
+					url={`${server}/assunnah-trust`}
 					image={`${server}/img/id/default_share.png`}
 					type="website"
 				/>
@@ -36,6 +36,9 @@ export default function AssunnahTrust() {
 										সকল প্রচারমাধ্যম ব্যবহার করে মানুষকে মহান আল্লাহর আনুগত্য ও
 										তাঁর রাসূলের অনুকরণে সত্য ও শান্তির পথে ডেকে এনে একটি আদর্শ
 										কল্যাণসমাজ বিনির্মাণে যথাশক্তি প্রচেষ্টা চালিয়ে যাচ্ছে।
+									</p>
+									<p>
+										<a style={{color:`white`, width:`200px`}} className="btn-r" href="https://assunnahtrust.org/donation/" target="_blank">দান করুন</a>
 									</p>
 									<h2>আস-সুন্নাহ ট্রাস্টের লক্ষ্য ও উদ্দেশ্য</h2>
 									<p>
