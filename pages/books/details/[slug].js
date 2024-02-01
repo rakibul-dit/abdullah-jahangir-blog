@@ -6,7 +6,6 @@ import Meta from "../../../components/meta";
 import Share from "../../../components/share";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import DetailTopBack from "../../../components/detail-top-back";
-import Header from "../../../components/header";
 
 BookDetail.title = "বই সমূহ";
 
@@ -18,173 +17,175 @@ export default function BookDetail({ detail, books, isTab }) {
 
 	return (
 		<>
-			<Layout>
-				<Meta
-					title={detail.bookName}
-					description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
-					url={`${server}/books/details/${detail.bookSlug}`}
-					image={server + detail.imageSrc}
-					type="article"
-				/>
+			{/* <Layout> */}
+			<Meta
+				title={detail.bookName}
+				description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
+				url={`${server}/books/details/${detail.bookSlug}`}
+				image={server + detail.imageSrc}
+				type="article"
+			/>
 
-				<section className="blog-detail-ctn">
-					<div className="page-width">
-						<div className="box">
-							<DetailTopBack link={`/books/all`} />
-							<div className="blog-area">
-								<div className="blog-detail book-detail">
-									<div className="row margin-bottom-0">
-										<div className="col s12 l5">
-											<div className="book-detail-left-wrapper">
-												<div className="book-detail-left">
-													<div className="book-detail-left-inner">
-														<Image
-															src={detail.imageSrc}
-															alt=""
-															layout="fill"
-															objectFit="cover"
-															objectPosition="center center"
-															loading="eager"
-															unoptimized
-														/>
-													</div>
+			<section className="blog-detail-ctn">
+				<div className="page-width">
+					<div className="box">
+						<DetailTopBack link={`/books/all`} />
+						<div className="blog-area">
+							<div className="blog-detail book-detail">
+								<div className="row margin-bottom-0">
+									<div className="col s12 l5">
+										<div className="book-detail-left-wrapper">
+											<div className="book-detail-left">
+												<div className="book-detail-left-inner">
+													<Image
+														src={detail.imageSrc}
+														alt=""
+														fill
+														style={{
+															objectFit: "cover",
+															objectPosition: "cebter center",
+														}}
+														loading="eager"
+														unoptimized
+													/>
 												</div>
 											</div>
 										</div>
+									</div>
 
-										<div className="col s12 l7">
-											<div className="book-detail-right">
-												<h2 className="book-title">{detail.bookName}</h2>
+									<div className="col s12 l7">
+										<div className="book-detail-right">
+											<h2 className="book-title">{detail.bookName}</h2>
 
-												<div className="book-writer-area">
+											<div className="book-writer-area">
+												<p>
+													লেখক: <i>{detail.writer}</i>
+												</p>
+												{detail.translator && (
 													<p>
-														লেখক: <i>{detail.writer}</i>
+														অনুবাদ: <i>{detail.translator}</i>
 													</p>
-													{detail.translator && (
-														<p>
-															অনুবাদ: <i>{detail.translator}</i>
-														</p>
-													)}
-													{/*<p>সম্পাদনা: <i>{detail.editor}</i></p>*/}
-												</div>
-
-												<div className="book-action">
-													<div className="book-btn">
-														{detail.link != "" &&
-															(isTab ? (
-																<div
-																	role="link"
-																	className="btn-r read-more a"
-																	target="_blank"
-																	href={`=${detail.link}`}
-																	onClick={() => goToLink(`=${detail.link}`)}>
-																	<MenuBookIcon />
-																	<span>পড়ুন</span>
-																</div>
-															) : (
-																<a
-																	className="btn-r read-more"
-																	target="_blank"
-																	href={`=${detail.link}`}>
-																	<MenuBookIcon />
-																	<span>পড়ুন</span>
-																</a>
-															))}
-
-														{detail.purchaseLink != "" &&
-															(isTab ? (
-																<div
-																	role="link"
-																	className="btn-r read-more a"
-																	target="_blank"
-																	href={`${detail.purchaseLink}`}
-																	onClick={() => goToLink(detail.purchaseLink)}>
-																	<MenuBookIcon />
-																	<span>ক্রয় করতে</span>
-																</div>
-															) : (
-																<a
-																	className="btn-r read-more"
-																	target="_blank"
-																	href={`${detail.purchaseLink}`}>
-																	<MenuBookIcon />
-																	<span>ক্রয় করতে</span>
-																</a>
-															))}
-
-														{detail.pdf != "" &&
-															(isTab ? (
-																<div
-																	role="link"
-																	className="btn-r read-more a"
-																	target="_blank"
-																	href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}
-																	onClick={() =>
-																		goToLink(
-																			`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`
-																		)
-																	}>
-																	<MenuBookIcon />
-																	<span>পড়ুন</span>
-																</div>
-															) : (
-																<a
-																	className="btn-r read-more"
-																	target="_blank"
-																	href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}>
-																	<MenuBookIcon />
-																	<span>পড়ুন</span>
-																</a>
-															))}
-
-														{detail.link == "" &&
-															detail.purchaseLink == "" &&
-															detail.pdf == "" && (
-																<span className="no-link">
-																	{detail.linkNotAvailableText}...
-																</span>
-															)}
-													</div>
-
-													<div className="blog-share book-share">
-														<Share
-															urlWeb={`books/details/${detail.bookSlug}`}
-															urlMobile={detail.bookSlug}
-															title={detail.bookName}
-														/>
-													</div>
-												</div>
-
-												<p className="book-detail-desc">{detail.bookDesc}</p>
+												)}
+												{/*<p>সম্পাদনা: <i>{detail.editor}</i></p>*/}
 											</div>
+
+											<div className="book-action">
+												<div className="book-btn">
+													{detail.link != "" &&
+														(isTab ? (
+															<div
+																role="link"
+																className="btn-r read-more a"
+																target="_blank"
+																href={`=${detail.link}`}
+																onClick={() => goToLink(`=${detail.link}`)}>
+																<MenuBookIcon />
+																<span>পড়ুন</span>
+															</div>
+														) : (
+															<a
+																className="btn-r read-more"
+																target="_blank"
+																href={`=${detail.link}`}>
+																<MenuBookIcon />
+																<span>পড়ুন</span>
+															</a>
+														))}
+
+													{detail.purchaseLink != "" &&
+														(isTab ? (
+															<div
+																role="link"
+																className="btn-r read-more a"
+																target="_blank"
+																href={`${detail.purchaseLink}`}
+																onClick={() => goToLink(detail.purchaseLink)}>
+																<MenuBookIcon />
+																<span>ক্রয় করতে</span>
+															</div>
+														) : (
+															<a
+																className="btn-r read-more"
+																target="_blank"
+																href={`${detail.purchaseLink}`}>
+																<MenuBookIcon />
+																<span>ক্রয় করতে</span>
+															</a>
+														))}
+
+													{detail.pdf != "" &&
+														(isTab ? (
+															<div
+																role="link"
+																className="btn-r read-more a"
+																target="_blank"
+																href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}
+																onClick={() =>
+																	goToLink(
+																		`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`
+																	)
+																}>
+																<MenuBookIcon />
+																<span>পড়ুন</span>
+															</div>
+														) : (
+															<a
+																className="btn-r read-more"
+																target="_blank"
+																href={`${server}/pdf-viewer/web/viewer.html?file=${detail.pdf}`}>
+																<MenuBookIcon />
+																<span>পড়ুন</span>
+															</a>
+														))}
+
+													{detail.link == "" &&
+														detail.purchaseLink == "" &&
+														detail.pdf == "" && (
+															<span className="no-link">
+																{detail.linkNotAvailableText}...
+															</span>
+														)}
+												</div>
+
+												<div className="blog-share book-share">
+													<Share
+														urlWeb={`books/details/${detail.bookSlug}`}
+														urlMobile={detail.bookSlug}
+														title={detail.bookName}
+													/>
+												</div>
+											</div>
+
+											<p className="book-detail-desc">{detail.bookDesc}</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
-				{/*<section className="blog-page-related">*/}
-				{/*	<div className="page-width">*/}
-				{/*		<div className="box">*/}
-				{/*			<h1 className="title-r">*/}
-				{/*				<span>সম্পর্কিত পোস্ট</span>*/}
-				{/*			</h1>*/}
+			{/*<section className="blog-page-related">*/}
+			{/*	<div className="page-width">*/}
+			{/*		<div className="box">*/}
+			{/*			<h1 className="title-r">*/}
+			{/*				<span>সম্পর্কিত পোস্ট</span>*/}
+			{/*			</h1>*/}
 
-				{/*			<div className="row row-r">*/}
-				{/*			{*/}
-				{/*				books && books.length && books.map(books =>*/}
-				{/*					<div className="col col-r s12 l6 xl4" key={books.id}>*/}
-				{/*						<BookCard books={books} />*/}
-				{/*					</div>*/}
-				{/*				)*/}
-				{/*			}*/}
-				{/*			</div>*/}
-				{/*		</div>*/}
-				{/*	</div>*/}
-				{/*</section>*/}
-			</Layout>
+			{/*			<div className="row row-r">*/}
+			{/*			{*/}
+			{/*				books && books.length && books.map(books =>*/}
+			{/*					<div className="col col-r s12 l6 xl4" key={books.id}>*/}
+			{/*						<BookCard books={books} />*/}
+			{/*					</div>*/}
+			{/*				)*/}
+			{/*			}*/}
+			{/*			</div>*/}
+			{/*		</div>*/}
+			{/*	</div>*/}
+			{/*</section>*/}
+			{/* </Layout> */}
 		</>
 	);
 }

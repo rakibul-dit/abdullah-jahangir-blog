@@ -1,5 +1,5 @@
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { CircularProgress } from "@mui/material";
 
 export default function Loader() {
-  return <CircularProgress color="primary" size={38} />;
+	return <CircularProgress color="primary" size={38} />;
 }

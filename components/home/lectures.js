@@ -76,7 +76,7 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 							</Link>
 						) : (
 							<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
-								<a>আরও দেখুন</a>
+								আরও দেখুন
 							</Link>
 						)}
 					</h1>

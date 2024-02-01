@@ -2,8 +2,10 @@ import { server } from "../lib/config";
 import Head from "next/head";
 
 export default function Meta(props) {
-	const commonTitle = "ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) অফিসিয়াল ওয়েবসাইট - Official website of Dr. Khandaker Abdullah Jahangir (Rahi.)"
-	const title = props.title != "" ? props.title + " | " + commonTitle : "" + commonTitle;
+	const commonTitle =
+		"ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) অফিসিয়াল ওয়েবসাইট - Official website of Dr. Khandaker Abdullah Jahangir (Rahi.)";
+	const title =
+		props.title != "" ? props.title + " | " + commonTitle : "" + commonTitle;
 	return (
 		<Head>
 			<meta charSet="utf-8" />
@@ -113,7 +115,10 @@ export default function Meta(props) {
 			/>
 
 			{/* iOS */}
-			<link href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_384.jpg`} rel="apple-touch-icon" />
+			<link
+				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_384.jpg`}
+				rel="apple-touch-icon"
+			/>
 			<link
 				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`}
 				rel="apple-touch-icon"
@@ -145,8 +150,16 @@ export default function Meta(props) {
 			<link href="path/to/icon.svg" rel="mask-icon" size="any" color="red" />
 
 			{/* Android */}
-			<link href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`} rel="icon" sizes="192x192" />
-			<link href={`${server}/img/id/Dr_Abdullah_Jahangir_App_Logo_192.jpg`} rel="icon" sizes="128x128" />
+			<link
+				href={`${server}/img/app/Dr_Abdullah_Jahangir_App_Logo_192.jpg`}
+				rel="icon"
+				sizes="192x192"
+			/>
+			<link
+				href={`${server}/img/id/Dr_Abdullah_Jahangir_App_Logo_192.jpg`}
+				rel="icon"
+				sizes="128x128"
+			/>
 
 			{/* UC Browser */}
 			<link
@@ -168,17 +181,16 @@ export default function Meta(props) {
 			/>
 
 			{/* page title */}
-			<title>
-				{title}
-			</title>
-
-
+			<title>{title}</title>
 
 			<link rel="manifest" href={`${server}/manifest.webmanifest`} />
-			<script async src="https://cdn.jsdelivr.net/npm/pwacompat" crossOrigin="anonymous"></script>
+			<script
+				async
+				src="https://cdn.jsdelivr.net/npm/pwacompat"
+				crossOrigin="anonymous"></script>
 
 			{/*Manifest.json*/}
-			<link href={`${server}/manifest.json`}  rel="manifest" />
+			<link href={`${server}/manifest.json`} rel="manifest" />
 
 			{/* material icons - Icon Library */}
 			{/* <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> */}

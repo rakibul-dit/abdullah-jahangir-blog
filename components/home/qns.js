@@ -49,9 +49,7 @@ export default function HomeQns({ qns, isSmScr, isTab }) {
 								<span className="a">আরও দেখুন</span>
 							</Link>
 						) : (
-							<Link href="/questions/all">
-								<a>আরও দেখুন</a>
-							</Link>
+							<Link href="/questions/all">আরও দেখুন</Link>
 						)}
 					</h1>
 					{isSmScr ? (

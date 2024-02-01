@@ -17,77 +17,79 @@ BlogDetail.title = "প্রবন্ধ সমূহ";
 export default function BlogDetail({ detail, isTab }) {
 	return (
 		<>
-			<Layout>
-				<Meta
-					title={detail.postTitle}
-					description={detail.postExcerpt}
-					url={`${server}/articles/${detail.postSlug}`}
-					image={`${server}/img/id/default_share.png`}
-					type="article"
-				/>
-				<div className="articles">
-					<section className="blog-detail-ctn">
-						<div className="page-width">
-							<div className="box">
-								<DetailTopBack link="/articles" />
-								<div className="blog-area">
-									{isTab ? (
-										<Link href={`/articles/${detail.postSlug}`} passHref>
-											<span className="heading-r a">{detail.postTitle}</span>
-										</Link>
-									) : (
-										<Link href={`/articles/${detail.postSlug}`}>
-											<a className="heading-r">{detail.postTitle}</a>
-										</Link>
-									)}
-									<div className="blog-detail">{parse(detail.postContent)}</div>
+			{/* <Layout> */}
+			<Meta
+				title={detail.postTitle}
+				description={detail.postExcerpt}
+				url={`${server}/articles/${detail.postSlug}`}
+				image={`${server}/img/id/default_share.png`}
+				type="article"
+			/>
+			<div className="articles">
+				<section className="blog-detail-ctn">
+					<div className="page-width">
+						<div className="box">
+							<DetailTopBack link="/articles" />
+							<div className="blog-area">
+								{isTab ? (
+									<Link href={`/articles/${detail.postSlug}`} passHref>
+										<span className="heading-r a">{detail.postTitle}</span>
+									</Link>
+								) : (
+									<Link
+										href={`/articles/${detail.postSlug}`}
+										className="heading-r">
+										{detail.postTitle}
+									</Link>
+								)}
+								<div className="blog-detail">{parse(detail.postContent)}</div>
 
-									<div className="blog-action">
-										{/*<div className="blog-tag">*/}
-										{/*	<h2>ট্যাগ</h2>*/}
+								<div className="blog-action">
+									{/*<div className="blog-tag">*/}
+									{/*	<h2>ট্যাগ</h2>*/}
 
-										{/*	<Link href="/articless/">*/}
-										{/*		<a>#কুরআন</a>*/}
-										{/*	</Link>*/}
-										{/*	<Link href="/articless/">*/}
-										{/*		<a>#হাদিস</a>*/}
-										{/*	</Link>*/}
-										{/*</div>*/}
+									{/*	<Link href="/articless/">*/}
+									{/*		<a>#কুরআন</a>*/}
+									{/*	</Link>*/}
+									{/*	<Link href="/articless/">*/}
+									{/*		<a>#হাদিস</a>*/}
+									{/*	</Link>*/}
+									{/*</div>*/}
 
-										<div className="blog-share">
-											<Share
-												urlWeb={`articles/${detail.postSlug}`}
-												urlMobile={detail.postSlug}
-												title={detail.postTitle}
-											/>
-										</div>
+									<div className="blog-share">
+										<Share
+											urlWeb={`articles/${detail.postSlug}`}
+											urlMobile={detail.postSlug}
+											title={detail.postTitle}
+										/>
 									</div>
 								</div>
 							</div>
 						</div>
-					</section>
+					</div>
+				</section>
 
-					{/*<section className="blog-page-related">*/}
-					{/*	<div className="page-width">*/}
-					{/*		<div className="box">*/}
-					{/*			<h1 className="title-r">*/}
-					{/*				<span>সম্পর্কিত পোস্ট</span>*/}
-					{/*			</h1>*/}
+				{/*<section className="blog-page-related">*/}
+				{/*	<div className="page-width">*/}
+				{/*		<div className="box">*/}
+				{/*			<h1 className="title-r">*/}
+				{/*				<span>সম্পর্কিত পোস্ট</span>*/}
+				{/*			</h1>*/}
 
-					{/*			<div className="row row-r">*/}
-					{/*			{*/}
-					{/*				articles && articles.length && articles.map(article =>*/}
-					{/*					<div className="col col-r s12 xl4" key={article.id}>*/}
-					{/*						<PostCardArticle article={article} />*/}
-					{/*					</div>*/}
-					{/*				)*/}
-					{/*			}*/}
-					{/*			</div>*/}
-					{/*		</div>*/}
-					{/*	</div>*/}
-					{/*</section>*/}
-				</div>
-			</Layout>
+				{/*			<div className="row row-r">*/}
+				{/*			{*/}
+				{/*				articles && articles.length && articles.map(article =>*/}
+				{/*					<div className="col col-r s12 xl4" key={article.id}>*/}
+				{/*						<PostCardArticle article={article} />*/}
+				{/*					</div>*/}
+				{/*				)*/}
+				{/*			}*/}
+				{/*			</div>*/}
+				{/*		</div>*/}
+				{/*	</div>*/}
+				{/*</section>*/}
+			</div>
+			{/* </Layout> */}
 		</>
 	);
 }

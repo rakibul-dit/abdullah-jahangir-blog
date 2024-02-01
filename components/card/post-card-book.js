@@ -45,9 +45,11 @@ export default function BookCard({
 							<Image
 								src={imageSrc}
 								alt=""
-								layout="fill"
-								objectFit="cover"
-								objectPosition="center center"
+								fill
+								style={{
+									objectFit: "cover",
+									objectPosition: "cebter center",
+								}}
 								loading="eager"
 								unoptimized
 							/>
@@ -55,8 +57,8 @@ export default function BookCard({
 					</Link>
 				) : (
 					<Link href={`/books/details/${bookSlug}`}>
-						<a>
-							{/* <Image
+						{/* <a> */}
+						{/* <Image
 							src={server + imageSrc}
 							alt=""
 							width={"auto"}
@@ -66,16 +68,18 @@ export default function BookCard({
 							loading="eager"
 							unoptimized
 						/> */}
-							<Image
-								src={imageSrc}
-								alt=""
-								layout="fill"
-								objectFit="cover"
-								objectPosition="center center"
-								loading="eager"
-								unoptimized
-							/>
-						</a>
+						<Image
+							src={imageSrc}
+							alt=""
+							fill
+							style={{
+								objectFit: "cover",
+								objectPosition: "cebter center",
+							}}
+							loading="eager"
+							unoptimized
+						/>
+						{/* </a> */}
 					</Link>
 				)}
 			</div>
@@ -85,8 +89,8 @@ export default function BookCard({
 						<span className="book-name a">{bookName}</span>
 					</Link>
 				) : (
-					<Link href={`/books/details/${bookSlug}`}>
-						<a className="book-name">{bookName}</a>
+					<Link href={`/books/details/${bookSlug}`} className="book-name">
+						{bookName}
 					</Link>
 				)}
 
@@ -97,8 +101,8 @@ export default function BookCard({
 						<span className="book-link a">বিস্তারিত</span>
 					</Link>
 				) : (
-					<Link href={`/books/details/${bookSlug}`}>
-						<a className="book-link">বিস্তারিত</a>
+					<Link href={`/books/details/${bookSlug}`} className="book-link">
+						বিস্তারিত
 					</Link>
 				)}
 			</div>

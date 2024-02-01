@@ -17,7 +17,7 @@ export default function PostCardRecent({
 	return (
 		<div className="recent-item">
 			{isTab ? (
-				<Link href={`/lectures/watch/${id}`} passHref>
+				<Link href={`/lectures/watch/${id}`}>
 					<div className="recent-ctn">
 						{/* <img src={image} alt="" /> */}
 						<Image
@@ -28,9 +28,11 @@ export default function PostCardRecent({
 									: `${server}/img/post/youtube-default.jpg`
 							}
 							alt=""
-							layout="fill"
-							objectFit="fill"
-							objectPosition="center center"
+							fill
+							style={{
+								objectFit: "fill",
+								objectPosition: "cebter center",
+							}}
 							loading="eager"
 							unoptimized
 						/>
@@ -52,14 +54,17 @@ export default function PostCardRecent({
 									: `${server}/img/post/youtube-default.jpg`
 							}
 							alt=""
-							layout="fill"
-							objectFit="fill"
-							objectPosition="center center"
+							fill
+							style={{
+								objectFit: "fill",
+								objectPosition: "cebter center",
+							}}
 							loading="eager"
 							unoptimized
 						/>
 						<div className="recent-text">
-							<a className="heading-r">{title}</a>
+							<span className="heading-r a">{title}</span>
+							{/* <a className="heading-r">{title}</a> */}
 							{/*<span className="date-r">{dateFormat(date)}</span>*/}
 						</div>
 					</div>

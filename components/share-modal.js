@@ -1,6 +1,9 @@
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
+import * as React from "react";
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./share.module.scss";
 import {
@@ -28,40 +31,39 @@ import {
 	TumblrIcon,
 } from "react-share";
 
-export default function ShareModal({ open, closer, url, title }) {
+export default function ShareModal({ openModal, closer, url, title }) {
 	return (
 		<Modal
-			open={open}
-			onClose={closer(false)}
+			open={openModal}
+			onClose={closer}
 			className={styles.root}
 			closeAfterTransition
-			BackdropComponent={Backdrop}
-			BackdropProps={{
-				timeout: 100,
-				classes: {
-					root: styles.backdrop,
+			slots={{ backdrop: Backdrop }}
+			slotProps={{
+				backdrop: {
+					timeout: 500,
 				},
 			}}>
-			<Fade in={open} timeout={100} style={{ transitionDelay: "0ms" }}>
+			<Fade in={openModal}>
 				<div className={styles.modal}>
-					<span className={styles.close} onClick={closer(false)}>
+					<span className={styles.close} onClick={closer}>
 						<CloseIcon />
 					</span>
 
-					<div className={styles.title}>পোস্টটি শেয়ার করুন</div>
+					<div className={styles.title}>Share</div>
 
 					<div className={styles.lists}>
 						<div className={styles.item}>
 							<EmailShareButton
 								url={url}
 								subject={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<EmailIcon size={32} round={true} />
 							</EmailShareButton>
 						</div>
 
 						<div className={styles.item}>
-							<FacebookShareButton url={url} onShareWindowClose={closer(false)}>
+							<FacebookShareButton url={url} onShareWindowClose={closer}>
 								<FacebookIcon size={32} round={true} />
 							</FacebookShareButton>
 						</div>
@@ -76,7 +78,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<TwitterShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<TwitterIcon size={32} round={true} />
 							</TwitterShareButton>
 						</div>
@@ -85,7 +87,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<LinkedinShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<LinkedinIcon size={32} round={true} />
 							</LinkedinShareButton>
 						</div>
@@ -94,7 +96,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<WhatsappShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<WhatsappIcon size={32} round={true} />
 							</WhatsappShareButton>
 						</div>
@@ -103,7 +105,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<LineShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<LineIcon size={32} round={true} />
 							</LineShareButton>
 						</div>
@@ -112,7 +114,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<TelegramShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<TelegramIcon size={32} round={true} />
 							</TelegramShareButton>
 						</div>
@@ -121,7 +123,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<ViberShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<ViberIcon size={32} round={true} />
 							</ViberShareButton>
 						</div>
@@ -130,7 +132,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<RedditShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<RedditIcon size={32} round={true} />
 							</RedditShareButton>
 						</div>
@@ -139,7 +141,7 @@ export default function ShareModal({ open, closer, url, title }) {
 							<TumblrShareButton
 								url={url}
 								title={title}
-								onShareWindowClose={closer(false)}>
+								onShareWindowClose={closer}>
 								<TumblrIcon size={32} round={true} />
 							</TumblrShareButton>
 						</div>

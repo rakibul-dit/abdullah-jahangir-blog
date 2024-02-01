@@ -24,31 +24,33 @@ export default function PostCardVideo2({ isTab, item, statistics }) {
 										: `${server}/img/post/youtube-default.jpg`
 								}
 								alt=""
-								layout="fill"
-								objectFit="cover"
-								objectPosition="center center"
+								fill
+								style={{
+									objectFit: "cover",
+									objectPosition: "cebter center",
+								}}
 								loading="eager"
 								unoptimized
 							/>
 						</div>
 					</Link>
 				) : (
-					<Link href={`/lectures/watch/${id}`}>
-						<a className="image-r">
-							<Image
-								src={
-									image
-										? `http://i.ytimg.com/vi/${id}/mqdefault.jpg`
-										: `${server}/img/post/youtube-default.jpg`
-								}
-								alt=""
-								layout="fill"
-								objectFit="cover"
-								objectPosition="center center"
-								loading="eager"
-								unoptimized
-							/>
-						</a>
+					<Link href={`/lectures/watch/${id}`} className="image-r">
+						<Image
+							src={
+								image
+									? `http://i.ytimg.com/vi/${id}/mqdefault.jpg`
+									: `${server}/img/post/youtube-default.jpg`
+							}
+							alt=""
+							fill
+							style={{
+								objectFit: "cover",
+								objectPosition: "cebter center",
+							}}
+							loading="eager"
+							unoptimized
+						/>
 					</Link>
 				)}
 			</div>
@@ -59,8 +61,8 @@ export default function PostCardVideo2({ isTab, item, statistics }) {
 						<span className="heading-r a">{title}</span>
 					</Link>
 				) : (
-					<Link href={`/lectures/watch/${id}`}>
-						<a className="heading-r">{title}</a>
+					<Link href={`/lectures/watch/${id}`} className="heading-r">
+						{title}
 					</Link>
 				)}
 

@@ -88,123 +88,119 @@ export default function BookList({
 
 	return (
 		<>
-			<Layout>
-				<Meta
-					title={pageTitle}
-					description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ"
-					url={`/books/${categoryId}`}
-					image={`/img/id/default_share.png`}
-					type="website"
-				/>
-				<div className="books">
-					<section className="cat-page-top cat-page-top-2">
-						<div className="page-width">
-							<div className="box">
-								<h1 ref={catRef}>
-									<i className="select-tag-icon" onClick={handleCatOpen}>
-										<SortIcon />
-									</i>{" "}
-									{pageTitle}
-									<div className={"select-tag-list" + (catOpen ? " open" : "")}>
-										<ul>
-											<li
-												className={categoryId == "all" ? "selected" : ""}
-												onClick={() => getCategorizedBooks("all", "বই সমূহ")}>
-												{isTab ? (
-													<Link href="/books/all" passHref>
-														<span role="link" className="a">
-															বই সমূহ
-														</span>
-													</Link>
-												) : (
-													<Link href="/books/all">
-														<a>বই সমূহ</a>
-													</Link>
-												)}
-											</li>
-											{categories &&
-												categories.map((item) => (
-													<li
-														className={
-															categoryId == item.slug ? "selected" : ""
-														}
-														key={item.id}
-														onClick={() =>
-															getCategorizedBooks(item.id, item.title)
-														}>
-														{isTab ? (
-															<Link href={"/books/" + item.slug} passHref>
-																<span role="link" className="a">
-																	{item.title}
-																</span>
-															</Link>
-														) : (
-															<Link href={"/books/" + item.slug}>
-																<a>{item.title}</a>
-															</Link>
-														)}
-													</li>
-												))}
-										</ul>
-									</div>
-								</h1>
-
-								{/*<p>*/}
-								{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
-								{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
-								{/*</p>*/}
-							</div>
-						</div>
-					</section>
-
-					<section
-						className={
-							"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")
-						}>
-						<div className="page-width">
-							<div className="box">
-								<div className="row row-r">
-									{/*{isEmpty ? <p>No records found!</p> : null}*/}
-									{datas &&
-										datas.map((data) => {
-											return (
-												data.bookItems &&
-												data.bookItems.map((item) => (
-													<div
-														className="col col-r s6 m4 l3 xl3 xxl2"
-														key={item.id}>
-														<BookCard book={item} isTab={isTab} />
-													</div>
-												))
-											);
-											// return <p>{data.currentPage}</p>;
-										})}
+			{/* <Layout> */}
+			<Meta
+				title={pageTitle}
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ"
+				url={`/books/${categoryId}`}
+				image={`/img/id/default_share.png`}
+				type="website"
+			/>
+			<div className="books">
+				<section className="cat-page-top cat-page-top-2">
+					<div className="page-width">
+						<div className="box">
+							<h1 ref={catRef}>
+								<i className="select-tag-icon" onClick={handleCatOpen}>
+									<SortIcon />
+								</i>{" "}
+								{pageTitle}
+								<div className={"select-tag-list" + (catOpen ? " open" : "")}>
+									<ul>
+										<li
+											className={categoryId == "all" ? "selected" : ""}
+											onClick={() => getCategorizedBooks("all", "বই সমূহ")}>
+											{isTab ? (
+												<Link href="/books/all" passHref>
+													<span role="link" className="a">
+														বই সমূহ
+													</span>
+												</Link>
+											) : (
+												<Link href="/books/all">বই সমূহ</Link>
+											)}
+										</li>
+										{categories &&
+											categories.map((item) => (
+												<li
+													className={categoryId == item.slug ? "selected" : ""}
+													key={item.id}
+													onClick={() =>
+														getCategorizedBooks(item.id, item.title)
+													}>
+													{isTab ? (
+														<Link href={"/books/" + item.slug} passHref>
+															<span role="link" className="a">
+																{item.title}
+															</span>
+														</Link>
+													) : (
+														<Link href={"/books/" + item.slug}>
+															{item.title}
+														</Link>
+													)}
+												</li>
+											))}
+									</ul>
 								</div>
+							</h1>
+
+							{/*<p>*/}
+							{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
+							{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
+							{/*</p>*/}
+						</div>
+					</div>
+				</section>
+
+				<section
+					className={
+						"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")
+					}>
+					<div className="page-width">
+						<div className="box">
+							<div className="row row-r">
+								{/*{isEmpty ? <p>No records found!</p> : null}*/}
+								{datas &&
+									datas.map((data) => {
+										return (
+											data.bookItems &&
+											data.bookItems.map((item) => (
+												<div
+													className="col col-r s6 m4 l3 xl3 xxl2"
+													key={item.id}>
+													<BookCard book={item} isTab={isTab} />
+												</div>
+											))
+										);
+										// return <p>{data.currentPage}</p>;
+									})}
 							</div>
 						</div>
-					</section>
-				</div>
-
-				<div ref={ref}>
-					{isLoadingMore ? (
-						<div className={"loader"}>
-							<Loader />
-						</div>
-					) : (
-						""
-					)}
-				</div>
-
-				{isReachingEnd ? (
-					""
-				) : (
-					<div style={{ margin: "20px 0px" }}>
-						<center>
-							<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
-						</center>
 					</div>
+				</section>
+			</div>
+
+			<div ref={ref}>
+				{isLoadingMore ? (
+					<div className={"loader"}>
+						<Loader />
+					</div>
+				) : (
+					""
 				)}
-			</Layout>
+			</div>
+
+			{isReachingEnd ? (
+				""
+			) : (
+				<div style={{ margin: "20px 0px" }}>
+					<center>
+						<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
+					</center>
+				</div>
+			)}
+			{/* </Layout> */}
 		</>
 	);
 }

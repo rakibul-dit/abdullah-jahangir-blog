@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Drawer from "@material-ui/core/Drawer";
+import { Drawer } from "@mui/material";
 import { server, youtube } from "../lib/config";
 
 import HomeIcon from "@mui/icons-material/Home";
@@ -8,19 +8,34 @@ import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import ClassIcon from "@mui/icons-material/Class";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import PersonIcon from "@mui/icons-material/Person";
 import MailIcon from "@mui/icons-material/Mail";
-import { QuestionAnswer } from "@material-ui/icons";
-import { CorporateFare } from "@mui/icons-material";
-import { VolunteerActivism } from "@mui/icons-material";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 // import InstallMobileIcon from "@mui/icons-material/InstallMobile";
 import { useRouter } from "next/router";
 import MobileNavShare from "./share-mobile-nav";
-import createSvgIcon from "@material-ui/icons/utils/createSvgIcon";
+import { createSvgIcon } from "@mui/material/utils";
+import { CorporateFare, VolunteerActivism } from "@mui/icons-material";
 
 const InstallMobileIcon = createSvgIcon(
-	<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#39dece"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M17,18H7V6h7V4H7V3h7V1.01L7,1C5.9,1,5,1.9,5,3v18c0,1.1,0.9,2,2,2h10c1.1,0,2-0.9,2-2v-5h-2V18z M17,21H7v-1h10V21z"/><polygon points="18,14 23,9 21.59,7.59 19,10.17 19,3 17,3 17,10.17 14.41,7.59 13,9"/></g></g></svg>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		enable-background="new 0 0 24 24"
+		height="24px"
+		viewBox="0 0 24 24"
+		width="24px"
+		fill="#39dece">
+		<g>
+			<rect fill="none" height="24" width="24" />
+		</g>
+		<g>
+			<g>
+				<path d="M17,18H7V6h7V4H7V3h7V1.01L7,1C5.9,1,5,1.9,5,3v18c0,1.1,0.9,2,2,2h10c1.1,0,2-0.9,2-2v-5h-2V18z M17,21H7v-1h10V21z" />
+				<polygon points="18,14 23,9 21.59,7.59 19,10.17 19,3 17,3 17,10.17 14.41,7.59 13,9" />
+			</g>
+		</g>
+	</svg>
 );
 
 export default function MobileNav(props) {
@@ -50,8 +65,10 @@ export default function MobileNav(props) {
 									alt=""
 									width={100}
 									height={100}
-									objectFit="contain"
-									objectPosition="left center"
+									style={{
+										objectFit: "contain",
+										objectPosition: "left center",
+									}}
 									loading="eager"
 									unoptimized
 								/>
@@ -100,7 +117,7 @@ export default function MobileNav(props) {
 									className="a"
 									href="/questions/all"
 									onClick={(e) => handleClick(e, "/questions/all")}>
-									<QuestionAnswer />
+									<QuestionAnswerIcon />
 									প্রশ্নোত্তর
 								</div>
 							</li>
@@ -134,7 +151,9 @@ export default function MobileNav(props) {
 								<div
 									className="a"
 									href="https://assunnahtrust.org/donation/"
-									onClick={(e) => handleClick(e, "https://assunnahtrust.org/donation/")}>
+									onClick={(e) =>
+										handleClick(e, "https://assunnahtrust.org/donation/")
+									}>
 									<VolunteerActivism /> দান করুন
 								</div>
 							</li>

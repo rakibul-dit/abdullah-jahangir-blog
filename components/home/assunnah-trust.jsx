@@ -22,8 +22,10 @@ export default function AssunnahTrust({ isTab }) {
 										// layout="fill"
 										width={350}
 										height={250}
-										// objectFit="contain"
-										objectPosition="center center"
+										style={{
+											// objectFit: "contain",
+											objectPosition: "cebter center",
+										}}
 										loading="eager"
 										unoptimized
 									/>
@@ -41,18 +43,14 @@ export default function AssunnahTrust({ isTab }) {
 										বহুমুখী শিক্ষায়ন প্রকল্প পরিচালনা, ত্রাণ বিতরণ, স্বল্পমূল্যে
 									</h2>
 									{isTab ? (
-										<Link
-											href="/assunnah-trust"
-											passHref>
+										<Link href="/assunnah-trust" passHref>
 											<span className="see-more-1 a" onClick={goToLink}>
 												আরও দেখুন
 											</span>
 										</Link>
 									) : (
-										<Link href="/assunnah-trust">
-											<a className="see-more-1">
-												আরও দেখুন
-											</a>
+										<Link href="/assunnah-trust" className="see-more-1">
+											আরও দেখুন
 										</Link>
 									)}
 								</div>

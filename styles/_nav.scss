@@ -1,6 +1,6 @@
 .sn__logo-wrap {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
 	margin-bottom: 1rem;
 	margin-left: 1rem;
@@ -10,7 +10,7 @@
 }
 .nav-container a {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
 	font-size: 1.3rem;
 	// font-weight: 600;

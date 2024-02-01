@@ -1,7 +1,6 @@
 // import { server, youtube } from "../lib/config";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-// import Image from "next/image";
 // import SearchModal from "./search-modal";
 import MobileNav from "./mobile-nav";
 import HeaderShare from "./share-header";
@@ -23,10 +22,10 @@ export default function Header({ prev_page, isTab, title }) {
 
 	const router = useRouter();
 
-	const [historyLength, setHistoryLength] = useState(0)
+	const [historyLength, setHistoryLength] = useState(0);
 
 	useEffect(() => {
-		setHistoryLength(window.history.length)
+		setHistoryLength(window.history.length);
 	});
 
 	const [state, setState] = useState({
@@ -94,21 +93,25 @@ export default function Header({ prev_page, isTab, title }) {
 	const goBack = () => {
 		// e.preventDefault();
 
-		const listPagesPath = ['/lectures/[pid]', '/books/[slug]', '/questions/[pid]'];
+		const listPagesPath = [
+			"/lectures/[pid]",
+			"/books/[slug]",
+			"/questions/[pid]",
+		];
 
 		if (listPagesPath.includes(router.pathname, 1)) {
 			// router.push(router.pathname.split("/")[1]).then(r => "/");
 			router.push("/");
 		} else if (historyLength > 2) {
 			router.back();
-		} else router.push(`${prev_page}`).then(r => "/");
+		} else router.push(`${prev_page}`).then((r) => "/");
 
 		// if (prev_page !== "/") {
 		// 	router.back();
 		// } else router.push("/");
 	};
 
-	const listPagesNotShare = ['/', '_offline'];
+	const listPagesNotShare = ["/", "_offline"];
 
 	return (
 		<div className="header-container">
@@ -158,9 +161,7 @@ export default function Header({ prev_page, isTab, title }) {
 							<div className="header-ctn">
 								<div className="mobile-header-title d-none">
 									<Link href="/">
-										<a>
-											<h3>{title}</h3>
-										</a>
+										<h3>{title}</h3>
 									</Link>
 								</div>
 

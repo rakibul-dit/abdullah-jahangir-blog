@@ -23,6 +23,7 @@
 	height: 100vh;
 	background: #f9f9f9;
 	position: fixed;
+	top: 0;
 	overflow: auto;
 	// margin-top: -5.25rem;
 }
@@ -108,7 +109,8 @@
 	.side-nav {
 		display: none;
 	}
-	ion-content {
+	ion-content,
+	.content-wrapper {
 		width: 100%;
 		left: 0;
 	}

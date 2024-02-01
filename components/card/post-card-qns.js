@@ -9,8 +9,8 @@ export default function PostCardQns({ qn, isTab }) {
 						<span className="heading-r a">{qn.qus}</span>
 					</Link>
 				) : (
-					<Link href={`/questions/ans/${qn.id}`}>
-						<a className="heading-r">{qn.qus}</a>
+					<Link href={`/questions/ans/${qn.id}`} className="heading-r">
+						{qn.qus}
 						{/* <a className="paragraph-r">{qn.qus}</a> */}
 					</Link>
 				)}

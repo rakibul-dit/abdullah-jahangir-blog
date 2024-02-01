@@ -3,22 +3,20 @@
 	z-index: 0;
 }
 .header {
-	height: 7rem;
+	// height: 7rem;
 	//display: flex;
 	// padding-top: 24px;
 	align-items: center;
-	//position: fixed;
-	width: 100%;
+	position: fixed;
+	width: calc(100% - 300px);
 	top: 0;
-	left: 0;
+	left: 300px;
 	background: #f9f9f9;
 	z-index: 9;
 	transition: height 250ms ease, box-shadow 250ms ease, background 250ms ease;
-	// padding-top: 5px;
 }
 
 .header {
-	// background: var(--bg14);
 	height: 5.25rem;
 	// box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.06);
 	// display: block;
@@ -437,6 +435,9 @@ ion-toolbar ion-title {
 	// ion-header {
 	// 	width: 100%;
 	// }
+	.header {
+		left: 0;
+	}
 	.mobile-header-title {
 		display: block;
 		color: #106690;

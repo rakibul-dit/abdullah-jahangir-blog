@@ -14,25 +14,27 @@ export default function PostCardLecture({
 	return (
 		<div className="card card-r pc-0">
 			<div className="card-image">
-				<Link href={`/lectures/${postID}`}>
-					<a className="image-r">
-						{/* <img src={imageSrc} alt="" /> */}
-						<Image
-							src={server + imageSrc}
-							alt=""
-							layout="fill"
-							objectFit="cover"
-							objectPosition="center center"
-							loading="eager"
-							unoptimized
-						/>
-					</a>
+				<Link href={`/lectures/${postID}`} className="image-r">
+					{/* <a > */}
+					{/* <img src={imageSrc} alt="" /> */}
+					<Image
+						src={server + imageSrc}
+						alt=""
+						fill
+						style={{
+							objectFit: "cover",
+							objectPosition: "cebter center",
+						}}
+						loading="eager"
+						unoptimized
+					/>
+					{/* </a> */}
 				</Link>
 			</div>
 
 			<div className="card-content">
-				<Link href={`/lectures/${postID}`}>
-					<a className="heading-r">{postTitle}</a>
+				<Link href={`/lectures/${postID}`} className="heading-r">
+					{postTitle}
 				</Link>
 
 				<p className="paragraph-r">{postExcerpt}</p>

@@ -4,7 +4,6 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import QuoteSliderCard from "../card/quote1";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import Image from "next/image";
 
 export default function HomeQuoteSlider({ quotes }) {
 	const slider = useRef(null);

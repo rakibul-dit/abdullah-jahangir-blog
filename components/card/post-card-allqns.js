@@ -13,10 +13,10 @@ export default function PostCardAllQns({ qn, isTab }) {
 					</Link>
 				) : (
 					<Link href={`/questions/ans/${qn.id}`}>
-						<a>
-							<p className="paragraph-r">প্রশ্নোত্তর: {qn.id}</p>
-							<p className="paragraph-r">{qn.qus}</p>
-						</a>
+						{/* <a> */}
+						<p className="paragraph-r">প্রশ্নোত্তর: {qn.id}</p>
+						<p className="paragraph-r">{qn.qus}</p>
+						{/* </a> */}
 					</Link>
 				)}
 

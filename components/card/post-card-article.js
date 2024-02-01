@@ -12,8 +12,8 @@ export default function PostCardArticle({
 						<span className="heading-r a">{postTitle}</span>
 					</Link>
 				) : (
-					<Link href={`/articles/${postSlug}`}>
-						<a className="heading-r">{postTitle}</a>
+					<Link href={`/articles/${postSlug}`} className="heading-r">
+						{postTitle}
 					</Link>
 				)}
 

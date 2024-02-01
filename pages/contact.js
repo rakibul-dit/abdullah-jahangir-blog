@@ -1,10 +1,8 @@
 import { emailSenderName, receiverEmail, server } from "../lib/config";
 import { useState, useRef } from "react";
-import Image from "next/image";
 import Layout from "../components/layout";
 import Meta from "../components/meta";
 import Snackbar from "@material-ui/core/Snackbar";
-import Header from "../components/header";
 
 Contact.title = "যোগাযোগ";
 
@@ -168,200 +166,200 @@ export default function Contact({ isTab }) {
 
 	return (
 		<>
-			<Layout>
-				<Meta
-					title="যোগাযোগ"
-					description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত আলেম, বহু গ্রন্থ প্রণেতা ও আস সুন্নাহ ট্রাস্টের প্রতিষ্ঠাতা। তিনি ছিলেন এই উপমহাদেশের অন্যতম সেরা আলিম এবং মুজাদ্দিদ। সৌদি আরবের রাজধানী রিয়াদে অবস্থিত ইমাম মুহাম্মদ বিন সউদ ইসলামি বিশ্ববিদ্যালয় থেকে লিসান্স, মাস্টার্স ও পিএইচডি ডিগ্রি লাভ করেন।"
-					url={`${server}/contact`}
-					image={`${server}/img/id/default_share.png`}
-					type="website"
-				/>
+			{/* <Layout> */}
+			<Meta
+				title="যোগাযোগ"
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত আলেম, বহু গ্রন্থ প্রণেতা ও আস সুন্নাহ ট্রাস্টের প্রতিষ্ঠাতা। তিনি ছিলেন এই উপমহাদেশের অন্যতম সেরা আলিম এবং মুজাদ্দিদ। সৌদি আরবের রাজধানী রিয়াদে অবস্থিত ইমাম মুহাম্মদ বিন সউদ ইসলামি বিশ্ববিদ্যালয় থেকে লিসান্স, মাস্টার্স ও পিএইচডি ডিগ্রি লাভ করেন।"
+				url={`${server}/contact`}
+				image={`${server}/img/id/default_share.png`}
+				type="website"
+			/>
 
-				<section className="contact-page-ctn">
-					<div className="page-width">
-						<div className="box">
-							<div className="row row-r">
-								<div className="col col-r s12 m12 l12 xl12">
-									<div className="contact-left">
-										{/*<div className="contact-top">*/}
-										{/*	<h1>যোগাযোগ করুন</h1>*/}
-										{/*	/!*<p>আপনি যদি আপনার প্রশ্ন বা সমস্যার উত্তর না পেয়ে থাকেন, তবে অনুগ্রহ করে নিচের ফর্ম ব্যবহার করে আমাদের সাথে যোগাযোগ করুন এবং যত তাড়াতাড়ি সম্ভব আমরা আপনার সাথে যোগাযোগ করবো।</p>*!/*/}
-										{/*</div>*/}
+			<section className="contact-page-ctn">
+				<div className="page-width">
+					<div className="box">
+						<div className="row row-r">
+							<div className="col col-r s12 m12 l12 xl12">
+								<div className="contact-left">
+									{/*<div className="contact-top">*/}
+									{/*	<h1>যোগাযোগ করুন</h1>*/}
+									{/*	/!*<p>আপনি যদি আপনার প্রশ্ন বা সমস্যার উত্তর না পেয়ে থাকেন, তবে অনুগ্রহ করে নিচের ফর্ম ব্যবহার করে আমাদের সাথে যোগাযোগ করুন এবং যত তাড়াতাড়ি সম্ভব আমরা আপনার সাথে যোগাযোগ করবো।</p>*!/*/}
+									{/*</div>*/}
 
-										<form
-											className="contact-form"
-											action=""
-											method="POST"
-											onSubmit={(e) => handleSubmit(e)}>
-											<div className="row">
-												<div className="col s12 m12 l6">
-													<div className="contact-input">
-														<p>আপনার নাম</p>
-														<input
-															type="text"
-															name="name"
-															onChange={(e) => handleNameChange(e)}
-															ref={nameEl}
-														/>
-													</div>
-												</div>
-												<div className="col s12 m12 l6">
-													<div className="contact-input">
-														<p>বিষয়</p>
-														<input
-															type="text"
-															name="subject"
-															onChange={(e) => handleSubjectChange(e)}
-															ref={subjectEl}
-														/>
-													</div>
-												</div>
-												<div className="col s12 m12 l6">
-													<div className="contact-input">
-														<p>ইমেইল</p>
-														<input
-															type="text"
-															name="email"
-															placeholder="email@example.com"
-															onChange={(e) => handleEmailChange(e)}
-															ref={emailEl}
-														/>
-													</div>
-												</div>
-												<div className="col s12 m12 l6">
-													<div className="contact-input">
-														<p>ফোন নাম্বার</p>
-														<input
-															type="text"
-															name="phone"
-															placeholder="+880 1xxxxxxxxx"
-															onChange={(e) => handlePhoneChange(e)}
-															ref={phoneEl}
-														/>
-													</div>
-												</div>
-												<div className="col s12 m12 l12">
-													<div className="contact-input">
-														<p>আপনার বার্তা</p>
-														<textarea
-															name="message"
-															onChange={(e) => handleMessageChange(e)}
-															ref={messageEl}></textarea>
-													</div>
-												</div>
-												<div className="col s12 m12 l12">
-													<div className="contact-input">
-														<button
-															className="btn-r"
-															type="submit"
-															name="contact">
-															সাবমিট
-														</button>
-													</div>
+									<form
+										className="contact-form"
+										action=""
+										method="POST"
+										onSubmit={(e) => handleSubmit(e)}>
+										<div className="row">
+											<div className="col s12 m12 l6">
+												<div className="contact-input">
+													<p>আপনার নাম</p>
+													<input
+														type="text"
+														name="name"
+														onChange={(e) => handleNameChange(e)}
+														ref={nameEl}
+													/>
 												</div>
 											</div>
-										</form>
-									</div>
+											<div className="col s12 m12 l6">
+												<div className="contact-input">
+													<p>বিষয়</p>
+													<input
+														type="text"
+														name="subject"
+														onChange={(e) => handleSubjectChange(e)}
+														ref={subjectEl}
+													/>
+												</div>
+											</div>
+											<div className="col s12 m12 l6">
+												<div className="contact-input">
+													<p>ইমেইল</p>
+													<input
+														type="text"
+														name="email"
+														placeholder="email@example.com"
+														onChange={(e) => handleEmailChange(e)}
+														ref={emailEl}
+													/>
+												</div>
+											</div>
+											<div className="col s12 m12 l6">
+												<div className="contact-input">
+													<p>ফোন নাম্বার</p>
+													<input
+														type="text"
+														name="phone"
+														placeholder="+880 1xxxxxxxxx"
+														onChange={(e) => handlePhoneChange(e)}
+														ref={phoneEl}
+													/>
+												</div>
+											</div>
+											<div className="col s12 m12 l12">
+												<div className="contact-input">
+													<p>আপনার বার্তা</p>
+													<textarea
+														name="message"
+														onChange={(e) => handleMessageChange(e)}
+														ref={messageEl}></textarea>
+												</div>
+											</div>
+											<div className="col s12 m12 l12">
+												<div className="contact-input">
+													<button
+														className="btn-r"
+														type="submit"
+														name="contact">
+														সাবমিট
+													</button>
+												</div>
+											</div>
+										</div>
+									</form>
 								</div>
-
-								{/*<div className="col col-r s12 m12 l4 xl3">*/}
-								{/*	<div className="contact-right">*/}
-								{/*		<div className="sidebar-profile sc-1">*/}
-								{/*			<div className="s-profile-image">*/}
-								{/*				/!* <img src="/img/id/profile-01.png" alt="" /> *!/*/}
-								{/*				<Image*/}
-								{/*					src="/img/abdullah-jahangir.jpg"*/}
-								{/*					alt=""*/}
-								{/*					layout="fill"*/}
-								{/*					objectFit="cover"*/}
-								{/*					objectPosition="center center"*/}
-								{/*					loading="eager"*/}
-								{/*					unoptimized*/}
-								{/*				/>*/}
-								{/*			</div>*/}
-
-								{/*			<h2 className="s-profile-name">*/}
-								{/*				ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর*/}
-								{/*			</h2>*/}
-
-								{/*			/!*<h3 className="s-profile-title">ইসলামিক স্কলার</h3>*!/*/}
-
-								{/*			<ul className="s-profile-social">*/}
-								{/*				<li>*/}
-								{/*					<a*/}
-								{/*						href="https://www.facebook.com/Assunnahtrust"*/}
-								{/*						target="_blank">*/}
-								{/*						<i className="facebook fab fa-facebook-f"></i>*/}
-								{/*					</a>*/}
-								{/*				</li>*/}
-								{/*				<li>*/}
-								{/*					<a*/}
-								{/*						href="https://www.youtube.com/sunnahtrust"*/}
-								{/*						target="_blank">*/}
-								{/*						<i className="youtube fab fa-youtube"></i>*/}
-								{/*					</a>*/}
-								{/*				</li>*/}
-								{/*				/!*<li>*!/*/}
-								{/*				/!*	<a href="https://twitter.com/dr_manjureelahi" target="_blank">*!/*/}
-								{/*				/!*		<i className="twitter fab fa-twitter"></i>*!/*/}
-								{/*				/!*	</a>*!/*/}
-								{/*				/!*</li>*!/*/}
-								{/*			</ul>*/}
-								{/*		</div>*/}
-
-								{/*		/!*<h2 className="sidebar-title">আমাদের ঠিকানা</h2>*!/*/}
-
-								{/*		<div className="contact-address">*/}
-								{/*			<p>আমাদের সাথে যোগাযোগ করুন</p>*/}
-								{/*			<ul>*/}
-								{/*				/!*<li>*!/*/}
-								{/*				/!*	<a href="tel:+01725845784">*!/*/}
-								{/*				/!*		<i className="material-icons">call</i>*!/*/}
-								{/*				/!*		<span title="+880 0000000">+880 0000000</span>*!/*/}
-								{/*				/!*	</a>*!/*/}
-								{/*				/!*</li>*!/*/}
-								{/*				<li>*/}
-								{/*					<a*/}
-								{/*						href="mailto:assunnahtrust@gmail.com"*/}
-								{/*						target="_blank">*/}
-								{/*						/!*<i className="material-icons">email</i>*!/*/}
-								{/*						<span title="assunnahtrust@gmail.com">*/}
-								{/*							assunnahtrust@gmail.com*/}
-								{/*						</span>*/}
-								{/*					</a>*/}
-								{/*				</li>*/}
-								{/*				/!*<li>*!/*/}
-								{/*				/!*	<p>*!/*/}
-								{/*				/!*		<i className="material-icons">near_me</i>*!/*/}
-								{/*				/!*		<span>১৫৫, হাজী মহসিন রোড, খুলনা</span>*!/*/}
-								{/*				/!*	</p>*!/*/}
-								{/*				/!*</li>*!/*/}
-								{/*			</ul>*/}
-								{/*		</div>*/}
-
-								{/*		/!*<h2 className="sidebar-title">প্রতিষ্ঠানসমূহ</h2>*!/*/}
-
-								{/*		/!*<div className="sidebar-sponsor">*!/*/}
-								{/*		/!*	<SponsorSlider />*!/*/}
-								{/*		/!*</div>*!/*/}
-								{/*	</div>*/}
-								{/*</div>*/}
 							</div>
+
+							{/*<div className="col col-r s12 m12 l4 xl3">*/}
+							{/*	<div className="contact-right">*/}
+							{/*		<div className="sidebar-profile sc-1">*/}
+							{/*			<div className="s-profile-image">*/}
+							{/*				/!* <img src="/img/id/profile-01.png" alt="" /> *!/*/}
+							{/*				<Image*/}
+							{/*					src="/img/abdullah-jahangir.jpg"*/}
+							{/*					alt=""*/}
+							{/*					layout="fill"*/}
+							{/*					objectFit="cover"*/}
+							{/*					objectPosition="center center"*/}
+							{/*					loading="eager"*/}
+							{/*					unoptimized*/}
+							{/*				/>*/}
+							{/*			</div>*/}
+
+							{/*			<h2 className="s-profile-name">*/}
+							{/*				ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর*/}
+							{/*			</h2>*/}
+
+							{/*			/!*<h3 className="s-profile-title">ইসলামিক স্কলার</h3>*!/*/}
+
+							{/*			<ul className="s-profile-social">*/}
+							{/*				<li>*/}
+							{/*					<a*/}
+							{/*						href="https://www.facebook.com/Assunnahtrust"*/}
+							{/*						target="_blank">*/}
+							{/*						<i className="facebook fab fa-facebook-f"></i>*/}
+							{/*					</a>*/}
+							{/*				</li>*/}
+							{/*				<li>*/}
+							{/*					<a*/}
+							{/*						href="https://www.youtube.com/sunnahtrust"*/}
+							{/*						target="_blank">*/}
+							{/*						<i className="youtube fab fa-youtube"></i>*/}
+							{/*					</a>*/}
+							{/*				</li>*/}
+							{/*				/!*<li>*!/*/}
+							{/*				/!*	<a href="https://twitter.com/dr_manjureelahi" target="_blank">*!/*/}
+							{/*				/!*		<i className="twitter fab fa-twitter"></i>*!/*/}
+							{/*				/!*	</a>*!/*/}
+							{/*				/!*</li>*!/*/}
+							{/*			</ul>*/}
+							{/*		</div>*/}
+
+							{/*		/!*<h2 className="sidebar-title">আমাদের ঠিকানা</h2>*!/*/}
+
+							{/*		<div className="contact-address">*/}
+							{/*			<p>আমাদের সাথে যোগাযোগ করুন</p>*/}
+							{/*			<ul>*/}
+							{/*				/!*<li>*!/*/}
+							{/*				/!*	<a href="tel:+01725845784">*!/*/}
+							{/*				/!*		<i className="material-icons">call</i>*!/*/}
+							{/*				/!*		<span title="+880 0000000">+880 0000000</span>*!/*/}
+							{/*				/!*	</a>*!/*/}
+							{/*				/!*</li>*!/*/}
+							{/*				<li>*/}
+							{/*					<a*/}
+							{/*						href="mailto:assunnahtrust@gmail.com"*/}
+							{/*						target="_blank">*/}
+							{/*						/!*<i className="material-icons">email</i>*!/*/}
+							{/*						<span title="assunnahtrust@gmail.com">*/}
+							{/*							assunnahtrust@gmail.com*/}
+							{/*						</span>*/}
+							{/*					</a>*/}
+							{/*				</li>*/}
+							{/*				/!*<li>*!/*/}
+							{/*				/!*	<p>*!/*/}
+							{/*				/!*		<i className="material-icons">near_me</i>*!/*/}
+							{/*				/!*		<span>১৫৫, হাজী মহসিন রোড, খুলনা</span>*!/*/}
+							{/*				/!*	</p>*!/*/}
+							{/*				/!*</li>*!/*/}
+							{/*			</ul>*/}
+							{/*		</div>*/}
+
+							{/*		/!*<h2 className="sidebar-title">প্রতিষ্ঠানসমূহ</h2>*!/*/}
+
+							{/*		/!*<div className="sidebar-sponsor">*!/*/}
+							{/*		/!*	<SponsorSlider />*!/*/}
+							{/*		/!*</div>*!/*/}
+							{/*	</div>*/}
+							{/*</div>*/}
 						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
-				<Snackbar
-					anchorOrigin={{
-						vertical: "bottom",
-						horizontal: "left",
-					}}
-					open={snackbarOpen}
-					autoHideDuration={3000}
-					onClose={handleSnackbarClose}
-					message="Email send successfully"
-				/>
-			</Layout>
+			<Snackbar
+				anchorOrigin={{
+					vertical: "bottom",
+					horizontal: "left",
+				}}
+				open={snackbarOpen}
+				autoHideDuration={3000}
+				onClose={handleSnackbarClose}
+				message="Email send successfully"
+			/>
+			{/* </Layout> */}
 		</>
 	);
 }

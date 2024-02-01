@@ -48,9 +48,7 @@ export default function HomeArticles({ articles, isSmScr, isTab }) {
 								<span className="a">আরও দেখুন</span>
 							</Link>
 						) : (
-							<Link href="/articles/">
-								<a>আরও দেখুন</a>
-							</Link>
+							<Link href="/articles/">আরও দেখুন</Link>
 						)}
 					</h1>
 					{isSmScr ? (

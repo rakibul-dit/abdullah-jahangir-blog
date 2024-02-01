@@ -89,122 +89,116 @@ export default function QnList({
 
 	return (
 		<>
-			<Layout>
-				<Meta
-					title={pageTitle}
-					description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর প্রশ্নোত্তর সমূহ"
-					url={`${server}/questions/${categoryId}`}
-					image={`${server}/img/id/default_share.png`}
-					type="website"
-				/>
+			{/* <Layout> */}
+			<Meta
+				title={pageTitle}
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর প্রশ্নোত্তর সমূহ"
+				url={`${server}/questions/${categoryId}`}
+				image={`${server}/img/id/default_share.png`}
+				type="website"
+			/>
 
-				<section className="cat-page-top cat-page-top-2">
-					<div className="page-width">
-						<div className="box">
-							<h1 ref={catRef}>
-								<i className="select-tag-icon" onClick={handleCatOpen}>
-									<SortIcon />
-								</i>{" "}
-								{pageTitle}
-								<div className={"select-tag-list" + (catOpen ? " open" : "")}>
-									<ul>
-										<li
-											className={categoryId == "all" ? "selected" : ""}
-											onClick={() =>
-												getCategorizedQns("all", "প্রশ্নোত্তর সমূহ")
-											}>
-											{isTab ? (
-												<Link href="/questions/all">
-													<span role="link" className="a">
-														প্রশ্নোত্তর সমূহ
-													</span>
-												</Link>
-											) : (
-												<Link href="/questions/all">
-													<a>প্রশ্নোত্তর সমূহ</a>
-												</Link>
-											)}
-										</li>
-										{categories &&
-											categories.map((item) => (
-												<li
-													className={categoryId == item.slug ? "selected" : ""}
-													key={item.id}
-													onClick={() =>
-														getCategorizedQns(item.id, item.title)
-													}>
-													{isTab ? (
-														<Link href={"/questions/" + item.slug}>
-															<span role="link" className="a">
-																{item.title}
-															</span>
-														</Link>
-													) : (
-														<Link href={"/questions/" + item.slug}>
-															{/*<div>প্রশ্নোত্তর: {item.id}</div>*/}
-															<a>{item.title}</a>
-														</Link>
-													)}
-												</li>
-											))}
-									</ul>
-								</div>
-							</h1>
-
-							{/*<p>*/}
-							{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
-							{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
-							{/*</p>*/}
-						</div>
-					</div>
-				</section>
-
-				<section
-					className={
-						"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")
-					}>
-					<div className="page-width">
-						<div className="box">
-							<div className="row row-r">
-								{/*{isEmpty ? <p>No records found!</p> : null}*/}
-								{datas &&
-									datas.map((data) => {
-										return (
-											data.qaItems &&
-											data.qaItems.map((item) => {
-												return (
-													<div className="qns col col-r s12" key={item.id}>
-														<PostCardAllQns qn={item} isTab={isTab} />
-													</div>
-												);
-											})
-										);
-									})}
+			<section className="cat-page-top cat-page-top-2">
+				<div className="page-width">
+					<div className="box">
+						<h1 ref={catRef}>
+							<i className="select-tag-icon" onClick={handleCatOpen}>
+								<SortIcon />
+							</i>{" "}
+							{pageTitle}
+							<div className={"select-tag-list" + (catOpen ? " open" : "")}>
+								<ul>
+									<li
+										className={categoryId == "all" ? "selected" : ""}
+										onClick={() =>
+											getCategorizedQns("all", "প্রশ্নোত্তর সমূহ")
+										}>
+										{isTab ? (
+											<Link href="/questions/all">
+												<span role="link" className="a">
+													প্রশ্নোত্তর সমূহ
+												</span>
+											</Link>
+										) : (
+											<Link href="/questions/all">প্রশ্নোত্তর সমূহ</Link>
+										)}
+									</li>
+									{categories &&
+										categories.map((item) => (
+											<li
+												className={categoryId == item.slug ? "selected" : ""}
+												key={item.id}
+												onClick={() => getCategorizedQns(item.id, item.title)}>
+												{isTab ? (
+													<Link href={"/questions/" + item.slug}>
+														<span role="link" className="a">
+															{item.title}
+														</span>
+													</Link>
+												) : (
+													<Link href={"/questions/" + item.slug}>
+														{/*<div>প্রশ্নোত্তর: {item.id}</div>*/}
+														{item.title}
+													</Link>
+												)}
+											</li>
+										))}
+								</ul>
 							</div>
-						</div>
-					</div>
-				</section>
+						</h1>
 
-				<div ref={ref}>
-					{isLoadingMore ? (
-						<div className={"loader"}>
-							<Loader />
-						</div>
-					) : (
-						""
-					)}
+						{/*<p>*/}
+						{/*  আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক*/}
+						{/*  যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে।*/}
+						{/*</p>*/}
+					</div>
 				</div>
+			</section>
 
-				{isReachingEnd ? (
-					""
-				) : (
-					<div style={{ margin: "20px 0px" }}>
-						<center>
-							<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
-						</center>
+			<section
+				className={"cat-page-ctn cat-page-lectures" + (catOpen ? " open" : "")}>
+				<div className="page-width">
+					<div className="box">
+						<div className="row row-r">
+							{/*{isEmpty ? <p>No records found!</p> : null}*/}
+							{datas &&
+								datas.map((data) => {
+									return (
+										data.qaItems &&
+										data.qaItems.map((item) => {
+											return (
+												<div className="qns col col-r s12" key={item.id}>
+													<PostCardAllQns qn={item} isTab={isTab} />
+												</div>
+											);
+										})
+									);
+								})}
+						</div>
 					</div>
+				</div>
+			</section>
+
+			<div ref={ref}>
+				{isLoadingMore ? (
+					<div className={"loader"}>
+						<Loader />
+					</div>
+				) : (
+					""
 				)}
-			</Layout>
+			</div>
+
+			{isReachingEnd ? (
+				""
+			) : (
+				<div style={{ margin: "20px 0px" }}>
+					<center>
+						<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
+					</center>
+				</div>
+			)}
+			{/* </Layout> */}
 		</>
 	);
 }

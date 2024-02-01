@@ -54,9 +54,7 @@ export default function HomeBooks({ books, isSmScr, isTab }) {
 								<span className="a">আরও দেখুন</span>
 							</Link>
 						) : (
-							<Link href="/books/all">
-								<a>আরও দেখুন</a>
-							</Link>
+							<Link href="/books/all">আরও দেখুন</Link>
 						)}
 					</h1>
 
