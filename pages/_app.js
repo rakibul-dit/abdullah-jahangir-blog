@@ -8,7 +8,7 @@ import "@ionic/core/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
 import "@ionic/core/css/normalize.css";
-import "@ionic/core/css/structure.css";
+// import "@ionic/core/css/structure.css";
 import "@ionic/core/css/typography.css";
 /* Optional CSS utils that can be commented out */
 import "@ionic/core/css/padding.css";
@@ -62,18 +62,16 @@ const App = ({ Component, pageProps }) => {
 
 	return (
 		<>
-			<div className="ion-page">
-				<Header
-					prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
-					isTab={isTab}
-					title={
-						Component.title
-							? Component.title
-							: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
-					}
-				/>
-				<Component {...pageProps} isTab={isTab} />
-			</div>
+			{/* <div className="ion-page"> */}
+			<Header
+				prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
+				isTab={isTab}
+				title={
+					Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
+				}
+			/>
+			<Component {...pageProps} isTab={isTab} />
+			{/* </div> */}
 		</>
 	);
 };

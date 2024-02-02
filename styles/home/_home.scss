@@ -24,6 +24,7 @@
 	background: #f9f9f9;
 	position: fixed;
 	overflow: auto;
+	top: 0;
 	// margin-top: -5.25rem;
 }
 .content {
@@ -108,7 +109,11 @@
 	.side-nav {
 		display: none;
 	}
-	ion-content {
+	// ion-content {
+	// 	width: 100%;
+	// 	left: 0;
+	// }
+	.content-wrapper {
 		width: 100%;
 		left: 0;
 	}

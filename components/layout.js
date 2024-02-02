@@ -7,8 +7,8 @@ export default function Layout({ children, page, prev_page }) {
 		<>
 			{/* <Header prev_page={prev_page} /> */}
 			<Sidenav />
-			<ion-content>
-				{/* <div className="wrapper"> */}
+			{/* <ion-content> */}
+			<div className="content-wrapper">
 				<div className="content">
 					<div className="content_without_footer">
 						<main className={`viewport ${page}`}>
@@ -16,8 +16,8 @@ export default function Layout({ children, page, prev_page }) {
 						</main>
 					</div>
 				</div>
-				{/* </div> */}
-			</ion-content>
+			</div>
+			{/* </ion-content> */}
 			{/* <Footer /> */}
 		</>
 	);

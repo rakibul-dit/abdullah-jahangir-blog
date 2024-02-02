@@ -7,10 +7,10 @@
 	//display: flex;
 	// padding-top: 24px;
 	align-items: center;
-	//position: fixed;
-	width: 100%;
+	position: fixed;
+	left: 300px;
 	top: 0;
-	left: 0;
+	width: calc(100% - 300px);
 	background: #f9f9f9;
 	z-index: 9;
 	transition: height 250ms ease, box-shadow 250ms ease, background 250ms ease;
@@ -437,6 +437,10 @@ ion-toolbar ion-title {
 	// ion-header {
 	// 	width: 100%;
 	// }
+	.header {
+		width: 100%;
+		left: 0;
+	}
 	.mobile-header-title {
 		display: block;
 		color: #106690;
@@ -697,5 +701,11 @@ ion-toolbar ion-title {
 //--\\ max-width: 1140px
 
 // max-width: 768
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+	ion-header {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 999;
+	}
 }
