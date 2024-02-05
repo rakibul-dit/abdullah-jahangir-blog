@@ -42,22 +42,25 @@ export default function LectureList({
 
 	const { data, error, mutate, size, setSize, isValidating, isLoading } =
 		useSWRInfinite((...args) => getKey(...args, initPlaylistId), fetcher, {
-			initialData: initialVideos,
 			revalidateOnMount: true,
 		});
-	console.log(data);
 
 	const datas = data ? [].concat(...data) : [];
 	const isLoadingInitialData = !data && !error;
 	const isLoadingMore =
 		isLoadingInitialData ||
 		(size > 0 && data && typeof data[size - 1] === "undefined");
-	// const isEmpty = data?.[0]?.length === 0
-	const numberOfPages =
-		data?.[0]?.length !== 0 ? data[0].videoLists.numberOfPages : 0;
-	const isReachingEnd = size === numberOfPages;
+	const isEmpty = data?.[0]?.length === 0;
+	const isReachingEnd =
+		isEmpty ||
+		(data && data[data.length - 1]?.length < constants.DEFAULT_PAGE_LIMIT);
+	// const numberOfPages =
+	// 	data?.[0]?.length !== 0 ? data[0].videoLists.numberOfPages : 0;
+	// const isReachingEnd = size === numberOfPages;
 	const isRefreshing = isValidating && data && data.length === size;
 	const [catOpen, setCatOpen] = useState(false);
+
+	console.log(data);
 
 	const handleCatOpen = async () => {
 		catOpen ? setCatOpen(false) : setCatOpen(true);
