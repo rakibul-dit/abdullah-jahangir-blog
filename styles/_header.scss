@@ -708,4 +708,9 @@ ion-toolbar ion-title {
 		top: 0;
 		z-index: 999;
 	}
+	.ios ion-toolbar {
+		height: 56px;
+		display: flex;
+		align-items: center;
+	}
 }
