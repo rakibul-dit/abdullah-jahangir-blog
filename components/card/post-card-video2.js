@@ -2,6 +2,7 @@ import { server } from "../../lib/config";
 import Link from "next/link";
 import Image from "next/image";
 import { date, formatNumber } from "../../lib/format";
+import { useRouter } from "next/router";
 
 export default function PostCardVideo2({ isTab, item, statistics }) {
 	const id = item.id;
@@ -10,13 +11,21 @@ export default function PostCardVideo2({ isTab, item, statistics }) {
 	const publishedAt = date(item.date);
 	const viewCount = statistics ? statistics[id] : "";
 
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
+	};
+
 	return (
 		<div className="card card-r pc-video">
 			<div className="card-image">
 				{/*TODO: Consider prefetch*/}
 				{isTab ? (
-					<Link href={`/lectures/watch/${id}`} passHref>
-						<div className="image-r a">
+					<div>
+						<div
+							data-href={`/lectures/watch/${id}`}
+							className="image-r a"
+							onClick={handleMobileLink}>
 							<Image
 								src={
 									image
@@ -33,7 +42,7 @@ export default function PostCardVideo2({ isTab, item, statistics }) {
 								unoptimized
 							/>
 						</div>
-					</Link>
+					</div>
 				) : (
 					<Link href={`/lectures/watch/${id}`} className="image-r">
 						<Image
@@ -57,9 +66,14 @@ export default function PostCardVideo2({ isTab, item, statistics }) {
 
 			<div className="card-content">
 				{isTab ? (
-					<Link href={`/lectures/watch/${id}`} passHref>
-						<span className="heading-r a">{title}</span>
-					</Link>
+					<div>
+						<span
+							className="heading-r a"
+							data-href={`/lectures/watch/${id}`}
+							onClick={handleMobileLink}>
+							{title}
+						</span>
+					</div>
 				) : (
 					<Link href={`/lectures/watch/${id}`} className="heading-r">
 						{title}

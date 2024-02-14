@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PostCardQns from "../card/post-card-qns";
+import { useRouter } from "next/router";
 
 export default function HomeQns({ qns, isSmScr, isTab }) {
 	const settings = {
@@ -38,6 +39,11 @@ export default function HomeQns({ qns, isSmScr, isTab }) {
 		],
 	};
 
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
+	};
+
 	return (
 		<section className="h-sec h-qns">
 			<div className="page-width">
@@ -45,9 +51,14 @@ export default function HomeQns({ qns, isSmScr, isTab }) {
 					<h1 className="title-r">
 						<span>প্রশ্নোত্তর</span>
 						{isTab ? (
-							<Link href="/questions/all">
-								<span className="a">আরও দেখুন</span>
-							</Link>
+							<div>
+								<span
+									className="a"
+									data-href="/questions/all"
+									onClick={handleMobileLink}>
+									আরও দেখুন
+								</span>
+							</div>
 						) : (
 							<Link href="/questions/all">আরও দেখুন</Link>
 						)}

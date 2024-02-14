@@ -3,23 +3,26 @@ import {
 	getAllBookCategories,
 	getBookCatTitle,
 	getBooksByCategory,
-	qaFetcher,
 } from "../../lib/fetch";
 import { useState, useEffect, useRef } from "react";
-import Layout from "../../components/layout";
 import Meta from "../../components/meta";
 // import PostCardVideo2 from "../../components/card/post-card-video2";
 import Loader from "../../components/loader";
 // import fetcher from "../../lib/lecturesFetcher";
 import useOnScreen from "../../hooks/useOnScreen";
-import { useSWRInfinite } from "swr";
+import useSWRInfinite from "swr/infinite";
 import Link from "next/link";
 import SortIcon from "@mui/icons-material/Sort";
 // import PostCardAllQns from "../../components/card/post-card-allqns";
 import BookCard from "../../components/card/post-card-book";
-import Header from "../../components/header";
+import Store from "../../store";
+import * as selectors from "../../store/selectors";
+import { setIsBack, setScrollPosition } from "../../store/actions";
+import { useRouter } from "next/router";
+import { IonContent } from "@ionic/react";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {
+	console.log("pageIndex: " + pageIndex);
 	let currentPage = pageIndex + 1;
 	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
@@ -38,27 +41,38 @@ export default function BookList({
 	const isVisible = useOnScreen(ref);
 	// const pageTitle = categories[categoryId].title;
 	const pageTitle = catTitle;
+	// const isTab = Store.useState((s) => s.isTab);
 
 	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
 		(...args) => getKey(...args, categoryId),
 		bookFetcher,
 		{ initialData: initialBooks, revalidateOnMount: true }
 	);
-
+	// console.log(data);
 	const datas = data ? [].concat(...data) : [];
 	const isLoadingInitialData = !data && !error;
 	const isLoadingMore =
 		isLoadingInitialData ||
 		(size > 0 && data && typeof data[size - 1] === "undefined");
 
-	// const isEmpty = data?.[0]?.length === 0;
+	const isEmpty = data?.[0]?.bookItems?.length === 0;
 	// const isReachingEnd =
 	// 	isEmpty || (data && data[data.length - 1]?.length < 1000);
+	// const numberOfPages = data?.length !== 0 ? data[0].numberOfPages : 0;
 
-	const numberOfPages = data?.length !== 0 ? data[0].numberOfPages : 0;
-	const isReachingEnd = size === numberOfPages;
+	let numberOfPages;
+	try {
+		if (data) {
+			numberOfPages = data[0].numberOfPages;
+		}
+	} catch (error) {
+		console.log(error);
+		numberOfPages = 1;
+	}
 
-	const isRefreshing = isValidating && data && data.length === size;
+	const isReachingEnd = isEmpty || size >= numberOfPages;
+
+	// const isRefreshing = isValidating && data && data.length === size;
 
 	const [catOpen, setCatOpen] = useState(false);
 
@@ -66,12 +80,15 @@ export default function BookList({
 		catOpen ? setCatOpen(false) : setCatOpen(true);
 	};
 
-	const getCategorizedBooks = async (id, pageTitle) => {
+	const getCategorizedBooks = async (e) => {
+		e.preventDefault();
 		setCatOpen(false);
 		setSize(1);
+		if (isTab) {
+			router.push(e.target.dataset.href);
+			contentRef.current.scrollToTop();
+		} else router.push(e.target.href);
 	};
-
-	// console.log(datas);
 
 	useEffect(() => {
 		let handler = (e) => {
@@ -81,21 +98,38 @@ export default function BookList({
 		};
 		document.body.addEventListener("mousedown", handler);
 
-		if (isVisible && !isReachingEnd && !isRefreshing) {
+		if (isVisible && !isReachingEnd) {
 			setSize(size + 1);
 		}
-	}, [isVisible, isRefreshing]);
+	}, [isVisible]);
 
-	return (
+	let isBack = Store.useState(selectors.getIsBack);
+	let yp = Store.useState(selectors.getScrollPosition);
+
+	const router = useRouter();
+	const contentRef = useRef(null);
+
+	function handleScroll(ev) {
+		setScrollPosition(router.pathname, ev.detail.scrollTop);
+	}
+
+	useEffect(() => {
+		if (isTab) {
+			console.log("isBack: " + isBack, yp);
+
+			if (isBack == true) {
+				contentRef.current.scrollToPoint(0, yp[router.pathname]);
+			} else {
+				setScrollPosition(router.pathname, 0);
+			}
+			return () => {
+				setIsBack(false);
+			};
+		}
+	}, []);
+
+	const contentJsx = (
 		<>
-			{/* <Layout> */}
-			<Meta
-				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ"
-				url={`/books/${categoryId}`}
-				image={`/img/id/default_share.png`}
-				type="website"
-			/>
 			<div className="books">
 				<section className="cat-page-top cat-page-top-2">
 					<div className="page-width">
@@ -107,35 +141,42 @@ export default function BookList({
 								{pageTitle}
 								<div className={"select-tag-list" + (catOpen ? " open" : "")}>
 									<ul>
-										<li
-											className={categoryId == "all" ? "selected" : ""}
-											onClick={() => getCategorizedBooks("all", "বই সমূহ")}>
+										<li className={categoryId == "all" ? "selected" : ""}>
 											{isTab ? (
-												<Link href="/books/all" passHref>
-													<span role="link" className="a">
+												<div>
+													<span
+														data-href="/books/all"
+														role="link"
+														className="a"
+														onClick={getCategorizedBooks}>
 														বই সমূহ
 													</span>
-												</Link>
+												</div>
 											) : (
-												<Link href="/books/all">বই সমূহ</Link>
+												<Link href="/books/all" onClick={getCategorizedBooks}>
+													বই সমূহ
+												</Link>
 											)}
 										</li>
 										{categories &&
 											categories.map((item) => (
 												<li
 													className={categoryId == item.slug ? "selected" : ""}
-													key={item.id}
-													onClick={() =>
-														getCategorizedBooks(item.id, item.title)
-													}>
+													key={item.id}>
 													{isTab ? (
-														<Link href={"/books/" + item.slug} passHref>
-															<span role="link" className="a">
+														<div>
+															<span
+																data-href={"/books/" + item.slug}
+																role="link"
+																className="a"
+																onClick={getCategorizedBooks}>
 																{item.title}
 															</span>
-														</Link>
+														</div>
 													) : (
-														<Link href={"/books/" + item.slug}>
+														<Link
+															href={"/books/" + item.slug}
+															onClick={getCategorizedBooks}>
 															{item.title}
 														</Link>
 													)}
@@ -182,7 +223,7 @@ export default function BookList({
 			</div>
 
 			<div ref={ref}>
-				{isLoadingMore ? (
+				{isLoadingMore && !isReachingEnd ? (
 					<div className={"loader"}>
 						<Loader />
 					</div>
@@ -200,7 +241,34 @@ export default function BookList({
 					</center>
 				</div>
 			)}
-			{/* </Layout> */}
+		</>
+	);
+
+	return (
+		<>
+			<Meta
+				title={pageTitle}
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ"
+				url={`/books/${categoryId}`}
+				image={`/img/id/default_share.png`}
+				type="website"
+			/>
+			{isTab ? (
+				<IonContent
+					ref={contentRef}
+					scrollEvents={true}
+					onIonScroll={handleScroll}>
+					<div className="content">
+						<div className="content_without_footer">
+							<main className={`viewport`}>
+								<div className="main-content">{contentJsx}</div>
+							</main>
+						</div>
+					</div>
+				</IonContent>
+			) : (
+				<>{contentJsx}</>
+			)}
 		</>
 	);
 }

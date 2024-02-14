@@ -8,3 +8,4 @@ export const getDynamicPagesYP = createSelector(
 	getState,
 	(state) => state.dynamicPagesYP
 );
+export const getIsTab = createSelector(getState, (state) => state.isTab);

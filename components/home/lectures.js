@@ -5,6 +5,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Link from "next/link";
 import { youtube } from "../../lib/config";
+import { useRouter } from "next/router";
 
 export default function HomeLectures({ lectures, isSmScr, isTab }) {
 	const settings = {
@@ -64,6 +65,11 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 		],
 	};
 
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
+	};
+
 	return (
 		<section className="h-sec h-recent">
 			<div className="page-width">
@@ -71,9 +77,14 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 					<h1 className="title-r">
 						<span>ভিডিও লেকচার</span>
 						{isTab ? (
-							<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
-								<span className="a">আরও দেখুন</span>
-							</Link>
+							<div>
+								<span
+									data-href={`/lectures/${youtube.uploadPlaylistID}`}
+									className="a"
+									onClick={handleMobileLink}>
+									আরও দেখুন
+								</span>
+							</div>
 						) : (
 							<Link href={`/lectures/${youtube.uploadPlaylistID}`}>
 								আরও দেখুন

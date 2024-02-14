@@ -6,16 +6,15 @@ import {
 import { server, youtube } from "../../../lib/config";
 import { useRef } from "react";
 import Image from "next/image";
-import Layout from "../../../components/layout";
 import Meta from "../../../components/meta";
 import Share from "../../../components/share";
 import { date, formatNumber } from "../../../lib/format";
 import DetailTopBack from "../../../components/detail-top-back";
-import Header from "../../../components/header";
+import { IonContent } from "@ionic/react";
 
 VideoDetail.title = "লেকচার সমূহ";
 
-export default function VideoDetail({ id, data }) {
+export default function VideoDetail({ id, data, isTab }) {
 	// const fetcher = (...args) => fetch(...args).then(res => res.json())
 	// const url = `${youtube.url}/videos?key=${youtube.key}&part=snippet,statistics&id=${id}&maxResults=${constants.YOUTUBE_RELATED_VIDEOS_PAGE_LIMIT}`
 	// const {data} = useSWR(url, fetcher, {initialData: detail, revalidateOnMount: true });
@@ -35,17 +34,8 @@ export default function VideoDetail({ id, data }) {
 		iframe.current.src = `https://www.youtube.com/embed/${id}?autoplay=1&mute=0`;
 	};
 
-	return (
+	const contentJsx = (
 		<>
-			{/* <Layout> */}
-			<Meta
-				title={title}
-				description={description}
-				url={`${server}/lectures/watch/${id}`}
-				image={image}
-				type="website"
-			/>
-
 			<section className="blog-detail-ctn video-blog-detail">
 				<div className="page-width">
 					<div className="box">
@@ -147,7 +137,32 @@ export default function VideoDetail({ id, data }) {
 			{/*        </div>*/}
 			{/*    </div>*/}
 			{/*</section>*/}
-			{/* </Layout> */}
+		</>
+	);
+
+	return (
+		<>
+			<Meta
+				title={title}
+				description={description}
+				url={`${server}/lectures/watch/${id}`}
+				image={image}
+				type="website"
+			/>
+
+			{isTab ? (
+				<IonContent>
+					<div className="content">
+						<div className="content_without_footer">
+							<main className={`viewport`}>
+								<div className="main-content">{contentJsx}</div>
+							</main>
+						</div>
+					</div>
+				</IonContent>
+			) : (
+				<>{contentJsx}</>
+			)}
 		</>
 	);
 }

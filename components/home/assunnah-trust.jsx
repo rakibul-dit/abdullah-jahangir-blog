@@ -1,11 +1,12 @@
 import PostCardRecent from "../card/post-card-recent";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function AssunnahTrust({ isTab }) {
-	const goToLink = (e) => {
-		e.preventDefault();
-		window.open("https://assunnahtrust.org/", "_blank");
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
 	};
 
 	return (
@@ -43,11 +44,14 @@ export default function AssunnahTrust({ isTab }) {
 										বহুমুখী শিক্ষায়ন প্রকল্প পরিচালনা, ত্রাণ বিতরণ, স্বল্পমূল্যে
 									</h2>
 									{isTab ? (
-										<Link href="/assunnah-trust" passHref>
-											<span className="see-more-1 a" onClick={goToLink}>
+										<div>
+											<span
+												className="see-more-1 a"
+												data-href="/assunnah-trust"
+												onClick={handleMobileLink}>
 												আরও দেখুন
 											</span>
-										</Link>
+										</div>
 									) : (
 										<Link href="/assunnah-trust" className="see-more-1">
 											আরও দেখুন

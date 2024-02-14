@@ -6,6 +6,14 @@ import MobileNav from "./mobile-nav";
 import HeaderShare from "./share-header";
 import { useRouter } from "next/router";
 import { arrowBackSharp, menuSharp, chevronBack } from "ionicons/icons";
+import {
+	IonButton,
+	IonButtons,
+	IonHeader,
+	IonIcon,
+	IonTitle,
+	IonToolbar,
+} from "@ionic/react";
 
 // import HomeIcon from "@mui/icons-material/HomeOutlined";
 // import TvIcon from "@mui/icons-material/TvOutlined";
@@ -15,7 +23,9 @@ import { arrowBackSharp, menuSharp, chevronBack } from "ionicons/icons";
 // import CorporateFareIcon from "@mui/icons-material/CorporateFareOutlined";
 // import InfoIcon from "@mui/icons-material/InfoOutlined";
 // import ContactIcon from "@mui/icons-material/ContactPageOutlined";
-// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Button } from "@mui/material";
+import { setIsBack } from "../store/actions";
 
 export default function Header({ prev_page, isTab, title }) {
 	// prev_page = prev_page ? prev_page : "/";
@@ -23,7 +33,7 @@ export default function Header({ prev_page, isTab, title }) {
 	const router = useRouter();
 
 	const [historyLength, setHistoryLength] = useState(0);
-
+	// console.log(historyLength);
 	useEffect(() => {
 		setHistoryLength(window.history.length);
 	});
@@ -101,10 +111,14 @@ export default function Header({ prev_page, isTab, title }) {
 
 		if (listPagesPath.includes(router.pathname, 1)) {
 			// router.push(router.pathname.split("/")[1]).then(r => "/");
+			setIsBack(true);
 			router.push("/");
 		} else if (historyLength > 2) {
 			router.back();
-		} else router.push(`${prev_page}`).then((r) => "/");
+		} else {
+			setIsBack(true);
+			router.push(`${prev_page}`).then((r) => "/");
+		}
 
 		// if (prev_page !== "/") {
 		// 	router.back();
@@ -116,14 +130,14 @@ export default function Header({ prev_page, isTab, title }) {
 	return (
 		<div className="header-container">
 			{isTab ? (
-				<ion-header>
-					<ion-toolbar>
-						<ion-buttons slot="start">
+				<IonHeader>
+					<IonToolbar>
+						<IonButtons slot="start">
 							{router.pathname == "/" ? (
 								<div className="menu-btn">
-									<ion-button onClick={toggleMobileNav(true)}>
-										<ion-icon icon={menuSharp}></ion-icon>
-									</ion-button>
+									<IonButton onClick={toggleMobileNav(true)}>
+										<IonIcon icon={menuSharp}></IonIcon>
+									</IonButton>
 								</div>
 							) : (
 								<>
@@ -133,27 +147,27 @@ export default function Header({ prev_page, isTab, title }) {
 										onClick={goBack}></ion-back-button> */}
 									{/* <Link href={prev_page} passHref> */}
 									<div className="back-btn">
-										<ion-button onClick={goBack}>
-											<ion-icon icon={arrowBackSharp}></ion-icon>
-										</ion-button>
-										<ion-button onClick={goBack}>
-											<ion-icon icon={chevronBack}></ion-icon>
+										<IonButton onClick={goBack}>
+											<IonIcon icon={arrowBackSharp}></IonIcon>
+										</IonButton>
+										<IonButton onClick={goBack}>
+											<IonIcon icon={chevronBack}></IonIcon>
 											{/* <span>Back</span> */}
-										</ion-button>
+										</IonButton>
 									</div>
 									{/* </Link> */}
 								</>
 							)}
-						</ion-buttons>
-						<ion-title>
+						</IonButtons>
+						<IonTitle>
 							<h3 style={{ color: "#106690" }}>{title}</h3>
-						</ion-title>
+						</IonTitle>
 						{/*{!listPagesNotShare.includes(router.pathname, 1) && (*/}
 						{router.pathname !== "/" && (
 							<HeaderShare asPath={router.asPath} title={title} />
 						)}
-					</ion-toolbar>
-				</ion-header>
+					</IonToolbar>
+				</IonHeader>
 			) : (
 				<header className="header header-1" ref={header}>
 					<div className="page-width w-full">
@@ -227,23 +241,19 @@ export default function Header({ prev_page, isTab, title }) {
 											<i className="fas fa-bars"></i>
 										</li>
 									) : (
-										// <li className="mobile-back">
-										// 	<Link href={prev_page ? prev_page : "/"}>
-										// 		<a>
-										// 			<ArrowBackIcon />
-										// 		</a>
-										// 	</Link>
-										// </li>
-
 										<li className="mobile-back">
-											{/* <Link href={prev_page}> */}
-											<ion-buttons slot="start">
-												<ion-button onClick={goBack}>
-													<ion-icon icon={arrowBackSharp}></ion-icon>
-												</ion-button>
-											</ion-buttons>
-											{/* </Link> */}
+											<Button onClick={goBack}>
+												<ArrowBackIcon />
+											</Button>
 										</li>
+
+										// <li className="mobile-back">
+										// 	<IonButtons slot="start">
+										// 		<IonButton onClick={goBack}>
+										// 			<IonIcon icon={arrowBackSharp}></IonIcon>
+										// 		</IonButton>
+										// 	</IonButtons>
+										// </li>
 									)}
 								</ul>
 							</div>

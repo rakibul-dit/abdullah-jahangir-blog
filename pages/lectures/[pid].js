@@ -1,22 +1,29 @@
-// "use client";
 import { server, youtube, constants } from "../../lib/config";
 import { getAllPlaylists2, getYoutubeVideoListByUrl } from "../../lib/fetch";
 import { useState, useEffect, useRef } from "react";
-import Layout from "../../components/layout";
 import Meta from "../../components/meta";
 import PostCardVideo2 from "../../components/card/post-card-video2";
 import Loader from "../../components/loader";
 import fetcher from "../../lib/lecturesFetcher";
 import useOnScreen from "../../hooks/useOnScreen";
-// import { useSWRInfinite } from "swr";
 import useSWRInfinite from "swr/infinite";
 import Link from "next/link";
 import ListIcon from "@mui/icons-material/List";
 import SortIcon from "@mui/icons-material/Sort";
-import Header from "../../components/header";
+import Store from "../../store";
+import * as selectors from "../../store/selectors";
+import { setIsBack, setScrollPosition } from "../../store/actions";
+import { useRouter } from "next/router";
+import { IonContent } from "@ionic/react";
 
 const getKey = (pageIndex, previousPageData, playlistId) => {
 	let pageToken = "";
+	if (
+		previousPageData !== null &&
+		previousPageData.videoLists.videos.length < constants.DEFAULT_PAGE_LIMIT
+	) {
+		return null;
+	}
 	if (
 		previousPageData !== null &&
 		previousPageData.videoLists.nextPageToken !== null
@@ -42,33 +49,48 @@ export default function LectureList({
 
 	const { data, error, mutate, size, setSize, isValidating, isLoading } =
 		useSWRInfinite((...args) => getKey(...args, initPlaylistId), fetcher, {
+			initialData: initialVideos,
 			revalidateOnMount: true,
 		});
 
-	const datas = data ? [].concat(...data) : [];
+	// const datas = data ? [].concat(...data) : [];
 	const isLoadingInitialData = !data && !error;
 	const isLoadingMore =
 		isLoadingInitialData ||
 		(size > 0 && data && typeof data[size - 1] === "undefined");
-	const isEmpty = data?.[0]?.length === 0;
-	const isReachingEnd =
-		isEmpty ||
-		(data && data[data.length - 1]?.length < constants.DEFAULT_PAGE_LIMIT);
-	// const numberOfPages =
-	// 	data?.[0]?.length !== 0 ? data[0].videoLists.numberOfPages : 0;
-	// const isReachingEnd = size === numberOfPages;
+	const isEmpty = data?.[0]?.videos?.length === 0;
+	// const isReachingEnd =
+	// 	isEmpty ||
+	// 	(data &&
+	// 		data[data.length - 1]?.videoLists.videos.length <
+	// 			constants.DEFAULT_PAGE_LIMIT);
+	// let numberOfPages = data ? data[0]?.videoLists.numberOfPages : 1;
+	let numberOfPages;
+	try {
+		if (data) {
+			numberOfPages = data[0].videoLists.numberOfPages;
+		}
+	} catch (error) {
+		console.log(error);
+		numberOfPages = 1;
+	}
+
+	const isReachingEnd = isEmpty || size >= numberOfPages;
 	const isRefreshing = isValidating && data && data.length === size;
 	const [catOpen, setCatOpen] = useState(false);
-
-	console.log(data);
 
 	const handleCatOpen = async () => {
 		catOpen ? setCatOpen(false) : setCatOpen(true);
 	};
 
-	const getCategorizedVideos = async (id, pageTitle) => {
+	const getCategorizedVideos = async (e) => {
+		e.preventDefault();
 		setCatOpen(false);
 		setSize(1);
+		if (isTab) {
+			router.push(e.target.dataset.href);
+			contentRef.current.scrollToTop();
+		} else router.push(e.target.href);
 	};
 
 	useEffect(() => {
@@ -84,17 +106,33 @@ export default function LectureList({
 		}
 	}, [isVisible, isRefreshing]);
 
-	return (
-		<>
-			{/* <Layout> */}
-			<Meta
-				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমূহ"
-				url={`${server}/lectures/${initPlaylistId}`}
-				image={`${server}/img/id/default_share.png`}
-				type="website"
-			/>
+	let isBack = Store.useState(selectors.getIsBack);
+	let yp = Store.useState(selectors.getScrollPosition);
 
+	const router = useRouter();
+	const contentRef = useRef(null);
+
+	function handleScroll(ev) {
+		setScrollPosition(router.pathname, ev.detail.scrollTop);
+	}
+
+	useEffect(() => {
+		if (isTab) {
+			console.log("isBack: " + isBack, yp);
+
+			if (isBack == true) {
+				contentRef.current.scrollToPoint(0, yp[router.pathname]);
+			} else {
+				setScrollPosition(router.pathname, 0);
+			}
+			return () => {
+				setIsBack(false);
+			};
+		}
+	}, []);
+
+	const contentJsx = (
+		<>
 			<section className="cat-page-top cat-page-top-2">
 				<div className="page-width">
 					<div className="box">
@@ -109,18 +147,21 @@ export default function LectureList({
 										playlists.playlists.map((item) => (
 											<li
 												className={initPlaylistId == item.id ? "selected" : ""}
-												key={item.id}
-												onClick={() =>
-													getCategorizedVideos(item.id, item.title)
-												}>
+												key={item.id}>
 												{isTab ? (
-													<Link href={"/lectures/" + item.id} passHref>
-														<span role="link" className="a">
+													<div>
+														<span
+															data-href={"/lectures/" + item.id}
+															role="link"
+															className="a"
+															onClick={getCategorizedVideos}>
 															{item.title}
 														</span>
-													</Link>
+													</div>
 												) : (
-													<Link href={"/lectures/" + item.id}>
+													<Link
+														href={"/lectures/" + item.id}
+														onClick={getCategorizedVideos}>
 														{item.title}
 													</Link>
 												)}
@@ -144,8 +185,8 @@ export default function LectureList({
 					<div className="box">
 						<div className="row row-r">
 							{/*{isEmpty ? <p>No records found!</p> : null}*/}
-							{datas &&
-								datas.map((data) => {
+							{data &&
+								data.map((data) => {
 									return (
 										data.videoLists.videos &&
 										data.videoLists.videos.map((item) => {
@@ -167,7 +208,7 @@ export default function LectureList({
 			</section>
 
 			<div ref={ref}>
-				{isLoadingMore ? (
+				{isLoadingMore && !isReachingEnd ? (
 					<div className={"loader"}>
 						<Loader />
 					</div>
@@ -185,7 +226,35 @@ export default function LectureList({
 					</center>
 				</div>
 			)}
-			{/* </Layout> */}
+		</>
+	);
+
+	return (
+		<>
+			<Meta
+				title={pageTitle}
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমূহ"
+				url={`${server}/lectures/${initPlaylistId}`}
+				image={`${server}/img/id/default_share.png`}
+				type="website"
+			/>
+
+			{isTab ? (
+				<IonContent
+					ref={contentRef}
+					scrollEvents={true}
+					onIonScroll={handleScroll}>
+					<div className="content">
+						<div className="content_without_footer">
+							<main className={`viewport`}>
+								<div className="main-content">{contentJsx}</div>
+							</main>
+						</div>
+					</div>
+				</IonContent>
+			) : (
+				<>{contentJsx}</>
+			)}
 		</>
 	);
 }

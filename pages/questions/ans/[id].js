@@ -1,26 +1,17 @@
 import { server } from "../../../lib/config";
-import Link from "next/link";
-import Layout from "../../../components/layout";
+// import Link from "next/link";
 import Meta from "../../../components/meta";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 import Share from "../../../components/share";
 import { getAnsById, getQnaByLimit } from "../../../lib/fetch";
 import DetailTopBack from "../../../components/detail-top-back";
-import Header from "../../../components/header";
+import { IonContent } from "@ionic/react";
 
 QnA.title = "প্রশ্নোত্তর";
 
-export default function QnA({ ans }) {
-	return (
+export default function QnA({ ans, isTab }) {
+	const contentJsx = (
 		<>
-			{/* <Layout> */}
-			<Meta
-				title={ans[0].qus}
-				description={ans[0].ans}
-				url={`${server}/questions/ans/${ans[0].id}`}
-				image={`${server}/img/id/default_share.png`}
-				type="website"
-			/>
 			<div className="qna">
 				<section className="blog-detail-ctn">
 					<div className="page-width">
@@ -61,7 +52,30 @@ export default function QnA({ ans }) {
 					</div>
 				</section>
 			</div>
-			{/* </Layout> */}
+		</>
+	);
+	return (
+		<>
+			<Meta
+				title={ans[0].qus}
+				description={ans[0].ans}
+				url={`${server}/questions/ans/${ans[0].id}`}
+				image={`${server}/img/id/default_share.png`}
+				type="website"
+			/>
+			{isTab ? (
+				<IonContent>
+					<div className="content">
+						<div className="content_without_footer">
+							<main className={`viewport`}>
+								<div className="main-content">{contentJsx}</div>
+							</main>
+						</div>
+					</div>
+				</IonContent>
+			) : (
+				<>{contentJsx}</>
+			)}
 		</>
 	);
 }

@@ -8,7 +8,6 @@ import {
 	getOptHomeQuotes,
 } from "../lib/fetch";
 
-import Layout from "../components/layout";
 import Meta from "../components/meta";
 import HomeBanner from "../components/home/banner";
 import HomeBooks from "../components/home/books";
@@ -19,7 +18,7 @@ import { useEffect, useState } from "react";
 import HomeQns from "../components/home/qns";
 import AssunnahTrust from "../components/home/assunnah-trust";
 import HomeQuoteSlider from "../components/home2/quote-slider";
-import Header from "../components/header";
+import { IonContent } from "@ionic/react";
 
 export default function Home({
 	lectures,
@@ -31,7 +30,6 @@ export default function Home({
 	isTab,
 }) {
 	const [isSmScr, setIsSmScr] = useState(false);
-	console.log(isTab);
 	useEffect(() => {
 		if (typeof window !== "undefined") {
 			// set isSmScr depending on screen size
@@ -51,16 +49,8 @@ export default function Home({
 		}
 	}, []);
 
-	return (
+	const contentJsx = (
 		<>
-			{/* <Layout page="homepage"> */}
-			<Meta
-				title=""
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত আলেম, বহু গ্রন্থ প্রণেতা ও আস সুন্নাহ ট্রাস্টের প্রতিষ্ঠাতা। তিনি ছিলেন এই উপমহাদেশের অন্যতম সেরা আলিম এবং মুজাদ্দিদ। সৌদি আরবের রাজধানী রিয়াদে অবস্থিত ইমাম মুহাম্মদ বিন সউদ ইসলামি বিশ্ববিদ্যালয় থেকে লিসান্স, মাস্টার্স ও পিএইচডি ডিগ্রি লাভ করেন।"
-				url={server}
-				image={`${server}/img/id/default_share.jpg`}
-				type="website"
-			/>
 			<HomeBanner />
 			<HomeLectures lectures={lectures} isSmScr={isSmScr} isTab={isTab} />
 			<HomeArticles articles={articles} isSmScr={isSmScr} isTab={isTab} />
@@ -69,7 +59,32 @@ export default function Home({
 			<SomeLectures lectures={someLectures} isSmScr={isSmScr} isTab={isTab} />
 			<HomeQuoteSlider quotes={quotes} />
 			<AssunnahTrust isTab={isTab} />
-			{/* </Layout> */}
+		</>
+	);
+
+	return (
+		<>
+			<Meta
+				title=""
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) একজন প্রখ্যাত আলেম, বহু গ্রন্থ প্রণেতা ও আস সুন্নাহ ট্রাস্টের প্রতিষ্ঠাতা। তিনি ছিলেন এই উপমহাদেশের অন্যতম সেরা আলিম এবং মুজাদ্দিদ। সৌদি আরবের রাজধানী রিয়াদে অবস্থিত ইমাম মুহাম্মদ বিন সউদ ইসলামি বিশ্ববিদ্যালয় থেকে লিসান্স, মাস্টার্স ও পিএইচডি ডিগ্রি লাভ করেন।"
+				url={server}
+				image={`${server}/img/id/default_share.jpg`}
+				type="website"
+			/>
+
+			{isTab ? (
+				<IonContent>
+					<div className="content">
+						<div className="content_without_footer">
+							<main className={`viewport`}>
+								<div className="main-content">{contentJsx}</div>
+							</main>
+						</div>
+					</div>
+				</IonContent>
+			) : (
+				<>{contentJsx}</>
+			)}
 		</>
 	);
 }

@@ -4,6 +4,7 @@ const Store = new PullStateStore({
 	isBack: false,
 	yp: {},
 	dynamicPagesYP: {},
+	isTab: true,
 });
 
 export default Store;

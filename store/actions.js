@@ -23,3 +23,9 @@ export const emptyDynamicPagesYP = () => {
 		s.dynamicPagesYP = {};
 	});
 };
+
+export const setIsTab = (v) => {
+	Store.update((s) => {
+		s.isTab = v;
+	});
+};

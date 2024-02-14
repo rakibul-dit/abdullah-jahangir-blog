@@ -2,6 +2,7 @@ import { server } from "../../lib/config";
 import { date as dateFormat } from "../../lib/format";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function PostCardRecent({
 	recent: {
@@ -14,11 +15,19 @@ export default function PostCardRecent({
 	},
 	isTab,
 } = {}) {
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
+	};
+
 	return (
 		<div className="recent-item">
 			{isTab ? (
-				<Link href={`/lectures/watch/${id}`}>
-					<div className="recent-ctn">
+				<div>
+					<div
+						className="recent-ctn"
+						data-href={`/lectures/watch/${id}`}
+						onClick={handleMobileLink}>
 						{/* <img src={image} alt="" /> */}
 						<Image
 							//src={image}
@@ -41,7 +50,7 @@ export default function PostCardRecent({
 							{/*<span className="date-r">{dateFormat(date)}</span>*/}
 						</div>
 					</div>
-				</Link>
+				</div>
 			) : (
 				<Link href={`/lectures/watch/${id}`}>
 					<div className="recent-ctn">

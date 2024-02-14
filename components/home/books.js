@@ -3,6 +3,7 @@ import BookCard from "../card/post-card-book";
 import Slider from "react-slick";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { useRouter } from "next/router";
 
 export default function HomeBooks({ books, isSmScr, isTab }) {
 	const settings2 = {
@@ -43,6 +44,11 @@ export default function HomeBooks({ books, isSmScr, isTab }) {
 		],
 	};
 
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
+	};
+
 	return (
 		<section className="h-sec h-books">
 			<div className="page-width">
@@ -50,9 +56,14 @@ export default function HomeBooks({ books, isSmScr, isTab }) {
 					<h1 className="title-r">
 						<span>বই সমূহ</span>
 						{isTab ? (
-							<Link href="/books/all">
-								<span className="a">আরও দেখুন</span>
-							</Link>
+							<div>
+								<span
+									className="a"
+									data-href="/books/all"
+									onClick={handleMobileLink}>
+									আরও দেখুন
+								</span>
+							</div>
 						) : (
 							<Link href="/books/all">আরও দেখুন</Link>
 						)}

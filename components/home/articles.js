@@ -3,6 +3,7 @@ import PostCardArticle from "../card/post-card-article";
 import Slider from "react-slick";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { useRouter } from "next/router";
 
 export default function HomeArticles({ articles, isSmScr, isTab }) {
 	const settings = {
@@ -37,6 +38,11 @@ export default function HomeArticles({ articles, isSmScr, isTab }) {
 		],
 	};
 
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
+	};
+
 	return (
 		<section className="h-sec h-articles">
 			<div className="page-width">
@@ -44,9 +50,14 @@ export default function HomeArticles({ articles, isSmScr, isTab }) {
 					<h1 className="title-r">
 						<span>প্রবন্ধ সমূহ</span>
 						{isTab ? (
-							<Link href="/articles/">
-								<span className="a">আরও দেখুন</span>
-							</Link>
+							<div>
+								<span
+									className="a"
+									data-href="/articles"
+									onClick={handleMobileLink}>
+									আরও দেখুন
+								</span>
+							</div>
 						) : (
 							<Link href="/articles/">আরও দেখুন</Link>
 						)}

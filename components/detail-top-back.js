@@ -21,9 +21,9 @@ export default function DetailTopBack({ link, children }) {
 							? () => router.back()
 							: () => router.push(`${link}`)
 					}>
-					{/* <a> */}
-					<ArrowBackIcon /> ফিরে যান
-					{/* </a> */}
+					<a>
+						<ArrowBackIcon /> ফিরে যান
+					</a>
 				</span>
 			)}
 			{children}

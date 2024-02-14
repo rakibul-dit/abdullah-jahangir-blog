@@ -1,12 +1,17 @@
 import { server } from "../../lib/config";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function BookCard({
 	book: { bookSlug = "/", imageSrc = "", bookName = "", bookText = "" },
 	isTab,
 } = {}) {
-	// console.log(book);
+	const router = useRouter();
+	const handleMobileLink = (e) => {
+		router.push(e.target.dataset.href);
+	};
+
 	return (
 		// <div className="books-item pc-3">
 		// 	<div className="books-image">
@@ -40,8 +45,11 @@ export default function BookCard({
 		<div className="h-book-item">
 			<div className="h-book-image">
 				{isTab ? (
-					<Link href={`/books/details/${bookSlug}`} passHref>
-						<span className="a">
+					<div>
+						<span
+							className="a"
+							data-href={`/books/details/${bookSlug}`}
+							onClick={handleMobileLink}>
 							<Image
 								src={imageSrc}
 								alt=""
@@ -54,7 +62,7 @@ export default function BookCard({
 								unoptimized
 							/>
 						</span>
-					</Link>
+					</div>
 				) : (
 					<Link href={`/books/details/${bookSlug}`}>
 						{/* <a> */}
@@ -85,9 +93,14 @@ export default function BookCard({
 			</div>
 			<div className="h-book-detail">
 				{isTab ? (
-					<Link href={`/books/details/${bookSlug}`} passHref>
-						<span className="book-name a">{bookName}</span>
-					</Link>
+					<div>
+						<span
+							className="book-name a"
+							data-href={`/books/details/${bookSlug}`}
+							onClick={handleMobileLink}>
+							{bookName}
+						</span>
+					</div>
 				) : (
 					<Link href={`/books/details/${bookSlug}`} className="book-name">
 						{bookName}
@@ -97,9 +110,14 @@ export default function BookCard({
 				<p className="book-text">{bookText}</p>
 
 				{isTab ? (
-					<Link href={`/books/details/${bookSlug}`} passHref>
-						<span className="book-link a">বিস্তারিত</span>
-					</Link>
+					<div>
+						<span
+							className="book-link a"
+							data-href={`/books/details/${bookSlug}`}
+							onClick={handleMobileLink}>
+							বিস্তারিত
+						</span>
+					</div>
 				) : (
 					<Link href={`/books/details/${bookSlug}`} className="book-link">
 						বিস্তারিত
