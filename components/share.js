@@ -8,18 +8,20 @@ export default function Share({ urlWeb, urlMobile, title }) {
 	const [shareOpen, setShareOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [shareTitle, setShareTitle] = useState("");
+	console.log(shareOpen);
 
-	const handleShareClose = (open) => (event) => {
-		if (
-			event.type === "keydown" &&
-			(event.key === "Tab" || event.key === "Shift")
-		) {
-			return;
-		}
-		setShareOpen(open);
+	const handleShareClose = () => {
+		// if (
+		// 	event.type === "keydown" &&
+		// 	(event.key === "Tab" || event.key === "Shift")
+		// ) {
+		// 	return;
+		// }
+		setShareOpen(false);
 	};
 
 	const handleWebShare = () => {
+		console.log("web share");
 		setShareUrl(`${server}/${urlWeb}`);
 		setShareTitle(title);
 		setShareOpen(true);
@@ -55,7 +57,7 @@ export default function Share({ urlWeb, urlMobile, title }) {
 			</div>
 
 			<ShareModal
-				open={shareOpen}
+				openModal={shareOpen}
 				closer={handleShareClose}
 				url={shareUrl}
 				title={shareTitle}

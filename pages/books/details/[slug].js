@@ -11,7 +11,6 @@ BookDetail.title = "বই সমূহ";
 
 export default function BookDetail({ detail, books, isTab }) {
 	const goToLink = (link) => {
-		console.log(link);
 		window.open(link, "_blank");
 	};
 

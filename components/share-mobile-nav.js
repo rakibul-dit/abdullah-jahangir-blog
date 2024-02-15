@@ -9,17 +9,18 @@ export default function MobileNavShare({ asPath, title }) {
 	const [shareUrl, setShareUrl] = useState("");
 	const [shareTitle, setShareTitle] = useState("");
 
-	const handleShareClose = (open) => (event) => {
-		if (
-			event.type === "keydown" &&
-			(event.key === "Tab" || event.key === "Shift")
-		) {
-			return;
-		}
-		setShareOpen(open);
+	const handleShareClose = () => {
+		// if (
+		// 	event.type === "keydown" &&
+		// 	(event.key === "Tab" || event.key === "Shift")
+		// ) {
+		// 	return;
+		// }
+		setShareOpen(false);
 	};
 
 	const handleMobileShare = (e) => {
+		console.log("mobile share");
 		e.preventDefault();
 		if (navigator.share) {
 			navigator.share({
@@ -42,7 +43,7 @@ export default function MobileNavShare({ asPath, title }) {
 			</li>
 
 			<ShareModal
-				open={shareOpen}
+				openModal={shareOpen}
 				closer={handleShareClose}
 				url={shareUrl}
 				title={shareTitle}

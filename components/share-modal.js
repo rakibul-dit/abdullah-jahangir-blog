@@ -32,6 +32,7 @@ import {
 } from "react-share";
 
 export default function ShareModal({ openModal, closer, url, title }) {
+	console.log(openModal);
 	return (
 		<Modal
 			open={openModal}
