@@ -20,7 +20,6 @@ export default function MobileNavShare({ asPath, title }) {
 	};
 
 	const handleMobileShare = (e) => {
-		console.log("mobile share");
 		e.preventDefault();
 		if (navigator.share) {
 			navigator.share({

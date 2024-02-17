@@ -22,7 +22,6 @@ import { useRouter } from "next/router";
 import { IonContent } from "@ionic/react";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {
-	console.log("pageIndex: " + pageIndex);
 	let currentPage = pageIndex + 1;
 	return JSON.stringify({ currentPage: currentPage, categoryId: categoryId });
 };
@@ -48,7 +47,7 @@ export default function BookList({
 		bookFetcher,
 		{ initialData: initialBooks, revalidateOnMount: true }
 	);
-	// console.log(data);
+
 	const datas = data ? [].concat(...data) : [];
 	const isLoadingInitialData = !data && !error;
 	const isLoadingMore =
@@ -115,7 +114,7 @@ export default function BookList({
 
 	useEffect(() => {
 		if (isTab) {
-			console.log("isBack: " + isBack, yp);
+			// console.log("isBack: " + isBack, yp);
 
 			if (isBack == true) {
 				contentRef.current.scrollToPoint(0, yp[router.pathname]);

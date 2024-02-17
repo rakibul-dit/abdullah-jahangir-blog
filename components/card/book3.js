@@ -13,7 +13,6 @@ export default function BookCard({
 		<div className="books-item bc-3">
 			<div className="books-image">
 				<Link href={`/books/${bookSlug}`}>
-					{/* <a> */}
 					<Image
 						src={imageSrc}
 						alt=""
@@ -25,7 +24,6 @@ export default function BookCard({
 						loading="eager"
 						unoptimized
 					/>
-					{/* </a> */}
 				</Link>
 			</div>
 

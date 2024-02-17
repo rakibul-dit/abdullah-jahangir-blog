@@ -117,7 +117,7 @@ export default function QnList({
 
 	useEffect(() => {
 		if (isTab) {
-			console.log("isBack: " + isBack, yp);
+			// console.log("isBack: " + isBack, yp);
 
 			if (isBack == true) {
 				contentRef.current.scrollToPoint(0, yp[router.pathname]);

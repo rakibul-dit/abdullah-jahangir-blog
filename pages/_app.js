@@ -76,8 +76,6 @@ const App = ({ Component, pageProps }) => {
 		});
 	}, [router]);
 
-	let isBack = Store.useState(selectors.getIsBack);
-	console.log("back: " + isBack);
 	return (
 		<>
 			{isTab ? (

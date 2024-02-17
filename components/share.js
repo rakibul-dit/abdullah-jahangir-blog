@@ -8,7 +8,6 @@ export default function Share({ urlWeb, urlMobile, title }) {
 	const [shareOpen, setShareOpen] = useState(false);
 	const [shareUrl, setShareUrl] = useState("");
 	const [shareTitle, setShareTitle] = useState("");
-	console.log(shareOpen);
 
 	const handleShareClose = () => {
 		// if (
@@ -21,7 +20,6 @@ export default function Share({ urlWeb, urlMobile, title }) {
 	};
 
 	const handleWebShare = () => {
-		console.log("web share");
 		setShareUrl(`${server}/${urlWeb}`);
 		setShareTitle(title);
 		setShareOpen(true);

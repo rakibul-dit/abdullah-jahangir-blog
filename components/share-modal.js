@@ -32,7 +32,6 @@ import {
 } from "react-share";
 
 export default function ShareModal({ openModal, closer, url, title }) {
-	console.log(openModal);
 	return (
 		<Modal
 			open={openModal}
@@ -51,7 +50,7 @@ export default function ShareModal({ openModal, closer, url, title }) {
 						<CloseIcon />
 					</span>
 
-					<div className={styles.title}>Share</div>
+					<div className={styles.title}>পোস্টটি শেয়ার করুন</div>
 
 					<div className={styles.lists}>
 						<div className={styles.item}>
