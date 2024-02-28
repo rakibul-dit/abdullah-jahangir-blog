@@ -10,11 +10,7 @@ import useSWRInfinite from "swr/infinite";
 import Link from "next/link";
 import ListIcon from "@mui/icons-material/List";
 import SortIcon from "@mui/icons-material/Sort";
-import Store from "../../store";
-import * as selectors from "../../store/selectors";
-import { setIsBack, setScrollPosition } from "../../store/actions";
 import { useRouter } from "next/router";
-import { IonContent } from "@ionic/react";
 
 const getKey = (pageIndex, previousPageData, playlistId) => {
 	let pageToken = "";
@@ -46,6 +42,7 @@ export default function LectureList({
 	const catRef = useRef();
 	const isVisible = useOnScreen(ref);
 	const pageTitle = playlists.playlistsTitle[initPlaylistId];
+	const router = useRouter();
 
 	const { data, error, mutate, size, setSize, isValidating, isLoading } =
 		useSWRInfinite((...args) => getKey(...args, initPlaylistId), fetcher, {
@@ -84,13 +81,14 @@ export default function LectureList({
 	};
 
 	const getCategorizedVideos = async (e) => {
-		e.preventDefault();
 		setCatOpen(false);
 		setSize(1);
-		if (isTab) {
-			router.push(e.target.dataset.href);
-			contentRef.current.scrollToTop();
-		} else router.push(e.target.href);
+	};
+	// catergory click in Tab
+	const handleMobileLink = (e) => {
+		setCatOpen(false);
+		setSize(1);
+		router.push(e.target.dataset.href);
 	};
 
 	useEffect(() => {
@@ -106,33 +104,15 @@ export default function LectureList({
 		}
 	}, [isVisible, isRefreshing]);
 
-	let isBack = Store.useState(selectors.getIsBack);
-	let yp = Store.useState(selectors.getScrollPosition);
-
-	const router = useRouter();
-	const contentRef = useRef(null);
-
-	function handleScroll(ev) {
-		setScrollPosition(router.pathname, ev.detail.scrollTop);
-	}
-
-	useEffect(() => {
-		if (isTab) {
-			// console.log("isBack: " + isBack, yp);
-
-			if (isBack == true) {
-				contentRef.current.scrollToPoint(0, yp[router.pathname]);
-			} else {
-				setScrollPosition(router.pathname, 0);
-			}
-			return () => {
-				setIsBack(false);
-			};
-		}
-	}, []);
-
-	const contentJsx = (
+	return (
 		<>
+			<Meta
+				title={pageTitle}
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমূহ"
+				url={`${server}/lectures/${initPlaylistId}`}
+				image={`${server}/img/id/default_share.png`}
+				type="website"
+			/>
 			<section className="cat-page-top cat-page-top-2">
 				<div className="page-width">
 					<div className="box">
@@ -154,7 +134,7 @@ export default function LectureList({
 															data-href={"/lectures/" + item.id}
 															role="link"
 															className="a"
-															onClick={getCategorizedVideos}>
+															onClick={handleMobileLink}>
 															{item.title}
 														</span>
 													</div>
@@ -225,35 +205,6 @@ export default function LectureList({
 						<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
 					</center>
 				</div>
-			)}
-		</>
-	);
-
-	return (
-		<>
-			<Meta
-				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর লেকচার সমূহ"
-				url={`${server}/lectures/${initPlaylistId}`}
-				image={`${server}/img/id/default_share.png`}
-				type="website"
-			/>
-
-			{isTab ? (
-				<IonContent
-					ref={contentRef}
-					scrollEvents={true}
-					onIonScroll={handleScroll}>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">{contentJsx}</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<>{contentJsx}</>
 			)}
 		</>
 	);

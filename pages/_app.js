@@ -26,16 +26,12 @@ import "materialize-css/dist/css/materialize.min.css";
 import "slick-carousel/slick/slick.css";
 import "../styles/style.scss";
 import Header from "../components/header";
-import { IonApp, IonContent, IonPage, setupIonicReact } from "@ionic/react";
-import { setIsBack, setIsTab } from "../store/actions";
-import NonSSRWrapper from "../components/NoSSRWrapper";
+import { setupIonicReact } from "@ionic/react";
 import Head from "next/head";
 import Sidenav from "../components/sidenav";
-import Store from "../store";
-import * as selectors from "../store/selectors";
 
 const App = ({ Component, pageProps }) => {
-	const isTab = Store.useState(selectors.getIsTab);
+	const [isTab, setIsTab] = useState(false);
 
 	setupIonicReact();
 	const router = useRouter();
@@ -69,74 +65,36 @@ const App = ({ Component, pageProps }) => {
 		}
 	}, []);
 
-	useEffect(() => {
-		router.beforePopState(() => {
-			setIsBack(true);
-			return true;
-		});
-	}, [router]);
-
 	return (
 		<>
-			{isTab ? (
-				<IonApp>
-					<IonPage>
-						<Head>
-							<title>Create Next App</title>
-							<meta
-								name="viewport"
-								content="width=device-width, initial-scale=1, viewport-fit=cover"
-							/>
-							<link rel="icon" href="/favicon.ico" />
-						</Head>
-						<NonSSRWrapper>
-							<Header
-								prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
-								isTab={isTab}
-								title={
-									Component.title
-										? Component.title
-										: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
-								}
-							/>
-							<Sidenav />
-							<Component {...pageProps} isTab={isTab} />
-						</NonSSRWrapper>
-					</IonPage>
-				</IonApp>
-			) : (
-				<>
-					<Head>
-						<title>Create Next App</title>
-						<meta
-							name="viewport"
-							content="width=device-width, initial-scale=1, viewport-fit=cover"
-						/>
-						<link rel="icon" href="/favicon.ico" />
-					</Head>
-					<Header
-						prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
-						isTab={isTab}
-						title={
-							Component.title
-								? Component.title
-								: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
-						}
-					/>
-					<Sidenav />
-					<div className="content-wrapper">
-						<div className="content">
-							<div className="content_without_footer">
-								<main className={`viewport`}>
-									<div className="main-content">
-										<Component {...pageProps} isTab={isTab} />
-									</div>
-								</main>
+			<Head>
+				<title>Create Next App</title>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1, viewport-fit=cover"
+				/>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<Header
+				prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
+				isTab={isTab}
+				title={
+					Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
+				}
+			/>
+			<Sidenav />
+			<div className="content-wrapper">
+				<div className="content">
+					<div className="content_without_footer">
+						<main className={`viewport`}>
+							<div className="main-content">
+								<Component {...pageProps} isTab={isTab} />
 							</div>
-						</div>
+						</main>
 					</div>
-				</>
-			)}
+				</div>
+			</div>
+			{/* <Footer /> */}
 		</>
 	);
 };

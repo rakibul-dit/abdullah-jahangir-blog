@@ -10,7 +10,6 @@ import Meta from "../../../components/meta";
 import Share from "../../../components/share";
 import { date, formatNumber } from "../../../lib/format";
 import DetailTopBack from "../../../components/detail-top-back";
-import { IonContent } from "@ionic/react";
 
 VideoDetail.title = "লেকচার সমূহ";
 
@@ -34,8 +33,16 @@ export default function VideoDetail({ id, data, isTab }) {
 		iframe.current.src = `https://www.youtube.com/embed/${id}?autoplay=1&mute=0`;
 	};
 
-	const contentJsx = (
+	return (
 		<>
+			<Meta
+				title={title}
+				description={description}
+				url={`${server}/lectures/watch/${id}`}
+				image={image}
+				type="website"
+			/>
+
 			<section className="blog-detail-ctn video-blog-detail">
 				<div className="page-width">
 					<div className="box">
@@ -137,32 +144,6 @@ export default function VideoDetail({ id, data, isTab }) {
 			{/*        </div>*/}
 			{/*    </div>*/}
 			{/*</section>*/}
-		</>
-	);
-
-	return (
-		<>
-			<Meta
-				title={title}
-				description={description}
-				url={`${server}/lectures/watch/${id}`}
-				image={image}
-				type="website"
-			/>
-
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">{contentJsx}</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<>{contentJsx}</>
-			)}
 		</>
 	);
 }

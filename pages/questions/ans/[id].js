@@ -5,13 +5,20 @@ import Meta from "../../../components/meta";
 import Share from "../../../components/share";
 import { getAnsById, getQnaByLimit } from "../../../lib/fetch";
 import DetailTopBack from "../../../components/detail-top-back";
-import { IonContent } from "@ionic/react";
 
 QnA.title = "প্রশ্নোত্তর";
 
 export default function QnA({ ans, isTab }) {
-	const contentJsx = (
+	return (
 		<>
+			<Meta
+				title={ans[0].qus}
+				description={ans[0].ans}
+				url={`${server}/questions/ans/${ans[0].id}`}
+				image={`${server}/img/id/default_share.png`}
+				type="website"
+			/>
+
 			<div className="qna">
 				<section className="blog-detail-ctn">
 					<div className="page-width">
@@ -52,30 +59,6 @@ export default function QnA({ ans, isTab }) {
 					</div>
 				</section>
 			</div>
-		</>
-	);
-	return (
-		<>
-			<Meta
-				title={ans[0].qus}
-				description={ans[0].ans}
-				url={`${server}/questions/ans/${ans[0].id}`}
-				image={`${server}/img/id/default_share.png`}
-				type="website"
-			/>
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">{contentJsx}</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<>{contentJsx}</>
-			)}
 		</>
 	);
 }

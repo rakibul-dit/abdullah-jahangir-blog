@@ -5,17 +5,23 @@ import Meta from "../../../components/meta";
 import Share from "../../../components/share";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import DetailTopBack from "../../../components/detail-top-back";
-import { IonContent } from "@ionic/react";
 
 BookDetail.title = "বই সমূহ";
 
-export default function BookDetail({ detail, books, isTab }) {
+export default function BookDetail({ detail, isTab }) {
 	const goToLink = (link) => {
 		window.open(link, "_blank");
 	};
 
-	const contentJsx = (
+	return (
 		<>
+			<Meta
+				title={detail.bookName}
+				description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
+				url={`${server}/books/details/${detail.bookSlug}`}
+				image={server + detail.imageSrc}
+				type="article"
+			/>
 			<section className="blog-detail-ctn">
 				<div className="page-width">
 					<div className="box">
@@ -175,31 +181,6 @@ export default function BookDetail({ detail, books, isTab }) {
 			{/*		</div>*/}
 			{/*	</div>*/}
 			{/*</section>*/}
-		</>
-	);
-
-	return (
-		<>
-			<Meta
-				title={detail.bookName}
-				description={`ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর বই সমূহ - ${detail.bookDesc}`}
-				url={`${server}/books/details/${detail.bookSlug}`}
-				image={server + detail.imageSrc}
-				type="article"
-			/>
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">{contentJsx}</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<>{contentJsx}</>
-			)}
 		</>
 	);
 }

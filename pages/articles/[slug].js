@@ -9,13 +9,19 @@ import Meta from "../../components/meta";
 import parse from "html-react-parser";
 import Share from "../../components/share";
 import DetailTopBack from "../../components/detail-top-back";
-import { IonContent } from "@ionic/react";
 
 BlogDetail.title = "প্রবন্ধ সমূহ";
 
 export default function BlogDetail({ detail, isTab }) {
-	const contentJsx = (
+	return (
 		<>
+			<Meta
+				title={detail.postTitle}
+				description={detail.postExcerpt}
+				url={`${server}/articles/${detail.postSlug}`}
+				image={`${server}/img/id/default_share.png`}
+				type="article"
+			/>
 			<div className="articles">
 				<section className="blog-detail-ctn">
 					<div className="page-width">
@@ -80,31 +86,6 @@ export default function BlogDetail({ detail, isTab }) {
 				{/*	</div>*/}
 				{/*</section>*/}
 			</div>
-		</>
-	);
-
-	return (
-		<>
-			<Meta
-				title={detail.postTitle}
-				description={detail.postExcerpt}
-				url={`${server}/articles/${detail.postSlug}`}
-				image={`${server}/img/id/default_share.png`}
-				type="article"
-			/>
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">{contentJsx}</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<>{contentJsx}</>
-			)}
 		</>
 	);
 }

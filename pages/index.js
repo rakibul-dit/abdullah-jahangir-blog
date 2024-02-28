@@ -18,7 +18,6 @@ import { useEffect, useState } from "react";
 import HomeQns from "../components/home/qns";
 import AssunnahTrust from "../components/home/assunnah-trust";
 import HomeQuoteSlider from "../components/home2/quote-slider";
-import { IonContent } from "@ionic/react";
 
 export default function Home({
 	lectures,
@@ -49,19 +48,6 @@ export default function Home({
 		}
 	}, []);
 
-	const contentJsx = (
-		<>
-			<HomeBanner />
-			<HomeLectures lectures={lectures} isSmScr={isSmScr} isTab={isTab} />
-			<HomeArticles articles={articles} isSmScr={isSmScr} isTab={isTab} />
-			<HomeBooks books={books} isSmScr={isSmScr} isTab={isTab} />
-			<HomeQns qns={qns} isSmScr={isSmScr} isTab={isTab} />
-			<SomeLectures lectures={someLectures} isSmScr={isSmScr} isTab={isTab} />
-			<HomeQuoteSlider quotes={quotes} />
-			<AssunnahTrust isTab={isTab} />
-		</>
-	);
-
 	return (
 		<>
 			<Meta
@@ -71,20 +57,14 @@ export default function Home({
 				image={`${server}/img/id/default_share.jpg`}
 				type="website"
 			/>
-
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">{contentJsx}</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<>{contentJsx}</>
-			)}
+			<HomeBanner />
+			<HomeLectures lectures={lectures} isSmScr={isSmScr} isTab={isTab} />
+			<HomeArticles articles={articles} isSmScr={isSmScr} isTab={isTab} />
+			<HomeBooks books={books} isSmScr={isSmScr} isTab={isTab} />
+			<HomeQns qns={qns} isSmScr={isSmScr} isTab={isTab} />
+			<SomeLectures lectures={someLectures} isSmScr={isSmScr} isTab={isTab} />
+			<HomeQuoteSlider quotes={quotes} />
+			<AssunnahTrust isTab={isTab} />
 		</>
 	);
 }

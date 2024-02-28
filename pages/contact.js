@@ -1,11 +1,10 @@
 import Meta from "../components/meta";
-import { IonContent } from "@ionic/react";
 import ContactContent from "../components/pages/ContactContent";
 import { server } from "../lib/config";
 
 Contact.title = "যোগাযোগ";
 
-export default function Contact({ isTab }) {
+export default function Contact() {
 	return (
 		<>
 			<Meta
@@ -15,22 +14,7 @@ export default function Contact({ isTab }) {
 				image={`${server}/img/id/default_share.png`}
 				type="website"
 			/>
-
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">
-									<ContactContent />
-								</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<ContactContent />
-			)}
+			<ContactContent />
 		</>
 	);
 }

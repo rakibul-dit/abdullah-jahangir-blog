@@ -155,6 +155,9 @@ ul.main-menu li a:hover {
 ion-header::after {
 	display: none;
 }
+.header-container ion-header {
+	box-shadow: none;
+}
 // --------------------------
 
 @media only screen and (max-width: 1300px) {
@@ -703,5 +706,17 @@ ion-toolbar ion-title {
 //--\\ max-width: 1140px
 
 // max-width: 768
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+	.header-container {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 999;
+	}
+	.ios ion-toolbar {
+		height: 56px;
+		display: flex;
+		align-items: center;
+	}
 }

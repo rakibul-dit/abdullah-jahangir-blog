@@ -19,11 +19,7 @@ import SortIcon from "@mui/icons-material/Sort";
 // import ViewListIcon from "@mui/icons-material/ViewList";
 // import { CropSquareRounded } from "@material-ui/icons";
 import PostCardAllQns from "../../components/card/post-card-allqns";
-import Store from "../../store";
-import * as selectors from "../../store/selectors";
-import { setIsBack, setScrollPosition } from "../../store/actions";
 import { useRouter } from "next/router";
-import { IonContent } from "@ionic/react";
 
 const getKey = (pageIndex, prevPageData, categoryId) => {
 	let currentPage = pageIndex + 1;
@@ -44,6 +40,7 @@ export default function QnList({
 	const isVisible = useOnScreen(ref);
 	// const pageTitle = categories[categoryId].title;
 	const pageTitle = catTitle;
+	const router = useRouter();
 
 	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
 		(...args) => getKey(...args, categoryId),
@@ -83,13 +80,15 @@ export default function QnList({
 	};
 
 	const getCategorizedQns = async (e) => {
-		e.preventDefault();
 		setCatOpen(false);
 		setSize(1);
-		if (isTab) {
-			router.push(e.target.dataset.href);
-			contentRef.current.scrollToTop();
-		} else router.push(e.target.href);
+	};
+
+	// catergory click in Tab
+	const handleMobileLink = (e) => {
+		setCatOpen(false);
+		setSize(1);
+		router.push(e.target.dataset.href);
 	};
 
 	useEffect(() => {
@@ -105,33 +104,16 @@ export default function QnList({
 		}
 	}, [isVisible]);
 
-	let isBack = Store.useState(selectors.getIsBack);
-	let yp = Store.useState(selectors.getScrollPosition);
-
-	const router = useRouter();
-	const contentRef = useRef(null);
-
-	function handleScroll(ev) {
-		setScrollPosition(router.pathname, ev.detail.scrollTop);
-	}
-
-	useEffect(() => {
-		if (isTab) {
-			// console.log("isBack: " + isBack, yp);
-
-			if (isBack == true) {
-				contentRef.current.scrollToPoint(0, yp[router.pathname]);
-			} else {
-				setScrollPosition(router.pathname, 0);
-			}
-			return () => {
-				setIsBack(false);
-			};
-		}
-	}, []);
-
-	const contentJsx = (
+	return (
 		<>
+			<Meta
+				title={pageTitle}
+				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর প্রশ্নোত্তর সমূহ"
+				url={`${server}/questions/${categoryId}`}
+				image={`${server}/img/id/default_share.png`}
+				type="website"
+			/>
+
 			<section className="cat-page-top cat-page-top-2">
 				<div className="page-width">
 					<div className="box">
@@ -146,10 +128,10 @@ export default function QnList({
 										{isTab ? (
 											<div>
 												<span
-													data-href="/divquestions/all"
+													data-href="/questions/all"
 													role="link"
 													className="a"
-													onClick={getCategorizedQns}>
+													onClick={handleMobileLink}>
 													প্রশ্নোত্তর সমূহ
 												</span>
 											</div>
@@ -170,7 +152,7 @@ export default function QnList({
 															data-href={"/questions/" + item.slug}
 															role="link"
 															className="a"
-															onClick={getCategorizedQns}>
+															onClick={handleMobileLink}>
 															{item.title}
 														</span>
 													</div>
@@ -238,35 +220,6 @@ export default function QnList({
 						<button onClick={() => setSize(size + 1)}>আরও দেখুন</button>
 					</center>
 				</div>
-			)}
-		</>
-	);
-
-	return (
-		<>
-			<Meta
-				title={pageTitle}
-				description="ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) এর প্রশ্নোত্তর সমূহ"
-				url={`${server}/questions/${categoryId}`}
-				image={`${server}/img/id/default_share.png`}
-				type="website"
-			/>
-
-			{isTab ? (
-				<IonContent
-					ref={contentRef}
-					scrollEvents={true}
-					onIonScroll={handleScroll}>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">{contentJsx}</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<>{contentJsx}</>
 			)}
 		</>
 	);

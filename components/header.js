@@ -25,7 +25,6 @@ import {
 // import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@mui/material";
-import { setIsBack } from "../store/actions";
 
 export default function Header({ prev_page, isTab, title }) {
 	// prev_page = prev_page ? prev_page : "/";
@@ -111,12 +110,10 @@ export default function Header({ prev_page, isTab, title }) {
 
 		if (listPagesPath.includes(router.pathname, 1)) {
 			// router.push(router.pathname.split("/")[1]).then(r => "/");
-			setIsBack(true);
 			router.push("/");
 		} else if (historyLength > 2) {
 			router.back();
 		} else {
-			setIsBack(true);
 			router.push(`${prev_page}`).then((r) => "/");
 		}
 

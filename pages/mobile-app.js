@@ -1,11 +1,10 @@
 import { server } from "../lib/config";
 import Meta from "../components/meta";
-import { IonContent } from "@ionic/react";
 import MobileAppContent from "../components/pages/MobileApp";
 
 MobileApp.title = "মোবাইল অ্যাপ";
 
-export default function MobileApp({ isTab }) {
+export default function MobileApp() {
 	return (
 		<>
 			<Meta
@@ -15,22 +14,7 @@ export default function MobileApp({ isTab }) {
 				image={`${server}/img/id/default_share.png`}
 				type="website"
 			/>
-
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">
-									<MobileAppContent />
-								</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<MobileAppContent />
-			)}
+			<MobileAppContent />
 		</>
 	);
 }

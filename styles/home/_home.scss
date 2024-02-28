@@ -109,7 +109,6 @@
 	.side-nav {
 		display: none;
 	}
-	ion-content,
 	.content-wrapper {
 		width: 100%;
 		left: 0;
@@ -119,6 +118,11 @@
 	}
 }
 // responsive
+@media only screen and (max-width: 768px) {
+	.content-wrapper {
+		padding-top: 56px;
+	}
+}
 @media only screen and (max-width: 600px) {
 	.h-some-lecs .row-r {
 		display: block;

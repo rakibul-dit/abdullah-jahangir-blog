@@ -1,12 +1,11 @@
 import { server } from "../lib/config";
 // import Image from "next/image";
 import Meta from "../components/meta";
-import { IonContent } from "@ionic/react";
 import AboutCtn from "../components/pages/About";
 
 About.title = "জীবন বৃত্তান্ত";
 
-export default function About({ isTab }) {
+export default function About() {
 	return (
 		<>
 			<Meta
@@ -16,22 +15,7 @@ export default function About({ isTab }) {
 				image={`${server}/img/id/default_share.png`}
 				type="website"
 			/>
-
-			{isTab ? (
-				<IonContent>
-					<div className="content">
-						<div className="content_without_footer">
-							<main className={`viewport`}>
-								<div className="main-content">
-									<AboutCtn />
-								</div>
-							</main>
-						</div>
-					</div>
-				</IonContent>
-			) : (
-				<AboutCtn />
-			)}
+			<AboutCtn />
 		</>
 	);
 }
