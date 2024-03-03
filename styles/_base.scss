@@ -20,17 +20,18 @@ body {
 	font-weight: normal;
 	line-height: 1.5;
 	color: var(--txt11);
+	overscroll-behavior: none;
 	// background: var(--bg11);
 	// background-color: #f9f9f9;
 }
-ion-content {
-	--ion-font-family: "Kalpurush", sans-serif;
-	font-family: "Kalpurush", sans-serif;
-	width: calc(100% - 300px);
-	margin-left: auto !important;
-	left: 300px;
-	--background: #f4f4f4f4;
-}
+// ion-content {
+// 	--ion-font-family: "Kalpurush", sans-serif;
+// 	font-family: "Kalpurush", sans-serif;
+// 	width: calc(100% - 300px);
+// 	margin-left: auto !important;
+// 	left: 300px;
+// 	--background: #f4f4f4f4;
+// }
 .content-wrapper {
 	font-family: "Kalpurush", sans-serif;
 	background: #f4f4f4f4;
