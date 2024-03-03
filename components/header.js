@@ -25,6 +25,7 @@ import {
 // import ContactIcon from "@mui/icons-material/ContactPageOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@mui/material";
+import NoSSRWrapper from "./NoSSRWrapper";
 
 export default function Header({ prev_page, isTab, title }) {
 	// prev_page = prev_page ? prev_page : "/";
@@ -126,7 +127,7 @@ export default function Header({ prev_page, isTab, title }) {
 
 	return (
 		<div className="header-container">
-			{isTab ? (
+			<NoSSRWrapper>
 				<IonHeader>
 					<IonToolbar>
 						<IonButtons slot="start">
@@ -165,99 +166,96 @@ export default function Header({ prev_page, isTab, title }) {
 						)}
 					</IonToolbar>
 				</IonHeader>
-			) : (
-				<header className="header header-1" ref={header}>
-					<div className="page-width w-full">
-						<div className="box">
-							<div className="header-ctn">
-								<div className="mobile-header-title d-none">
-									<Link href="/">
-										<h3>{title}</h3>
-									</Link>
-								</div>
+			</NoSSRWrapper>
+			<header className="header header-1" ref={header}>
+				<div className="page-width w-full">
+					<div className="box">
+						<div className="header-ctn">
+							<div className="mobile-header-title d-none">
+								<Link href="/">
+									<h3>{title}</h3>
+								</Link>
+							</div>
 
-								<div className="ticker_wrap">
-									<div className="ticker_container">
-										<div className="ticker">
-											<p className="ticker_item">
-												ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) উম্মাহর সম্পদ।
-											</p>
-											<p className="ticker_item">
-												এখানে আমরা শাইখ এর সকল আলোচনা, বই, প্রবন্ধ, প্রশ্নোত্তর
-												এবং আরও অন্যান্য বিষয় শ্রেণিবিন্যাস অনুযায়ী পাবো ইন শা
-												আল্লাহ।
-											</p>
-											<p className="ticker_item">
-												আমরা সকলে শেয়ার করে ছড়িয়ে দেয়ার চেষ্টা করি।
-											</p>
-										</div>
-										<div className="ticker">
-											<p className="ticker_item">
-												ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) উম্মাহর সম্পদ।
-											</p>
-											<p className="ticker_item">
-												এখানে আমরা শাইখ এর সকল আলোচনা, বই, প্রবন্ধ, প্রশ্নোত্তর
-												এবং আরও অন্যান্য বিষয় শ্রেণিবিন্যাস অনুযায়ী পাবো ইন শা
-												আল্লাহ।
-											</p>
-											<p className="ticker_item">
-												আমরা সকলে শেয়ার করে ছড়িয়ে দেয়ার চেষ্টা করি।
-											</p>
-										</div>
+							<div className="ticker_wrap">
+								<div className="ticker_container">
+									<div className="ticker">
+										<p className="ticker_item">
+											ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) উম্মাহর সম্পদ।
+										</p>
+										<p className="ticker_item">
+											এখানে আমরা শাইখ এর সকল আলোচনা, বই, প্রবন্ধ, প্রশ্নোত্তর
+											এবং আরও অন্যান্য বিষয় শ্রেণিবিন্যাস অনুযায়ী পাবো ইন শা
+											আল্লাহ।
+										</p>
+										<p className="ticker_item">
+											আমরা সকলে শেয়ার করে ছড়িয়ে দেয়ার চেষ্টা করি।
+										</p>
+									</div>
+									<div className="ticker">
+										<p className="ticker_item">
+											ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর (রাহি.) উম্মাহর সম্পদ।
+										</p>
+										<p className="ticker_item">
+											এখানে আমরা শাইখ এর সকল আলোচনা, বই, প্রবন্ধ, প্রশ্নোত্তর
+											এবং আরও অন্যান্য বিষয় শ্রেণিবিন্যাস অনুযায়ী পাবো ইন শা
+											আল্লাহ।
+										</p>
+										<p className="ticker_item">
+											আমরা সকলে শেয়ার করে ছড়িয়ে দেয়ার চেষ্টা করি।
+										</p>
 									</div>
 								</div>
-								{/* <ul className="header-icons"> */}
-								<ul className="s-profile-social">
-									{/* <li className="menu-divider"></li> */}
-									<li>
-										<a
-											href="https://www.facebook.com/Dr.KhandakerAbdullahJahangir.Official"
-											target="_blank">
-											<i className="facebook fab fa-facebook-f"></i>
-										</a>
-									</li>
-									<li>
-										<a
-											href="https://www.youtube.com/sunnahtrust"
-											target="_blank">
-											<i className="youtube fab fa-youtube"></i>
-										</a>
-									</li>
-									{/* <li className="menu-divider"></li> */}
-									{/* <li
+							</div>
+							{/* <ul className="header-icons"> */}
+							<ul className="s-profile-social">
+								{/* <li className="menu-divider"></li> */}
+								<li>
+									<a
+										href="https://www.facebook.com/Dr.KhandakerAbdullahJahangir.Official"
+										target="_blank">
+										<i className="facebook fab fa-facebook-f"></i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.youtube.com/sunnahtrust" target="_blank">
+										<i className="youtube fab fa-youtube"></i>
+									</a>
+								</li>
+								{/* <li className="menu-divider"></li> */}
+								{/* <li
 									className="search-icon"
 									title="search"
 									onClick={showSearchModal}>
 									<i className="fas fa-search"></i>
 								</li> */}
-								</ul>
+							</ul>
 
-								<ul className="mobile-icons">
-									{router.pathname == "/" ? (
-										<li className="menu-burger" onClick={toggleMobileNav(true)}>
-											<i className="fas fa-bars"></i>
-										</li>
-									) : (
-										<li className="mobile-back">
-											<Button onClick={goBack}>
-												<ArrowBackIcon />
-											</Button>
-										</li>
+							<ul className="mobile-icons">
+								{router.pathname == "/" ? (
+									<li className="menu-burger" onClick={toggleMobileNav(true)}>
+										<i className="fas fa-bars"></i>
+									</li>
+								) : (
+									<li className="mobile-back">
+										<Button onClick={goBack}>
+											<ArrowBackIcon />
+										</Button>
+									</li>
 
-										// <li className="mobile-back">
-										// 	<IonButtons slot="start">
-										// 		<IonButton onClick={goBack}>
-										// 			<IonIcon icon={arrowBackSharp}></IonIcon>
-										// 		</IonButton>
-										// 	</IonButtons>
-										// </li>
-									)}
-								</ul>
-							</div>
+									// <li className="mobile-back">
+									// 	<IonButtons slot="start">
+									// 		<IonButton onClick={goBack}>
+									// 			<IonIcon icon={arrowBackSharp}></IonIcon>
+									// 		</IonButton>
+									// 	</IonButtons>
+									// </li>
+								)}
+							</ul>
 						</div>
 					</div>
-				</header>
-			)}
+				</div>
+			</header>
 			{/* <SearchModal /> */}
 			<MobileNav
 				navOpen={state.mobileNavOpen}

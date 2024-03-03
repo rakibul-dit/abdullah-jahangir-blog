@@ -6,7 +6,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import PostCardQns from "../card/post-card-qns";
 import { useRouter } from "next/router";
 
-export default function HomeQns({ qns, isSmScr, isTab }) {
+export default function HomeQns({ qns, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -63,31 +63,30 @@ export default function HomeQns({ qns, isSmScr, isTab }) {
 							<Link href="/questions/all">আরও দেখুন</Link>
 						)}
 					</h1>
-					{isSmScr ? (
-						<div className="row row-r">
-							{qns &&
-								qns.length &&
-								qns.map((qn, i) => (
-									<div className="col col-r s12 hoverable-card" key={i}>
-										<PostCardQns qn={qn} isTab={isTab} />
-									</div>
-								))}
+					{/* mobile */}
+					<div className="row row-r mobile">
+						{qns &&
+							qns.length &&
+							qns.map((qn, i) => (
+								<div className="col col-r s12 hoverable-card" key={i}>
+									<PostCardQns qn={qn} isTab={isTab} />
+								</div>
+							))}
+					</div>
+					{/* slider */}
+					<div className="recent-slider-outer">
+						<div className="recent-slider-inner">
+							<Slider className="recent-slider" {...settings}>
+								{qns &&
+									qns.length &&
+									qns.map((qn, i) => (
+										<div className="col col-r hoverable-card" key={i}>
+											<PostCardQns qn={qn} isTab={isTab} />
+										</div>
+									))}
+							</Slider>
 						</div>
-					) : (
-						<div className="recent-slider-outer">
-							<div className="recent-slider-inner">
-								<Slider className="recent-slider" {...settings}>
-									{qns &&
-										qns.length &&
-										qns.map((qn, i) => (
-											<div className="col col-r hoverable-card" key={i}>
-												<PostCardQns qn={qn} isTab={isTab} />
-											</div>
-										))}
-								</Slider>
-							</div>
-						</div>
-					)}
+					</div>
 				</div>
 			</div>
 		</section>

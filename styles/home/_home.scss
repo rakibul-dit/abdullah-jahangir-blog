@@ -117,6 +117,10 @@
 		width: 100%;
 	}
 }
+
+.h-sec .recent-slider-outer {
+	display: none;
+}
 // responsive
 @media only screen and (max-width: 768px) {
 	.content-wrapper {
@@ -136,5 +140,13 @@
 	// }
 	.h-assunnah-trust .h3-quote-right {
 		border: unset;
+	}
+}
+@media only screen and (min-width: 601px) {
+	.h-sec .mobile {
+		display: none;
+	}
+	.h-sec .recent-slider-outer {
+		display: block;
 	}
 }

@@ -437,6 +437,9 @@ ion-toolbar ion-title {
 	margin-left: -16px;
 	color: #607d8b;
 }
+.header {
+	display: none;
+}
 // responsive
 @media only screen and (max-width: 1140px) {
 	// ion-header {
@@ -718,5 +721,13 @@ ion-toolbar ion-title {
 		height: 56px;
 		display: flex;
 		align-items: center;
+	}
+}
+@media only screen and (min-width: 769px) {
+	ion-header {
+		display: none;
+	}
+	.header {
+		display: flex;
 	}
 }

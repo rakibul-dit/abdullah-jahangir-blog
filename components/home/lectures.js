@@ -7,7 +7,7 @@ import Link from "next/link";
 import { youtube } from "../../lib/config";
 import { useRouter } from "next/router";
 
-export default function HomeLectures({ lectures, isSmScr, isTab }) {
+export default function HomeLectures({ lectures, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -22,7 +22,7 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 		infinite: true,
 		cssEase: "ease",
 		centerMode: true,
-		mobileFirst: false,
+		mobileFirst: true,
 		centerPadding: "0px",
 		responsive: [
 			{
@@ -37,31 +37,31 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 					slidesToShow: 3,
 				},
 			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					centerPadding: "130px",
-					arrows: false,
-				},
-			},
-			{
-				breakpoint: 500,
-				settings: {
-					slidesToShow: 1,
-					centerPadding: "87px",
-					arrows: false,
-				},
-			},
-			{
-				breakpoint: 420,
-				settings: {
-					autoplay: false,
-					slidesToShow: 1,
-					centerPadding: "47px",
-					arrows: false,
-				},
-			},
+			// {
+			// 	breakpoint: 600,
+			// 	settings: {
+			// 		slidesToShow: 2,
+			// 		centerPadding: "130px",
+			// 		arrows: false,
+			// 	},
+			// },
+			// {
+			// 	breakpoint: 500,
+			// 	settings: {
+			// 		slidesToShow: 1,
+			// 		centerPadding: "87px",
+			// 		arrows: false,
+			// 	},
+			// },
+			// {
+			// 	breakpoint: 420,
+			// 	settings: {
+			// 		autoplay: false,
+			// 		slidesToShow: 1,
+			// 		centerPadding: "47px",
+			// 		arrows: false,
+			// 	},
+			// },
 		],
 	};
 
@@ -91,42 +91,40 @@ export default function HomeLectures({ lectures, isSmScr, isTab }) {
 							</Link>
 						)}
 					</h1>
-
-					{isSmScr ? (
-						<div className="row row-r">
-							{lectures.videoLists &&
-								lectures.videoLists.videos.map((item) => (
-									<div
-										className="col col-r s12 m6 xl3 hoverable-card"
-										key={item.id}>
-										<PostCardVideo
-											isTab={isTab}
-											item={item}
-											statistics={lectures.videoLists.videoStats}
-										/>
-									</div>
-								))}
+					{/* mobile */}
+					<div className="row row-r mobile">
+						{lectures.videoLists &&
+							lectures.videoLists.videos.map((item) => (
+								<div
+									className="col col-r s12 m6 xl3 hoverable-card"
+									key={item.id}>
+									<PostCardVideo
+										isTab={isTab}
+										item={item}
+										statistics={lectures.videoLists.videoStats}
+									/>
+								</div>
+							))}
+					</div>
+					{/* slider */}
+					<div className="recent-slider-outer">
+						<div className="recent-slider-inner">
+							<Slider className="recent-slider" {...settings}>
+								{lectures.videoLists &&
+									lectures.videoLists.videos.map((item) => (
+										<div
+											className="col col-r s12 m6 xl3 hoverable-card"
+											key={item.id}>
+											<PostCardVideo
+												isTab={isTab}
+												item={item}
+												statistics={lectures.videoLists.videoStats}
+											/>
+										</div>
+									))}
+							</Slider>
 						</div>
-					) : (
-						<div className="recent-slider-outer">
-							<div className="recent-slider-inner">
-								<Slider className="recent-slider" {...settings}>
-									{lectures.videoLists &&
-										lectures.videoLists.videos.map((item) => (
-											<div
-												className="col col-r s12 m6 xl3 hoverable-card"
-												key={item.id}>
-												<PostCardVideo
-													isTab={isTab}
-													item={item}
-													statistics={lectures.videoLists.videoStats}
-												/>
-											</div>
-										))}
-								</Slider>
-							</div>
-						</div>
-					)}
+					</div>
 				</div>
 			</div>
 		</section>

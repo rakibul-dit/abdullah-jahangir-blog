@@ -5,7 +5,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useRouter } from "next/router";
 
-export default function HomeBooks({ books, isSmScr, isTab }) {
+export default function HomeBooks({ books, isTab }) {
 	const settings2 = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -69,21 +69,19 @@ export default function HomeBooks({ books, isSmScr, isTab }) {
 						)}
 					</h1>
 
-					{isSmScr ? (
-						<div className="row row-r">
-							{books &&
-								books.length &&
-								books.map((book, i) => (
-									<div
-										className="col col-r s6 m6 l4 xl3 hoverable-card"
-										key={i}>
-										<BookCard book={book} isTab={isTab} />
-									</div>
-								))}
-						</div>
-					) : (
-						<>
-							{/* <div className="recent-slider-outer">
+					{/* mobile */}
+					<div className="row row-r mobile">
+						{books &&
+							books.length &&
+							books.map((book, i) => (
+								<div className="col col-r s6 m6 l4 xl3 hoverable-card" key={i}>
+									<BookCard book={book} isTab={isTab} />
+								</div>
+							))}
+					</div>
+
+					<>
+						{/* <div className="recent-slider-outer">
 								<div className="recent-slider-inner">
 									<Slider className="recent-slider" {...settings}>
 										{books &&
@@ -96,23 +94,23 @@ export default function HomeBooks({ books, isSmScr, isTab }) {
 									</Slider>
 								</div>
 							</div> */}
-							<div className="recent-slider-outer">
-								<div className="recent-slider-inner">
-									<Slider className="recent-slider" {...settings2}>
-										{books &&
-											books.length &&
-											books.map((book, i) => (
-												<div
-													className="col col-r s6 m6 l4 xl3 hoverable-card"
-													key={i}>
-													<BookCard book={book} isTab={isTab} />
-												</div>
-											))}
-									</Slider>
-								</div>
+						{/* slider */}
+						<div className="recent-slider-outer">
+							<div className="recent-slider-inner">
+								<Slider className="recent-slider" {...settings2}>
+									{books &&
+										books.length &&
+										books.map((book, i) => (
+											<div
+												className="col col-r s6 m6 l4 xl3 hoverable-card"
+												key={i}>
+												<BookCard book={book} isTab={isTab} />
+											</div>
+										))}
+								</Slider>
 							</div>
-						</>
-					)}
+						</div>
+					</>
 				</div>
 			</div>
 		</section>

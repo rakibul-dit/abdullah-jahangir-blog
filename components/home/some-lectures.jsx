@@ -3,7 +3,7 @@ import PostCardRecent from "../card/post-card-recent";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-export default function SomeLectures({ lectures, isSmScr, isTab }) {
+export default function SomeLectures({ lectures, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -48,35 +48,34 @@ export default function SomeLectures({ lectures, isSmScr, isTab }) {
 									<h2>গুরুত্বপূর্ণ আলোচনা</h2>
 								</div>
 							</div>
-							{isSmScr ? (
-								<div>
-									{lectures.videoLists.videos &&
-										lectures.videoLists.videos.map((recent, i) => (
-											<div className="col col-r s12 hoverable-card" key={i}>
-												<PostCardRecent key={i} recent={recent} isTab={isTab} />
-											</div>
-										))}
-								</div>
-							) : (
-								<div className="col col-r s12 m6 l6 h3-quote-right__wrap">
-									<div className="h3-quote-right">
-										<div className="recent-slider-outer">
-											<div className="recent-slider-inner">
-												<Slider className="recent-slider" {...settings}>
-													{lectures.videoLists.videos &&
-														lectures.videoLists.videos.map((recent, i) => (
-															<PostCardRecent
-																key={i}
-																recent={recent}
-																isTab={isTab}
-															/>
-														))}
-												</Slider>
-											</div>
+							{/* mobile */}
+							<div className="mobile">
+								{lectures.videoLists.videos &&
+									lectures.videoLists.videos.map((recent, i) => (
+										<div className="col col-r s12 hoverable-card" key={i}>
+											<PostCardRecent key={i} recent={recent} isTab={isTab} />
+										</div>
+									))}
+							</div>
+							{/* slider */}
+							<div className="col col-r s12 m6 l6 h3-quote-right__wrap">
+								<div className="h3-quote-right">
+									<div className="recent-slider-outer">
+										<div className="recent-slider-inner">
+											<Slider className="recent-slider" {...settings}>
+												{lectures.videoLists.videos &&
+													lectures.videoLists.videos.map((recent, i) => (
+														<PostCardRecent
+															key={i}
+															recent={recent}
+															isTab={isTab}
+														/>
+													))}
+											</Slider>
 										</div>
 									</div>
 								</div>
-							)}
+							</div>
 						</div>
 					</div>
 				</div>

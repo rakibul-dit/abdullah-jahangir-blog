@@ -5,7 +5,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useRouter } from "next/router";
 
-export default function HomeArticles({ articles, isSmScr, isTab }) {
+export default function HomeArticles({ articles, isTab }) {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -62,31 +62,30 @@ export default function HomeArticles({ articles, isSmScr, isTab }) {
 							<Link href="/articles/">আরও দেখুন</Link>
 						)}
 					</h1>
-					{isSmScr ? (
-						<div className="row row-r">
-							{articles &&
-								articles.length &&
-								articles.map((article, i) => (
-									<div className="col col-r s12 hoverable-card" key={i}>
-										<PostCardArticle article={article} isTab={isTab} />
-									</div>
-								))}
+					{/* mobile */}
+					<div className="row row-r mobile">
+						{articles &&
+							articles.length &&
+							articles.map((article, i) => (
+								<div className="col col-r s12 hoverable-card" key={i}>
+									<PostCardArticle article={article} isTab={isTab} />
+								</div>
+							))}
+					</div>
+					{/* slider */}
+					<div className="recent-slider-outer">
+						<div className="recent-slider-inner">
+							<Slider className="recent-slider" {...settings}>
+								{articles &&
+									articles.length &&
+									articles.map((article, i) => (
+										<div className="col col-r hoverable-card" key={i}>
+											<PostCardArticle article={article} isTab={isTab} />
+										</div>
+									))}
+							</Slider>
 						</div>
-					) : (
-						<div className="recent-slider-outer">
-							<div className="recent-slider-inner">
-								<Slider className="recent-slider" {...settings}>
-									{articles &&
-										articles.length &&
-										articles.map((article, i) => (
-											<div className="col col-r hoverable-card" key={i}>
-												<PostCardArticle article={article} isTab={isTab} />
-											</div>
-										))}
-								</Slider>
-							</div>
-						</div>
-					)}
+					</div>
 				</div>
 			</div>
 		</section>

@@ -28,25 +28,25 @@ export default function Home({
 	quotes,
 	isTab,
 }) {
-	const [isSmScr, setIsSmScr] = useState(false);
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			// set isSmScr depending on screen size
-			const x = window.matchMedia("(max-width: 600px)");
-			if (x.matches) {
-				setIsSmScr(true);
-			} else {
-				setIsSmScr(false);
-			}
-			x.onchange = () => {
-				if (x.matches) {
-					setIsSmScr(true);
-				} else {
-					setIsSmScr(false);
-				}
-			};
-		}
-	}, []);
+	// const [isSmScr, setIsSmScr] = useState(false);
+	// useEffect(() => {
+	// 	if (typeof window !== "undefined") {
+	// 		// set isSmScr depending on screen size
+	// 		const x = window.matchMedia("(max-width: 600px)");
+	// 		if (x.matches) {
+	// 			setIsSmScr(true);
+	// 		} else {
+	// 			setIsSmScr(false);
+	// 		}
+	// 		x.onchange = () => {
+	// 			if (x.matches) {
+	// 				setIsSmScr(true);
+	// 			} else {
+	// 				setIsSmScr(false);
+	// 			}
+	// 		};
+	// 	}
+	// }, []);
 
 	return (
 		<>
@@ -58,11 +58,11 @@ export default function Home({
 				type="website"
 			/>
 			<HomeBanner />
-			<HomeLectures lectures={lectures} isSmScr={isSmScr} isTab={isTab} />
-			<HomeArticles articles={articles} isSmScr={isSmScr} isTab={isTab} />
-			<HomeBooks books={books} isSmScr={isSmScr} isTab={isTab} />
-			<HomeQns qns={qns} isSmScr={isSmScr} isTab={isTab} />
-			<SomeLectures lectures={someLectures} isSmScr={isSmScr} isTab={isTab} />
+			<HomeLectures lectures={lectures} isTab={isTab} />
+			<HomeArticles articles={articles} isTab={isTab} />
+			<HomeBooks books={books} isTab={isTab} />
+			<HomeQns qns={qns} isTab={isTab} />
+			<SomeLectures lectures={someLectures} isTab={isTab} />
 			<HomeQuoteSlider quotes={quotes} />
 			<AssunnahTrust isTab={isTab} />
 		</>
