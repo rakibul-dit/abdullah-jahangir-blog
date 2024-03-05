@@ -68,35 +68,38 @@ const App = ({ Component, pageProps }) => {
 
 	return (
 		<>
-			<Head>
-				<title>Create Next App</title>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1, viewport-fit=cover"
+			<NoSSRWrapper>
+				<Head>
+					<title>Create Next App</title>
+					<meta
+						name="viewport"
+						content="width=device-width, initial-scale=1, viewport-fit=cover"
+					/>
+					<link rel="icon" href="/favicon.ico" />
+				</Head>
+				<Header
+					prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
+					isTab={isTab}
+					title={
+						Component.title
+							? Component.title
+							: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
+					}
 				/>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			{/* <NoSSRWrapper> */}
-			<Header
-				prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
-				isTab={isTab}
-				title={
-					Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
-				}
-			/>
-			{/* </NoSSRWrapper> */}
-			<Sidenav />
-			<div className="content-wrapper">
-				<div className="content">
-					<div className="content_without_footer">
-						<main className={`viewport`}>
-							<div className="main-content">
-								<Component {...pageProps} isTab={isTab} />
-							</div>
-						</main>
+				<Sidenav />
+				<div className="content-wrapper">
+					<div className="content">
+						<div className="content_without_footer">
+							<main className={`viewport`}>
+								<div className="main-content">
+									<Component {...pageProps} isTab={isTab} />
+								</div>
+							</main>
+						</div>
 					</div>
 				</div>
-			</div>
+			</NoSSRWrapper>
+
 			{/* <Footer /> */}
 		</>
 	);
