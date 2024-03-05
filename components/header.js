@@ -126,44 +126,46 @@ export default function Header({ prev_page, isTab, title }) {
 
 	return (
 		<div className="header-container">
-			<IonHeader>
-				<IonToolbar>
-					<IonButtons slot="start">
-						{router.pathname == "/" ? (
-							<div className="menu-btn">
-								<IonButton onClick={toggleMobileNav(true)}>
-									<IonIcon icon={menuSharp}></IonIcon>
-								</IonButton>
-							</div>
-						) : (
-							<>
-								{/* <ion-back-button
+			{isTab && (
+				<IonHeader>
+					<IonToolbar>
+						<IonButtons slot="start">
+							{router.pathname == "/" ? (
+								<div className="menu-btn">
+									<IonButton onClick={toggleMobileNav(true)}>
+										<IonIcon icon={menuSharp}></IonIcon>
+									</IonButton>
+								</div>
+							) : (
+								<>
+									{/* <ion-back-button
 										icon="chevron-back"
 										default-href="/"
 										onClick={goBack}></ion-back-button> */}
-								{/* <Link href={prev_page} passHref> */}
-								<div className="back-btn">
-									<IonButton onClick={goBack}>
-										<IonIcon icon={arrowBackSharp}></IonIcon>
-									</IonButton>
-									<IonButton onClick={goBack}>
-										<IonIcon icon={chevronBack}></IonIcon>
-										{/* <span>Back</span> */}
-									</IonButton>
-								</div>
-								{/* </Link> */}
-							</>
+									{/* <Link href={prev_page} passHref> */}
+									<div className="back-btn">
+										<IonButton onClick={goBack}>
+											<IonIcon icon={arrowBackSharp}></IonIcon>
+										</IonButton>
+										<IonButton onClick={goBack}>
+											<IonIcon icon={chevronBack}></IonIcon>
+											{/* <span>Back</span> */}
+										</IonButton>
+									</div>
+									{/* </Link> */}
+								</>
+							)}
+						</IonButtons>
+						<IonTitle>
+							<h3 style={{ color: "#106690" }}>{title}</h3>
+						</IonTitle>
+						{/*{!listPagesNotShare.includes(router.pathname, 1) && (*/}
+						{router.pathname !== "/" && (
+							<HeaderShare asPath={router.asPath} title={title} />
 						)}
-					</IonButtons>
-					<IonTitle>
-						<h3 style={{ color: "#106690" }}>{title}</h3>
-					</IonTitle>
-					{/*{!listPagesNotShare.includes(router.pathname, 1) && (*/}
-					{router.pathname !== "/" && (
-						<HeaderShare asPath={router.asPath} title={title} />
-					)}
-				</IonToolbar>
-			</IonHeader>
+					</IonToolbar>
+				</IonHeader>
+			)}
 			<header className="header header-1" ref={header}>
 				<div className="page-width w-full">
 					<div className="box">

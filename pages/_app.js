@@ -76,17 +76,15 @@ const App = ({ Component, pageProps }) => {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<NoSSRWrapper>
-				<Header
-					prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
-					isTab={isTab}
-					title={
-						Component.title
-							? Component.title
-							: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
-					}
-				/>
-			</NoSSRWrapper>
+			{/* <NoSSRWrapper> */}
+			<Header
+				prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
+				isTab={isTab}
+				title={
+					Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
+				}
+			/>
+			{/* </NoSSRWrapper> */}
 			<Sidenav />
 			<div className="content-wrapper">
 				<div className="content">
