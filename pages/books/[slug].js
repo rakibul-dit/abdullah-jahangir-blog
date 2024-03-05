@@ -38,10 +38,10 @@ export default function BookList({
 	const pageTitle = catTitle;
 	const router = useRouter();
 
-	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+	const { data, error, mutate, size, setSize } = useSWRInfinite(
 		(...args) => getKey(...args, categoryId),
 		bookFetcher,
-		{ initialData: initialBooks, revalidateOnMount: true }
+		{ initialSize: 1, fallbackData: initialBooks, revalidateOnMount: true }
 	);
 
 	const datas = data ? [].concat(...data) : [];

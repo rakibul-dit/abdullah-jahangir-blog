@@ -42,10 +42,10 @@ export default function QnList({
 	const pageTitle = catTitle;
 	const router = useRouter();
 
-	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+	const { data, error, mutate, size, setSize } = useSWRInfinite(
 		(...args) => getKey(...args, categoryId),
 		qaFetcher,
-		{ initialData: initialQns, revalidateOnMount: true }
+		{ initialSize: 1, fallbackData: initialQns, revalidateOnMount: true }
 	);
 
 	// const datas = data ? [].concat(...data) : [];

@@ -44,13 +44,13 @@ export default function LectureList({
 	const pageTitle = playlists.playlistsTitle[initPlaylistId];
 	const router = useRouter();
 
-	const { data, error, mutate, size, setSize, isValidating, isLoading } =
-		useSWRInfinite((...args) => getKey(...args, initPlaylistId), fetcher, {
-			initialData: initialVideos,
-			revalidateOnMount: true,
-		});
+	const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+		(...args) => getKey(...args, initPlaylistId),
+		fetcher,
+		{ initialSize: 1, fallbackData: initialVideos, revalidateOnMount: true }
+	);
 
-	// const datas = data ? [].concat(...data) : [];
+	const datas = data ? [].concat(...data) : [];
 	const isLoadingInitialData = !data && !error;
 	const isLoadingMore =
 		isLoadingInitialData ||
@@ -165,8 +165,8 @@ export default function LectureList({
 					<div className="box">
 						<div className="row row-r">
 							{/*{isEmpty ? <p>No records found!</p> : null}*/}
-							{data &&
-								data.map((data) => {
+							{datas &&
+								datas.map((data) => {
 									return (
 										data.videoLists.videos &&
 										data.videoLists.videos.map((item) => {

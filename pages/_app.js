@@ -29,6 +29,7 @@ import Header from "../components/header";
 import { setupIonicReact } from "@ionic/react";
 import Head from "next/head";
 import Sidenav from "../components/sidenav";
+import NoSSRWrapper from "../components/NoSSRWrapper";
 
 const App = ({ Component, pageProps }) => {
 	const [isTab, setIsTab] = useState(false);
@@ -75,13 +76,17 @@ const App = ({ Component, pageProps }) => {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header
-				prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
-				isTab={isTab}
-				title={
-					Component.title ? Component.title : "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
-				}
-			/>
+			<NoSSRWrapper>
+				<Header
+					prev_page={pageProps.prev_page ? pageProps.prev_page : "/"}
+					isTab={isTab}
+					title={
+						Component.title
+							? Component.title
+							: "ড. আব্দুল্লাহ জাহাঙ্গীর (রাহি.)"
+					}
+				/>
+			</NoSSRWrapper>
 			<Sidenav />
 			<div className="content-wrapper">
 				<div className="content">
